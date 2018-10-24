@@ -15,8 +15,6 @@ export class HomePage {
   constructor(private sanitizer: DomSanitizer) {}
 
   async takePhoto() {
-    console.log("About to take a pic");
-
     try {
       const capturedImage = await Plugins.Camera.getPhoto({
         quality: 90,
@@ -24,7 +22,6 @@ export class HomePage {
         source: CameraSource.Camera,
         resultType: CameraResultType.Base64
       });
-      console.log("Pic took");
       this.image = this.sanitizer.bypassSecurityTrustResourceUrl(
         capturedImage && capturedImage.base64Data
       );

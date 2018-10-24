@@ -9,7 +9,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "firebase-deploy": "ionic build && firebase deploy",
+    "firebase-deploy-prod": "ionic build --prod && firebase deploy",
+    "cap-android-sync": "ionic build && npx cap sync",
+    "cap-android-sync-prod": "ionic build --prod && npx cap sync",
+    "cap-android-open": "npx cap open android"
   },
   "private": true,
   "dependencies": {
