@@ -1,0 +1,6 @@
+{
+  "appId": "com.thesmartbobber.bobber",
+  "appName": "the-smart-bobber",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

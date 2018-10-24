@@ -1,7 +1,8 @@
 {
   "name": "the-smart-bobber",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular",
   "pro_id": "74b53855"
