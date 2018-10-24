@@ -16,6 +16,6 @@ export class HomePage {
       source: CameraSource.Camera,
       resultType: CameraResultType.Uri
     });
-    this.image = capturedImage;
+    this.image = capturedImage.webPath;
   }
 }
