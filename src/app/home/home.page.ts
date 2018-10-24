@@ -18,7 +18,7 @@ export class HomePage {
     try {
       const capturedImage = await Plugins.Camera.getPhoto({
         quality: 90,
-        allowEditing: true,
+        allowEditing: false,
         source: CameraSource.Camera,
         resultType: CameraResultType.Base64
       });
