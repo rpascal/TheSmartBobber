@@ -5,11 +5,11 @@ import { CameraResultType, CameraSource, Plugins } from '@capacitor/core';
 
 
 @Component({
-  selector: "app-home",
-  templateUrl: "home.page.html",
-  styleUrls: ["home.page.scss"]
+  selector: "app-real-time",
+  templateUrl: "real-time.page.html",
+  styleUrls: ["real-time.page.scss"]
 })
-export class HomePage {
+export class RealTimePage {
   image: any;
 
   constructor(private sanitizer: DomSanitizer) {}
