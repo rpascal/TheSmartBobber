@@ -8,7 +8,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
 import { ControlsPageModule } from '../controls/controls.module';
-import { AboutPageModule } from '../about/about.module';
+import { LogPageModule } from '../log/log.module';
 import { RealTimePageModule } from '../real-time/real-time.module';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { RealTimePageModule } from '../real-time/real-time.module';
     FormsModule,
     TabsPageRoutingModule,
     RealTimePageModule,
-    AboutPageModule,
+    LogPageModule,
     ControlsPageModule
   ],
   declarations: [TabsPage]
