@@ -76,4 +76,14 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
+
+
+  --ion-tabbar-background-color: var(--ion-color-dark); 
+  --ion-tabbar-text-color-active: var(--ion-color-primary);
+  --ion-tabbar-text-color: var(--ion-color-dark-contrast);
+  --ion-toolbar-background-color: var(--ion-color-dark);
+  --ion-toolbar-text-color: var(--ion-color-dark-contrast);
+  --ion-background-color: var(--ion-color-dark-shade);
+  --ion-text-color	: var(--ion-color-dark-contrast);
+
 }
