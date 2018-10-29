@@ -5,6 +5,10 @@
 </ion-header>
 
 <ion-content padding>
+
+  {{whatever | json}}
+  <br />
+
   <img [src]="image" />
   <ion-button (click)="takePhoto()" >Capture!</ion-button>
 </ion-content>
