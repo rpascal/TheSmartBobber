@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { BLE } from '@ionic-native/ble/ngx';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { IonicModule } from '@ionic/angular';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
@@ -10,7 +10,7 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
   exports: [],
   declarations: [],
   providers: [
-    BLE
+    BluetoothSerial
   ]
 })
 export class CoreModule {
