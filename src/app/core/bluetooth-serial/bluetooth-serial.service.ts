@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
+import { ToastService } from '../toast/toast.serivce';
 
-interface IDevice {
+export interface IDevice {
   class: number;
   id: string;
   address: string;
@@ -20,10 +22,17 @@ export class BluetoothSerialService {
   private connectionStatusSubject = new BehaviorSubject<boolean>(false);
   private connectingSubject = new BehaviorSubject<boolean>(false);
 
+  connectionStatus$ = this.connectionStatusSubject.asObservable();
+  connecting$ = this.connectingSubject.asObservable();
+
   private connectionStatus = false;
   private connecting = false;
 
-  constructor(private bls: BluetoothSerial) {}
+  constructor(
+    private bls: BluetoothSerial,
+    private router: Router,
+    private toastService: ToastService
+  ) {}
 
   discoverUnpaired(): Promise<IDevice[]> {
     return this.bls.discoverUnpaired();
@@ -33,7 +42,7 @@ export class BluetoothSerialService {
     return this.bls.list();
   }
 
-  connect(macAddress_or_uuid: string): Observable<any> {
+  connect(macAddress_or_uuid: string) {
     if (!this.connectionStatus || !this.connecting) {
       this.connecting = true;
       this.connectingSubject.next(true);
@@ -52,6 +61,8 @@ export class BluetoothSerialService {
         )
         .subscribe(
           connected => {
+            this.toastService.message("Connected!");
+            this.router.navigate(["/"]);
             console.log("Connected!", connected);
           },
           err => {
@@ -59,8 +70,6 @@ export class BluetoothSerialService {
           }
         );
     }
-
-    return this.bls.connect(macAddress_or_uuid);
   }
 
   subscribe(dilimeter: string): Observable<any> {

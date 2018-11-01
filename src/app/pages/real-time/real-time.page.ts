@@ -46,27 +46,27 @@ export class RealTimePage implements OnInit {
   }
 
   connnect(device: IDevice) {
-    this.ble.connect(device.address).subscribe(
-      connected => {
-        this.isConnected = true;
-        this.messages.push("Connected: ");
-        this.messages.push(connected);
-        this.ble.subscribe("\n").subscribe(
-          data => {
-            this.messages.push("data subscribe: ");
-            this.messages.push(data);
-          },
-          err => {
-            this.messages.push("subscribe err: ");
-            this.messages.push(err);
-          }
-        );
-      },
-      err => {
-        this.messages.push("connect err: ");
-        this.messages.push(err);
-      }
-    );
+    // this.ble.connect(device.address).subscribe(
+    //   connected => {
+    //     this.isConnected = true;
+    //     this.messages.push("Connected: ");
+    //     this.messages.push(connected);
+    //     this.ble.subscribe("\n").subscribe(
+    //       data => {
+    //         this.messages.push("data subscribe: ");
+    //         this.messages.push(data);
+    //       },
+    //       err => {
+    //         this.messages.push("subscribe err: ");
+    //         this.messages.push(err);
+    //       }
+    //     );
+    //   },
+    //   err => {
+    //     this.messages.push("connect err: ");
+    //     this.messages.push(err);
+    //   }
+    // );
   }
 
   async write() {
