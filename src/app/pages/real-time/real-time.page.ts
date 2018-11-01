@@ -31,26 +31,13 @@ export class RealTimePage implements OnInit {
     private ble: BluetoothSerialService
   ) {}
 
-  public ngOnInit() {
-    this.ble.startScan().subscribe(
-      (device: IDevice) => {
-        this.devices.push(device);
-        console.log(device);
-      },
-      err => {
-        console.log(err);
-        this.messages.push("startScan err: ");
-        this.messages.push(err);
-      }
-    );
-  }
+  public ngOnInit() {}
 
   async refresh() {
     try {
-      this.devices = [];
-      this.devices.length = 0;
       this.isDiscovering = true;
-      await this.ble.discoverUnpaired();
+      const newDevices = await this.ble.discoverUnpaired();
+      this.devices = newDevices;
     } catch (err) {
       this.messages.push("refresh err: ");
       this.messages.push(err);

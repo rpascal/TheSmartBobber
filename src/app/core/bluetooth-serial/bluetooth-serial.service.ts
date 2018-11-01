@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
-import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { finalize, tap } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
 
@@ -17,57 +17,45 @@ interface IDevice {
 export class BluetoothSerialService {
   private BluetoothSerialConnect$: Subscription;
 
-  private connectedSubject = new BehaviorSubject<boolean>(false);
+  private connectionStatusSubject = new BehaviorSubject<boolean>(false);
   private connectingSubject = new BehaviorSubject<boolean>(false);
-  private deviceDiscovered = new Subject<IDevice>();
 
-  private connected = false;
+  private connectionStatus = false;
   private connecting = false;
 
-  constructor(private bls: BluetoothSerial) {
-    this.bls
-      .setDeviceDiscoveredListener()
-      .pipe(
-        catchError(err => {
-          console.log(err);
-          return null;
-        })
-      )
-      .subscribe((device: IDevice) => {
-        if (device) {
-          console.log(device);
-          this.deviceDiscovered.next(device);
-        }
-      });
-  }
+  constructor(private bls: BluetoothSerial) {}
 
   discoverUnpaired(): Promise<IDevice[]> {
     return this.bls.discoverUnpaired();
   }
 
-  startScan(): Observable<any> {
-    return this.bls.setDeviceDiscoveredListener();
+  list(): Promise<any> {
+    return this.bls.list();
   }
 
   connect(macAddress_or_uuid: string): Observable<any> {
-    if (!this.connected || !this.connecting) {
+    if (!this.connectionStatus || !this.connecting) {
       this.connecting = true;
       this.connectingSubject.next(true);
       this.BluetoothSerialConnect$ = this.bls
         .connect(macAddress_or_uuid)
-        .subscribe(
-          connected => {
-            this.connected = true;
-            this.connectedSubject.next(true);
-          },
-          err => {
-            this.connected = false;
-            this.connectedSubject.next(false);
-            this.BluetoothSerialConnect$.unsubscribe();
-          },
-          () => {
+        .pipe(
+          tap(() => {
+            this.connectionStatus = true;
+            this.connectionStatusSubject.next(true);
+          }),
+          finalize(() => {
+            console.log("finalize connect");
             this.connecting = false;
             this.connectingSubject.next(false);
+          })
+        )
+        .subscribe(
+          connected => {
+            console.log("Connected!", connected);
+          },
+          err => {
+            this.BluetoothSerialConnect$.unsubscribe();
           }
         );
     }
@@ -75,16 +63,8 @@ export class BluetoothSerialService {
     return this.bls.connect(macAddress_or_uuid);
   }
 
-  list(): Promise<any> {
-    return this.bls.list();
-  }
-
   subscribe(dilimeter: string): Observable<any> {
     return this.bls.subscribe(dilimeter);
-  }
-
-  setDiscoverable() {
-    this.bls.setDiscoverable(60000);
   }
 
   write(data): Promise<any> {
