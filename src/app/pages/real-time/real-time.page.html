@@ -7,26 +7,16 @@
 
 
 <ion-content padding>
-  <ion-button [disabled]="!isConnected" (click)="write()">Write some shit!</ion-button>
 
-  <ion-button [disabled]="isDiscovering" (click)="refresh()">Discover Devices!</ion-button>
+  <ion-button (click)="write()">Write some shit!</ion-button>
 
-  <p *ngIf="isDiscovering">Currently Discovering...</p>
+  <ion-button (click)="write1()">Write some shit 1!</ion-button>
 
-  <p>Devices</p>
+  <ion-button (click)="write2()">Write some shit 2!</ion-button>
 
-  <ion-list>
-    <ion-item *ngFor="let device of devices">
-      <ion-label (click)="connnect(device)">
-        <h2>{{device.name}}</h2>
-        <h3><b>Address: </b>{{device.address}}</h3>
-        <p><b>Class: </b>{{device.class}}</p>
-        <p><b>Id: </b>{{device.id}}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-
+  <ion-item>
+    <ion-input [(ngModel)]="something" placeholder="Something"></ion-input>
+  </ion-item>
 
 
   <p>Messages</p>

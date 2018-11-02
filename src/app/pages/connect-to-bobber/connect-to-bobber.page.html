@@ -1,26 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>connect-to-bobber</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
-  <ion-button [disabled]="isDiscovering" (click)="refresh()">Discover Devices!</ion-button>
 
-  <p *ngIf="isDiscovering">Currently Discovering...</p>
+  <ng-container *ngIf="(isConnecting$ | async) as connecting else discovering">
+    <p>Attempting to connect...</p>
+  </ng-container>
+  <!--  *ngIf="!(isConnecting$ | async)" -->
+  <ng-template #discovering>
+    <ion-button [disabled]="isDiscovering" (click)="refresh()">Discover Devices!</ion-button>
+    <ion-button (click)="goToHome()">Go Home!</ion-button>
+    <ion-button (click)="fakeConnecting()"> fakeConnecting
+    </ion-button>
 
-  <p>Devices</p>
 
-  <ion-list>
-    <ion-item *ngFor="let device of devices">
-      <ion-label (click)="connnect(device)">
-        <h2>{{device.name}}</h2>
-        <h3><b>Address: </b>{{device.address}}</h3>
-        <p><b>Class: </b>{{device.class}}</p>
-        <p><b>Id: </b>{{device.id}}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+
+    <p *ngIf="isDiscovering">Currently Discovering...</p>
+
+    <p>Devices</p>
+
+    <ion-list>
+      <ion-item *ngFor="let device of devices" (click)="connnect(device)">
+        <ion-label>
+          <h2>{{device.name}}</h2>
+          <h3><b>Address: </b>{{device.address}}</h3>
+          <p><b>Class: </b>{{device.class}}</p>
+          <p><b>Id: </b>{{device.id}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+
+
+
 
 
 </ion-content>

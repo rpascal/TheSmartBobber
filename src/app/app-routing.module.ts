@@ -5,7 +5,7 @@ import { BobberConnectedGuard } from './core/is-connected-guard/connected.guard'
 
 const routes: Routes = [
   {
-    path: "tabs",
+    path: "app",
     loadChildren: "./pages/tabs/tabs.module#TabsPageModule",
     canActivate: [BobberConnectedGuard],
     canLoad: [BobberConnectedGuard]
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "/tabs",
+    redirectTo: "/app/tabs/(real-time:real-time)",
     pathMatch: "full"
   }
 ];
@@ -25,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

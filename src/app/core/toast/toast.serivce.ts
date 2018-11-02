@@ -8,17 +8,9 @@ import { CoreModule } from '../core.module';
   providedIn: CoreModule
 })
 export class ToastService {
-  constructor(private toast: ToastController) {}
+  constructor(private toast: ToastController) { }
 
-  async message(message: string) {
-    const toast = await this.toast.create({
-      message: message,
-      duration: 50000
-    });
-    toast.present();
-  }
-
-  async messageWithOptions(message: string, options?: ToastOptions) {
+  async message(message: string, options?: ToastOptions) {
     const baseOptions: ToastOptions = {
       message: message,
       duration: 5000
@@ -27,4 +19,13 @@ export class ToastService {
     const toast = await this.toast.create(Object.assign(baseOptions, options));
     toast.present();
   }
+
+
+  async error(message: string, options?: ToastOptions) {
+    const baseOptions: ToastOptions = {
+      cssClass: 'error-toast'
+    };
+    this.message(message, Object.assign(baseOptions, options))
+  }
+
 }

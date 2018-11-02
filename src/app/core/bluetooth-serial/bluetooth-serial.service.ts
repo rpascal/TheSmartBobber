@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
@@ -22,6 +22,7 @@ export class BluetoothSerialService {
   private connectionStatusSubject = new BehaviorSubject<boolean>(false);
   private connectingSubject = new BehaviorSubject<boolean>(false);
 
+
   connectionStatus$ = this.connectionStatusSubject.asObservable();
   connecting$ = this.connectingSubject.asObservable();
 
@@ -31,8 +32,23 @@ export class BluetoothSerialService {
   constructor(
     private bls: BluetoothSerial,
     private router: Router,
-    private toastService: ToastService
-  ) {}
+    private toastService: ToastService,
+    private zone: NgZone
+  ) {
+
+    // this.connecting$.subscribe(value => {
+    //   this.toastService.message(`changed connecting status ${value}`);
+    // })
+
+  }
+
+  fakeConnecting() {
+    this.connectingSubject.next(true);
+    setTimeout(() => {
+      this.connectingSubject.next(false);
+
+    }, 5000);
+  }
 
   discoverUnpaired(): Promise<IDevice[]> {
     return this.bls.discoverUnpaired();
@@ -44,28 +60,27 @@ export class BluetoothSerialService {
 
   connect(macAddress_or_uuid: string) {
     if (!this.connectionStatus || !this.connecting) {
-      this.connecting = true;
-      this.connectingSubject.next(true);
+      this.updateConnecting(true);
+
       this.BluetoothSerialConnect$ = this.bls
         .connect(macAddress_or_uuid)
-        .pipe(
-          tap(() => {
-            this.connectionStatus = true;
-            this.connectionStatusSubject.next(true);
-          }),
-          finalize(() => {
-            console.log("finalize connect");
-            this.connecting = false;
-            this.connectingSubject.next(false);
-          })
-        )
         .subscribe(
           connected => {
-            this.toastService.message("Connected!");
+            this.updateConnection(true);
+            this.toastService.message(`Connected to device: ${macAddress_or_uuid}`);
             this.router.navigate(["/"]);
             console.log("Connected!", connected);
+
+            this.updateConnecting(false);
+
           },
           err => {
+            this.updateConnection(false);
+            this.toastService.error(`Failed to connect to device: ${macAddress_or_uuid}`);
+
+            this.updateConnecting(false);
+            // this.toastService.error(`Changing status of connecting`)
+
             this.BluetoothSerialConnect$.unsubscribe();
           }
         );
@@ -76,7 +91,27 @@ export class BluetoothSerialService {
     return this.bls.subscribe(dilimeter);
   }
 
+  subscribeRaw(): Observable<any> {
+    return this.bls.subscribeRawData();
+  }
+
+
   write(data): Promise<any> {
     return this.bls.write(data);
   }
+
+  private updateConnecting(status: boolean) {
+    this.zone.run(() => {
+      this.connecting = status;
+      this.connectingSubject.next(status);
+    })
+  }
+
+  private updateConnection(status: boolean) {
+    this.zone.run(() => {
+      this.connectionStatus = status;
+      this.connectionStatusSubject.next(status);
+    })
+  }
+
 }
