@@ -1,10 +1,9 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-
-import { BluetoothSerialService, IDevice } from '../../core';
-import { ToastService } from '../../core/toast/toast.serivce';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+
+import { environment } from '../../../environments/environment';
+import { BluetoothSerialService, IDevice, ToastService } from '../../core';
 
 @Component({
   selector: "app-connect-to-bobber",
@@ -19,21 +18,15 @@ export class ConnectToBobberPage implements OnInit {
   constructor(
     private ble: BluetoothSerialService,
     private toastService: ToastService,
-    private router: Router,
-    private navCtrl: NavController,
-    private ref: ChangeDetectorRef
-  ) { }
+    private router: Router
+  ) {}
 
-  fakeConnecting(){
+  fakeConnecting() {
     this.ble.fakeConnecting();
   }
 
   public ngOnInit() {
     this.isConnecting$ = this.ble.connecting$;
-    // this.isConnecting$.subscribe(value => {
-    //   // this.toastService.message(`changed connecting status ${value}`);
-    //   this.ref.detectChanges();
-    // })
   }
 
   async refresh() {
@@ -48,7 +41,7 @@ export class ConnectToBobberPage implements OnInit {
   }
 
   goToHome() {
-    this.router.navigateByUrl('/app/tabs/(real-time:real-time)')
+    this.router.navigateByUrl(environment.realTimePage);
   }
 
   connnect(device: IDevice) {

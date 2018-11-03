@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { environment } from '../environments/environment';
 import { BobberConnectedGuard } from './core/is-connected-guard/connected.guard';
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "/app/tabs/(real-time:real-time)",
+    redirectTo: environment.realTimePage,
     pathMatch: "full"
   }
 ];
