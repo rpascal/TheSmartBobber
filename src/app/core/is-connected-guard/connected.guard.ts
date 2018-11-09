@@ -34,7 +34,9 @@ export class BobberConnectedGuard implements CanActivate, CanLoad {
   }
 
   private checkRedirect(connected: boolean): void {
+    // this.toastService.message(`Redirecting ${connected}`);
     if (!connected) {
+      
       this.router.navigate(["/connect-to-bobber"]);
     }
   }

@@ -32,8 +32,9 @@ export class BluetoothSerialService {
     private bls: BluetoothSerial,
     private router: Router,
     private toastService: ToastService,
+    private toast: ToastService,
     private zone: NgZone
-  ) {}
+  ) { }
 
   fakeConnecting() {
     this.connectingSubject.next(true);
@@ -54,14 +55,19 @@ export class BluetoothSerialService {
     if (!this.connectionStatus || !this.connecting) {
       this.updateConnecting(true);
 
+      // this.subscribeRaw().subscribe(data => {
+      //   this.toast.message(`SERVICE RAW: ${data}`);
+      // });
       this.BluetoothSerialConnect$ = this.bls
         .connect(macAddress_or_uuid)
         .subscribe(
           connected => {
+
+
             this.updateConnection(true);
-            this.toastService.message(
-              `Connected to device: ${macAddress_or_uuid}`
-            );
+            // this.toastService.message(
+            //   `Connected to device: ${macAddress_or_uuid}`
+            // );
             this.router.navigateByUrl(environment.realTimePage);
             this.updateConnecting(false);
           },

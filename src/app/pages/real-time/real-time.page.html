@@ -20,7 +20,7 @@
 
 
   <p>Messages</p>
-  <div *ngFor="let mes of messages">
-    {{mes | json}}
+  <div *ngFor="let mes of messages; let i = index">
+    {{i}} - {{mes | json}}
   </div>
 </ion-content>

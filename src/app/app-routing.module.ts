@@ -9,7 +9,7 @@ const routes: Routes = [
     path: "app",
     loadChildren: "./pages/tabs/tabs.module#TabsPageModule",
     canActivate: [BobberConnectedGuard],
-    canLoad: [BobberConnectedGuard]
+    // canLoad: [BobberConnectedGuard]
   },
   {
     path: "connect-to-bobber",
