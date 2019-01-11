@@ -3,7 +3,11 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 export const environment = {
-  production: false
+  production: false,
+  realTimePage: "/app/tabs/(real-time:real-time)",
+  controlsPage: "/app/tabs/(controls:controls)",
+  logPage: "/app/tabs/(log:log)",
+  connectToBobberPage: "/connect-to-bobber"
 };
 
 /*
