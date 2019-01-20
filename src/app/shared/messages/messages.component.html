@@ -1,0 +1,4 @@
+<div *ngFor="let mes of messages.slice().reverse(); let i = index">
+  <span>{{ mes.timestamp | date:'h:mm:sss' }}  - {{mes.title}}</span>
+  <pre><code>{{mes.data | json}}</code></pre>
+</div>

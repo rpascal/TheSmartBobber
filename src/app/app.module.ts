@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
+import { SharedModule } from './shared/shared.module';
 
 // import '@ionic/pwa-elements';
 
@@ -18,6 +19,7 @@ import { CoreModule } from './core';
   imports: [
     CoreModule,
     BrowserModule,
+    SharedModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
