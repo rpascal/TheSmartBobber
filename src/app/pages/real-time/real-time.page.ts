@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 
 import { BluetoothSerialService, ToastService } from '../../core';
+import { WeatherService } from '../../core/weather/weather.service';
 import { MessagesComponent } from '../../shared/messages/messages.component';
 
 // import '@ionic/pwa-elements';
@@ -28,7 +29,8 @@ export class RealTimePage implements OnInit, AfterViewInit {
   constructor(
     private ble: BluetoothSerialService,
     private toast: ToastService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private weather: WeatherService
   ) {}
 
   decoder = new TextDecoder("utf-8");
@@ -50,6 +52,10 @@ export class RealTimePage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.weather.getWeather().subscribe(data => {
+      this.messages.addMessage(data, "Weather");
+    });
+
     this.messages.addMessage({
       newLine: true,
       raw: {
