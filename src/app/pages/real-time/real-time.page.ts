@@ -56,30 +56,6 @@ export class RealTimePage implements OnInit, AfterViewInit {
       this.messages.addMessage(data, "Weather");
     });
 
-    this.messages.addMessage({
-      newLine: true,
-      raw: {
-        data: "som shit 1",
-        str: "Whatever"
-      }
-    });
-    this.messages.addMessage({
-      newLine: true,
-      raw: {
-        data: "som shit 2",
-        str: "Whatever"
-      }
-    });
-    this.messages.addMessage({
-      newLine: true,
-      raw: {
-        data: "som shit 3",
-        str: "Whatever"
-      }
-    });
-  }
-
-  public ngOnInit() {
     this.ble.subscribe("\n").subscribe(data => {
       // this.toast.message(`Got data from bobber: ${data}`);
       const b = String.fromCharCode.apply(null, new Uint8Array(data));
@@ -111,6 +87,8 @@ export class RealTimePage implements OnInit, AfterViewInit {
       this.cd.detectChanges();
     });
   }
+
+  public ngOnInit() {}
 
   async write() {
     try {
