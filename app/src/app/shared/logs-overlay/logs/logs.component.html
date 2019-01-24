@@ -1,0 +1,12 @@
+<ion-content padding>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="dismiss()">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div *ngFor="let mes of logs.slice().reverse(); let i = index">
+    <span>{{ mes.timestamp | date:'h:mm:sss' }} - {{mes.title}}</span>
+    <pre [class.warn]="mes.type == 'warn'" [class.error]="mes.type == 'error'"><code>{{mes.data | json}}</code></pre>
+  </div>
+</ion-content>

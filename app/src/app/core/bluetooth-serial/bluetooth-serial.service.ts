@@ -4,6 +4,7 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
+import { LogsService } from '../../shared/logs-overlay/logs-service/logs.service';
 import { CoreModule } from '../core.module';
 import { ToastService } from '../toast/toast.serivce';
 
@@ -32,9 +33,9 @@ export class BluetoothSerialService {
     private bls: BluetoothSerial,
     private router: Router,
     private toastService: ToastService,
-    private toast: ToastService,
-    private zone: NgZone
-  ) { }
+    private zone: NgZone,
+    private logsService: LogsService
+  ) {}
 
   fakeConnecting() {
     this.connectingSubject.next(true);
@@ -54,25 +55,27 @@ export class BluetoothSerialService {
   connect(macAddress_or_uuid: string) {
     if (!this.connectionStatus || !this.connecting) {
       this.updateConnecting(true);
-
-      // this.subscribeRaw().subscribe(data => {
-      //   this.toast.message(`SERVICE RAW: ${data}`);
-      // });
       this.BluetoothSerialConnect$ = this.bls
         .connect(macAddress_or_uuid)
         .subscribe(
           connected => {
-
-
+            this.logsService.addMessage(
+              "Connected to bobber",
+              BluetoothSerialService.name
+            );
             this.updateConnection(true);
-            // this.toastService.message(
-            //   `Connected to device: ${macAddress_or_uuid}`
-            // );
+
             this.router.navigateByUrl(environment.realTimePage);
             this.updateConnecting(false);
           },
           err => {
+            this.logsService.addError(
+              "Lost Connection/Failed to connect to bobber",
+              BluetoothSerialService.name
+            );
+
             this.updateConnection(false);
+
             this.toastService.error(
               `Failed to connect to device: ${macAddress_or_uuid}`
             );
@@ -91,8 +94,18 @@ export class BluetoothSerialService {
     return this.bls.subscribeRawData();
   }
 
-  write(data): Promise<any> {
-    return this.bls.write(data);
+  write(data: any): Promise<any> {
+    const str2ab = str => {
+      const buf = new ArrayBuffer(str.length * 2); // 2 bytes for each char
+      const bufView = new Uint16Array(buf);
+      for (let i = 0, strLen = str.length; i < strLen; i++) {
+        bufView[i] = str.charCodeAt(i);
+      }
+      return buf;
+    };
+    const writeData = str2ab(String(data));
+
+    return this.bls.write(writeData);
   }
 
   private updateConnecting(status: boolean) {

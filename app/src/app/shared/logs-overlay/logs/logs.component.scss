@@ -11,6 +11,15 @@ pre{
     overflow: hidden;
 }
 
+pre.warn{
+    border-color: orange;
+}
+
+
+pre.error{
+    border-color: red;
+}
+
 span{
     font-size: 70%;
 }
