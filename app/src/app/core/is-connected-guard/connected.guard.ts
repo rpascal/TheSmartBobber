@@ -6,13 +6,14 @@ import { tap } from 'rxjs/operators';
 import { BluetoothSerialService } from '../bluetooth-serial/bluetooth-serial.service';
 import { CoreModule } from '../core.module';
 import { ToastService } from '../toast/toast.serivce';
+import { TheBobberService } from '../the-bobber/the-bobber.service';
 
 @Injectable({
   providedIn: CoreModule
 })
 export class BobberConnectedGuard implements CanActivate, CanLoad {
   constructor(
-    private bluetooth: BluetoothSerialService,
+    private bluetooth: TheBobberService,
     private router: Router,
     private toastService: ToastService
 

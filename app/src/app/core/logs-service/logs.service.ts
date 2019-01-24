@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CoreModule } from '../core.module';
 
 export interface ILogMessage {
   title?: string;
@@ -7,11 +8,13 @@ export interface ILogMessage {
   type: "warn" | "error" | "normal";
 }
 
-@Injectable()
+@Injectable({
+  providedIn: CoreModule
+})
 export class LogsService {
   private logs: ILogMessage[] = [];
 
-  constructor() {}
+  constructor() { }
 
   addMessage(mes: any, title?: string) {
     this.logs.push({
@@ -43,4 +46,8 @@ export class LogsService {
   getMessages(): ILogMessage[] {
     return this.logs;
   }
+  clear(): void {
+    this.logs = [];
+  }
+
 }

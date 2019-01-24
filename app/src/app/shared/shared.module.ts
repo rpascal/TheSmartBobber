@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 import { LogsOverlayComponent } from './logs-overlay/logs-overlay.component';
-import { LogsService } from './logs-overlay/logs-service/logs.service';
 import { LogsComponent } from './logs-overlay/logs/logs.component';
 
 @NgModule({
@@ -11,6 +10,6 @@ import { LogsComponent } from './logs-overlay/logs/logs.component';
   declarations: [LogsComponent, LogsOverlayComponent],
   exports: [LogsOverlayComponent],
   entryComponents: [LogsComponent],
-  providers: [LogsService]
+  providers: []
 })
 export class SharedModule {}

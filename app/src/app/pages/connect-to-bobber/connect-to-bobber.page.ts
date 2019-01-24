@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { BluetoothSerialService, IDevice, ToastService } from '../../core';
+import { TheBobberService } from '../../core/the-bobber/the-bobber.service';
 
 @Component({
   selector: "app-connect-to-bobber",
@@ -16,7 +17,7 @@ export class ConnectToBobberPage implements OnInit {
   isConnecting$: Observable<boolean>;
 
   constructor(
-    private ble: BluetoothSerialService,
+    private ble: TheBobberService,
     private toastService: ToastService,
     private router: Router
   ) {}
@@ -32,7 +33,8 @@ export class ConnectToBobberPage implements OnInit {
   async refresh() {
     try {
       this.isDiscovering = true;
-      const newDevices = await this.ble.discoverUnpaired();
+      let newDevices = await this.ble.discoverUnpaired();
+      newDevices = newDevices.filter(x => x.name && x.name.length > 0);
       this.devices = newDevices;
     } catch (err) {
       this.toastService.error(`Error! ${err}`);

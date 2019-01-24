@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { LogsService } from './logs-service/logs.service';
 import { LogsComponent } from './logs/logs.component';
+import { LogsService } from '../../core/logs-service/logs.service';
 
 @Component({
   selector: "app-logs-overlay",
@@ -13,7 +13,7 @@ export class LogsOverlayComponent {
   constructor(
     public modalController: ModalController,
     private logsService: LogsService
-  ) {}
+  ) { }
 
   async present(ev: any) {
     const modal = await this.modalController.create({
@@ -22,4 +22,6 @@ export class LogsOverlayComponent {
     });
     return await modal.present();
   }
+
+
 }

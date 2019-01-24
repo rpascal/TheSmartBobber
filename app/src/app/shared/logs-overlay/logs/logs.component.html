@@ -5,6 +5,12 @@
     </ion-fab-button>
   </ion-fab>
 
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="clear()">
+      Clear
+    </ion-fab-button>
+  </ion-fab>
+
   <div *ngFor="let mes of logs.slice().reverse(); let i = index">
     <span>{{ mes.timestamp | date:'h:mm:sss' }} - {{mes.title}}</span>
     <pre [class.warn]="mes.type == 'warn'" [class.error]="mes.type == 'error'"><code>{{mes.data | json}}</code></pre>

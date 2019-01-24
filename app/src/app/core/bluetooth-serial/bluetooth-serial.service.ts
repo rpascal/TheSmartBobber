@@ -4,9 +4,9 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { LogsService } from '../../shared/logs-overlay/logs-service/logs.service';
 import { CoreModule } from '../core.module';
 import { ToastService } from '../toast/toast.serivce';
+import { LogsService } from '../logs-service/logs.service';
 
 export interface IDevice {
   class: number;
@@ -17,7 +17,7 @@ export interface IDevice {
 @Injectable({
   providedIn: CoreModule
 })
-export class BluetoothSerialService {
+export abstract class BluetoothSerialService {
   private BluetoothSerialConnect$: Subscription;
 
   private connectionStatusSubject = new BehaviorSubject<boolean>(false);
@@ -29,13 +29,17 @@ export class BluetoothSerialService {
   private connectionStatus = false;
   private connecting = false;
 
+
+
   constructor(
-    private bls: BluetoothSerial,
-    private router: Router,
-    private toastService: ToastService,
-    private zone: NgZone,
-    private logsService: LogsService
-  ) {}
+    protected bls: BluetoothSerial,
+    protected router: Router,
+    protected toastService: ToastService,
+    protected zone: NgZone,
+    protected logsService: LogsService
+  ) { }
+
+  abstract setupSubscriptions(): void;
 
   fakeConnecting() {
     this.connectingSubject.next(true);
@@ -53,6 +57,9 @@ export class BluetoothSerialService {
   }
 
   connect(macAddress_or_uuid: string) {
+    this.logsService.addMessage(
+      "Gonna connect to bobber", BluetoothSerial.name
+    );
     if (!this.connectionStatus || !this.connecting) {
       this.updateConnecting(true);
       this.BluetoothSerialConnect$ = this.bls
@@ -67,6 +74,7 @@ export class BluetoothSerialService {
 
             this.router.navigateByUrl(environment.realTimePage);
             this.updateConnecting(false);
+            this.setupSubscriptions();
           },
           err => {
             this.logsService.addError(
