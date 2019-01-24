@@ -7,17 +7,14 @@
 </ion-header>
 
 <ion-content>
+
   <ion-list>
-    <ion-list-header>
-      <ion-label>
-        Follow us on Twitter
-      </ion-label>
-    </ion-list-header>
     <ion-item>
-      <ion-label>
-        <ion-icon name="logo-ionic" slot="start"></ion-icon>
-        @ionicframework
-      </ion-label>
+      <ion-label>Toggle LED</ion-label>
+      <ion-toggle (ionChange)="ledChange()" [(ngModel)]="ledStatus"></ion-toggle>
     </ion-item>
+
   </ion-list>
+
+
 </ion-content>

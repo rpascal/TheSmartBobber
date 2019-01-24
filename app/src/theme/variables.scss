@@ -86,13 +86,17 @@
   --ion-background-color: var(--ion-color-dark-shade);
   --ion-text-color: var(--ion-color-dark-contrast);
 
+  // --handle-background: darkgrey;
+  // --handle-background-checked: darkgrey;
+
   ion-toast {
     color: var(--ion-color-dark-contrast);
 
-    
+
   }
-  .error-toast{
+
+  .error-toast {
     color: #d33939;
   }
-  
+
 }
