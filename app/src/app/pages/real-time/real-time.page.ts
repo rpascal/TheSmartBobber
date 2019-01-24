@@ -1,8 +1,8 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { BluetoothSerialService, ToastService } from '../../core';
 import { WeatherService } from '../../core/weather/weather.service';
-import { MessagesComponent } from '../../shared/messages/messages.component';
+import { MessagesService } from '../../shared/messages-popover/messages-service/messages.service';
 
 // import '@ionic/pwa-elements';
 
@@ -20,7 +20,6 @@ interface IDevice {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RealTimePage implements OnInit, AfterViewInit {
-  @ViewChild(MessagesComponent) messages: MessagesComponent;
 
   something: any;
 
@@ -30,7 +29,8 @@ export class RealTimePage implements OnInit, AfterViewInit {
     private ble: BluetoothSerialService,
     private toast: ToastService,
     private cd: ChangeDetectorRef,
-    private weather: WeatherService
+    private weather: WeatherService,
+    private messagesService: MessagesService
   ) {}
 
   decoder = new TextDecoder("utf-8");
@@ -53,14 +53,17 @@ export class RealTimePage implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.weather.getWeather().subscribe(data => {
-      this.messages.addMessage(data, "Weather");
+      this.messagesService.addMessage(data, "Weather");
+
+      this.messagesService.addMessage(data, "Weather");
+      this.messagesService.addMessage(data, "Weather");
     });
 
     this.ble.subscribe("\n").subscribe(data => {
       // this.toast.message(`Got data from bobber: ${data}`);
       const b = String.fromCharCode.apply(null, new Uint8Array(data));
 
-      this.messages.addMessage({
+      this.messagesService.addMessage({
         newLine: true,
         raw: data,
         // decode: decoder.decode(data),
@@ -79,7 +82,7 @@ export class RealTimePage implements OnInit, AfterViewInit {
 
       // this.toast.message(`RAW: ${b}`);
 
-      this.messages.addMessage({
+      this.messagesService.addMessage({
         raw: data,
         decode: decoder.decode(data),
         str: b
@@ -99,13 +102,13 @@ export class RealTimePage implements OnInit, AfterViewInit {
 
       const result = await this.ble.write(ab);
       // this.toast.message(`Sent message all good ${result}`);
-      this.messages.addMessage("result: ");
-      this.messages.addMessage(result);
+      this.messagesService.addMessage("result: ");
+      this.messagesService.addMessage(result);
     } catch (err) {
       this.toast.message(`Error send message ${err}`);
 
-      this.messages.addMessage("write err: ");
-      this.messages.addMessage(err);
+      this.messagesService.addMessage("write err: ");
+      this.messagesService.addMessage(err);
     }
   }
 
@@ -115,13 +118,13 @@ export class RealTimePage implements OnInit, AfterViewInit {
       data[0] = 0x31;
       const result = await this.ble.write(data);
       this.toast.message(`Sent message all good from 1 ${result}`);
-      this.messages.addMessage("result: ");
-      this.messages.addMessage(result);
+      this.messagesService.addMessage("result: ");
+      this.messagesService.addMessage(result);
     } catch (err) {
       this.toast.message(`Error send message ${err}`);
 
-      this.messages.addMessage("write err: ");
-      this.messages.addMessage(err);
+      this.messagesService.addMessage("write err: ");
+      this.messagesService.addMessage(err);
     }
   }
 
@@ -129,13 +132,13 @@ export class RealTimePage implements OnInit, AfterViewInit {
     try {
       const result = await this.ble.write(this.something);
       this.toast.message(`Sent message all good ${result} ${this.something}`);
-      this.messages.addMessage("result: ");
-      this.messages.addMessage(result);
+      this.messagesService.addMessage("result: ");
+      this.messagesService.addMessage(result);
     } catch (err) {
       this.toast.message(`Error send message ${err}`);
 
-      this.messages.addMessage("write err: ");
-      this.messages.addMessage(err);
+      this.messagesService.addMessage("write err: ");
+      this.messagesService.addMessage(err);
     }
   }
 }

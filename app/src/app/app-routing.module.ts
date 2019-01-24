@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { environment } from '../environments/environment';
-import { BobberConnectedGuard } from './core';
 
 const routes: Routes = [
   {
     path: "app",
     loadChildren: "./pages/tabs/tabs.module#TabsPageModule",
-    canActivate: [BobberConnectedGuard],
+    // canActivate: [BobberConnectedGuard],
     // canLoad: [BobberConnectedGuard]
   },
   {
