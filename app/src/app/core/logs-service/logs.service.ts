@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+
 import { CoreModule } from '../core.module';
 
 export interface ILogMessage {
@@ -12,9 +14,14 @@ export interface ILogMessage {
   providedIn: CoreModule
 })
 export class LogsService {
+  private logsSubject = new Subject<ILogMessage[]>();
+  logsSubject$: Observable<ILogMessage[]>;
+
   private logs: ILogMessage[] = [];
 
-  constructor() { }
+  constructor() {
+    this.logsSubject$ = this.logsSubject.asObservable();
+  }
 
   addMessage(mes: any, title?: string) {
     this.logs.push({
@@ -23,6 +30,7 @@ export class LogsService {
       timestamp: Date.now(),
       type: "normal"
     });
+    this.logsSubject.next(this.logs);
   }
 
   addError(mes: any, title?: string) {
@@ -32,6 +40,7 @@ export class LogsService {
       timestamp: Date.now(),
       type: "error"
     });
+    this.logsSubject.next(this.logs);
   }
 
   addWarn(mes: any, title?: string) {
@@ -41,13 +50,15 @@ export class LogsService {
       timestamp: Date.now(),
       type: "warn"
     });
+    this.logsSubject.next(this.logs);
   }
 
-  getMessages(): ILogMessage[] {
+  getMessages() {
     return this.logs;
   }
+
   clear(): void {
     this.logs = [];
+    this.logsSubject.next(this.logs);
   }
-
 }

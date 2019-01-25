@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { environment } from '../../../environments/environment';
-import { BluetoothSerialService, IDevice, ToastService } from '../../core';
+import { IDevice, ToastService } from '../../core';
 import { TheBobberService } from '../../core/the-bobber/the-bobber.service';
 
 @Component({
@@ -17,23 +16,32 @@ export class ConnectToBobberPage implements OnInit {
   isConnecting$: Observable<boolean>;
 
   constructor(
-    private ble: TheBobberService,
+    private bobber: TheBobberService,
     private toastService: ToastService,
     private router: Router
   ) {}
 
-  fakeConnecting() {
-    this.ble.fakeConnecting();
-  }
-
   public ngOnInit() {
-    this.isConnecting$ = this.ble.connecting$;
+    this.isConnecting$ = this.bobber.connecting$;
+    this.connect();
   }
 
-  async refresh() {
+  fakeConnecting() {
+    this.bobber.fakeConnecting();
+  }
+
+  async connect() {
+    try {
+      await this.bobber.connect();
+    } catch (err) {
+      this.toastService.error("Failed to connect to bobber");
+    }
+  }
+
+  async refreshDevices() {
     try {
       this.isDiscovering = true;
-      let newDevices = await this.ble.discoverUnpaired();
+      let newDevices = await this.bobber.discoverUnpaired();
       newDevices = newDevices.filter(x => x.name && x.name.length > 0);
       this.devices = newDevices;
     } catch (err) {
@@ -42,12 +50,11 @@ export class ConnectToBobberPage implements OnInit {
     this.isDiscovering = false;
   }
 
-  goToHome() {
-    this.router.navigateByUrl(environment.realTimePage);
-  }
-
-  connnect(device: IDevice) {
-    this.toastService.message("Attempting to connect: " + device.address);
-    this.ble.connect(device.address);
+  async connnect(device: IDevice) {
+    try {
+      await this.bobber.connectViaAddress(device.address);
+    } catch (err) {
+      this.toastService.error("Failed to connect to bobber");
+    }
   }
 }

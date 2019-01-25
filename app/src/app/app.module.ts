@@ -11,8 +11,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core';
 import { SharedModule } from './shared/shared.module';
 
-// import '@ionic/pwa-elements';
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

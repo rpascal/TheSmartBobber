@@ -1,12 +1,12 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { CoreModule } from '../core.module';
-import { ToastService } from '../toast/toast.serivce';
 import { LogsService } from '../logs-service/logs.service';
+import { ToastService } from '../toast/toast.serivce';
 
 export interface IDevice {
   class: number;
@@ -18,8 +18,6 @@ export interface IDevice {
   providedIn: CoreModule
 })
 export abstract class BluetoothSerialService {
-  private BluetoothSerialConnect$: Subscription;
-
   private connectionStatusSubject = new BehaviorSubject<boolean>(false);
   private connectingSubject = new BehaviorSubject<boolean>(false);
 
@@ -29,17 +27,16 @@ export abstract class BluetoothSerialService {
   private connectionStatus = false;
   private connecting = false;
 
-
-
   constructor(
     protected bls: BluetoothSerial,
     protected router: Router,
     protected toastService: ToastService,
     protected zone: NgZone,
     protected logsService: LogsService
-  ) { }
+  ) {}
 
-  abstract setupSubscriptions(): void;
+  abstract onConnect(): void;
+  abstract onDisconnect(): void;
 
   fakeConnecting() {
     this.connectingSubject.next(true);
@@ -56,42 +53,51 @@ export abstract class BluetoothSerialService {
     return this.bls.list();
   }
 
-  connect(macAddress_or_uuid: string) {
-    this.logsService.addMessage(
-      "Gonna connect to bobber", BluetoothSerial.name
-    );
-    if (!this.connectionStatus || !this.connecting) {
-      this.updateConnecting(true);
-      this.BluetoothSerialConnect$ = this.bls
-        .connect(macAddress_or_uuid)
-        .subscribe(
+  connect(macAddress_or_uuid: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.logsService.addMessage(
+        `Attempting to connect to ${macAddress_or_uuid}`,
+        BluetoothSerial.name
+      );
+      if (!this.connectionStatus || !this.connecting) {
+        this.updateConnecting(true);
+        this.bls.connect(macAddress_or_uuid).subscribe(
           connected => {
+            resolve();
             this.logsService.addMessage(
-              "Connected to bobber",
+              {
+                Text: "Connected to bobber",
+                data: connected
+              },
               BluetoothSerialService.name
             );
             this.updateConnection(true);
+            this.updateConnecting(false);
+
+            this.onConnect();
 
             this.router.navigateByUrl(environment.realTimePage);
-            this.updateConnecting(false);
-            this.setupSubscriptions();
           },
           err => {
+            reject();
             this.logsService.addError(
-              "Lost Connection/Failed to connect to bobber",
+              {
+                Text: "Lost Connection/Failed to connect to bobber",
+                err: err
+              },
               BluetoothSerialService.name
             );
 
             this.updateConnection(false);
-
-            this.toastService.error(
-              `Failed to connect to device: ${macAddress_or_uuid}`
-            );
             this.updateConnecting(false);
-            this.BluetoothSerialConnect$.unsubscribe();
+
+            this.onDisconnect();
+
+            this.router.navigateByUrl(environment.connectToBobberPage);
           }
         );
-    }
+      }
+    });
   }
 
   subscribe(dilimeter: string): Observable<any> {
