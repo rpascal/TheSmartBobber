@@ -1,9 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 
-import { ToastService } from '../../core';
-import { LogsService } from '../../core/logs-service/logs.service';
-import { TheBobberService } from '../../core/the-bobber/the-bobber.service';
-import { WeatherService } from '../../core/weather/weather.service';
+import { LogsService, TheBobberService, ToastService, WeatherService } from '../../core';
+
 
 @Component({
   selector: "app-real-time",

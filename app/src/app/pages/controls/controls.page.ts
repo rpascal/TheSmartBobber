@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 
-import { BluetoothSerialService, ToastService } from '../../core';
-import { TheBobberService } from '../../core/the-bobber/the-bobber.service';
-import { LogsService } from '../../core/logs-service/logs.service';
+import { LogsService, TheBobberService, ToastService } from '../../core';
 
 @Component({
   selector: "app-controls",
@@ -12,14 +10,14 @@ import { LogsService } from '../../core/logs-service/logs.service';
 export class ControlsPage {
   ledStatus = false;
 
-  constructor(private ble: TheBobberService,
+  constructor(private bobber: TheBobberService,
     private toast: ToastService,
     private logsService: LogsService
     ) {}
 
   async ledChange() {
     try {
-      const result = await this.ble.write(this.ledStatus ? "1" : "0");
+      const result = await this.bobber.write(this.ledStatus ? "1" : "0");
       // this.logsService.addMessage(result, ControlsPage.name);
     } catch (err) {
       this.toast.message(`Error send message ${err}`);

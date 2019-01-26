@@ -3,7 +3,8 @@ import { ModalController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { ILogMessage, LogsService } from '../../../core/logs-service/logs.service';
+import { ILogMessage, LogsService } from '../../../core';
+
 
 @Component({
   selector: "app-logs",

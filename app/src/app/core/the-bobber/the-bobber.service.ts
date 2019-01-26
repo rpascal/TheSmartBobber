@@ -40,12 +40,12 @@ export class TheBobberService extends BluetoothSerialService {
     return this.subscribe(this.END_DEL).pipe(this.cleanUpMap(this.END_DEL));
   }
 
-  connect(): Promise<void> {
-    return super.connect(this.ADDRESS);
+  connect() {
+    super.connect(this.ADDRESS);
   }
 
-  connectViaAddress(address: string): Promise<void> {
-    return super.connect(address);
+  connectViaAddress(address: string) {
+    super.connect(address);
   }
 
   onConnect(): void {

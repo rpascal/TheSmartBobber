@@ -1,7 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, pipe, range, throwError, timer, UnaryFunction } from 'rxjs';
+import { concat, map, mergeMap, retryWhen, take, tap, zip } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 import { CoreModule } from '../core.module';
@@ -49,21 +50,18 @@ export abstract class BluetoothSerialService {
     return this.bls.discoverUnpaired();
   }
 
-  list(): Promise<any> {
-    return this.bls.list();
-  }
-
-  connect(macAddress_or_uuid: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.logsService.addMessage(
-        `Attempting to connect to ${macAddress_or_uuid}`,
-        BluetoothSerial.name
-      );
-      if (!this.connectionStatus || !this.connecting) {
-        this.updateConnecting(true);
-        this.bls.connect(macAddress_or_uuid).subscribe(
+  connect(macAddress_or_uuid: string) {
+    this.logsService.addMessage(
+      `Attempting to connect to ${macAddress_or_uuid}`,
+      BluetoothSerial.name
+    );
+    if (!this.connectionStatus || !this.connecting) {
+      this.updateConnecting(true);
+      this.bls
+        .connect(macAddress_or_uuid)
+        .pipe(this.retryCall())
+        .subscribe(
           connected => {
-            resolve();
             this.logsService.addMessage(
               {
                 Text: "Connected to bobber",
@@ -79,10 +77,13 @@ export abstract class BluetoothSerialService {
             this.router.navigateByUrl(environment.realTimePage);
           },
           err => {
-            reject();
+            const errorMessage = this.connectionStatus
+              ? "Lost connection"
+              : "Couldn't connect";
+            this.toastService.error(errorMessage);
             this.logsService.addError(
               {
-                Text: "Lost Connection/Failed to connect to bobber",
+                Text: errorMessage,
                 err: err
               },
               BluetoothSerialService.name
@@ -96,16 +97,11 @@ export abstract class BluetoothSerialService {
             this.router.navigateByUrl(environment.connectToBobberPage);
           }
         );
-      }
-    });
+    }
   }
 
   subscribe(dilimeter: string): Observable<any> {
     return this.bls.subscribe(dilimeter);
-  }
-
-  subscribeRaw(): Observable<any> {
-    return this.bls.subscribeRawData();
   }
 
   write(data: any): Promise<any> {
@@ -134,5 +130,33 @@ export abstract class BluetoothSerialService {
       this.connectionStatus = status;
       this.connectionStatusSubject.next(status);
     });
+  }
+
+  private retryCall<T>(
+    maxTries: number = 4,
+    waitTime: number = 250
+  ): UnaryFunction<Observable<T>, Observable<T>> {
+    return pipe(
+      retryWhen(attempts =>
+        range(1, maxTries).pipe(
+          zip(attempts, x => x),
+          tap(x => {
+            if (console && console.error) {
+              console.error(
+                `Connection attempt #${x} failed, waiting ${x *
+                  x *
+                  waitTime}ms to try again`
+              );
+            }
+          }),
+          map(x => x * x),
+          mergeMap(x => timer(x * waitTime)),
+          take(maxTries),
+          concat(
+            throwError(`failed to connect to bobber after ${maxTries} attempts`)
+          )
+        )
+      )
+    );
   }
 }

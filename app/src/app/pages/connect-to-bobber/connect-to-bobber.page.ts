@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { IDevice, ToastService } from '../../core';
-import { TheBobberService } from '../../core/the-bobber/the-bobber.service';
+import { IDevice, TheBobberService, ToastService } from '../../core';
 
 @Component({
   selector: "app-connect-to-bobber",
@@ -30,12 +29,8 @@ export class ConnectToBobberPage implements OnInit {
     this.bobber.fakeConnecting();
   }
 
-  async connect() {
-    try {
-      await this.bobber.connect();
-    } catch (err) {
-      this.toastService.error("Failed to connect to bobber");
-    }
+  connect() {
+    this.bobber.connect();
   }
 
   async refreshDevices() {
@@ -50,11 +45,7 @@ export class ConnectToBobberPage implements OnInit {
     this.isDiscovering = false;
   }
 
-  async connnect(device: IDevice) {
-    try {
-      await this.bobber.connectViaAddress(device.address);
-    } catch (err) {
-      this.toastService.error("Failed to connect to bobber");
-    }
+  connnect(device: IDevice) {
+    this.bobber.connectViaAddress(device.address);
   }
 }
