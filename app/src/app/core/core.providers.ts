@@ -37,6 +37,14 @@ class BluetoothSerialMock extends BluetoothSerial {
 
   subscribe(dilimeter: string): Observable<any> {
     const mock = new Subject<string>();
+    const TEMP_DEL = "#";
+    const BITE_DEL = "@";
+
+    setInterval(() => {
+      let mes = Math.random() > 0.5 ? TEMP_DEL : BITE_DEL;
+      mes += Math.floor(Math.random() * 10).toString();
+      mock.next(mes);
+    }, 5000);
 
     return mock.asObservable();
   }

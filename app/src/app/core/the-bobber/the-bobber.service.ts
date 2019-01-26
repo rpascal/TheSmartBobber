@@ -6,6 +6,7 @@ import { map, takeUntil } from 'rxjs/operators';
 
 import { BluetoothSerialService } from '../bluetooth-serial/bluetooth-serial.service';
 import { CoreModule } from '../core.module';
+import { FirebaseService } from '../firebase/firebase.service';
 import { LogsService } from '../logs-service/logs.service';
 import { ToastService } from '../toast/toast.serivce';
 
@@ -31,7 +32,8 @@ export class TheBobberService extends BluetoothSerialService {
     router: Router,
     toastService: ToastService,
     zone: NgZone,
-    logsService: LogsService
+    logsService: LogsService,
+    private fb: FirebaseService
   ) {
     super(bls, router, toastService, zone, logsService);
   }
@@ -70,6 +72,7 @@ export class TheBobberService extends BluetoothSerialService {
     this.tempSubject
       .pipe(
         this.cleanUpMap(this.TEMP_DEL),
+        this.fb.tempTap(),
         takeUntil(this.takeUntil)
       )
       .subscribe(data => {
@@ -82,6 +85,7 @@ export class TheBobberService extends BluetoothSerialService {
     this.biteSubject
       .pipe(
         this.cleanUpMap(this.BITE_DEL),
+        this.fb.biteTap(),
         takeUntil(this.takeUntil)
       )
       .subscribe(data => {

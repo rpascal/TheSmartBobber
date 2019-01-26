@@ -21,6 +21,7 @@ export class ConnectToBobberPage implements OnInit {
   ) {}
 
   public ngOnInit() {
+    console.log("Hello")
     this.isConnecting$ = this.bobber.connecting$;
     this.connect();
   }

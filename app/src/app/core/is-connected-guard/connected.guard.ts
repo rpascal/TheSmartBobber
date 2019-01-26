@@ -3,10 +3,9 @@ import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStat
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { BluetoothSerialService } from '../bluetooth-serial/bluetooth-serial.service';
 import { CoreModule } from '../core.module';
-import { ToastService } from '../toast/toast.serivce';
 import { TheBobberService } from '../the-bobber/the-bobber.service';
+import { ToastService } from '../toast/toast.serivce';
 
 @Injectable({
   providedIn: CoreModule
@@ -37,6 +36,7 @@ export class BobberConnectedGuard implements CanActivate, CanLoad {
   private checkRedirect(connected: boolean): void {
     // this.toastService.message(`Redirecting ${connected}`);
     if (!connected) {
+      console.log("Not connected redirecting");
       this.router.navigate(["/connect-to-bobber"]);
     }
   }
