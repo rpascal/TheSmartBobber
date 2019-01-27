@@ -18,9 +18,9 @@ export interface Temp {
   providedIn: CoreModule
 })
 export class FirebaseService {
-  private bitesCollection: AngularFirestoreCollection<Bite>;
-  private tempsCollection: AngularFirestoreCollection<Temp>;
-  private weatherCollection: AngularFirestoreCollection<IWeather>;
+  bitesCollection: AngularFirestoreCollection<Bite>;
+  tempsCollection: AngularFirestoreCollection<Temp>;
+  weatherCollection: AngularFirestoreCollection<IWeather>;
 
   constructor(private afs: AngularFirestore) {
     this.bitesCollection = afs.collection<Bite>("bite");
@@ -45,4 +45,12 @@ export class FirebaseService {
       this.weatherCollection.add({ ...value, timestamp: new Date() });
     });
   }
+
+  monitorRecentBites() {
+    // , ref => ref.orderBy("timestamp").limit(10)
+    return this.afs.collection<Bite>("bite").valueChanges();
+  }
+
+
+
 }
