@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { CoreModule } from '../core.module';
+import { FirebaseService } from '../firebase/firebase.service';
 
 export interface IWeather {
   coord: {
@@ -43,6 +44,7 @@ export interface IWeather {
   };
   name: string;
   cod: number;
+  timestamp?: Date;
 }
 
 @Injectable({
@@ -51,15 +53,17 @@ export interface IWeather {
 export class WeatherService {
   private readonly key: string = environment.weatherKey;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private fb: FirebaseService) {}
 
   getWeather(): Observable<IWeather> {
     const lat = 41.05905;
     const lon = -82.02216;
-    return this.http.get<IWeather>(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=${
-        this.key
-      }`
-    );
+    return this.http
+      .get<IWeather>(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=${
+          this.key
+        }`
+      )
+      .pipe(this.fb.weatherTap());
   }
 }

@@ -3,19 +3,13 @@
   <ng-container *ngIf="(isConnecting$ | async) as connecting else discovering">
     <p>Attempting to connect...</p>
   </ng-container>
-  <!--  *ngIf="!(isConnecting$ | async)" -->
+
   <ng-template #discovering>
-    <ion-button [disabled]="isDiscovering" (click)="refresh()">Discover Devices!</ion-button>
-    <ion-button (click)="goToHome()">Go Home!</ion-button>
-    <ion-button (click)="fakeConnecting()"> fakeConnecting
-    </ion-button>
-
-
-
+    <ion-button [disabled]="isDiscovering" (click)="refreshDevices()">Discover Devices!</ion-button>
+    <ion-button [disabled]="isDiscovering" (click)="connect()">Attempt Auto Connect!</ion-button>
+    <ion-button (click)="fakeConnecting()"> fakeConnecting </ion-button>
     <p *ngIf="isDiscovering">Currently Discovering...</p>
-
     <p>Devices</p>
-
     <ion-list>
       <ion-item *ngFor="let device of devices" (click)="connnect(device)">
         <ion-label>
@@ -27,9 +21,5 @@
       </ion-item>
     </ion-list>
   </ng-template>
-
-
-
-
 
 </ion-content>

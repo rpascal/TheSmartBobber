@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { environment } from '../../../environments/environment';
-import { BluetoothSerialService, IDevice, ToastService } from '../../core';
+import { IDevice, TheBobberService, ToastService } from '../../core';
 
 @Component({
   selector: "app-connect-to-bobber",
@@ -16,23 +15,30 @@ export class ConnectToBobberPage implements OnInit {
   isConnecting$: Observable<boolean>;
 
   constructor(
-    private ble: BluetoothSerialService,
+    private bobber: TheBobberService,
     private toastService: ToastService,
     private router: Router
   ) {}
 
-  fakeConnecting() {
-    this.ble.fakeConnecting();
-  }
-
   public ngOnInit() {
-    this.isConnecting$ = this.ble.connecting$;
+    console.log("Hello")
+    this.isConnecting$ = this.bobber.connecting$;
+    this.connect();
   }
 
-  async refresh() {
+  fakeConnecting() {
+    this.bobber.fakeConnecting();
+  }
+
+  connect() {
+    this.bobber.connect();
+  }
+
+  async refreshDevices() {
     try {
       this.isDiscovering = true;
-      const newDevices = await this.ble.discoverUnpaired();
+      let newDevices = await this.bobber.discoverUnpaired();
+      newDevices = newDevices.filter(x => x.name && x.name.length > 0);
       this.devices = newDevices;
     } catch (err) {
       this.toastService.error(`Error! ${err}`);
@@ -40,12 +46,7 @@ export class ConnectToBobberPage implements OnInit {
     this.isDiscovering = false;
   }
 
-  goToHome() {
-    this.router.navigateByUrl(environment.realTimePage);
-  }
-
   connnect(device: IDevice) {
-    this.toastService.message("Attempting to connect: " + device.address);
-    this.ble.connect(device.address);
+    this.bobber.connectViaAddress(device.address);
   }
 }

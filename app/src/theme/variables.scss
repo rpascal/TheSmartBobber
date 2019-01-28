@@ -88,7 +88,9 @@
 
   // --handle-background: darkgrey;
   // --handle-background-checked: darkgrey;
-
+  ion-card-header {
+    color: var(--ion-color-dark-contrast) !important;
+  }
   ion-toast {
     color: var(--ion-color-dark-contrast);
 

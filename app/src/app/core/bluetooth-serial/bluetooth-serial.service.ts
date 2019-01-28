@@ -1,11 +1,12 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, pipe, range, throwError, timer, UnaryFunction } from 'rxjs';
+import { concat, map, mergeMap, retryWhen, take, tap, zip } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
-import { LogsService } from '../../shared/logs-overlay/logs-service/logs.service';
 import { CoreModule } from '../core.module';
+import { LogsService } from '../logs-service/logs.service';
 import { ToastService } from '../toast/toast.serivce';
 
 export interface IDevice {
@@ -17,9 +18,7 @@ export interface IDevice {
 @Injectable({
   providedIn: CoreModule
 })
-export class BluetoothSerialService {
-  private BluetoothSerialConnect$: Subscription;
-
+export abstract class BluetoothSerialService {
   private connectionStatusSubject = new BehaviorSubject<boolean>(false);
   private connectingSubject = new BehaviorSubject<boolean>(false);
 
@@ -30,12 +29,15 @@ export class BluetoothSerialService {
   private connecting = false;
 
   constructor(
-    private bls: BluetoothSerial,
-    private router: Router,
-    private toastService: ToastService,
-    private zone: NgZone,
-    private logsService: LogsService
+    protected bls: BluetoothSerial,
+    protected router: Router,
+    protected toastService: ToastService,
+    protected zone: NgZone,
+    protected logsService: LogsService
   ) {}
+
+  abstract onConnect(): void;
+  abstract onDisconnect(): void;
 
   fakeConnecting() {
     this.connectingSubject.next(true);
@@ -48,39 +50,51 @@ export class BluetoothSerialService {
     return this.bls.discoverUnpaired();
   }
 
-  list(): Promise<any> {
-    return this.bls.list();
-  }
-
   connect(macAddress_or_uuid: string) {
+    this.logsService.addMessage(
+      `Attempting to connect to ${macAddress_or_uuid}`,
+      BluetoothSerial.name
+    );
     if (!this.connectionStatus || !this.connecting) {
       this.updateConnecting(true);
-      this.BluetoothSerialConnect$ = this.bls
+      this.bls
         .connect(macAddress_or_uuid)
+        .pipe(this.retryCall())
         .subscribe(
           connected => {
             this.logsService.addMessage(
-              "Connected to bobber",
+              {
+                Text: "Connected to bobber",
+                data: connected
+              },
               BluetoothSerialService.name
             );
             this.updateConnection(true);
+            this.updateConnecting(false);
+
+            this.onConnect();
 
             this.router.navigateByUrl(environment.realTimePage);
-            this.updateConnecting(false);
           },
           err => {
+            const errorMessage = this.connectionStatus
+              ? "Lost connection"
+              : "Couldn't connect";
+            this.toastService.error(errorMessage);
             this.logsService.addError(
-              "Lost Connection/Failed to connect to bobber",
+              {
+                Text: errorMessage,
+                err: err
+              },
               BluetoothSerialService.name
             );
 
             this.updateConnection(false);
-
-            this.toastService.error(
-              `Failed to connect to device: ${macAddress_or_uuid}`
-            );
             this.updateConnecting(false);
-            this.BluetoothSerialConnect$.unsubscribe();
+
+            this.onDisconnect();
+
+            this.router.navigateByUrl(environment.connectToBobberPage);
           }
         );
     }
@@ -88,10 +102,6 @@ export class BluetoothSerialService {
 
   subscribe(dilimeter: string): Observable<any> {
     return this.bls.subscribe(dilimeter);
-  }
-
-  subscribeRaw(): Observable<any> {
-    return this.bls.subscribeRawData();
   }
 
   write(data: any): Promise<any> {
@@ -120,5 +130,33 @@ export class BluetoothSerialService {
       this.connectionStatus = status;
       this.connectionStatusSubject.next(status);
     });
+  }
+
+  private retryCall<T>(
+    maxTries: number = 4,
+    waitTime: number = 250
+  ): UnaryFunction<Observable<T>, Observable<T>> {
+    return pipe(
+      retryWhen(attempts =>
+        range(1, maxTries).pipe(
+          zip(attempts, x => x),
+          tap(x => {
+            if (console && console.error) {
+              console.error(
+                `Connection attempt #${x} failed, waiting ${x *
+                  x *
+                  waitTime}ms to try again`
+              );
+            }
+          }),
+          map(x => x * x),
+          mergeMap(x => timer(x * waitTime)),
+          take(maxTries),
+          concat(
+            throwError(`failed to connect to bobber after ${maxTries} attempts`)
+          )
+        )
+      )
+    );
   }
 }

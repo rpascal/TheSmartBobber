@@ -1,8 +1,14 @@
 <ion-content padding>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="danger" (click)="dismiss()">
+    <ion-fab-button color="danger" (click)="dismiss()" style="margin-bottom: 5px;">
       <ion-icon name="close"></ion-icon>
     </ion-fab-button>
+    <ion-fab-button color="primary" (click)="clear()">
+      Clear
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
   </ion-fab>
 
   <div *ngFor="let mes of logs.slice().reverse(); let i = index">

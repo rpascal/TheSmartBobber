@@ -1,17 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 
-import { BluetoothSerialService, ToastService } from '../../core';
-import { WeatherService } from '../../core/weather/weather.service';
-import { LogsService } from '../../shared/logs-overlay/logs-service/logs.service';
+import { LogsService, TheBobberService, ToastService, WeatherService } from '../../core';
 
-// import '@ionic/pwa-elements';
-
-interface IDevice {
-  class: number;
-  id: string;
-  address: string;
-  name: string;
-}
 
 @Component({
   selector: "app-real-time",
@@ -22,7 +12,7 @@ export class RealTimePage implements OnInit, AfterViewInit {
   something: any;
 
   constructor(
-    private ble: BluetoothSerialService,
+    private bobber: TheBobberService,
     private toast: ToastService,
     private weather: WeatherService,
     private logsService: LogsService
@@ -31,30 +21,6 @@ export class RealTimePage implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.weather.getWeather().subscribe(data => {
       this.logsService.addMessage(data, "Weather");
-
-      this.logsService.addMessage(data, "Weather");
-      this.logsService.addMessage(data, "Weather");
-    });
-
-    this.ble.subscribe("\n").subscribe(data => {
-      const b = String.fromCharCode.apply(null, new Uint8Array(data));
-
-      this.logsService.addMessage({
-        newLine: true,
-        raw: data,
-        str: b
-      });
-    });
-
-    this.ble.subscribeRaw().subscribe(data => {
-      const decoder = new TextDecoder("utf-8");
-      const b = String.fromCharCode.apply(null, new Uint8Array(data));
-
-      this.logsService.addMessage({
-        raw: data,
-        decode: decoder.decode(data),
-        str: b
-      });
     });
   }
 
@@ -62,8 +28,8 @@ export class RealTimePage implements OnInit, AfterViewInit {
 
   async textBox() {
     try {
-      const result = await this.ble.write(this.something);
-      this.logsService.addMessage(result);
+      const result = await this.bobber.write(this.something);
+      this.logsService.addMessage(result, RealTimePage.name);
     } catch (err) {
       this.toast.message(`Error send message ${err}`);
       this.logsService.addError(err);

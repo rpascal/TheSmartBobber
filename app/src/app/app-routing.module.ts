@@ -8,8 +8,7 @@ const routes: Routes = [
   {
     path: "app",
     loadChildren: "./pages/tabs/tabs.module#TabsPageModule",
-    canActivate: [BobberConnectedGuard],
-    // canLoad: [BobberConnectedGuard]
+    canActivate: [BobberConnectedGuard]
   },
   {
     path: "connect-to-bobber",
@@ -26,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
