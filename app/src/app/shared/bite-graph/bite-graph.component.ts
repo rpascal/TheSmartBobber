@@ -17,38 +17,67 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
+    const initLabels = [];
+    const initData = [];
+
+    const max = 25;
+
+    for (let i = 0; i < max; i++) {
+      initLabels.push("");
+      initData.push(Math.floor(Math.random() * 10));
+    }
+
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: "line",
       options: {
+        responsive: true,
         legend: {
           display: false
         },
         title: {
           display: false
+        },
+        scales: {
+          yAxes: [
+            {
+              display: true,
+              ticks: {
+                beginAtZero: true,
+                steps: 10,
+                stepValue: 1,
+                max: 10
+              }
+            }
+          ]
+        },
+        elements: {
+          line: {
+            backgroundColor: "hsl(5, 100%, 50%)"
+          },
+          point: {
+            radius: 0
+          }
         }
       },
       data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: initLabels,
         datasets: [
           {
-            label: "",
-            // lineTension: 0.1,
-            data: [65, 13, 80, 0, 56, 5, 40]
+            data: initData
           }
         ]
       }
     });
 
     setInterval(() => {
-      const data = [];
-      for (let i = 0; i < 10; i++) {
-        data.push(Math.floor(Math.random() * 10));
-      }
-      console.log(data);
-      this.lineChart.data.labels = data;
-      this.lineChart.data.datasets[0].data = data;
+      const newValue = Math.floor(Math.random() * 11);
+
+      this.addDataItem(newValue);
+      this.removeOldItem();
+
+      this.lineChart.options.elements.line.backgroundColor = this.getColor(newValue / 10);
       this.lineChart.update();
-    }, 5000);
+    }, 250);
 
     // this.fb
     //   .monitorRecentBites()
@@ -58,5 +87,31 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
     //     this.lineChart.data.datasets[0].data = data;
     //     this.lineChart.update();
     //   });
+  }
+
+  getColor(value) {
+    // value from 0 to 1
+    const hue = ((1 - value) * 120).toString(10);
+    return ["hsl(", hue, ",100%,50%)"].join("");
+  }
+
+  addDataItem(data) {
+    if (!this.lineChart) {
+      return;
+    }
+    this.lineChart.data.labels.push("");
+    this.lineChart.data.datasets.forEach(dataset => {
+      dataset.data.push(data);
+    });
+  }
+
+  removeOldItem() {
+    if (!this.lineChart) {
+      return;
+    }
+    this.lineChart.data.labels.shift();
+    this.lineChart.data.datasets.forEach(dataset => {
+      dataset.data.shift();
+    });
   }
 }
