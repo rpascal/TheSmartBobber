@@ -55,7 +55,7 @@ export class CoreProviders {
   public static getProviders() {
     const providers = [];
 
-    if (document.URL.includes("https://") || document.URL.includes("http://")) {
+    if (!window.hasOwnProperty("cordova")) {
       // Use browser providers
       providers.push({
         provide: BluetoothSerial,

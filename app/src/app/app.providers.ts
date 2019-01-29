@@ -11,7 +11,7 @@ export class AppProviders {
       { provide: FirestoreSettingsToken, useValue: {} }
     ];
 
-    if (document.URL.includes("https://") || document.URL.includes("http://")) {
+    if (!window.hasOwnProperty("cordova")) {
     } else {
     }
 
