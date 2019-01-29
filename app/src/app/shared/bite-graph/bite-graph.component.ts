@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 
+import { TheBobberService } from '../../core';
 import { FirebaseService } from '../../core/firebase/firebase.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
   @ViewChild("lineCanvas") lineCanvas;
   lineChart: any;
 
-  constructor(private fb: FirebaseService) {}
+  constructor(private fb: FirebaseService, private bobber: TheBobberService) {}
 
   ngOnInit() {}
 
@@ -24,7 +25,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
 
     for (let i = 0; i < max; i++) {
       initLabels.push("");
-      initData.push(Math.floor(Math.random() * 10));
+      initData.push(0);
     }
 
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
@@ -52,7 +53,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
         },
         elements: {
           line: {
-            backgroundColor: "hsl(5, 100%, 50%)"
+            backgroundColor: "rgba(0,255,0,.1)"
           },
           point: {
             radius: 0
@@ -69,15 +70,12 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
       }
     });
 
-    setInterval(() => {
-      const newValue = Math.floor(Math.random() * 11);
-
-      this.addDataItem(newValue);
+    this.bobber.bite$.subscribe((data: number) => {
+      this.addDataItem(data);
       this.removeOldItem();
-
-      this.lineChart.options.elements.line.backgroundColor = this.getColor(newValue / 10);
+      this.setBackgroundColor(data);
       this.lineChart.update();
-    }, 250);
+    });
 
     // this.fb
     //   .monitorRecentBites()
@@ -89,10 +87,10 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
     //   });
   }
 
-  getColor(value) {
-    // value from 0 to 1
-    const hue = ((1 - value) * 120).toString(10);
-    return ["hsl(", hue, ",100%,50%)"].join("");
+  setBackgroundColor(value) {
+    const r = value < 4 ? 0 : 255;
+    const g = value > 7 ? 0 : 255;
+    this.lineChart.options.elements.line.backgroundColor = `rgba(${r},${g},0,.1)`;
   }
 
   addDataItem(data) {

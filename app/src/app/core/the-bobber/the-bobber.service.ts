@@ -22,10 +22,13 @@ export class TheBobberService extends BluetoothSerialService {
   private takeUntil = new Subject();
 
   private tempSubject = new Subject<string>();
+  temps$: Observable<number>;
   private biteSubject = new Subject<string>();
+  bite$: Observable<number>;
 
   private cleanUpMap = (char: string) =>
     map((data: string) => data.replace(char, ""));
+  private toNumMap = () => map((data: string) => +data);
 
   constructor(
     bls: BluetoothSerial,
@@ -36,6 +39,14 @@ export class TheBobberService extends BluetoothSerialService {
     private fb: FirebaseService
   ) {
     super(bls, router, toastService, zone, logsService);
+
+    this.temps$ = this.tempSubject
+      .asObservable()
+      .pipe(this.cleanUpMap(this.TEMP_DEL), this.toNumMap());
+
+    this.bite$ = this.biteSubject
+      .asObservable()
+      .pipe(this.cleanUpMap(this.BITE_DEL), this.toNumMap());
   }
 
   private listenForData(): Observable<string> {
@@ -72,8 +83,9 @@ export class TheBobberService extends BluetoothSerialService {
     this.tempSubject
       .pipe(
         this.cleanUpMap(this.TEMP_DEL),
-        this.fb.tempTap(),
-        takeUntil(this.takeUntil)
+        //   this.fb.tempTap(),
+        takeUntil(this.takeUntil),
+        this.toNumMap()
       )
       .subscribe(data => {
         this.logsService.addMessage(
@@ -85,8 +97,9 @@ export class TheBobberService extends BluetoothSerialService {
     this.biteSubject
       .pipe(
         this.cleanUpMap(this.BITE_DEL),
-        this.fb.biteTap(),
-        takeUntil(this.takeUntil)
+        // this.fb.biteTap(),
+        takeUntil(this.takeUntil),
+        this.toNumMap()
       )
       .subscribe(data => {
         this.logsService.addMessage(
