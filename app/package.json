@@ -39,6 +39,7 @@
     "@ionic/pro": "2.0.3",
     "@ionic/pwa-elements": "^1.0.1",
     "chart.js": "^2.7.3",
+    "chartjs-plugin-annotation": "^0.5.7",
     "cordova-plugin-bluetooth-serial": "^0.4.7",
     "core-js": "^2.5.3",
     "firebase": "^5.8.1",

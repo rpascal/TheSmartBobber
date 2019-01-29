@@ -9,6 +9,7 @@ import { LogsService, TheBobberService, ToastService } from '../../core';
 })
 export class ControlsPage {
   ledStatus = false;
+  something: any;
 
   constructor(private bobber: TheBobberService,
     private toast: ToastService,
@@ -25,4 +26,15 @@ export class ControlsPage {
     }
 
   }
+
+  async textBox() {
+    try {
+      const result = await this.bobber.write(this.something);
+      this.logsService.addMessage(result, ControlsPage.name);
+    } catch (err) {
+      this.toast.message(`Error send message ${err}`);
+      this.logsService.addError(err);
+    }
+  }
+
 }

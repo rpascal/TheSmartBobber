@@ -9,7 +9,6 @@ import { LogsService, TheBobberService, ToastService, WeatherService } from '../
   styleUrls: ["real-time.page.scss"]
 })
 export class RealTimePage implements OnInit, AfterViewInit {
-  something: any;
 
   constructor(
     private bobber: TheBobberService,
@@ -26,15 +25,7 @@ export class RealTimePage implements OnInit, AfterViewInit {
 
   public ngOnInit() {}
 
-  async textBox() {
-    try {
-      const result = await this.bobber.write(this.something);
-      this.logsService.addMessage(result, RealTimePage.name);
-    } catch (err) {
-      this.toast.message(`Error send message ${err}`);
-      this.logsService.addError(err);
-    }
-  }
+
 
 
 }

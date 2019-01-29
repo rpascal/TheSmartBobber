@@ -40,13 +40,15 @@ export class TheBobberService extends BluetoothSerialService {
   ) {
     super(bls, router, toastService, zone, logsService);
 
-    this.temps$ = this.tempSubject
-      .asObservable()
-      .pipe(this.cleanUpMap(this.TEMP_DEL), this.toNumMap());
+    this.temps$ = this.tempSubject.asObservable().pipe(
+      this.cleanUpMap(this.TEMP_DEL),
+      this.toNumMap()
+    );
 
-    this.bite$ = this.biteSubject
-      .asObservable()
-      .pipe(this.cleanUpMap(this.BITE_DEL), this.toNumMap());
+    this.bite$ = this.biteSubject.asObservable().pipe(
+      this.cleanUpMap(this.BITE_DEL),
+      this.toNumMap()
+    );
   }
 
   private listenForData(): Observable<string> {
@@ -65,7 +67,10 @@ export class TheBobberService extends BluetoothSerialService {
     this.takeUntil = new Subject();
 
     this.listenForData()
-      .pipe(takeUntil(this.takeUntil))
+      .pipe(
+        takeUntil(this.takeUntil),
+        this.logsService.tempTap(`${TheBobberService.name} - Data Line From &`)
+      )
       .subscribe((data: string) => {
         if (data.includes(this.TEMP_DEL)) {
           this.tempSubject.next(data);
@@ -73,40 +78,27 @@ export class TheBobberService extends BluetoothSerialService {
         if (data.includes(this.BITE_DEL)) {
           this.biteSubject.next(data);
         }
-
-        this.logsService.addMessage(
-          data,
-          TheBobberService.name + "Data Line From &"
-        );
       });
 
     this.tempSubject
       .pipe(
         this.cleanUpMap(this.TEMP_DEL),
-        //   this.fb.tempTap(),
-        takeUntil(this.takeUntil),
-        this.toNumMap()
+        this.toNumMap(),
+        this.fb.tempTap(),
+        this.logsService.tempTap(`${TheBobberService.name} - Temp Data`),
+        takeUntil(this.takeUntil)
       )
-      .subscribe(data => {
-        this.logsService.addMessage(
-          data,
-          `${TheBobberService.name} - Temp Data`
-        );
-      });
+      .subscribe(data => {});
 
     this.biteSubject
       .pipe(
         this.cleanUpMap(this.BITE_DEL),
-        // this.fb.biteTap(),
-        takeUntil(this.takeUntil),
-        this.toNumMap()
+        this.toNumMap(),
+        this.fb.biteTap(),
+        this.logsService.tempTap(`${TheBobberService.name} - Bite Data`),
+        takeUntil(this.takeUntil)
       )
-      .subscribe(data => {
-        this.logsService.addMessage(
-          data,
-          `${TheBobberService.name} - Bite Data`
-        );
-      });
+      .subscribe(data => {});
   }
 
   onDisconnect(): void {

@@ -1,0 +1,9 @@
+
+
+<ion-button *ngIf="!(activelyLogging | async)"  (click)="startLog()">
+  <ion-icon slot="icon-only" name="add"></ion-icon>
+</ion-button>
+
+<ion-button *ngIf="activelyLogging | async"  (click)="endLog()">
+  <ion-icon slot="icon-only" name="close"></ion-icon>
+</ion-button>

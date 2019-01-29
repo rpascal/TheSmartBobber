@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
 
@@ -21,6 +22,12 @@ export class LogsService {
 
   constructor() {
     this.logsSubject$ = this.logsSubject.asObservable();
+  }
+
+  tempTap(title?: string) {
+    return tap((value: any) => {
+      this.addMessage(value, title);
+    });
   }
 
   addMessage(mes: any, title?: string) {

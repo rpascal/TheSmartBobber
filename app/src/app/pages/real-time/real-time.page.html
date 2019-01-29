@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Real-time Info</ion-title>
+    <ion-buttons slot="primary">
+      <app-manage-log></app-manage-log>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -8,15 +11,7 @@
 
 <ion-content padding>
 
-<app-bite-graph></app-bite-graph>
-
-  <ion-button (click)="textBox()">Using Textbox</ion-button>
-
-  <ion-item>
-    <ion-input [(ngModel)]="something" placeholder="Something"></ion-input>
-  </ion-item>
-
-
+  <app-bite-graph></app-bite-graph>
 
 
 </ion-content>

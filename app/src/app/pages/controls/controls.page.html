@@ -3,6 +3,9 @@
     <ion-title>
       Controls
     </ion-title>
+    <ion-buttons slot="primary">
+      <app-manage-log></app-manage-log>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +15,13 @@
     <ion-item>
       <ion-label>Toggle LED</ion-label>
       <ion-toggle (ionChange)="ledChange()" [(ngModel)]="ledStatus"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="textBox()">Using Textbox</ion-button>
+      <ion-item>
+        <ion-input [(ngModel)]="something" placeholder="Something"></ion-input>
+      </ion-item>
+
     </ion-item>
 
   </ion-list>

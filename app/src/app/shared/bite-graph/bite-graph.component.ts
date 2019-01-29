@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import * as chartjs_plugin_annotationas from 'chartjs-plugin-annotation';
 
 import { TheBobberService } from '../../core';
 import { FirebaseService } from '../../core/firebase/firebase.service';
@@ -10,10 +11,22 @@ import { FirebaseService } from '../../core/firebase/firebase.service';
   styleUrls: ["./bite-graph.component.scss"]
 })
 export class BiteGraphComponent implements OnInit, AfterViewInit {
+  private readonly MAX = 10;
+
+  get greenUpper() {
+    return Math.floor(this.MAX * .2);
+  }
+  get yellowUpper() {
+    return Math.floor(this.MAX * .8);
+  }
+
   @ViewChild("lineCanvas") lineCanvas;
   lineChart: any;
 
-  constructor(private fb: FirebaseService, private bobber: TheBobberService) {}
+  constructor(private fb: FirebaseService, private bobber: TheBobberService) {
+    // Need to do this so stupid auto remover wont remove import
+    const c = chartjs_plugin_annotationas;
+  }
 
   ngOnInit() {}
 
@@ -41,12 +54,12 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
         scales: {
           yAxes: [
             {
-              display: true,
+              display: false,
               ticks: {
                 beginAtZero: true,
-                steps: 10,
+                steps: this.MAX,
                 stepValue: 1,
-                max: 10
+                max: this.MAX
               }
             }
           ]
@@ -58,6 +71,40 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
           point: {
             radius: 0
           }
+        },
+        annotation: {
+          annotations: [
+            {
+              type: "box",
+              xScaleID: "x-axis-0",
+              yScaleID: "y-axis-0",
+              yMin: 0,
+              yMax: this.greenUpper,
+              backgroundColor: "rgba(0, 255, 0, 0.05)",
+              borderColor: "rgba(0, 255, 0,0.05)",
+              borderWidth: 0
+            },
+            {
+              type: "box",
+              xScaleID: "x-axis-0",
+              yScaleID: "y-axis-0",
+              yMin: this.greenUpper,
+              yMax: this.yellowUpper,
+              backgroundColor: "rgba(255, 255, 0, 0.05)",
+              borderColor: "rgba(255, 255, 0, 0.05)",
+              borderWidth: 0
+            },
+            {
+              type: "box",
+              xScaleID: "x-axis-0",
+              yScaleID: "y-axis-0",
+              yMin: this.yellowUpper,
+              yMax: this.MAX,
+              backgroundColor: "rgba(255, 0, 0, 0.05)",
+              borderColor: "rgba(255, 0, 0, 0.05)",
+              borderWidth: 0
+            }
+          ]
         }
       },
       data: {
@@ -76,21 +123,12 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
       this.setBackgroundColor(data);
       this.lineChart.update();
     });
-
-    // this.fb
-    //   .monitorRecentBites()
-    //   .pipe(map(data => data.map(x => +x.value)))
-    //   .subscribe(data => {
-    //     console.log(data, this.lineChart);
-    //     this.lineChart.data.datasets[0].data = data;
-    //     this.lineChart.update();
-    //   });
   }
 
   setBackgroundColor(value) {
-    const r = value < 4 ? 0 : 255;
-    const g = value > 7 ? 0 : 255;
-    this.lineChart.options.elements.line.backgroundColor = `rgba(${r},${g},0,.1)`;
+    const r = value <= this.greenUpper ? 0 : 255;
+    const g = value > this.yellowUpper ? 0 : 255;
+    this.lineChart.options.elements.line.backgroundColor = `rgba(${r},${g},0,.5)`;
   }
 
   addDataItem(data) {
