@@ -49,7 +49,7 @@ void main(void) {
 
 
     __delay_ms(1000);
-    unsigned short TempL, TempH;
+    
     unsigned int t, t2;
     int i = 0;
     char str[30];
@@ -89,10 +89,10 @@ void main(void) {
     }
     return;
 }
-}
+
 
 void connectedLoop(){
-    updateUARTInput();
+    UpdateUARTInput();
     switch (UART_INPUT_STATE) {
         case TEMPERATURE: 
             if (ow_reset() == 1) {
@@ -112,15 +112,22 @@ void connectedLoop(){
 
                 write_byte(skip_rom);
                 write_byte(read_scratchpad);
+                
+                unsigned short TempL, TempH;
 
                 TempL = read_byte();
                 TempH = read_byte();
+                
+                int i = 0;
 
                 i = ((unsigned int) TempH << 8) + (unsigned int) TempL; //put both value in one variable
                 i = i / 16; //calculations used from the table provided in the data sheet of ds18b20
 
                 UART_send_string("Temp. IS connected");
                 UART_send_char(10);
+                
+                char str[30];
+                
                 sprintf(str, "Water Temp: %d", i);
                 UART_send_string(str);
                 i = 0; //I think I need this?

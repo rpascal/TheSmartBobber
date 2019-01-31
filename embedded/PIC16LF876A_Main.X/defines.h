@@ -2,7 +2,7 @@
 #define DEFINES
 
 //#define NO_INPUT "a"
-const char NO_INPUT  = "-1";
+//const char NO_INPUT  = "-1";
 
 
 #define _XTAL_FREQ 4000000
@@ -31,7 +31,7 @@ const char BITE_DELIMETER = '@';
 
 /* State Enums */
 
-typedef enum connectionStates {
+enum connectionStates {
     DISCONNECTED,
     CONNECTED
 };

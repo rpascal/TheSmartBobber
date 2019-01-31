@@ -7,5 +7,6 @@ char UART_get_char();
 void UART_send_string(char* st_pt);
 void UART_send_temp(char* st_pt);
 void UART_send_bite(char* st_pt);
+void UpdateUARTInput();
 
 #endif
