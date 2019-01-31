@@ -53,7 +53,7 @@ void UART_send_char(char bt) {
 
 //**Function to get one byte of date from UART**//
 
-char UART_get_char() {
+char UART_get_char(void) {
     if (OERR) // check for Error 
     {
         CREN = 0; //If error -> Reset 
@@ -63,7 +63,7 @@ char UART_get_char() {
     if (RCIF == 1) {
         return RCREG;
     }
-    return NO_INPUT; //NO_INPUT = -1
+    return * NO_INPUT; //NO_INPUT = -1
 }
 //_____________End of function________________//
 

@@ -117,7 +117,7 @@ void main(void) {
 
                 phoneInput = UART_get_char();
 
-                if (phoneInput != NO_INPUT) {
+                if (phoneInput != * NO_INPUT) {
                     if (phoneInput == '1') //If the user sends "1"
                     {
                         RB3 = 1; //Turn on LED
