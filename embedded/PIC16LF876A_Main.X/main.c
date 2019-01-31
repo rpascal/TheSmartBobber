@@ -16,8 +16,6 @@
 #include "ds18b20.h"
 #include "UART.h"
 
-
-
 void updateConnectionState() {
 
     switch (connectionState) {
@@ -49,7 +47,7 @@ void main(void) {
 
 
     __delay_ms(1000);
-    
+
     unsigned int t, t2;
     int i = 0;
     char str[30];
@@ -90,11 +88,10 @@ void main(void) {
     return;
 }
 
-
-void connectedLoop(){
+void connectedLoop() {
     UpdateUARTInput();
     switch (UART_INPUT_STATE) {
-        case TEMPERATURE: 
+        case TEMPERATURE:
             if (ow_reset() == 1) {
                 UART_send_string("Temp. NOT connected");
                 UART_send_char(10);
@@ -112,12 +109,12 @@ void connectedLoop(){
 
                 write_byte(skip_rom);
                 write_byte(read_scratchpad);
-                
+
                 unsigned short TempL, TempH;
 
                 TempL = read_byte();
                 TempH = read_byte();
-                
+
                 int i = 0;
 
                 i = ((unsigned int) TempH << 8) + (unsigned int) TempL; //put both value in one variable
@@ -125,26 +122,26 @@ void connectedLoop(){
 
                 UART_send_string("Temp. IS connected");
                 UART_send_char(10);
-                
+
                 char str[30];
-                
+
                 sprintf(str, "Water Temp: %d", i);
                 UART_send_string(str);
                 i = 0; //I think I need this?
             }
-        break;
-        case LED_ON: 
+            break;
+        case LED_ON:
             RB3 = 1; //Turn on LED
             //UART_send_temp("1");
             UART_send_string("RED LED -> ON"); //Send notification to the computer
             UART_send_char(10);
-        break;
-        case LED_OFF: 
+            break;
+        case LED_OFF:
             RB3 = 0; //Turn off LED
             //UART_send_temp("0");
             UART_send_string("RED LED -> OFF"); //Send notification to the computer
             UART_send_char(10);
-        break;
+            break;
         default: break;
     }
 }
