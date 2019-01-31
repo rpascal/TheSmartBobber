@@ -29,4 +29,22 @@ const char TEMP_DELIMETER = '#';
 const char BITE_DELIMETER = '@';
 #define Baud_rate 9600
 
+/* State Enums */
+
+typedef enum connectionStates {
+    DISCONNECTED,
+    CONNECTED
+};
+enum connectionStates connectionState;
+
+
+enum UART_INPUT_STATES {
+    TEMPERATURE,
+    LED_ON,
+    LED_OFF,
+    NO_INPUT
+};
+enum UART_INPUT_STATES UART_INPUT_STATE;
+
+
 #endif

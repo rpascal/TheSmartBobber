@@ -65,6 +65,32 @@ char UART_get_char() {
     }
     return NO_INPUT; //NO_INPUT = -1
 }
+
+void updateUARTInput() {
+    if (OERR) // check for Error 
+    {
+        CREN = 0; //If error -> Reset 
+        CREN = 1; //If error -> Reset 
+        UART_INPUT_STATE = NO_INPUT;
+        return;
+    }
+
+    if (RCIF == 1) {
+        int phoneInput = RCREG;
+        if (phoneInput == 1){
+            UART_INPUT_STATE = LED_ON;
+        }else if(phoneInput == 0){
+            UART_INPUT_STATE = LED_OFF;
+        }else if(phoneInput == 2){
+            UART_INPUT_STATE = TEMPERATURE;
+        }
+        return;
+    }
+    UART_INPUT_STATE = NO_INPUT;
+    return;
+    // return NO_INPUT; //NO_INPUT = -1
+}
+
 //_____________End of function________________//
 
 
