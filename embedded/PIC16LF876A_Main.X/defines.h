@@ -1,6 +1,8 @@
 #ifndef DEFINES
 #define DEFINES
 
+#include <xc.h>
+
 //#define NO_INPUT "a"
 const char * NO_INPUT  = "-1";
 
