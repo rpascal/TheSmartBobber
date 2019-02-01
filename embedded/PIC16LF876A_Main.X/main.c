@@ -41,20 +41,19 @@ void updateConnectionState() {
             }
             break;
     }
-    //return DISCONNECTED;
 }
 
 void main(void) {
-    __delay_ms(1000);//Delay for UART communication 
+    __delay_ms(1000); //Delay for UART communication 
     connectionState = DISCONNECTED; //Initialize connection state
     char str[30]; //String length for all sprintf functions 
     int phoneInput; //Data Sent from SmartPhone
 
     TRISB0 = 1; //Initialize RB0 as input
     TRISB3 = 0; //Initialize RB3 as output
-    
+
     Initialize_UART(); //Initialize UART module
-    PWM_Initialize();  //Initialize PWM Signal [RC2]
+    PWM_Initialize(); //Initialize PWM Signal [RC2]
     ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol
 
     while (1) {
@@ -73,7 +72,7 @@ void main(void) {
 
                 phoneInput = UART_get_char();
 
-                if (phoneInput != * NO_INPUT) {
+                if (phoneInput != *NO_INPUT) {
                     if (phoneInput == '1') //If the user sends "1"
                     {
                         RB3 = 1; //Turn on LED
@@ -102,7 +101,6 @@ void main(void) {
                         }
                     }
                 }
-
 
                 break;
         }
