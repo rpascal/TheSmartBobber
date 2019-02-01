@@ -30,21 +30,22 @@ unsigned char ow_reset(void) {
     __delay_us(480); // 1-wire required delay
     DQ_TRIS = 1; // Set RC3 HIGH
     __delay_us(60); // 1-wire required delay
-
-    if (DQ == 0) // if there is a presence pluse
+    if (DQ == 0) // If there is a presence pluse
     {
         __delay_us(480);
         return 0; // 1-wire is present
-    } else {
+    } else { // If there is NOT a prensence pulse
         __delay_us(480);
-        return 1; //1-wire is NOT present
+        return 1; // 1-wire is NOT present
     }
 }
 
 /*
  * Communication Functions for 1-Wire Protocol
+ * Refer to Data Sheet for commands  
  */
 
+//Read Transmission bits from Temp Sensor
 unsigned char read_bit(void) {
     unsigned char i;
     DQ_TRIS = 1; //Set RC
@@ -55,22 +56,21 @@ unsigned char read_bit(void) {
     return (DQ); // return value of DQ line
 }
 
+//Read Transmission bytes from Temp Sensor 
 unsigned char read_byte(void) {
     char i, result = 0;
     DQ_TRIS = 1; // TRIS is input(1)
     for (i = 0; i < 8; i++) {
-        DQ_TRIS = 0; // TRIS is output(0)
-        DQ = 0; // genarate low pluse for 2us
-        __delay_us(2);
-        DQ_TRIS = 1; // TRIS is input(1) release the bus
-        if (DQ != 0)
+        DQ_TRIS = 0; // Set RC3 as Output
+        DQ = 0; // Set RC3 Low 
+        __delay_us(2); //Keep RC3 LOW for 2us
+        DQ_TRIS = 1; // Set RC3 as Input
+        if (DQ != 0) // if Bit is 1 
             result |= 1 << i;
         __delay_us(60); // wait for recovery time
     }
     return result;
 }
-
-//writes a bit to the one-wire bus, passed in bitval
 
 void write_bit(char bitval) {
     DQ_TRIS = 0;
