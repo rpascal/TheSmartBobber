@@ -48,7 +48,7 @@ void main(void) {
     connectionState = DISCONNECTED; //Initialize connection state
     char str[30]; //String length for all sprintf functions 
     int phoneInput; //Data Sent from SmartPhone
-
+    int i = 0;
     TRISB0 = 1; //Initialize RB0 as input
     TRISB3 = 0; //Initialize RB3 as output
 
@@ -97,7 +97,11 @@ void main(void) {
                         }
 
                         if (ow_reset() == 0) {
-                            void read_temp();
+                            //i = read_temp();
+                            UART_send_string("Temp. IS connected");
+                            UART_send_char(10);
+                            sprintf(str, "Water Temp: %d", read_temp());
+                            UART_send_string(str);
                         }
                     }
                 }

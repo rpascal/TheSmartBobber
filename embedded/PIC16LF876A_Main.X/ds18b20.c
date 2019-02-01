@@ -122,10 +122,10 @@ void ds18b20_Initialize(void)
  * NOTE: void ds18b20_Initialize(void) must be called once before read_temp
  */
 
-void read_temp(void)
+unsigned char read_temp(void)
 {
     unsigned short TempL, TempH;
-    int i = 0;
+    int temp = 0;
     char str[30];
     
     ow_reset();
@@ -144,14 +144,11 @@ void read_temp(void)
     TempL = read_byte();
     TempH = read_byte();
 
-    i = ((unsigned int) TempH << 8) + (unsigned int) TempL; //put both value in one variable
-    i = i / 16; //calculations used from the table provided in the data sheet of ds18b20
+    temp = ((unsigned int) TempH << 8) + (unsigned int) TempL; //put both value in one variable
+    temp = temp / 16; //calculations used from the table provided in the data sheet of ds18b20
 
-    UART_send_string("Temp. IS connected");
-    UART_send_char(10);
-    sprintf(str, "Water Temp: %d", i);
-    UART_send_string(str);
-    i = 0; //I think I need this?
+    return temp;
+    //i = 0; //I think I need this?
     
      /*This is for Negative temperature*/
 
