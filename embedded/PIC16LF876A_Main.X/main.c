@@ -67,6 +67,7 @@ void main(void) {
     char str[30]; //String length for all sprintf functions 
     int phoneInput; //Data Sent from SmartPhone
     int i = 0;
+    //int ADC;
     TRISB0 = 1; //Initialize RB0 as input
     TRISB3 = 0; //Initialize RB3 as output
 
@@ -127,7 +128,7 @@ void main(void) {
 
                     if (phoneInput == '3') //If the user sends "3"
                     {
-                        sprintf(str, "ADC Value: %d", ADC_Read());
+                        sprintf(str, "ADC Value: %u", ADC_Read());
                         UART_send_string(str);
                         UART_send_char(10);
                     }
