@@ -16,6 +16,24 @@
 #include "ds18b20.h"
 #include "UART.h"
 #include "PWM.h"
+#include "ADC.h"
+
+//void ADC_Initialize(void)
+//{
+//  ADCON0 = 0b01000001; //ADC ON and Fosc/16 is selected
+//  ADCON1 = 0b11000000; // Internal reference voltage is selected
+//}
+//
+//char ADC_Read(void)
+//{
+//  ADCON0 &= 0x11000101; //Clearing the Channel Selection Bits
+//  ADCON0 |= 0<<3; //Setting the required Bits
+//  __delay_ms(2); //Acquisition time to charge hold capacitor
+//  GO_nDONE = 1; //Initializes A/D Conversion
+//  while(GO_nDONE); //Wait for A/D Conversion to complete
+//  return ((ADRESH<<8)+ADRESL); //Returns Result
+//}
+
 
 enum connectionStates {
     DISCONNECTED,
@@ -52,9 +70,10 @@ void main(void) {
     TRISB0 = 1; //Initialize RB0 as input
     TRISB3 = 0; //Initialize RB3 as output
 
-    Initialize_UART(); //Initialize UART module
+    Initialize_UART(); //Initialize UART module [RC6 & RC7]
     PWM_Initialize(); //Initialize PWM Signal [RC2]
-    ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol
+    ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
+    ADC_Initialize(); //Initialize ADC [RA0]
 
     while (1) {
         updateConnectionState();
@@ -72,7 +91,8 @@ void main(void) {
 
                 phoneInput = UART_get_char();
 
-                if (phoneInput != *NO_INPUT) {
+                if (phoneInput != *NO_INPUT) 
+                {
                     if (phoneInput == '1') //If the user sends "1"
                     {
                         RB3 = 1; //Turn on LED
@@ -97,12 +117,19 @@ void main(void) {
                         }
 
                         if (ow_reset() == 0) {
-                            //i = read_temp();
                             UART_send_string("Temp. IS connected");
                             UART_send_char(10);
                             sprintf(str, "Water Temp: %d", read_temp());
                             UART_send_string(str);
+                            UART_send_char(10);
                         }
+                    }
+
+                    if (phoneInput == '3') //If the user sends "3"
+                    {
+                        sprintf(str, "ADC Value: %d", ADC_Read());
+                        UART_send_string(str);
+                        UART_send_char(10);
                     }
                 }
 
