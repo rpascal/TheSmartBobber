@@ -4,7 +4,6 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { BehaviorSubject, Observable, pipe, range, throwError, timer, UnaryFunction } from 'rxjs';
 import { concat, map, mergeMap, retryWhen, take, tap, zip } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment';
 import { CoreModule } from '../core.module';
 import { LogsService } from '../logs-service/logs.service';
 import { ToastService } from '../toast/toast.serivce';
@@ -20,9 +19,11 @@ export interface IDevice {
 })
 export abstract class BluetoothSerialService {
   private connectionStatusSubject = new BehaviorSubject<boolean>(false);
+  private connectionStatusMessage = new BehaviorSubject<string>("Nada");
   private connectingSubject = new BehaviorSubject<boolean>(false);
 
   connectionStatus$ = this.connectionStatusSubject.asObservable();
+  connectionStatusMessage$ = this.connectionStatusMessage.asObservable();
   connecting$ = this.connectingSubject.asObservable();
 
   private connectionStatus = false;
@@ -51,6 +52,8 @@ export abstract class BluetoothSerialService {
   }
 
   connect(macAddress_or_uuid: string) {
+    this.connectionStatusMessage.next("Connecting");
+
     this.logsService.addMessage(
       `Attempting to connect to ${macAddress_or_uuid}`,
       BluetoothSerial.name
@@ -69,12 +72,15 @@ export abstract class BluetoothSerialService {
               },
               BluetoothSerialService.name
             );
+
+            this.connectionStatusMessage.next("Connected");
+
             this.updateConnection(true);
             this.updateConnecting(false);
 
             this.onConnect();
 
-            this.router.navigateByUrl(environment.realTimePage);
+           // this.router.navigateByUrl(environment.realTimePage);
           },
           err => {
             const errorMessage = this.connectionStatus
@@ -92,9 +98,12 @@ export abstract class BluetoothSerialService {
             this.updateConnection(false);
             this.updateConnecting(false);
 
+            this.connectionStatusMessage.next("Disconnected");
+
+
             this.onDisconnect();
 
-            this.router.navigateByUrl(environment.connectToBobberPage);
+           // this.router.navigateByUrl(environment.connectToBobberPage);
           }
         );
     }
@@ -122,6 +131,7 @@ export abstract class BluetoothSerialService {
     this.zone.run(() => {
       this.connecting = status;
       this.connectingSubject.next(status);
+      // this.connectionStatusMessage.next(status ? "Connecting" : "");
     });
   }
 

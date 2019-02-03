@@ -19,7 +19,7 @@ export class TheBobberService extends BluetoothSerialService {
   private readonly BITE_DEL = "@";
   private readonly ADDRESS = "00:06:66:ED:FA:72";
 
-  private takeUntil = new Subject();
+  private takeUntil: Subject<void>;
 
   private tempSubject = new Subject<string>();
   temps$: Observable<number>;
@@ -39,6 +39,27 @@ export class TheBobberService extends BluetoothSerialService {
     private fb: FirebaseService
   ) {
     super(bls, router, toastService, zone, logsService);
+
+
+    this.tempSubject
+      .pipe(
+        this.cleanUpMap(this.TEMP_DEL),
+        this.toNumMap(),
+        this.fb.tempTap(),
+        this.logsService.tempTap(`${TheBobberService.name} - Temp Data`),
+        // takeUntil(this.takeUntil)
+      )
+      .subscribe(data => {});
+
+    this.biteSubject
+      .pipe(
+        this.cleanUpMap(this.BITE_DEL),
+        this.toNumMap(),
+        this.fb.biteTap(),
+        this.logsService.tempTap(`${TheBobberService.name} - Bite Data`),
+        // takeUntil(this.takeUntil)
+      )
+      .subscribe(data => {});
 
     this.temps$ = this.tempSubject.asObservable().pipe(
       this.cleanUpMap(this.TEMP_DEL),
@@ -79,26 +100,6 @@ export class TheBobberService extends BluetoothSerialService {
           this.biteSubject.next(data);
         }
       });
-
-    this.tempSubject
-      .pipe(
-        this.cleanUpMap(this.TEMP_DEL),
-        this.toNumMap(),
-        this.fb.tempTap(),
-        this.logsService.tempTap(`${TheBobberService.name} - Temp Data`),
-        takeUntil(this.takeUntil)
-      )
-      .subscribe(data => {});
-
-    this.biteSubject
-      .pipe(
-        this.cleanUpMap(this.BITE_DEL),
-        this.toNumMap(),
-        this.fb.biteTap(),
-        this.logsService.tempTap(`${TheBobberService.name} - Bite Data`),
-        takeUntil(this.takeUntil)
-      )
-      .subscribe(data => {});
   }
 
   onDisconnect(): void {

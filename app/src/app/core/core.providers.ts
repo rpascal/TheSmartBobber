@@ -1,12 +1,12 @@
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, Subject, timer } from 'rxjs';
 
 import { IDevice } from './bluetooth-serial/bluetooth-serial.service';
 
 class BluetoothSerialMock extends BluetoothSerial {
   connect(macAddress_or_uuid: string): Observable<any> {
     // return throwError('Valid token not returned');
-    return of(true);
+    return timer(5000); // of(true);
   }
 
   write(data: any): Promise<any> {
