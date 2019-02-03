@@ -7,13 +7,7 @@ const routes: Routes = [
   {
     path: "app",
     loadChildren: "./pages/tabs/tabs.module#TabsPageModule",
-    // canActivate: [BobberConnectedGuard]
   },
-  // {
-  //   path: "connect-to-bobber",
-  //   loadChildren:
-  //     "./pages/connect-to-bobber/connect-to-bobber.module#ConnectToBobberPageModule"
-  // },
   {
     path: "",
     redirectTo: environment.realTimePage,
