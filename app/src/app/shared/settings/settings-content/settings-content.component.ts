@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionSheetController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
 import { LogsService, TheBobberService, ToastService } from '../../../core';
@@ -15,7 +16,9 @@ export class SettingsContentComponent implements OnInit {
   constructor(
     private bobber: TheBobberService,
     private toast: ToastService,
-    private logsService: LogsService
+    private logsService: LogsService,
+    public actionSheetController: ActionSheetController,
+    public loadingController: LoadingController
   ) {}
 
   ngOnInit() {
@@ -30,5 +33,42 @@ export class SettingsContentComponent implements OnInit {
       this.toast.message(`Error send message ${err}`);
       this.logsService.addError(err);
     }
+  }
+
+  disconnect() {
+    this.bobber.disconnect();
+  }
+
+  async connect() {
+    const loading = await this.loadingController.create({
+      message: "Pulling Devices..."
+    });
+    await loading.present();
+
+    const devices = (await this.bobber.discoverUnpaired()).filter(
+      x =>
+        x.name &&
+        x.name.length > 0 &&
+        x.name.toLocaleLowerCase().includes("bobber")
+    );
+
+    if (devices.length > 0) {
+      const actionSheet = await this.actionSheetController.create({
+        header: "Devices Near Me",
+        buttons: devices.map(item => {
+          return {
+            text: item.name,
+            handler: () => {
+              this.bobber.connectViaAddress(item.address);
+            }
+          };
+        })
+      });
+      await actionSheet.present();
+    } else {
+      this.toast.error("Couldn't find any devices");
+    }
+
+    await loading.dismiss();
   }
 }

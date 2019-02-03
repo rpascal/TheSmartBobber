@@ -16,22 +16,24 @@ class BluetoothSerialMock extends BluetoothSerial {
   }
   discoverUnpaired(): Promise<any> {
     return new Promise((resolve, reject) => {
-      const mock: IDevice[] = [
-        {
-          class: 12,
-          id: "id_1",
-          address: "address_1",
-          name: "name_1"
-        },
-        {
-          class: 22,
-          id: "id_2",
-          address: "address_2",
-          name: "name_2"
-        }
-      ];
+      setTimeout(() => {
+        const mock: IDevice[] = [
+          {
+            class: 12,
+            id: "id_1",
+            address: "address_1",
+            name: "name_1_bobber"
+          },
+          {
+            class: 22,
+            id: "id_2",
+            address: "address_2",
+            name: "name_2"
+          }
+        ];
 
-      resolve(mock);
+        resolve(mock);
+      }, 5000);
     });
   }
 

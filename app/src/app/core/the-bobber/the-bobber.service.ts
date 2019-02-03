@@ -19,7 +19,7 @@ export class TheBobberService extends BluetoothSerialService {
   private readonly BITE_DEL = "@";
   private readonly ADDRESS = "00:06:66:ED:FA:72";
 
-  private takeUntil: Subject<void>;
+  private takeUntilBobber: Subject<void>;
 
   private tempSubject = new Subject<string>();
   temps$: Observable<number>;
@@ -40,13 +40,12 @@ export class TheBobberService extends BluetoothSerialService {
   ) {
     super(bls, router, toastService, zone, logsService);
 
-
     this.tempSubject
       .pipe(
         this.cleanUpMap(this.TEMP_DEL),
         this.toNumMap(),
         this.fb.tempTap(),
-        this.logsService.tempTap(`${TheBobberService.name} - Temp Data`),
+        this.logsService.tempTap(`${TheBobberService.name} - Temp Data`)
         // takeUntil(this.takeUntil)
       )
       .subscribe(data => {});
@@ -56,7 +55,7 @@ export class TheBobberService extends BluetoothSerialService {
         this.cleanUpMap(this.BITE_DEL),
         this.toNumMap(),
         this.fb.biteTap(),
-        this.logsService.tempTap(`${TheBobberService.name} - Bite Data`),
+        this.logsService.tempTap(`${TheBobberService.name} - Bite Data`)
         // takeUntil(this.takeUntil)
       )
       .subscribe(data => {});
@@ -85,11 +84,11 @@ export class TheBobberService extends BluetoothSerialService {
   }
 
   onConnect(): void {
-    this.takeUntil = new Subject();
+    this.takeUntilBobber = new Subject();
 
     this.listenForData()
       .pipe(
-        takeUntil(this.takeUntil),
+        takeUntil(this.takeUntilBobber),
         this.logsService.tempTap(`${TheBobberService.name} - Data Line From &`)
       )
       .subscribe((data: string) => {
@@ -103,8 +102,10 @@ export class TheBobberService extends BluetoothSerialService {
   }
 
   onDisconnect(): void {
-    this.takeUntil.next();
-    this.takeUntil.complete();
-    delete this.takeUntil;
+    if (this.takeUntilBobber) {
+      this.takeUntilBobber.next();
+      this.takeUntilBobber.complete();
+      delete this.takeUntilBobber;
+    }
   }
 }

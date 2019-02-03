@@ -22,12 +22,12 @@ export class ConnectToBobberPage implements OnInit {
 
   public ngOnInit() {
     console.log("Hello")
-    this.isConnecting$ = this.bobber.connecting$;
+    // this.isConnecting$ = this.bobber.connecting$;
     this.connect();
   }
 
   fakeConnecting() {
-    this.bobber.fakeConnecting();
+    // this.bobber.fakeConnecting();
   }
 
   connect() {

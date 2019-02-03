@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TabsPage } from './tabs.page';
-import { RealTimePage } from '../real-time/real-time.page';
 import { LogPage } from '../log/log.page';
-import { ControlsPage } from '../controls/controls.page';
+import { RealTimePage } from '../real-time/real-time.page';
+import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
@@ -25,11 +24,6 @@ const routes: Routes = [
         path: 'log',
         outlet: 'log',
         component: LogPage
-      },
-      {
-        path: 'controls',
-        outlet: 'controls',
-        component: ControlsPage
       }
     ]
   },
