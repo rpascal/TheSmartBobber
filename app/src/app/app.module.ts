@@ -3,6 +3,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicModule } from '@ionic/angular';
 
@@ -17,8 +18,9 @@ import { SharedModule } from './shared/shared.module';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    CoreModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    CoreModule,
     SharedModule,
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),

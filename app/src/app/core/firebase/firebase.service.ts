@@ -37,11 +37,11 @@ export class FirebaseService {
 
   constructor(private afs: AngularFirestore) {}
 
-  createNewLog() {
+  async createNewLog(title: string, description: string) {
     this.activeLog = this.afs.doc<Log>(`logs/${this.afs.createId()}`);
-    this.activeLog.set({
-      title: "Example",
-      description: "Example Desciption",
+    await this.activeLog.set({
+      title: title,
+      description: description,
       timestamp: new Date()
     });
 
@@ -52,17 +52,15 @@ export class FirebaseService {
   }
 
   endLog() {
-    delete this.activeLog
+    delete this.activeLog;
     delete this.bitesCollection;
     delete this.tempsCollection;
     delete this.weatherCollection;
     this.activelyLogging.next(false);
   }
 
-
   biteTap() {
     return tap((value: number) => {
-      console.log(this.bitesCollection);
       if (this.bitesCollection) {
         this.bitesCollection.add({ value: value, timestamp: new Date() });
       }

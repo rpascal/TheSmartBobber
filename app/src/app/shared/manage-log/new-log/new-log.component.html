@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      New Trip
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form">
+
+    <ion-list>
+      <ion-item lines="none">
+        <mat-form-field>
+          <input matInput appearance="standard" placeholder="Title" formControlName="title" maxlength="50" required />
+          <mat-hint align="end">{{form.get('title')?.value.length}} / 50</mat-hint>
+          <mat-error *ngIf="form.get('title')?.hasError('required')">Title is
+            <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </ion-item>
+
+      <ion-item lines="none" class="descriptionInput">
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Description" formControlName="description" maxlength="200" required
+            matTextareaAutosize matAutosizeMinRows=5></textarea>
+          <mat-hint align="end">{{form.get('description')?.value.length}} / 200</mat-hint>
+          <mat-error *ngIf="form.get('description')?.hasError('required')">Description is
+            <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </ion-item>
+
+      <ion-button expand="full" shape="round" class="createBtn" [disabled]="!form.valid" (click)="create()">Create</ion-button>
+    </ion-list>
+
+  </form>
+
+</ion-content>
