@@ -45,19 +45,27 @@ void updateConnectionState() {
 }
 
 void main(void) {
+    
+    Initialize_UART(); //Initialize UART module [RC6 & RC7]
+    PWM_Initialize(); //Initialize PWM Signal [RC2]
+    ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
+    ADC_Initialize(); //Initialize ADC [RA0]
+    
+    
     __delay_ms(1000); //Delay for UART communication 
     connectionState = DISCONNECTED; //Initialize connection state
     char str[30]; //String length for all sprintf functions 
     int phoneInput; //Data Sent from SmartPhone
     int i = 0;
+    int sum1, sum2 = 0;
+    int avg1, avg2 = 0;
+    //float volt = 0;
     //int ADC;
     TRISB0 = 1; //Initialize RB0 as input
     TRISB3 = 0; //Initialize RB3 as output
-
-    Initialize_UART(); //Initialize UART module [RC6 & RC7]
-    PWM_Initialize(); //Initialize PWM Signal [RC2]
-    ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
-    ADC_Initialize(); //Initialize ADC [RA0]
+    TRISC4 = 0; //BITE OUTPUT
+    RC4 = 0;
+    
 
     while (1) {
         updateConnectionState();
@@ -69,6 +77,7 @@ void main(void) {
                 RB3 = 0; //Turn on LED
                 __delay_ms(100);
                 // break;
+                
                 break;
             case CONNECTED:
 
@@ -111,10 +120,60 @@ void main(void) {
 
                     if (phoneInput == '3') //If the user sends "3"
                     {
-                        sprintf(str, "ADC Value: %u", ADC_Read());
+                        for (i=0; i < 20; i++)
+                        {
+                            sum1 = sum1 +  ADC_Read();
+                        }
+                        avg1 = sum1/20;
+                        //volt = ((3.3 * avg)/1023); //it works doe
+                        sprintf(str, "ADC Voltage Value: %u", avg1);
                         UART_send_string(str);
                         UART_send_char(10);
+                        sum1 = 0;
                     }
+                }
+                
+                else 
+                {   
+                    for (i=0; i < 10; i++)
+                        {
+                            sum1 = sum1 +  ADC_Read();
+                        }
+                        avg1 = sum1/10;
+                        sum1 = 0;
+                    
+//                    __delay_ms(100);
+//                    
+//                    for (i=0; i < 10; i++)
+//                        {
+//                            sum2 = sum2 +  ADC_Read();
+//                        }
+//                        avg2 = sum2/10;
+//                        sum2 = 0;
+                        
+                    if (avg1 <= 42)
+                    {
+                         RC4 = 1;
+                         UART_send_string("FISH ATTACK");
+                         UART_send_char(10);
+                         
+                        
+                    }
+                    
+                    else if (avg1 > 40)
+                    {
+                        RC4 = 0;
+                    }
+                            
+                        
+//                        if (avg1 - avg2 >= 10)
+//                    {
+//                         RC4 = 1;
+//                         UART_send_string("FISH ATTACK");
+//                         UART_send_char(10);
+//                         RC4 = 0;
+//                    }
+                        
                 }
 
                 break;
