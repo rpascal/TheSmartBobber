@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 
 import { LogsService, TheBobberService, ToastService, WeatherService } from '../../core';
 
@@ -7,7 +7,7 @@ import { LogsService, TheBobberService, ToastService, WeatherService } from '../
   templateUrl: "real-time.page.html",
   styleUrls: ["real-time.page.scss"]
 })
-export class RealTimePage implements OnInit, AfterViewInit {
+export class RealTimePage implements AfterViewInit {
   constructor(
     private bobber: TheBobberService,
     private toast: ToastService,
@@ -24,5 +24,4 @@ export class RealTimePage implements OnInit, AfterViewInit {
     );
   }
 
-  public ngOnInit() {}
 }

@@ -8,6 +8,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+  <div *ngFor='let log of logs$ | async'>
+    <pre><code>{{log | json}}</code></pre>
+  </div>
 
 </ion-content>

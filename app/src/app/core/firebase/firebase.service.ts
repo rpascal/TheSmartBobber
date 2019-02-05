@@ -115,4 +115,10 @@ export class FirebaseService {
     // , ref => ref.orderBy("timestamp").limit(10)
     return this.afs.collection<Bite>("bite").valueChanges();
   }
+
+  getLogs() {
+    return this.afs
+      .collection<Log>("logs", ref => ref.orderBy("timestamp", 'desc'))
+      .valueChanges();
+  }
 }
