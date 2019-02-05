@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Storage } from '@capacitor/core';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -19,6 +20,8 @@ export interface Log {
   title: string;
   description: string;
   timestamp: Date;
+  weather?: IWeather;
+  endDate?: Date;
   temps?: Temp[];
   bites?: Bite[];
 }
@@ -27,6 +30,8 @@ export interface Log {
   providedIn: CoreModule
 })
 export class FirebaseService {
+  private readonly log_uid = "log_uid";
+
   activelyLogging = new BehaviorSubject<boolean>(false);
 
   private activeLog: AngularFirestoreDocument<Log>;
@@ -37,26 +42,49 @@ export class FirebaseService {
 
   constructor(private afs: AngularFirestore) {}
 
-  async createNewLog(title: string, description: string) {
-    this.activeLog = this.afs.doc<Log>(`logs/${this.afs.createId()}`);
+  async appLoad() {
+    try {
+      const log_uid = (await Storage.get({ key: this.log_uid })).value;
+      if (log_uid) {
+        this.setupActiveLog(log_uid);
+      }
+    } catch {}
+  }
+
+  async createNewLog(title: string, description: string, weather?: IWeather) {
+    const uid = this.afs.createId();
+    this.setupActiveLog(uid);
+    await Storage.set({
+      key: this.log_uid,
+      value: uid
+    });
+
     await this.activeLog.set({
       title: title,
       description: description,
+      weather: weather,
       timestamp: new Date()
     });
+  }
 
+  private setupActiveLog(uid: string) {
+    this.activeLog = this.afs.doc<Log>(`logs/${uid}`);
     this.bitesCollection = this.activeLog.collection<Bite>("bite");
     this.tempsCollection = this.activeLog.collection<Temp>("temp");
     this.weatherCollection = this.activeLog.collection<IWeather>("weather");
     this.activelyLogging.next(true);
   }
 
-  endLog() {
+  async endLog() {
+    await this.activeLog.update({
+      endDate: new Date()
+    });
     delete this.activeLog;
     delete this.bitesCollection;
     delete this.tempsCollection;
     delete this.weatherCollection;
     this.activelyLogging.next(false);
+    await Storage.clear();
   }
 
   biteTap() {

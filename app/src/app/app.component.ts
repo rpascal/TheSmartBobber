@@ -3,7 +3,7 @@ import { Plugins } from '@capacitor/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 
-import { TheBobberService } from './core';
+import { FirebaseService, TheBobberService } from './core';
 
 const { SplashScreen } = Plugins;
 
@@ -15,7 +15,8 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private statusBar: StatusBar,
-    private bobber: TheBobberService
+    private bobber: TheBobberService,
+    private fb: FirebaseService
   ) {
     this.initializeApp();
   }
@@ -33,5 +34,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.bobber.connect();
+    this.fb.appLoad();
   }
 }

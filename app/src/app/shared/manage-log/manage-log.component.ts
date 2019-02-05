@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ActionSheetController, ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
 import { FirebaseService } from '../../core/firebase/firebase.service';
@@ -15,7 +15,8 @@ export class ManageLogComponent implements OnInit {
 
   constructor(
     private fb: FirebaseService,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public actionSheetController: ActionSheetController
   ) {}
 
   ngOnInit() {
@@ -24,14 +25,30 @@ export class ManageLogComponent implements OnInit {
 
   async startLog() {
     const modal = await this.modalController.create({
-      component: NewLogComponent,
-      // componentProps: { value: 123 }
+      component: NewLogComponent
     });
     return await modal.present();
-    // this.fb.createNewLog();
   }
 
-  endLog() {
-    this.fb.endLog();
+  async endLog() {
+    const actionSheet = await this.actionSheetController.create({
+      header: "End Trip?",
+      buttons: [
+        {
+          text: "Yes",
+          handler: async () => {
+            await this.fb.endLog();
+            actionSheet.dismiss();
+          }
+        },
+        {
+          text: "No",
+          handler: () => {
+            actionSheet.dismiss();
+          }
+        }
+      ]
+    });
+    await actionSheet.present();
   }
 }
