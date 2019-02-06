@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Storage } from '@capacitor/core';
-import { BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
 import { IWeather } from '../weather/weather.service';
@@ -25,6 +25,15 @@ export interface Log {
   temps?: Temp[];
   bites?: Bite[];
 }
+export interface ILogDatabase {
+  title: string;
+  description: string;
+  timestamp: Date;
+  weather?: IWeather;
+  endDate?: Date;
+  temps?: Observable<Temp[]>;
+  bites?: Observable<Bite[]>;
+}
 
 @Injectable({
   providedIn: CoreModule
@@ -45,6 +54,7 @@ export class FirebaseService {
   async appLoad() {
     try {
       const log_uid = (await Storage.get({ key: this.log_uid })).value;
+      console.log(log_uid);
       if (log_uid) {
         this.setupActiveLog(log_uid);
       }
@@ -90,6 +100,7 @@ export class FirebaseService {
   biteTap() {
     return tap((value: number) => {
       if (this.bitesCollection) {
+        console.log(this.bitesCollection);
         this.bitesCollection.add({ value: value, timestamp: new Date() });
       }
     });
@@ -97,6 +108,7 @@ export class FirebaseService {
 
   tempTap() {
     return tap((value: number) => {
+      console.log(this.tempsCollection);
       if (this.tempsCollection) {
         this.tempsCollection.add({ value: value, timestamp: new Date() });
       }
@@ -105,6 +117,7 @@ export class FirebaseService {
 
   weatherTap() {
     return tap((value: IWeather) => {
+      console.log(this.weatherCollection);
       if (this.weatherCollection) {
         this.weatherCollection.add({ ...value, timestamp: new Date() });
       }
@@ -116,9 +129,29 @@ export class FirebaseService {
     return this.afs.collection<Bite>("bite").valueChanges();
   }
 
-  getLogs() {
+  getLogs(): Observable<ILogDatabase[]> {
     return this.afs
-      .collection<Log>("logs", ref => ref.orderBy("timestamp", 'desc'))
-      .valueChanges();
+      .collection<Log>("logs", ref => ref.orderBy("timestamp", "desc"))
+      .snapshotChanges()
+      .pipe(
+        map(data => {
+          return data.map(item => {
+            const log = item.payload.doc.data() as Log;
+            const id = item.payload.doc.id;
+
+            return {
+              ...log,
+              temps: this.afs
+                .collection<Temp>(`logs/${id}/temp`)
+                .get()
+                .pipe(map(x => x.docs.map(y => y.data() as Temp))),
+              bites: this.afs
+                .collection<Temp>(`logs/${id}/bite`)
+                .get()
+                .pipe(map(x => x.docs.map(y => y.data() as Bite)))
+            };
+          });
+        })
+      );
   }
 }

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CameraResultType, CameraSource, Plugins } from '@capacitor/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
-import { FirebaseService, Log } from '../../core';
+import { FirebaseService, ILogDatabase } from '../../core';
 
 @Component({
   selector: "app-log",
@@ -12,11 +13,33 @@ import { FirebaseService, Log } from '../../core';
 })
 export class LogPage implements OnInit {
   image: any;
-  logs$: Observable<Log[]>;
+  logs$: Observable<ILogDatabase[]>;
   constructor(private sanitizer: DomSanitizer, private fb: FirebaseService) {}
 
   ngOnInit() {
-    this.logs$ = this.fb.getLogs();
+    this.logs$ = this.fb.getLogs().pipe(tap(data => console.log("Tap", data)));
+    this.fb.getLogs().subscribe(data => {
+      console.log(data);
+      data.forEach(item => {
+        item.temps.subscribe(x => console.log(x));
+      });
+    });
+  }
+
+  trackHero(index, hero) {
+    console.log(hero);
+  }
+
+  getAverage(arr: number[]) {
+    console.log(arr);
+    if (!arr) {
+      return 0;
+    }
+    return arr.reduce((a, b) => a + b) / arr.length;
+  }
+
+  blah(log) {
+    console.log(log);
   }
 
   async takePhoto() {
