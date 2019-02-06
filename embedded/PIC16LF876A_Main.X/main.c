@@ -18,168 +18,179 @@
 #include "PWM.h"
 #include "ADC.h"
 
-enum connectionStates {
+enum connectionStates
+{
     DISCONNECTED,
     CONNECTED
 };
 enum connectionStates connectionState;
 
-void updateConnectionState() {
+void updateConnectionState()
+{
 
-    switch (connectionState) {
-        case DISCONNECTED:
-            if (RB0 != 0) {
-                UART_send_string("UART Module Initialized and active"); // Introductory Text
-                UART_send_char(10); //ASCII value 10 is used for carriage return (to print in new line)
-                UART_send_string("Searching for fish to destroy");
-                UART_send_char(10); //ASCII value 10 is used for carriage return (to print in new line)
-                connectionState = CONNECTED;
-            }
-            break;
-        case CONNECTED:
-            if (RB0 == 0) {
-                connectionState = DISCONNECTED;
-            }
-            break;
+    switch (connectionState)
+    {
+    case DISCONNECTED:
+        if (RB0 != 0)
+        {
+            UART_send_string("UART Module Initialized and active"); // Introductory Text
+            UART_send_char(10);                                     //ASCII value 10 is used for carriage return (to print in new line)
+            UART_send_string("Searching for fish to destroy");
+            UART_send_char(10); //ASCII value 10 is used for carriage return (to print in new line)
+            connectionState = CONNECTED;
+        }
+        break;
+    case CONNECTED:
+        if (RB0 == 0)
+        {
+            connectionState = DISCONNECTED;
+        }
+        break;
     }
 }
 
-void main(void) {
-    
-    Initialize_UART(); //Initialize UART module [RC6 & RC7]
-    PWM_Initialize(); //Initialize PWM Signal [RC2]
-    ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
-    ADC_Initialize(); //Initialize ADC [RA0]
-    
-    
-    __delay_ms(1000); //Delay for UART communication 
-    connectionState = DISCONNECTED; //Initialize connection state
-    char str[30]; //String length for all sprintf functions 
-    int phoneInput; //Data Sent from SmartPhone
+int LoopBiteLogic(int previousAvg)
+{
+    /*
+        Do we really need to read ADC 10 times then average???
+        Could we just read it once?
+        int LoopBiteLogic(int previousValue)
+        {
+            int value = ADC_Read();
+            if ((previousValue - value) >= 10)
+            {
+                RC4 = 1;
+                UART_send_string("FISH ATTACK");
+                UART_send_char(10);
+            }
+            else
+            {
+                RC4 = 0;
+            }
+            return value;
+        }
+        or is there not enough data to accurately calc doing it this way
+    */
+
     int i = 0;
-    int diff;
-    int sum1, sum2 = 0;
-    int avg1, avg2 = 0;
+
+    int sum = 0;
+    int avg = 0;
+
+    for (i = 0; i < 10; i++)
+    {
+        sum = sum + ADC_Read();
+    }
+    avg = sum / 10;
+
+    if ((previousAvg - avg) >= 10)
+    {
+        RC4 = 1;
+        UART_send_string("FISH ATTACK");
+        UART_send_char(10);
+    }
+
+    else
+    {
+        RC4 = 0;
+    }
+    return avg;
+}
+
+void main(void)
+{
+
+    Initialize_UART();    //Initialize UART module [RC6 & RC7]
+    PWM_Initialize();     //Initialize PWM Signal [RC2]
+    ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
+    ADC_Initialize();     //Initialize ADC [RA0]
+
+    __delay_ms(1000);               //Delay for UART communication
+    connectionState = DISCONNECTED; //Initialize connection state
+    char str[30];                   //String length for all sprintf functions
+    int phoneInput;                 //Data Sent from SmartPhone
+    int currentBiteLogicValue = 0;
     //float volt = 0;
     //int ADC;
     TRISB0 = 1; //Initialize RB0 as input
     TRISB3 = 0; //Initialize RB3 as output
     TRISC4 = 0; //BITE OUTPUT
     RC4 = 0;
-    
 
-    while (1) {
+    while (1)
+    {
         updateConnectionState();
+        currentBiteLogicValue = LoopBiteLogic(currentBiteLogicValue);
 
-        switch (connectionState) {
-            case DISCONNECTED:
-                RB3 = 1; //Turn on LED
-                __delay_ms(100);
-                RB3 = 0; //Turn on LED
-                __delay_ms(100);
-                // break;
-                
-                break;
-            case CONNECTED:
+        switch (connectionState)
+        {
+        case DISCONNECTED:
+            RB3 = 1; //Turn on LED
+            __delay_ms(100);
+            RB3 = 0; //Turn on LED
+            __delay_ms(100);
+            // break;
 
+            break;
+        case CONNECTED:
 
-                phoneInput = UART_get_char();
+            // Send Current Average to phone
+            sendBiteDataToPhone(currentBiteLogicValue);
 
-                if (phoneInput != *NO_INPUT) 
+            phoneInput = UART_get_char();
+
+            if (phoneInput != *NO_INPUT)
+            {
+                if (phoneInput == '1') //If the user sends "1"
                 {
-                    if (phoneInput == '1') //If the user sends "1"
+                    RB3 = 1; //Turn on LED
+                    //UART_send_temp("1");
+                    UART_send_string("RED LED -> ON"); //Send notification to the computer
+                    UART_send_char(10);
+                }
+
+                if (phoneInput == '0') //If the user sends "0"
+                {
+                    RB3 = 0; //Turn off LED
+                    //UART_send_temp("0");
+                    UART_send_string("RED LED -> OFF"); //Send notification to the computer
+                    UART_send_char(10);
+                }
+
+                if (phoneInput == '2') //If the user sends "2"
+                {
+                    if (ow_reset() == 1)
                     {
-                        RB3 = 1; //Turn on LED
-                        //UART_send_temp("1");
-                        UART_send_string("RED LED -> ON"); //Send notification to the computer
+                        UART_send_string("Temp. NOT connected");
                         UART_send_char(10);
                     }
 
-                    if (phoneInput == '0') //If the user sends "0"
+                    if (ow_reset() == 0)
                     {
-                        RB3 = 0; //Turn off LED
-                        //UART_send_temp("0");
-                        UART_send_string("RED LED -> OFF"); //Send notification to the computer
+                        UART_send_string("Temp. IS connected");
                         UART_send_char(10);
-                    }
-
-                    if (phoneInput == '2') //If the user sends "2"
-                    {
-                        if (ow_reset() == 1) {
-                            UART_send_string("Temp. NOT connected");
-                            UART_send_char(10);
-                        }
-
-                        if (ow_reset() == 0) {
-                            UART_send_string("Temp. IS connected");
-                            UART_send_char(10);
-                            sprintf(str, "Water Temp: %d", read_temp());
-                            UART_send_string(str);
-                            UART_send_char(10);
-                        }
-                    }
-
-                    if (phoneInput == '3') //If the user sends "3"
-                    {
-                        for (i=0; i < 20; i++)
-                        {
-                            sum1 = sum1 +  ADC_Read();
-                        }
-                        avg1 = sum1/20;
-                        //volt = ((3.3 * avg)/1023); //it works doe
-                        sprintf(str, "ADC Voltage Value: %u", avg1);
+                        sprintf(str, "Water Temp: %d", read_temp());
                         UART_send_string(str);
                         UART_send_char(10);
-                        sum1 = 0;
                     }
-                }
-                
-                else 
-                {   
-                    for (i=0; i < 10; i++)
-                        {
-                            sum1 = sum1 +  ADC_Read();
-                        }
-                        avg1 = sum1/10;
-                        sum1 = 0;
-                    
-                    __delay_ms(100);
-                    
-                    for (i=0; i < 10; i++)
-                        {
-                            sum2 = sum2 +  ADC_Read();
-                        }
-                        avg2 = sum2/10;
-                        sum2 = 0;
-                     
-                    diff = avg1 - avg2;
-                        
-                    if (diff >= 10)
-                    {
-                         RC4 = 1;
-                         UART_send_string("FISH ATTACK");
-                         UART_send_char(10);
-                         
-                        
-                    }
-                    
-                    else
-                    {
-                        RC4 = 0;
-                    }
-                            
-                        
-//                        if (avg1 - avg2 >= 10)
-//                    {
-//                         RC4 = 1;
-//                         UART_send_string("FISH ATTACK");
-//                         UART_send_char(10);
-//                         RC4 = 0;
-//                    }
-                        
                 }
 
-                break;
+                if (phoneInput == '3') //If the user sends "3"
+                {
+                    for (i = 0; i < 20; i++)
+                    {
+                        sum1 = sum1 + ADC_Read();
+                    }
+                    avg1 = sum1 / 20;
+                    //volt = ((3.3 * avg)/1023); //it works doe
+                    sprintf(str, "ADC Voltage Value: %u", avg1);
+                    UART_send_string(str);
+                    UART_send_char(10);
+                    sum1 = 0;
+                }
+            }
+
+            break;
         }
     }
     return;
