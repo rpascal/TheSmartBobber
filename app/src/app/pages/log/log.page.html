@@ -9,8 +9,6 @@
 </ion-header>
 
 <ion-content padding>
-<!-- ; trackBy: trackHero -->
-
   <ion-card *ngFor='let log of (logs$ | async)'>
     <ion-card-header>
       <ion-card-title>{{log.title}}</ion-card-title>
@@ -18,7 +16,6 @@
     </ion-card-header>
 
     <ion-card-content>
-      <!-- {{Math.random()}} -->
       <p>
         <b>Date:</b> {{log.timestamp.toDate() | date:'MM/dd/yyyy'}}
       </p>
@@ -26,10 +23,12 @@
         <p><b>Location:</b> {{log.weather.name}}</p>
         <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
       </ng-container>
-      <!-- {{blah(log)}} -->
-      <!-- <p>
-        <b>Average Water Temperature:</b> {{getAverage(log.temp)}}
-      </p> -->
+      <p>
+        <b>Average Water Temperature:</b> {{log.temps | async | number : '1.2-2'}} <span class="degree"></span>F
+      </p>
+      <p>
+        <b>Confirmed bites:</b> {{log.bites | async}}
+      </p>
 
     </ion-card-content>
   </ion-card>

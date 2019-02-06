@@ -4,6 +4,7 @@ import * as chartjs_plugin_annotationas from 'chartjs-plugin-annotation';
 
 import { TheBobberService } from '../../core';
 import { FirebaseService } from '../../core/firebase/firebase.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: "app-bite-graph",
@@ -11,7 +12,7 @@ import { FirebaseService } from '../../core/firebase/firebase.service';
   styleUrls: ["./bite-graph.component.scss"]
 })
 export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
-  private readonly MAX = 10;
+  private readonly MAX = environment.bitePeak;
 
   get greenUpper() {
     return Math.floor(this.MAX * 0.2);

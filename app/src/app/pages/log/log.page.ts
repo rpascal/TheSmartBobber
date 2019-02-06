@@ -18,12 +18,6 @@ export class LogPage implements OnInit {
 
   ngOnInit() {
     this.logs$ = this.fb.getLogs().pipe(tap(data => console.log("Tap", data)));
-    this.fb.getLogs().subscribe(data => {
-      console.log(data);
-      data.forEach(item => {
-        item.temps.subscribe(x => console.log(x));
-      });
-    });
   }
 
   trackHero(index, hero) {

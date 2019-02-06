@@ -6,6 +6,7 @@ import { map, tap } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
 import { IWeather } from '../weather/weather.service';
+import { environment } from '../../../environments/environment';
 
 export interface Bite {
   value: number;
@@ -31,8 +32,8 @@ export interface ILogDatabase {
   timestamp: Date;
   weather?: IWeather;
   endDate?: Date;
-  temps?: Observable<Temp[]>;
-  bites?: Observable<Bite[]>;
+  temps?: Observable<number>;
+  bites?: Observable<number>;
 }
 
 @Injectable({
@@ -49,7 +50,7 @@ export class FirebaseService {
   tempsCollection: AngularFirestoreCollection<Temp>;
   weatherCollection: AngularFirestoreCollection<IWeather>;
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) { }
 
   async appLoad() {
     try {
@@ -58,7 +59,7 @@ export class FirebaseService {
       if (log_uid) {
         this.setupActiveLog(log_uid);
       }
-    } catch {}
+    } catch { }
   }
 
   async createNewLog(title: string, description: string, weather?: IWeather) {
@@ -100,7 +101,6 @@ export class FirebaseService {
   biteTap() {
     return tap((value: number) => {
       if (this.bitesCollection) {
-        console.log(this.bitesCollection);
         this.bitesCollection.add({ value: value, timestamp: new Date() });
       }
     });
@@ -108,7 +108,6 @@ export class FirebaseService {
 
   tempTap() {
     return tap((value: number) => {
-      console.log(this.tempsCollection);
       if (this.tempsCollection) {
         this.tempsCollection.add({ value: value, timestamp: new Date() });
       }
@@ -117,16 +116,10 @@ export class FirebaseService {
 
   weatherTap() {
     return tap((value: IWeather) => {
-      console.log(this.weatherCollection);
       if (this.weatherCollection) {
         this.weatherCollection.add({ ...value, timestamp: new Date() });
       }
     });
-  }
-
-  monitorRecentBites() {
-    // , ref => ref.orderBy("timestamp").limit(10)
-    return this.afs.collection<Bite>("bite").valueChanges();
   }
 
   getLogs(): Observable<ILogDatabase[]> {
@@ -143,12 +136,39 @@ export class FirebaseService {
               ...log,
               temps: this.afs
                 .collection<Temp>(`logs/${id}/temp`)
-                .get()
-                .pipe(map(x => x.docs.map(y => y.data() as Temp))),
+                .snapshotChanges()
+                .pipe(map(x => {
+                  const values = x.map(y => (y.payload.doc.data() as Temp).value);
+                  return values.reduce((x, y) => x + y) / values.length;
+                })),
               bites: this.afs
-                .collection<Temp>(`logs/${id}/bite`)
-                .get()
-                .pipe(map(x => x.docs.map(y => y.data() as Bite)))
+                .collection<Temp>(`logs/${id}/bite`, ref => ref.orderBy("timestamp"))
+                .snapshotChanges()
+                .pipe(map(x => {
+
+                  const values = x.map(y => (y.payload.doc.data() as Bite).value)
+                  const MAX = environment.bitePeak;
+                  
+                  var sequenceFound = false;
+                  var numberInSeq = 0;
+                  var threshold = 3;
+                  var count = 0;
+                  
+                  values.forEach(x => {
+                    if (x === MAX) {
+                      numberInSeq++;
+                      if (numberInSeq >= threshold && sequenceFound === false) {
+                        count++;
+                        sequenceFound = true;
+                        numberInSeq = 0;
+                      }
+                    } else {
+                      numberInSeq = 0;
+                      sequenceFound = false;
+                    }
+                  });
+                  return count;
+                }))
             };
           });
         })

@@ -46,7 +46,6 @@ export class TheBobberService extends BluetoothSerialService {
         this.toNumMap(),
         this.fb.tempTap(),
         this.logsService.tempTap(`${TheBobberService.name} - Temp Data`)
-        // takeUntil(this.takeUntil)
       )
       .subscribe(data => {});
 
@@ -56,7 +55,6 @@ export class TheBobberService extends BluetoothSerialService {
         this.toNumMap(),
         this.fb.biteTap(),
         this.logsService.tempTap(`${TheBobberService.name} - Bite Data`)
-        // takeUntil(this.takeUntil)
       )
       .subscribe(data => {});
 
