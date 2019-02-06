@@ -57,6 +57,7 @@ void main(void) {
     char str[30]; //String length for all sprintf functions 
     int phoneInput; //Data Sent from SmartPhone
     int i = 0;
+    int diff;
     int sum1, sum2 = 0;
     int avg1, avg2 = 0;
     //float volt = 0;
@@ -142,16 +143,18 @@ void main(void) {
                         avg1 = sum1/10;
                         sum1 = 0;
                     
-//                    __delay_ms(100);
-//                    
-//                    for (i=0; i < 10; i++)
-//                        {
-//                            sum2 = sum2 +  ADC_Read();
-//                        }
-//                        avg2 = sum2/10;
-//                        sum2 = 0;
+                    __delay_ms(100);
+                    
+                    for (i=0; i < 10; i++)
+                        {
+                            sum2 = sum2 +  ADC_Read();
+                        }
+                        avg2 = sum2/10;
+                        sum2 = 0;
+                     
+                    diff = avg1 - avg2;
                         
-                    if (avg1 <= 42)
+                    if (diff >= 10)
                     {
                          RC4 = 1;
                          UART_send_string("FISH ATTACK");
@@ -160,7 +163,7 @@ void main(void) {
                         
                     }
                     
-                    else if (avg1 > 40)
+                    else
                     {
                         RC4 = 0;
                     }
