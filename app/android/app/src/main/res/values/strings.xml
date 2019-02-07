@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">the-smart-bobber</string>
-    <string name="title_activity_main">the-smart-bobber</string>
+    <string name="app_name">The Smart Bobber</string>
+    <string name="title_activity_main">The Smart Bobber</string>
     <string name="package_name">com.thesmartbobber.bobber</string>
     <string name="fileprovider_authority">com.thesmartbobber.bobber.fileprovider</string>
     <string name="custom_url_scheme">com.thesmartbobber.bobber</string>

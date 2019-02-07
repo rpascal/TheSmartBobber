@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Real-time Info</ion-title>
+    <ion-title>The Smart Bobber</ion-title>
     <ion-buttons slot="primary">
       <app-manage-log></app-manage-log>
       <app-settings></app-settings>
@@ -12,7 +12,13 @@
 
 <ion-content padding>
 
+  
   <app-bite-graph></app-bite-graph>
-
+  
+  
+  <ng-container *ngIf="weatherData">
+    <p><b>Location:</b> {{weatherData.name}}</p>
+    <p><b>Temperature:</b> {{weatherData.main.temp}} <span class="degree"></span>F</p>
+  </ng-container>
 
 </ion-content>

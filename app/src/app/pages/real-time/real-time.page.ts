@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 
-import { LogsService, TheBobberService, ToastService, WeatherService } from '../../core';
+import { IWeather, LogsService, TheBobberService, ToastService, WeatherService } from '../../core';
 
 @Component({
   selector: "app-real-time",
@@ -8,6 +8,8 @@ import { LogsService, TheBobberService, ToastService, WeatherService } from '../
   styleUrls: ["real-time.page.scss"]
 })
 export class RealTimePage implements AfterViewInit {
+  weatherData: IWeather;
+
   constructor(
     private bobber: TheBobberService,
     private toast: ToastService,
@@ -18,7 +20,7 @@ export class RealTimePage implements AfterViewInit {
   ngAfterViewInit() {
     this.weather.getWeather().subscribe(
       data => {
-        this.logsService.addMessage(data, "Weather");
+        this.weatherData = data;
       },
       err => this.logsService.addError(err, "Weather")
     );

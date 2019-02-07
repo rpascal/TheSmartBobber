@@ -20,3 +20,7 @@
         color: white;
     }
 }
+
+span.degree:after {
+    content: "\00b0"
+}
