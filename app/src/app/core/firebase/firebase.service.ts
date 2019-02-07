@@ -16,6 +16,10 @@ export interface Temp {
   value: number;
   timestamp: Date;
 }
+export interface Image {
+  url: string;
+  timestamp: Date;
+}
 
 export interface Log {
   title: string;
@@ -50,7 +54,7 @@ export class FirebaseService {
   tempsCollection: AngularFirestoreCollection<Temp>;
   weatherCollection: AngularFirestoreCollection<IWeather>;
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) { }
 
   async appLoad() {
     try {
@@ -59,7 +63,7 @@ export class FirebaseService {
       if (log_uid) {
         this.setupActiveLog(log_uid);
       }
-    } catch {}
+    } catch { }
   }
 
   async createNewLog(title: string, description: string, weather?: IWeather) {
@@ -185,5 +189,20 @@ export class FirebaseService {
           });
         })
       );
+  }
+
+  attachImage(url: string) {
+    if (this.activeLog) {
+      this.activeLog.collection<Image>("images").add({
+        url: url,
+        timestamp: new Date()
+      })
+    } else {
+      this.afs.collection("uncategorizedImages").add({
+        url: url,
+        timestamp: new Date()
+      })
+    }
+
   }
 }

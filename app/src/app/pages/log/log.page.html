@@ -9,6 +9,9 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-button (click)="imageTake()" color="primary">Photo</ion-button>
+
+
   <ion-card *ngFor='let log of (logs$ | async)'>
     <ion-card-header>
       <ion-card-title>{{log.title}}</ion-card-title>
