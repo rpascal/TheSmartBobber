@@ -27,10 +27,10 @@
         <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
       </ng-container>
       <p>
-        <b>Average Water Temperature:</b> {{log.temps | async | number : '1.2-2'}} <span class="degree"></span>F
+        <b>Average Water Temperature:</b> {{log.averageTemp | number : '1.2-2'}} <span class="degree"></span>F
       </p>
       <p>
-        <b>Confirmed bites:</b> {{log.bites | async}}
+        <b>Confirmed bites:</b> {{log.confirmedBites}}
       </p>
 
     </ion-card-content>

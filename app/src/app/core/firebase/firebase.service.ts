@@ -36,8 +36,10 @@ export interface ILogDatabase {
   timestamp: Date;
   weather?: IWeather;
   endDate?: Date;
-  temps?: Observable<number>;
-  bites?: Observable<number>;
+  confirmedBites: number;
+  averageTemp: number;
+  // temps?: Observable<number>;
+  // bites?: Observable<number>;
 }
 
 @Injectable({
@@ -128,67 +130,8 @@ export class FirebaseService {
 
   getLogs(): Observable<ILogDatabase[]> {
     return this.afs
-      .collection<Log>("logs", ref => ref.orderBy("timestamp", "desc"))
-      .snapshotChanges()
-      .pipe(
-        map(data => {
-          return data.map(item => {
-            const log = item.payload.doc.data() as Log;
-            const id = item.payload.doc.id;
-
-            return {
-              ...log,
-              temps: this.afs
-                .collection<Temp>(`logs/${id}/temp`)
-                .snapshotChanges()
-                .pipe(
-                  map(x => {
-                    const values = x.map(
-                      y => (y.payload.doc.data() as Temp).value
-                    );
-                    return values.reduce((xx, y) => xx + y) / values.length;
-                  })
-                ),
-              bites: this.afs
-                .collection<Temp>(`logs/${id}/bite`, ref =>
-                  ref.orderBy("timestamp")
-                )
-                .snapshotChanges()
-                .pipe(
-                  map(x => {
-                    const values = x.map(
-                      y => (y.payload.doc.data() as Bite).value
-                    );
-                    const MAX = environment.bitePeak;
-
-                    let sequenceFound = false;
-                    let numberInSeq = 0;
-                    const threshold = 3;
-                    let count = 0;
-
-                    values.forEach(xx => {
-                      if (xx === MAX) {
-                        numberInSeq++;
-                        if (
-                          numberInSeq >= threshold &&
-                          sequenceFound === false
-                        ) {
-                          count++;
-                          sequenceFound = true;
-                          numberInSeq = 0;
-                        }
-                      } else {
-                        numberInSeq = 0;
-                        sequenceFound = false;
-                      }
-                    });
-                    return count;
-                  })
-                )
-            };
-          });
-        })
-      );
+      .collection<ILogDatabase>("logs", ref => ref.orderBy("timestamp", "desc"))
+      .valueChanges();
   }
 
   attachImage(url: string) {
