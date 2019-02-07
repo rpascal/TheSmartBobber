@@ -2,13 +2,15 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { Observable, Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { map, takeUntil, tap } from 'rxjs/operators';
 
+import { environment } from '../../../environments/environment';
 import { BluetoothSerialService } from '../bluetooth-serial/bluetooth-serial.service';
 import { CoreModule } from '../core.module';
 import { FirebaseService } from '../firebase/firebase.service';
 import { LogsService } from '../logs-service/logs.service';
 import { ToastService } from '../toast/toast.serivce';
+import { VibrationService } from '../vibration/vibration.service';
 
 @Injectable({
   providedIn: CoreModule
@@ -36,7 +38,8 @@ export class TheBobberService extends BluetoothSerialService {
     toastService: ToastService,
     zone: NgZone,
     logsService: LogsService,
-    private fb: FirebaseService
+    private fb: FirebaseService,
+    private vibration: VibrationService
   ) {
     super(bls, router, toastService, zone, logsService);
 
@@ -54,6 +57,11 @@ export class TheBobberService extends BluetoothSerialService {
         this.cleanUpMap(this.BITE_DEL),
         this.toNumMap(),
         this.fb.biteTap(),
+        tap(data => {
+          if (data === environment.bitePeak) {
+            this.vibration.triple();
+          }
+        }),
         this.logsService.tempTap(`${TheBobberService.name} - Bite Data`)
       )
       .subscribe(data => {});

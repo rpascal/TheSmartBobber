@@ -1,4 +1,5 @@
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Observable, Subject, timer } from 'rxjs';
 
 import { IDevice } from './bluetooth-serial/bluetooth-serial.service';
@@ -67,6 +68,7 @@ export class CoreProviders {
       // Use device providers
       providers.push(BluetoothSerial);
     }
+    providers.push(NativeAudio);
 
     return providers;
   }

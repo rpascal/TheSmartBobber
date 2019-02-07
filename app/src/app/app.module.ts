@@ -14,6 +14,7 @@ import { AppProviders } from './app.providers';
 import { CoreModule } from './core';
 import { SharedModule } from './shared/shared.module';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

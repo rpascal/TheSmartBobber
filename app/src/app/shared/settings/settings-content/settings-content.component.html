@@ -12,6 +12,14 @@
       <ion-label>Autohook</ion-label>
       <ion-toggle></ion-toggle>
     </ion-item>
+    <ion-item>
+      <ion-label>Vibration</ion-label>
+      <ion-toggle (ionChange)="vibrationChange()" [(ngModel)]="vibrationStatus"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <ion-label>Sounds</ion-label>
+        <ion-toggle (ionChange)="soundChange()" [(ngModel)]="soundStatus"></ion-toggle>
+      </ion-item>
 
     <!-- <ion-item-divider>
     </ion-item-divider>

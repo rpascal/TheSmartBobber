@@ -3,6 +3,8 @@ import { ActionSheetController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
 import { LogsService, TheBobberService, ToastService } from '../../../core';
+import { SoundsService } from '../../../core/sounds/sounds.service';
+import { VibrationService } from '../../../core/vibration/vibration.service';
 
 @Component({
   selector: "app-settings-content",
@@ -11,6 +13,9 @@ import { LogsService, TheBobberService, ToastService } from '../../../core';
 })
 export class SettingsContentComponent implements OnInit {
   ledStatus = false;
+  vibrationStatus = true;
+  soundStatus = true;
+
   connectionStatusMessage$: Observable<string>;
 
   constructor(
@@ -18,10 +23,14 @@ export class SettingsContentComponent implements OnInit {
     private toast: ToastService,
     private logsService: LogsService,
     public actionSheetController: ActionSheetController,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    private vibration: VibrationService,
+    private sounds: SoundsService
   ) {}
 
   ngOnInit() {
+    this.vibrationStatus = this.vibration.active;
+    this.soundStatus = this.sounds.active;
     this.connectionStatusMessage$ = this.bobber.connectionStatusMessage$;
   }
 
@@ -33,6 +42,14 @@ export class SettingsContentComponent implements OnInit {
       this.toast.message(`Error send message ${err}`);
       this.logsService.addError(err);
     }
+  }
+
+  vibrationChange() {
+    this.vibration.active = this.vibrationStatus;
+  }
+
+  soundChange() {
+    this.sounds.active = this.soundStatus;
   }
 
   disconnect() {
