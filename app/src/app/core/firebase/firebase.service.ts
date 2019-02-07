@@ -4,9 +4,9 @@ import { Storage } from '@capacitor/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
+import { environment } from '../../../environments/environment';
 import { CoreModule } from '../core.module';
 import { IWeather } from '../weather/weather.service';
-import { environment } from '../../../environments/environment';
 
 export interface Bite {
   value: number;
@@ -50,7 +50,7 @@ export class FirebaseService {
   tempsCollection: AngularFirestoreCollection<Temp>;
   weatherCollection: AngularFirestoreCollection<IWeather>;
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore) {}
 
   async appLoad() {
     try {
@@ -59,7 +59,7 @@ export class FirebaseService {
       if (log_uid) {
         this.setupActiveLog(log_uid);
       }
-    } catch { }
+    } catch {}
   }
 
   async createNewLog(title: string, description: string, weather?: IWeather) {
@@ -137,38 +137,50 @@ export class FirebaseService {
               temps: this.afs
                 .collection<Temp>(`logs/${id}/temp`)
                 .snapshotChanges()
-                .pipe(map(x => {
-                  const values = x.map(y => (y.payload.doc.data() as Temp).value);
-                  return values.reduce((x, y) => x + y) / values.length;
-                })),
+                .pipe(
+                  map(x => {
+                    const values = x.map(
+                      y => (y.payload.doc.data() as Temp).value
+                    );
+                    return values.reduce((xx, y) => xx + y) / values.length;
+                  })
+                ),
               bites: this.afs
-                .collection<Temp>(`logs/${id}/bite`, ref => ref.orderBy("timestamp"))
+                .collection<Temp>(`logs/${id}/bite`, ref =>
+                  ref.orderBy("timestamp")
+                )
                 .snapshotChanges()
-                .pipe(map(x => {
+                .pipe(
+                  map(x => {
+                    const values = x.map(
+                      y => (y.payload.doc.data() as Bite).value
+                    );
+                    const MAX = environment.bitePeak;
 
-                  const values = x.map(y => (y.payload.doc.data() as Bite).value)
-                  const MAX = environment.bitePeak;
-                  
-                  var sequenceFound = false;
-                  var numberInSeq = 0;
-                  var threshold = 3;
-                  var count = 0;
-                  
-                  values.forEach(x => {
-                    if (x === MAX) {
-                      numberInSeq++;
-                      if (numberInSeq >= threshold && sequenceFound === false) {
-                        count++;
-                        sequenceFound = true;
+                    let sequenceFound = false;
+                    let numberInSeq = 0;
+                    const threshold = 3;
+                    let count = 0;
+
+                    values.forEach(xx => {
+                      if (xx === MAX) {
+                        numberInSeq++;
+                        if (
+                          numberInSeq >= threshold &&
+                          sequenceFound === false
+                        ) {
+                          count++;
+                          sequenceFound = true;
+                          numberInSeq = 0;
+                        }
+                      } else {
                         numberInSeq = 0;
+                        sequenceFound = false;
                       }
-                    } else {
-                      numberInSeq = 0;
-                      sequenceFound = false;
-                    }
-                  });
-                  return count;
-                }))
+                    });
+                    return count;
+                  })
+                )
             };
           });
         })
