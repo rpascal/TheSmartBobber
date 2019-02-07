@@ -18,7 +18,6 @@ export interface Temp {
 }
 export interface Image {
   url: string;
-  timestamp: Date;
 }
 
 export interface Log {
@@ -29,15 +28,17 @@ export interface Log {
   endDate?: Date;
   temps?: Temp[];
   bites?: Bite[];
+  images?: Image[];
 }
 export interface ILogDatabase {
   title: string;
   description: string;
-  timestamp: Date;
+  timestamp?: Date;
   weather?: IWeather;
   endDate?: Date;
   confirmedBites: number;
   averageTemp: number;
+  images?: Image[];
   // temps?: Observable<number>;
   // bites?: Observable<number>;
 }
@@ -61,7 +62,6 @@ export class FirebaseService {
   async appLoad() {
     try {
       const log_uid = (await Storage.get({ key: this.log_uid })).value;
-      console.log(log_uid);
       if (log_uid) {
         this.setupActiveLog(log_uid);
       }
@@ -138,12 +138,12 @@ export class FirebaseService {
     if (this.activeLog) {
       this.activeLog.collection<Image>("images").add({
         url: url,
-        timestamp: new Date()
+        // timestamp: new Date()
       })
     } else {
       this.afs.collection("uncategorizedImages").add({
         url: url,
-        timestamp: new Date()
+        // timestamp: new Date()
       })
     }
 

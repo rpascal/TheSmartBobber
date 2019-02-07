@@ -29,15 +29,13 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
     const c = chartjs_plugin_annotationas;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnDestroy() {
-    console.log("ngOnDestroy")
 
   }
 
   ngAfterViewInit() {
-    console.log("ngAfterViewInit")
     const initLabels = [];
     const initData = [];
 

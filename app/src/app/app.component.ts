@@ -23,11 +23,13 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(async () => {
-      this.statusBar.styleDefault();
-      try {
-        await SplashScreen.hide();
-      } catch (err) {
-        console.log(err);
+      if (this.platform.is("cordova") || this.platform.is("capacitor")) {
+        this.statusBar.styleDefault();
+        try {
+          await SplashScreen.hide();
+        } catch (err) {
+          console.log(err);
+        }
       }
     });
   }
