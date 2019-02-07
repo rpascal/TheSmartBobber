@@ -49,54 +49,6 @@ void updateConnectionState()
     }
 }
 
-int LoopBiteLogic(int previousAvg)
-{
-    /*
-        Do we really need to read ADC 10 times then average???
-        Could we just read it once?
-        int LoopBiteLogic(int previousValue)
-        {
-            int value = ADC_Read();
-            if ((previousValue - value) >= 10)
-            {
-                RC4 = 1;
-                UART_send_string("FISH ATTACK");
-                UART_send_char(10);
-            }
-            else
-            {
-                RC4 = 0;
-            }
-            return value;
-        }
-        or is there not enough data to accurately calc doing it this way
-    */
-
-    int i = 0;
-
-    int sum = 0;
-    int avg = 0;
-
-    for (i = 0; i < 10; i++)
-    {
-        sum = sum + ADC_Read();
-    }
-    avg = sum / 10;
-
-    if ((previousAvg - avg) >= 10)
-    {
-        RC4 = 1;
-        UART_send_string("FISH ATTACK");
-        UART_send_char(10);
-    }
-
-    else
-    {
-        RC4 = 0;
-    }
-    return avg;
-}
-
 void main(void)
 {
 
@@ -120,7 +72,7 @@ void main(void)
     while (1)
     {
         updateConnectionState();
-        currentBiteLogicValue = LoopBiteLogic(currentBiteLogicValue);
+        monitorBiteAverage();
 
         switch (connectionState)
         {
@@ -135,7 +87,7 @@ void main(void)
         case CONNECTED:
 
             // Send Current Average to phone
-            sendBiteDataToPhone(currentBiteLogicValue);
+            sendBiteDataToPhone();
 
             phoneInput = UART_get_char();
 
