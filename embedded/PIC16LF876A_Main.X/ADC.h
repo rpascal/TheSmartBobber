@@ -3,7 +3,7 @@
 
 void ADC_Initialize(void);
 unsigned int ADC_Read(void);
-void monitorBiteAverage(void);
+int monitorBiteAverage(void);
 void sendBiteDataToPhone(void);
 //unsigned int ADC_Read();
 

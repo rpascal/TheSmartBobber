@@ -90,7 +90,7 @@ int threshold = 10;
 
 int monitorBiteAverage(void)
 {
-    if (count >= iterationsPerAverage)
+    if (count >= iterationsPerAverage) //sets count to 0 when count = iterationsPerAverage
     {
         count = 0;
     }
@@ -103,7 +103,7 @@ int monitorBiteAverage(void)
     int newMean = mean + differential;
     mean = newMean;
 
-    if (count % iterationsPerAverage == 0)
+    if (count % iterationsPerAverage == 0) //Runs if remainder is 0
     {
         if (oldMean > 0 && abs(oldMean - mean) >= threshold)
         {
