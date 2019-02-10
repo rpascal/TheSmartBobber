@@ -74,7 +74,9 @@ void main(void)
     while (1)
     {
         updateConnectionState();
-        monitorBiteAverage();
+
+        monitorSolenoidSignal();
+        solenoidActiveMonitor();
 
         switch (connectionState)
         {
@@ -89,7 +91,7 @@ void main(void)
         case CONNECTED:
 
             // Send Current Average to phone
-            sendBiteDataToPhone();
+            sendADCToPhone();
 
             phoneInput = UART_get_char();
 
