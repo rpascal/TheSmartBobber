@@ -13,7 +13,8 @@ int oldMean = 0;
 int threshold = 10;
 clock_t startSolenoidOnClock;
 bool isSolenoidOn = false;
-bool isADCMessagesReady = false;
+bool isSolenoidOnMessageTrigger = false;
+bool isSolenoidOffMessageTrigger = false;
 
 void ADC_Initialize(void)
 {
@@ -72,7 +73,7 @@ void turnOnSolenoid(void)
     startSolenoidOnClock = clock();
     isSolenoidOn = true;
     RC4 = 1; // Turn on solenoid
-    isADCMessagesReady = true;
+    isSolenoidOnMessageTrigger = true;
 }
 
 void isSolenoidOnMonitor(void)
@@ -89,20 +90,30 @@ void isSolenoidOnMonitor(void)
     {
         RC4 = 0; // turn off solenoid
         isSolenoidOn = false;
+        isSolenoidOffMessageTrigger = true;
     }
 }
 
 void sendADCToPhone(void)
 {
-
-    if (isADCMessagesReady)
+    if (count % iterationsPerAverage == 0)
     {
-        // send oldMean to bobber
-        // UART_send_bite(oldMean);
+        // UART_send_bite(oldMean); // contiously send the mean to phone for graph
+    }
+
+    if (isSolenoidOnMessageTrigger)
+    {
         UART_send_string("FISH ATTACK");
         UART_send_char(10);
-        UART_send_bite("1");
-        isADCMessagesReady = false; // We sent the messages we wanted to send so back to false
+        UART_send_solenoid_change("1");     // tell phone we are turning on the solenoid
+        isSolenoidOnMessageTrigger = false; // We sent the messages we wanted to send so back to false
+    }
+    if (isSolenoidOffMessageTrigger)
+    {
+        UART_send_string("FISH ATTACK STOP");
+        UART_send_solenoid_change("0"); // tell phone we are turning off the solenoid
+
+        isSolenoidOffMessageTrigger = false;
     }
 }
 
