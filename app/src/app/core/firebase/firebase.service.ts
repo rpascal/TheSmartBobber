@@ -4,7 +4,6 @@ import { Storage } from '@capacitor/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment';
 import { CoreModule } from '../core.module';
 import { IWeather } from '../weather/weather.service';
 
@@ -38,7 +37,7 @@ export interface ILogDatabase {
   endDate?: Date;
   confirmedBites: number;
   averageTemp: number;
-  images?: Image[];
+  images?: Observable<Image[]>;
   // temps?: Observable<number>;
   // bites?: Observable<number>;
 }
@@ -131,7 +130,22 @@ export class FirebaseService {
   getLogs(): Observable<ILogDatabase[]> {
     return this.afs
       .collection<ILogDatabase>("logs", ref => ref.orderBy("timestamp", "desc"))
-      .valueChanges();
+      .snapshotChanges()
+      .pipe(
+        map(data => {
+          return data.map(item => {
+            const log = item.payload.doc.data() as ILogDatabase;
+            const id = item.payload.doc.id;
+
+            return {
+              ...log,
+              images: this.afs
+                .collection<Image>(`logs/${id}/images`)
+                .valueChanges()
+            };
+          });
+        })
+      );
   }
 
   attachImage(url: string) {
