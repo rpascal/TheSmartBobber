@@ -1,7 +1,0 @@
-**********************
-* Autodesk EAGLE - SPICE Model File
-**********************
-.SUBCKT OR2 A B OUT
-a1 [A B] OUT or2
-.model or2 d_or(rise_delay = 1n fall_delay = 1n)
-.ENDS OR2

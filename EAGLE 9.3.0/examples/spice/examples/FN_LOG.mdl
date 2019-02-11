@@ -1,8 +1,0 @@
-**********************
-* Autodesk EAGLE - Spice Model File
-* Date: 9/17/17
-* log function block
-**********************
-.SUBCKT FN_LOG out+ out- in+ in-
-B1 out+ out- v=log(V(in+,in-))
-.ENDS FN_LOG

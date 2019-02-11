@@ -1,8 +1,0 @@
-**********************
-* Autodesk EAGLE - Spice Model File
-* Date: 9/17/17
-* absolute value function block
-**********************
-.SUBCKT FN_ABS out+ out- in+ in-
-B1 out+ out- v=abs(V(in+,in-))
-.ENDS FN_ABS

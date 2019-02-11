@@ -1,7 +1,0 @@
-**********************
-* Autodesk EAGLE - SPICE Model File
-**********************
-.SUBCKT XOR2 A B OUT
-a1 [A B] OUT xor2
-.model xor2 d_xor(rise_delay = 1n fall_delay = 1n)
-.ENDS XOR2

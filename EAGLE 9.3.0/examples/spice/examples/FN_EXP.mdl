@@ -1,7 +1,0 @@
-**********************
-* Autodesk EAGLE - Spice Model File
-* Date: 9/17/17
-**********************
-.SUBCKT FN_EXP out+ out- in+ in-
-B1 out+ out- v=exp(V(in+,in-))
-.ENDS FN_EXP

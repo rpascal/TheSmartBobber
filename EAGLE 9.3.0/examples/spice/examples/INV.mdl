@@ -1,7 +1,0 @@
-**********************
-* Autodesk EAGLE - SPICE Model File
-**********************
-.SUBCKT INV IN OUT
-a1 IN OUT inv1
-.model inv1 d_inverter(rise_delay = 1n fall_delay = 1n)
-.ENDS INV

@@ -1,8 +1,0 @@
-**********************
-* Autodesk EAGLE - Spice Model File
-* Date: 9/17/17
-* atan function block
-**********************
-.SUBCKT FN_ATAN out+ out- in+ in-
-B1 out+ out- v=atan(V(in+,in-))
-.ENDS FN_ATAN

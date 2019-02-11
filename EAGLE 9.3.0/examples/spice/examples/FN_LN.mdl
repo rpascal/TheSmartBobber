@@ -1,8 +1,0 @@
-**********************
-* Autodesk EAGLE - Spice Model File
-* Date: 9/17/17
-* natural log function block
-**********************
-.SUBCKT FN_LN out+ out- in+ in-
-B1 out+ out- v=ln(V(in+,in-))
-.ENDS FN_LN

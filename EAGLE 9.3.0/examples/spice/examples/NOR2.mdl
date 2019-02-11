@@ -1,7 +1,0 @@
-**********************
-* Autodesk EAGLE - SPICE Model File
-**********************
-.SUBCKT NOR2 A B OUT
-a1 [A B] OUT nor2
-.model nor2 d_nor(rise_delay = 1n fall_delay = 1n)
-.ENDS NOR2
