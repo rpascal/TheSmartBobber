@@ -1,0 +1,18 @@
+.MT3608 :1 ;High Efficiency 1.2MHz 2A Step Up Converter
+SOT95P280X145-6N
+*STM U
+*NGS
+*PLB 1="SW" 2="GND" 3="FB" 4="EN" 5="IN" 6="NC"
+*MXP 6
+*DFN MT3608
+~!Manufacturer_Name (Aerosemi)
+~!Manufacturer_Part_Number (MT3608)
+~!RS Part Number (-)
+~!RS Price/Stock (-)
+~!Arrow Part Number (MT3608)
+~!Arrow Price/Stock (-)
+~!Link Datasheet (https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/resources/MT3608.pdf)
+~!Height (1.45mm)
+~!3D_Model (MT3608)
+MT3608
+1.1!U 2.1!U 3.1!U 6.1!U 5.1!U 4.1!U 
