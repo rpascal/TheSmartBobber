@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>PinVisiblePin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#999999" fill-rule="nonzero" x="14" y="25" width="17" height="3"></rect>
+        <rect fill="#F3F3F3" fill-rule="nonzero" x="1" y="1" width="12" height="30"></rect>
+        <path d="M32,24 L14,24 L14,0 L0,0 L0,32 L14,32 L14,29 L32,29 L32,24 Z M13,31 L1,31 L1,1 L13,1 L13,31 Z M31,28 L14,28 L14,25 L31,25 L31,28 Z" fill="#333333" fill-rule="nonzero"></path>
+        <path d="M11.94,22 L9.786,22 L8.924,19.282 L4.985,19.282 L4.171,22 L2.06,22 L5.892,10 L7.996,10 L11.94,22 Z M8.285,17.252 L6.927,12.799 L5.594,17.252 L8.285,17.252 Z" fill="#666666" fill-rule="nonzero"></path>
+    </g>
+</svg>

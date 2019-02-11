@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44 (41411) - http://www.bohemiancoding.com/sketch -->
+    <title>group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(2.000000, 2.500000)">
+                <rect fill="#F5F5F5" x="0.231445312" y="0" width="20" height="20" rx="2"></rect>
+                <g transform="translate(4.231445, 5.000000)">
+                    <circle fill="#999999" cx="2" cy="7.87255859" r="1.5"></circle>
+                    <circle fill="#999999" cx="10" cy="7.87255859" r="1.5"></circle>
+                    <circle fill="#999999" cx="6" cy="1.56616211" r="1.5402832"></circle>
+                    <polygon stroke="#999999" stroke-width="0.75" points="6 1.56616211 10 7.87255859 2 7.87255859"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

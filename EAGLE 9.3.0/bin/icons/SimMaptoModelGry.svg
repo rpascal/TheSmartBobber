@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="41px" viewBox="0 0 41 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Map to Model CopyGry</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40"></rect>
+    </defs>
+    <g id="Drafts" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="simulation" transform="translate(-219.000000, -138.000000)"></g>
+        <g id="simulation-copy" transform="translate(-199.000000, -251.000000)"></g>
+        <g id="Map-to-Model-Copy">
+            <g id="Map-to-Model" transform="translate(-0.015625, 0.562500)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="map"></g>
+                <path d="M2,8.22794453 L2,36.4965506 L2,36.4965506 C2,37.0488353 2.44771525,37.4965506 3,37.4965506 C3.14445231,37.4965506 3.28718992,37.4652551 3.41839118,37.4048175 L12.1831739,33.3673394 L26.3483834,37.9449037 L26.3483834,37.9449037 C26.5746701,38.0180294 26.8196103,38.008119 27.0392495,37.9169506 L37.383368,33.6232923 L37.383368,33.6232923 C37.7566785,33.4683378 38,33.1038891 38,32.6996966 L38,3.00388697 L38,3.00388697 C38,2.45160222 37.5522847,2.00388697 37,2.00388697 C36.8444657,2.00388697 36.6910754,2.04016682 36.5520209,2.10984295 L26.6989659,7.04691859 L12.5848977,2.4154478 L12.5848977,2.4154478 C12.328087,2.3311765 12.0481005,2.35444944 11.8087277,2.47996434 L2.53561818,7.34230943 L2.53561818,7.34230943 C2.20630981,7.51498192 2,7.85611152 2,8.22794453 Z" id="Path-17" stroke="#3C3C3C" stroke-width="4" mask="url(#mask-2)"></path>
+                <path d="M12.0104167,3.9375 L12.0104167,32.4375" id="Path-18" stroke="#3C3C3C" stroke-width="2" mask="url(#mask-2)"></path>
+                <path d="M26.6666667,6.4375 L26.6666667,37.4375" id="Path-18-Copy" stroke="#3C3C3C" stroke-width="2" mask="url(#mask-2)"></path>
+            </g>
+            <path d="" id="Path-15" stroke="#979797"></path>
+        </g>
+    </g>
+</svg>

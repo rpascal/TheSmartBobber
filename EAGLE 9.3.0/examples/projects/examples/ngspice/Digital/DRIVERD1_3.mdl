@@ -1,0 +1,7 @@
+**********************
+* AUTODESK EAGLE - SPICE MODEL FILE
+**********************
+.SUBCKT DRIVERD1_3 N1
+A_SOURCE [N1] D_SOURCE1
+.MODEL D_SOURCE1 D_SOURCE (INPUT_FILE="driverd1_3.dsource.txt")
+.ENDS DRIVERD1_3

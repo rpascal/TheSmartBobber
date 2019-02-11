@@ -1,0 +1,22 @@
+﻿<language en>
+<b>Example Design Blocks</b>
+<p>
+A Design Block consists of a schematic part, a layout part, or both. It can be - for example - a reference design or a sub-circuit which can be easily reused in your own projects. If a Design Block is reused and consists of a schematic and a layout part, consistency of your project will be maintained. 
+<p>
+It is also possible to export a schematic, a layout, or portions of both to a Design Block (<b>File->"Save Selection as Design Block..."</b> or <b>File->"Save as Design Block..."</b>).
+<p>
+EAGLE 9.3.0
+</language>
+<language de>
+<b>Beispiel-Designblöcke</b>
+<p>
+Design Blocks bestehen aus einem Schaltplan, einem Layout oder aus beidem. 
+Es handelt sich dabei zum Beispiel um Referenzschaltungen oder Baugruppen, 
+die man in seinem eigenen Projekt einfach wiederverwenden kann. 
+Wenn der Design Block aus Schaltplan und Layout besteht, bleibt die Konsistenz des Projekts erhalten. 
+<p>
+Es ist auch möglich Schaltplan und das zugehörige Layout oder einen Teil des Schaltplans mit zugehörigem Layout, 
+wenn vorhanden, zu extrahieren und als Design Block abzuspeichern.
+<p>
+EAGLE 9.3.0
+</language>

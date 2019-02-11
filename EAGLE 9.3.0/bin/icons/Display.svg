@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Display</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(0.000000, 1.000000)" fill-rule="nonzero">
+            <polygon fill="#F3F3F3" points="18.41406 15 7 15 0 22 18 22 32 8 25.41406 8"></polygon>
+            <polygon fill="#666666" points="24.41406 9 29.58594 9 17.58594 21 2.41406 21 8.41406 15 7 15 0 22 18 22 32 8 25.41406 8"></polygon>
+            <polygon fill="#F3F3F3" points="18.41406 23 7 23 0 30 18 30 32 16 25.41406 16"></polygon>
+            <polygon fill="#666666" points="24.41406 17 29.58594 17 17.58594 29 2.41406 29 8.41406 23 7 23 0 30 18 30 32 16 25.41406 16"></polygon>
+            <polygon fill="#818181" points="18 14 0 14 14 0 32 0"></polygon>
+            <path d="M14,0 L0,14 L18,14 L32,0 L14,0 Z M17.58594,13 L2.41406,13 L14.41406,1 L29.58594,1 L17.58594,13 Z" fill="#333333"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,10 @@
+* As Bs RSTs SETs DSRCs JSRCs KSRCs SIGs
+0m 0s 0s 0s 0s 0s 0s 0s 0s
+3m 0s 0s 0s 1s 0s 0s 0s 0s
+5m 0s 0s 0s 0s 0s 0s 0s 0s
+9m 0s 0s 1s 0s 0s 0s 0s 0s
+11m 0s 0s 0s 0s 0s 1s 1s 0s
+13m 0s 1s 0s 0s 1s 1s 1s 0s
+15m 1s 0s 0s 0s 0s 1s 1s 0s
+17m 1s 1s 0s 0s 1s 1s 1s 0s
+19m 0s 0s 0s 0s 0s 1s 1s 0s

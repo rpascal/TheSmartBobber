@@ -1,0 +1,12 @@
+**********************
+* Autodesk EAGLE - Spice Model File
+* transformer subcircuit, requires RATIO parameter defined
+* Date: 10/1/17
+**********************
+.SUBCKT XFORMER 1 2 3 4
+E 5 4 1 2 {RATIO}
+F 1 2 VM {RATIO}
+VM 5 6
+RP 1 2 1MEG
+RS 6 3 1U
+.ENDS XFORMER

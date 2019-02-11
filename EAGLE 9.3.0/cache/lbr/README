@@ -1,0 +1,15 @@
+The files in this folder are snapshots of the latest version of these managed
+Eagle libraries as of this release of the EAGLE application. When EAGLE is
+launched, each of these libraries will be imported into the local managed
+libraries cache unless a newer version of the library is already present.
+To work with managed libraries, see the "Managed Libraries" section of the EAGLE
+Control Panel and the Manage Libraries tool in the Library menu of the Schematic
+and Board Editors.
+
+Die Dateien in diesem Ordner sind ein Abbild der letzten Versionen der verwalteten
+EAGLE-Bibliothken zum Zeitpunkt der Feigabe dieser EAGLE-Version. Beim Start von
+EAGLE wird jede dieser Bibliotheken in den lokal verwalteten Bibliotheks-Cache
+importiert, unabhängig davon, ob es bereits eine neuere Version einer Bibliothek
+gibt. Um mit verwalteten Bibliotheken zu arbeiten, sehen Sie bitte in den Zweig
+"Verwaltete Bibliotheken" im Control Panel und in das Menü
+"Bibliotheken/Bibliotheken verwalten" im Schaltplan- oder Layout-Editor.

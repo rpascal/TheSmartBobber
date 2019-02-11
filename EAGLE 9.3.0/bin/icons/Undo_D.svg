@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Undo_D</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M14,9 L14,12.5 L14,14 L15.5,14 L22,14 C26.39075,14 30.05717,18.13092 30.84387,22.25787 C28.52213,20.16245 25.42207,19 22,19 L15.5,19 L14,19 L14,19.5 L14,23.31219 L2.03986,16.21454 L14,8.73206 L14,9 Z M15,7 L0,16.23755 L15,25 L15,20 L22,20 C26.10181,20 29.71887,21.56091 31.88318,24.70056 C31.92822,24.31567 32,24.1886 32,23.79163 C32,18.2688 27.52283,13 22,13 L15,13 L15,7 Z" fill="#676767" fill-rule="nonzero"></path>
+        <path d="M14,9 L14,12.5 L14,14 L15.5,14 L22,14 C26.39075,14 30.05717,18.13092 30.84387,22.25787 C28.52213,20.16245 25.42207,19 22,19 L15.5,19 L14,19 L14,19.5 L14,23.31219 L2.03986,16.21454 L14,8.73206" fill="#BBBBBB" fill-rule="nonzero"></path>
+    </g>
+</svg>

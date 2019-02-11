@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Prefix</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="#666666" fill-rule="nonzero" points="17 14.768 18.385 10.383 20 9 24 9 24 6 18.979 6 15.462 8.924 14 14.766 14 16.227 15.462 22.074 18.979 25 24 25 24 22 20 22 18.385 20.615 17 16.229"></polygon>
+        <polygon fill="#666666" fill-rule="nonzero" points="11 25 2 25 2 22 5 22 5 9 2 9 2 6 11 6 11 9 8 9 8 22 11 22"></polygon>
+        <rect fill="#999999" fill-rule="nonzero" x="28" y="1" width="2" height="30"></rect>
+    </g>
+</svg>

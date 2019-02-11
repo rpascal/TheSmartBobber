@@ -1,0 +1,22 @@
+-- Wingows Graphics Driver Issues
+Intel HD Graphics 4000, Intel HD Graphics 530 and few others graphics cards are knows to cause WebGL errors.
+EAGLE uses WebGL for the package generator available in the library and device editors.
+There are two workarounds:
+1) In some cases disabling framebuffer multisampling could help workaround the issue and keep using hardware OpenGL:
+  cd "c:\EAGLE x.x.x" 
+  set QTWEBENGINE_CHROMIUM_FLAGS=–disable_chromium_framebuffer_multisample
+  eagle.exe
+2) If (1) doesn't work use software OpenGL mode by running eagle_SW_OpenGL.bat script instead of eagle.exe
+
+-- Various WebEngine errors
+EAGLE passes '--ignore-gpu-blacklist' to Chromium by default.
+This enables WebGL even on graphics cards / drivers that are known to have problems with it.
+If you encounter issues with HTML content including bugs in WebGL then set QTWEBENGINE_CHROMIUM_FLAGS environment variable to “--ignore-gpu-blacklist=false” and run EAGLE:
+  cd "c:\EAGLE x.x.x" 
+  set QTWEBENGINE_CHROMIUM_FLAGS=--ignore-gpu-blacklist=false
+  eagle.exe
+
+-- Crash on start caused by Dell Backup and Recovery --
+Dell Backup and Recovery is incompatible with EAGLE.
+It causes EAGLE to crash on start.
+Dell Backup and Recovery can be uninstalled or its shell extension disabled.

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>FileOpen</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="#333333" fill-rule="nonzero" points="26 18.23 26 10 16 0 0 0 0 32 26 32 26 27.77 25 28.37 25 31 1 31 1 1 16 1 16 10 25 10 25 17.63"></polygon>
+        <polygon fill="#F3F3F3" points="1 1 15.9964762 1 15.9964762 10 25 10 25 31 1 31"></polygon>
+        <polygon fill="#585858" points="32 23 22 17 22 21 14 21 14 25 22 25 22 29"></polygon>
+        <path d="M32,23 L22,17 L22,21 L14,21 L14,25 L22,25 L22,29 L32,23 Z M15,24 L15,22 L23,22 L23,18.73 L30.39,23 L23,27.27 L23,24 L15,24 Z" fill="#BBBBBB" fill-rule="nonzero" opacity="0.1"></path>
+    </g>
+</svg>

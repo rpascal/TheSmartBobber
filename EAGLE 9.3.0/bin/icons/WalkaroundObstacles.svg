@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>WalkaroundObstacles</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="#008DE9" fill-rule="nonzero" points="5 32 2 32 2 26 18.379 26 27 17.379 27 0 30 0 30 18.621 19.621 29 5 29"></polygon>
+        <g transform="translate(3.000000, 2.000000)" fill-rule="nonzero">
+            <path d="M20,10 C20,15.52 15.521,20 10,20 C4.479,20 0,15.52 0,10 C0,4.479 4.479,0 10,0 C15.521,0 20,4.479 20,10 Z" fill="#F3F3F3"></path>
+            <path d="M10,1 C14.962,1 19,5.037 19,10 C19,14.963 14.962,19 10,19 C5.038,19 1,14.963 1,10 C1,5.037 5.038,1 10,1 Z M10,0 C4.479,0 0,4.479 0,10 C0,15.52 4.479,20 10,20 C15.521,20 20,15.52 20,10 C20,4.479 15.521,0 10,0 Z" fill="#333333"></path>
+        </g>
+    </g>
+</svg>

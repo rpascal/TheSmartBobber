@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>PushObstacles</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#008DE9" fill-rule="nonzero" x="2" y="15" width="22" height="2"></rect>
+        <path d="M23,9 L8,9 L8,0 L6,0 L6,11 L7,11 L8,11 L23,11 C25.757,11 28,13.243 28,16 C28,18.757 25.757,21 23,21 L7.062,21 L7.062,21.062 L6,21.062 L6,32 L8,32 L8,23 L23,23 C26.866,23 30,19.866 30,16 C30,12.134 26.866,9 23,9 Z" fill="#666666" fill-rule="nonzero"></path>
+    </g>
+</svg>

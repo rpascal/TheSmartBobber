@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>RipupElementToElement</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <g transform="translate(0.022136, 0.024200)" fill="#666666">
+                <path d="M3,2.97137451 L3,0 L6,0 L6,2.97137451 L8.87438965,2.97137451 L8.87438965,6 L6,6 L6,9 L3,9 L3,6 L0,6 L0,2.97137451 L3,2.97137451 Z"></path>
+                <g transform="translate(22.977864, 22.975800)">
+                    <path d="M3,3 L3,0 L6,0 L6,3 L8.87438965,3 L8.87438965,6.02862549 L6,6.02862549 L6,9 L3,9 L3,6.02862549 L0,6.02862549 L0,3 L3,3 Z"></path>
+                </g>
+            </g>
+            <g transform="translate(4.000000, 18.000000)" fill="#FF3333">
+                <g>
+                    <polygon points="11.4965317 2.2 9.29553166 0 5.99653166 3.3 2.69753166 0 0.496531656 2.2 3.79653166 5.5 0.496531656 8.8 2.69753166 11 5.99653166 7.7 9.29553166 11 11.4965317 8.8 8.19653166 5.5"></polygon>
+                </g>
+            </g>
+        </g>
+        <polygon fill="#008DE9" fill-rule="nonzero" points="18.8637982 6 11 6 11 3 19.8471393 3 29 9.72252377 29 20.8960144 26 20.8960144 26 11.2413434"></polygon>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<language en>
+<b>Example CAM Files</b>
+<p>
+The CAM Processor provides a job mechanism with the aid of which
+the creation of the output data for a board can be automated.
+<p>
+EAGLE 9.3.0
+</language>
+<language de>
+<b>Beispiel-CAM-Prozessor-Jobs</b>
+<p>
+Der CAM-Prozessor stellt einen Job-Mechanismus zur Verfügung, mit
+dessen Hilfe die gesamte Erstellung der Ausgabedaten für eine
+Platine automatisiert werden kann.
+<p>
+EAGLE 9.3.0
+</language>

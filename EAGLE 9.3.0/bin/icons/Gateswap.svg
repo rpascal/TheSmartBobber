@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Gateswap</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M3.852,5.851 C1.5,7.776 0,12.7 0,15.971 C0,19.264 1.514,24.196 3.879,26.119 L1,28.999 L9,28.999 L9,21 L6.023,23.976 C4.192,22.609 3,18.431 3,15.971 C3,13.534 4.175,9.359 5.986,7.987 L9,11 L9,3 L1,3 L3.852,5.851 Z" fill="#333333" fill-rule="nonzero"></path>
+        <g transform="translate(17.000000, 18.000000)" fill-rule="nonzero">
+            <path d="M5,13 L5,1 C7.903,1.45 10.066,3.973 10.066,7 C10.066,10.027 7.903,12.55 5,13 Z" fill="#F3F3F3"></path>
+            <path d="M15,6 L10.92,6 C10.434,2.609 7.524,0 4,0 L4,3 L0,3 L0,5 L4,5 L4,9 L0,9 L0,11 L4,11 L4,14 C7.525,14 10.434,11.391 10.92,8 L15,8 L15,6 Z M5,13 L5,1 C7.903,1.45 10.066,3.973 10.066,7 C10.066,10.027 7.903,12.55 5,13 Z" fill="#666666"></path>
+        </g>
+        <path d="M32,6 L27.92,6 C27.434,2.609 24.524,0 21,0 L21,3 L17,3 L17,5 L21,5 L21,9 L17,9 L17,11 L21,11 L21,14 C24.525,14 27.434,11.391 27.92,8 L32,8 L32,6 Z" fill="#666666" fill-rule="nonzero"></path>
+    </g>
+</svg>

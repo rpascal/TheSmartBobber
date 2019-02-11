@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>DimensionParallel</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill="#999999" fill-rule="nonzero">
+            <polygon points="11.2166063 0.0962870277 12.6799148 1.52793688 1.59991479 12.5979369 0.136606263 11.166287"></polygon>
+            <polygon points="30.6404569 19.3880105 32.1037654 20.8196603 21.0237654 31.8896603 19.5604569 30.4580105"></polygon>
+        </g>
+        <polygon fill="#333333" fill-rule="nonzero" transform="translate(16.500000, 16.000000) rotate(45.000000) translate(-16.500000, -16.000000) " points="23.7345284 11.0262617 23.7345284 14.6435259 9.26547161 14.6435259 9.26547161 11.0262617 3.83957532 16 9.26547161 20.9737383 9.26547161 17.3564741 23.7345284 17.3564741 23.7345284 20.9737383 29.1604247 16"></polygon>
+    </g>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Rotate</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="#333333" fill-rule="nonzero" points="1 14 6 22 11 14"></polygon>
+        <path d="M17.5,28 L17.5,26 C23.2989899,26 28,21.2989899 28,15.5 C28,9.70101013 23.2989899,5 17.5,5 C11.7010101,5 7,9.70101013 7,15.5 L5,15.5 C5,8.59644063 10.5964406,3 17.5,3 C24.4035594,3 30,8.59644063 30,15.5 C30,22.4035594 24.4035594,28 17.5,28 Z" fill="#333333" fill-rule="nonzero"></path>
+    </g>
+</svg>

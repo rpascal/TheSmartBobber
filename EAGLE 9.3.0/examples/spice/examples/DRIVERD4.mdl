@@ -1,0 +1,7 @@
+**********************
+* Autodesk EAGLE - SPICE Model File
+**********************
+.subckt driverd4 n1 n2 n3 n4
+a_source [n1 n2 n3 n4] d_source4
+.model d_source4 d_source (input_file="{EAGLE_DIGITAL_SOURCE_FILE}")
+.ends driverd4

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>AttrOverwriteLbrEqual</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M25,16 C25,11.02975 20.9708125,7 16,7 C11.02975,7 7,11.02975 7,16 C7,20.97025 11.02975,25 16,25 C20.9708125,25 25,20.97025 25,16" fill="#64B0E8"></path>
+        <path d="M25,16 C25,11.02975 20.9708125,7 16,7 C11.02975,7 7,11.02975 7,16 C7,20.97025 11.02975,25 16,25 C20.9708125,25 25,20.97025 25,16 M24,16 C24,11.582 20.4185,8 16,8 C11.582,8 8,11.582 8,16 C8,20.418 11.582,24 16,24 C20.4185,24 24,20.418 24,16" fill="#000000" opacity="0.1"></path>
+    </g>
+</svg>

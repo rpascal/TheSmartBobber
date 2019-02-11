@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>MiterStraight</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="#F3F3F3" fill-rule="nonzero" points="0 0 0 32 11 32 11 28 28 11 32 11 32 0"></polygon>
+        <polygon fill="#979797" fill-rule="nonzero" points="30 2 2 2 2 30 9 30 9 32 0 32 0 0 32 0 32 9 30 9"></polygon>
+        <polygon fill="#333333" fill-rule="nonzero" points="28.9171068 12.497 12.5 28.9141068 12.5 32.498 10.503 32.498 10.503 27.7929191 27.7928674 10.5 32.5 10.5 32.5 12.497"></polygon>
+    </g>
+</svg>

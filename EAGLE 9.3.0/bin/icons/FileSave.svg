@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>FileSave</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#F3F3F3" x="7" y="1" width="18" height="12"></rect>
+        <polygon fill="#818181" points="0 0 7 0 7 13 25 13 25 0 32 0 32 32 25 32 25 23 7 23 7 32 4 32 0 28"></polygon>
+        <path d="M25,0 L25,13 L7,13 L7,0 L0,0 L0,28 L4,32 L7,32 L7,31 L25,31 L25,32 L32,32 L32,0 L25,0 Z M31,31 L26,31 L26,22 L6,22 L6,31 L4.41406,31 L1,27.58594 L1,1 L6,1 L6,14 L26,14 L26,1 L31,1 L31,31 Z" fill="#333333"></path>
+        <path d="M7,23 L7,31 L25,31 L25,23 L7,23 Z M11,30 L9,30 L9,25 L11,25 L11,30 Z" fill="#F3F3F3"></path>
+        <rect fill="#333333" x="7" y="0" width="18" height="1"></rect>
+        <rect fill="#333333" x="7" y="31" width="18" height="1"></rect>
+    </g>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>PolygonOrphansOn</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="#999999" fill-rule="nonzero" points="16 1.93 8.782 7.174 16 12.417 23.218 7.174"></polygon>
+        <polygon fill="#B9DDF7" fill-rule="nonzero" points="25.929 9.233 16 17 5.933 9.236 1.243 12.649 6.88 30 25.12 30 30.757 12.649"></polygon>
+        <path d="M16,0.693 L7.08,7.173 L16,13.652 L24.92,7.173 L16,0.693 Z M8.782,7.174 L16,1.93 L23.218,7.174 L16,12.417 L8.782,7.174 Z" fill="#666666" fill-rule="nonzero"></path>
+        <path d="M25.933,8 L16,15.77 L5.933,8 L0.068,12.268 L6.154,31 L25.847,31 L31.933,12.268 L25.933,8 Z M25.12,30 L6.88,30 L1.243,12.649 L5.932,9.236 L16,17 L25.929,9.233 L30.757,12.649 L25.12,30 Z" fill="#666666" fill-rule="nonzero"></path>
+    </g>
+</svg>

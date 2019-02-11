@@ -1,0 +1,7 @@
+**********************
+* Autodesk EAGLE - SPICE Model File
+**********************
+.SUBCKT ATODB A D
+abridge [A] [D] adc_buff
+.model adc_buff adc_bridge(in_low = 0.3 in_high = 2.5)
+.ENDS ATODB

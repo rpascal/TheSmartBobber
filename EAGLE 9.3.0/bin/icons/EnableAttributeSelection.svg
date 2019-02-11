@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Attribute</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M15,1 L1,1 L1,15 L17,31 L31,17 L15,1 Z M7,9 C5.896,9 5,8.104 5,7 C5,5.896 5.896,5 7,5 C8.104,5 9,5.896 9,7 C9,8.104 8.104,9 7,9 Z" fill="#F3F3F3" fill-rule="nonzero"></path>
+        <path d="M15,1 L1,1 L1,15 L17,31 L31,17 L15,1 Z M2,14.586 L2,2 L14.586,2 L29.586,17 L17,29.586 L2,14.586 Z" fill="#333333" fill-rule="nonzero"></path>
+        <path d="M7,4 C5.346,4 4,5.346 4,7 C4,8.654 5.346,10 7,10 C8.654,10 10,8.654 10,7 C10,5.346 8.654,4 7,4 Z M7,9 C5.896,9 5,8.104 5,7 C5,5.896 5.896,5 7,5 C8.104,5 9,5.896 9,7 C9,8.104 8.104,9 7,9 Z" fill="#333333" fill-rule="nonzero"></path>
+        <g transform="translate(7.000000, 7.000000)" fill="#333333" fill-rule="nonzero">
+            <rect transform="translate(12.013300, 5.978700) rotate(45.000000) translate(-12.013300, -5.978700) " x="4.94236781" y="5.4787048" width="14.1418644" height="1"></rect>
+            <rect transform="translate(10.263400, 10.228650) rotate(45.000000) translate(-10.263400, -10.228650) " x="5.66744408" y="9.7286548" width="9.19191185" height="1"></rect>
+            <rect transform="translate(6.763500, 12.728550) rotate(45.000000) translate(-6.763500, -12.728550) " x="2.8745373" y="12.2285548" width="7.77792541" height="1"></rect>
+            <rect transform="translate(5.021400, 5.013400) rotate(135.000000) translate(-5.021400, -5.013400) " x="3.60741356" y="4.5134048" width="2.82797288" height="1"></rect>
+            <rect transform="translate(2.021400, 8.013500) rotate(135.000000) translate(-2.021400, -8.013500) " x="0.60741356" y="7.5135048" width="2.82797288" height="1"></rect>
+        </g>
+    </g>
+</svg>

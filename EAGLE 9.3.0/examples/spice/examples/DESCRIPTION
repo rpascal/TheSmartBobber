@@ -1,0 +1,14 @@
+<language de>
+<b>Beispiel SPICE-Modelle</b>
+<p>
+TODO: Add German description here!
+<p>
+EAGLE 9.3.0
+</language>
+<language en>
+<b>Example SPICE Models</b>
+<p>
+EAGLE supports a SPICE simulation engine that allows users to validate circuits prior to building them, and to quickly simulate a circuit’s predicted behavior under a variety of conditions that can easily be customized.  This folder contains the basic example SPICE models shipped with EAGLE.
+<p>
+EAGLE 9.3.0
+</language>

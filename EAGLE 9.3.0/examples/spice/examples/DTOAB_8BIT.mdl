@@ -1,0 +1,7 @@
+**********************
+* Autodesk EAGLE - SPICE Model File
+**********************
+.SUBCKT DTOAB_8BIT VP1 VP2 VP3 VP4 VP5 VP6 VP7 VP8 O1 O2 O3 O4 O5 O6 O7 O8
+abridge [VP1 VP2 VP3 VP4 VP5 VP6 VP7 VP8] [O1 O2 O3 O4 O5 O6 O7 O8] dac_buff
+.model dac_buff dac_bridge(out_low = 0.3 out_high = 2.5)
+.ENDS DTOAB_8BIT

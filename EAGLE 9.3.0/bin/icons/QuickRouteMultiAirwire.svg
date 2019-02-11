@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>QuickRouteMultiAirwire</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="#666666" fill-rule="nonzero" points="0 23.5 12.75 15 9 22 17 23.5 4.25 32 8 25"></polygon>
+        <polygon fill="#008DE9" fill-rule="nonzero" points="22 21.969 22 10 0 10 0 13 19 13 19 23.031 26.261 32 30.12 32"></polygon>
+        <polygon fill="#008DE9" fill-rule="nonzero" points="27 18.448 27 5 0 5 0 8 24 8 24 19.552 32 28.963 32 24.33"></polygon>
+        <polygon fill="#008DE9" fill-rule="nonzero" points="32 8 32 0 0 0 0 3 29 3 29 16.563 32 19.992 32 15.437"></polygon>
+    </g>
+</svg>

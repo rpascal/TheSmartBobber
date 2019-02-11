@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>RipupTracesVias</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M21,7.15819496 C20.1160885,6.95286571 19.178568,6.9176743 18.2317151,7.08220845 C18.1539429,7.09560639 18.0766989,7.11024144 18,7.12609021 L18,6.084961 L4,6.084961 L4,3.084961 L21,3.084961 L21,7.15819496 Z" fill="#008DE9" fill-rule="nonzero"></path>
+        <path d="M23.0623859,19.3348088 L28.2,26.184961 L25.8,27.984961 L20.1220811,20.4144025 C20.2580058,20.3996549 20.3943489,20.3805495 20.5309625,20.3569792 C21.4662673,20.1945033 22.3216505,19.8373844 23.0623859,19.3348088 Z" fill="#CE2621" fill-rule="nonzero"></path>
+        <path d="M18.5744169,9.12665883 C21.2211736,8.66674806 23.7637736,10.4358939 24.2291189,13.1156294 C24.6827046,15.7508845 22.8876811,18.2871078 20.2400845,18.7470185 C17.5840881,19.2052508 15.0641674,17.4168022 14.6080618,14.7773508 C14.1435564,12.1009722 15.9192605,9.58405183 18.5744169,9.12665883" stroke="#11A146" stroke-width="0.82697611" fill="#14B44E"></path>
+        <g transform="translate(4.000000, 18.000000)" fill="#FF3333" fill-rule="nonzero">
+            <polygon points="11 2.2 8.799 0 5.5 3.3 2.201 0 0 2.2 3.3 5.5 0 8.8 2.201 11 5.5 7.7 8.799 11 11 8.8 7.7 5.5"></polygon>
+        </g>
+    </g>
+</svg>

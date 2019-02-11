@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44 (41411) - http://www.bohemiancoding.com/sketch -->
+    <title>folder</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <g transform="translate(2.000000, 4.500000)">
+                <polygon fill="#4F687C" points="0 0 0 4 9 4 11 2 9 0"></polygon>
+                <polygon fill="#B0C0CD" points="21 1 11 1 9 3 0 3 0 16 21 16"></polygon>
+                <polygon fill="#7A95A9" opacity="0.502" points="0 14 21 14 21 16 0 16"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

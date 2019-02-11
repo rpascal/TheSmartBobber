@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#333333" x="2" y="1" width="2" height="2"></rect>
+        <rect fill="#333333" x="6" y="1" width="2" height="2"></rect>
+        <rect fill="#333333" x="10" y="1" width="2" height="2"></rect>
+        <rect fill="#333333" x="14" y="1" width="2" height="2"></rect>
+        <rect fill="#333333" x="18" y="1" width="2" height="2"></rect>
+        <rect fill="#333333" x="18" y="5" width="2" height="2"></rect>
+        <rect fill="#333333" x="18" y="8" width="2" height="2"></rect>
+        <rect fill="#333333" x="18" y="13" width="2" height="2"></rect>
+        <rect fill="#333333" x="14" y="13" width="2" height="2"></rect>
+        <rect fill="#333333" x="10" y="13" width="2" height="2"></rect>
+        <rect fill="#333333" x="6" y="13" width="2" height="2"></rect>
+        <rect fill="#333333" x="2" y="13" width="2" height="2"></rect>
+        <rect fill="#333333" x="2" y="9" width="2" height="2"></rect>
+        <rect fill="#333333" x="2" y="5" width="2" height="2"></rect>
+        <polygon fill="#333333" points="22 27.6953845 24.9151438 24.9407182 27.1659581 30.1934049 28.7276633 29.489546 26.4054601 24.3076582 30.5182849 23.9666436 22.0383494 16"></polygon>
+    </g>
+</svg>

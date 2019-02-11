@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>PlacePins Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="PlacePins-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M11.5,23.5 L0.539870689,23.5 L0.504447504,27.5 L11.5,27.5 L11.5,23.5 Z" id="Path-11" stroke="#333333" transform="translate(6.000000, 25.500000) scale(-1, 1) rotate(-180.000000) translate(-6.000000, -25.500000) "></path>
+        <path d="M19,26 L19,30 L12,30 C12,10.6666667 12,1 12,1 C12,1 14.3333333,1 19,1" id="Path-12" fill="#F3F3F3" transform="translate(15.500000, 15.500000) scale(-1, 1) rotate(-180.000000) translate(-15.500000, -15.500000) "></path>
+        <path d="M18.5,5 C18.5,2.14877969 18.5,0.648779688 18.5,0.5 L11.5,0.5 L11.5,30.5 L18.5,30.5 L18.5,26.5 M18.5,19.5 L18.5,10.5" id="Path-10" stroke="#333333" transform="translate(15.000000, 15.500000) scale(-1, 1) rotate(-180.000000) translate(-15.000000, -15.500000) "></path>
+        <path d="M11.5,13.5 L0.551264932,13.5 L0.505724907,17.5 L11.5,17.5 L11.5,13.5 Z" id="Path-11-Copy" stroke="#333333" transform="translate(6.000000, 15.500000) scale(-1, 1) rotate(-180.000000) translate(-6.000000, -15.500000) "></path>
+        <path d="M11.5,3.5 L0.551264932,3.5 L0.505724907,7.5 L11.5,7.5 L11.5,3.5 Z" id="Path-11-Copy-2" stroke="#333333" transform="translate(6.000000, 5.500000) scale(-1, 1) rotate(-180.000000) translate(-6.000000, -5.500000) "></path>
+        <rect id="Rectangle" fill="#999999" transform="translate(6.000000, 25.500000) scale(-1, 1) rotate(-180.000000) translate(-6.000000, -25.500000) " x="1" y="24" width="10" height="3"></rect>
+        <rect id="Rectangle-Copy" fill="#999999" transform="translate(6.000000, 15.500000) scale(-1, 1) rotate(-180.000000) translate(-6.000000, -15.500000) " x="1" y="14" width="10" height="3"></rect>
+        <rect id="Rectangle-Copy-2" fill="#999999" transform="translate(6.000000, 5.500000) scale(-1, 1) rotate(-180.000000) translate(-6.000000, -5.500000) " x="1" y="4" width="10" height="3"></rect>
+        <g id="Group-Copy" transform="translate(16.000000, 0.000000)" fill-rule="nonzero">
+            <polygon id="Shape" fill="#24B252" points="9 7 9 1 7 1 7 7 1 7 1 9 7 9 7 15 9 15 9 9 15 9 15 7"></polygon>
+            <path d="M10,6 L10,0 L6,0 L6,6 L0,6 L0,10 L6,10 L6,16 L10,16 L10,10 L16,10 L16,6 L10,6 Z M15,9 L9,9 L9,15 L7,15 L7,9 L1,9 L1,7 L7,7 L7,1 L9,1 L9,7 L15,7 L15,9 Z" id="Shape" fill="#21A04A"></path>
+        </g>
+        <polyline id="Shape" fill="#666666" fill-rule="nonzero" points="16 24 28 16 24.4705882 22.5882353 32 24 20 32 23.5294118 25.4117647"></polyline>
+    </g>
+</svg>

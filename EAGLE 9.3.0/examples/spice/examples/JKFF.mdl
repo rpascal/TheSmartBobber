@@ -1,0 +1,9 @@
+**********************
+* Autodesk EAGLE - SPICE Model File
+**********************
+.SUBCKT JKFF J K CLK S R Q NQ
+a1 J K CLK S R Q NQ jkff
+.model jkff d_jkff(clk_delay = 13.0e-9 set_delay = 25.0e-9
++ reset_delay = 27.0e-9 ic = 2 rise_delay = 10.0e-9
++ fall_delay = 3e-9)
+.ENDS JKFF

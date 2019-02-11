@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Dimension</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#999999" fill-rule="nonzero" x="0" y="0" width="2" height="32"></rect>
+        <rect fill="#999999" fill-rule="nonzero" x="30" y="0" width="2" height="32"></rect>
+        <polygon fill="#333333" fill-rule="nonzero" points="23.919963 3.37931034 23.919963 7.28089783 8.09237683 7.28089783 8.09237683 3.37931034 2.58946402 8.21193232 8.09237683 13.6206897 8.09237683 10.0740013 23.919963 10.0740013 23.919963 13.6206897 29.589464 8.21193232"></polygon>
+    </g>
+</svg>

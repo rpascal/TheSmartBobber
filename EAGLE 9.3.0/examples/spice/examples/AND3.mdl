@@ -1,0 +1,7 @@
+**********************
+* Autodesk EAGLE - SPICE Model File
+**********************
+.SUBCKT AND3 A B C OUT
+a1 [A B C] OUT and3
+.model and3 d_and(rise_delay = 1n fall_delay = 1n)
+.ENDS AND3

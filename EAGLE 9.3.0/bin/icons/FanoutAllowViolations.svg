@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>FanOutDRCErrors</title>
+    <desc>Created with Sketch.</desc>
+    <g id="FanOutDRCErrors" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12.5,15.5 L8.5,15.5" id="Line-3" stroke="#008DE9" stroke-width="3" stroke-linecap="square"></path>
+        <path d="M19.5,10.5 L8.5,10.5" id="Line-4" stroke="#008DE9" stroke-width="3" stroke-linecap="square"></path>
+        <g id="Group-Copy-2" transform="translate(20.000000, 6.000000)" fill-rule="nonzero">
+            <path d="M8,4.5 C8,6.432 6.433,8 4.5,8 C2.567,8 1,6.432 1,4.5 C1,2.568 2.567,1 4.5,1 C6.433,1 8,2.568 8,4.5 Z" id="Shape" fill="#6DA745"></path>
+            <path d="M4.5,1 C6.433,1 8,2.568 8,4.5 C8,6.432 6.433,8 4.5,8 C2.567,8 1,6.432 1,4.5 C1,2.568 2.567,1 4.5,1 Z M4.5,0 C2.019,0 0,2.019 0,4.5 C0,6.981 2.019,9 4.5,9 C6.981,9 9,6.981 9,4.5 C9,2.019 6.981,0 4.5,0 Z" id="Shape" fill="#4D8844"></path>
+        </g>
+        <g id="Group-Copy-3" transform="translate(13.000000, 11.000000)" fill-rule="nonzero">
+            <path d="M8,4.5 C8,6.432 6.433,8 4.5,8 C2.567,8 1,6.432 1,4.5 C1,2.568 2.567,1 4.5,1 C6.433,1 8,2.568 8,4.5 Z" id="Shape" fill="#6DA745"></path>
+            <path d="M4.5,1 C6.433,1 8,2.568 8,4.5 C8,6.432 6.433,8 4.5,8 C2.567,8 1,6.432 1,4.5 C1,2.568 2.567,1 4.5,1 Z M4.5,0 C2.019,0 0,2.019 0,4.5 C0,6.981 2.019,9 4.5,9 C6.981,9 9,6.981 9,4.5 C9,2.019 6.981,0 4.5,0 Z" id="Shape" fill="#4D8844"></path>
+        </g>
+        <path d="M7,1 L7,27" id="Line" stroke="#666666" stroke-width="3" stroke-linecap="square"></path>
+        <path d="M7,27 L1,27" id="Line-2" stroke="#666666" stroke-width="3" stroke-linecap="square"></path>
+        <rect id="Rectangle" stroke="#E52D2D" fill-rule="nonzero" x="12.5" y="4.5" width="17" height="17"></rect>
+        <path d="M12.5,4.5 L29.5,21.5" id="Line-5" stroke="#E52D2D" stroke-linecap="round" fill-rule="nonzero"></path>
+        <path d="M12.5,4.5 L29.5,21.5" id="Line-5-Copy" stroke="#E52D2D" stroke-linecap="round" fill-rule="nonzero" transform="translate(21.000000, 13.000000) scale(-1, 1) translate(-21.000000, -13.000000) "></path>
+    </g>
+</svg>

@@ -1,0 +1,5 @@
+0 0s 0s 0s 0s
+5m 0s 1s 1s 0s
+10m 0s 1s 1s 0s
+15m 1s 0s 0s 1s
+20m 0s 0s 0s 0s

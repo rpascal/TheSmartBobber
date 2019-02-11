@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>DimensionHorizontal</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#999999" fill-rule="nonzero" x="0" y="2" width="2" height="28"></rect>
+        <rect fill="#999999" fill-rule="nonzero" x="30" y="2" width="2" height="28"></rect>
+        <polygon fill="#333333" fill-rule="nonzero" points="24.0352552 5.32806275 24.0352552 9.32806275 8.03525516 9.32806275 8.03525516 5.32806275 2.03525516 10.8280628 8.03525516 16.3280628 8.03525516 12.3280628 24.0352552 12.3280628 24.0352552 16.3280628 30.0352552 10.8280628"></polygon>
+    </g>
+</svg>
