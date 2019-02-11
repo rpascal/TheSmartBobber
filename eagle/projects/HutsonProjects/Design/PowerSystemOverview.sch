@@ -2837,6 +2837,38 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
+<library name="docu-dummy" urn="urn:adsk.eagle:library:215">
+<description>Dummy symbols</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="RESISTOR" urn="urn:adsk.eagle:symbol:13162/1" library_version="2">
+<wire x1="-2.54" y1="-0.889" x2="2.54" y2="-0.889" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-0.889" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-0.889" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="5.08" y2="0" width="0.1524" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="R" urn="urn:adsk.eagle:component:13171/1" prefix="R" library_version="2">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2885,6 +2917,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="L2" library="SparkFun-Coils" deviceset="INDUCTOR" device="INDUCTOR_10UH" value="10uH"/>
 <part name="C7" library="SparkFun-Capacitors" deviceset="2.2UF" device="-0603-10V-20%" value="2.2uF"/>
 <part name="U$4" library="AP910C" deviceset="AP9101C" device=""/>
+<part name="R7" library="docu-dummy" library_urn="urn:adsk.eagle:library:215" deviceset="R" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3036,6 +3069,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <instance part="U$4" gate="G$1" x="137.16" y="109.22" smashed="yes">
 <attribute name="VALUE" x="124.46" y="99.06" size="1.778" layer="96"/>
 </instance>
+<instance part="R7" gate="G$1" x="30.48" y="180.34" smashed="yes"/>
 </instances>
 <busses>
 <bus name="B$1">
