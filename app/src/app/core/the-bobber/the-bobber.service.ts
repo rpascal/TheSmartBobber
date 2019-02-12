@@ -19,6 +19,8 @@ export class TheBobberService extends BluetoothSerialService {
   private readonly END_DEL = "&";
   private readonly TEMP_DEL = "#";
   private readonly BITE_DEL = "@";
+  private readonly SOLENOID_DELIMETER = "*";
+
   private readonly ADDRESS = "00:06:66:ED:FA:72";
 
   private takeUntilBobber: Subject<void>;
@@ -27,6 +29,9 @@ export class TheBobberService extends BluetoothSerialService {
   temps$: Observable<number>;
   private biteSubject = new Subject<string>();
   bite$: Observable<number>;
+
+  private solenoidSubject = new Subject<string>();
+  solenoid$: Observable<number>;
 
   private cleanUpMap = (char: string) =>
     map((data: string) => data.replace(char, ""));
@@ -52,11 +57,20 @@ export class TheBobberService extends BluetoothSerialService {
       )
       .subscribe(data => {});
 
+    this.solenoidSubject
+      .pipe(
+        this.cleanUpMap(this.SOLENOID_DELIMETER),
+        this.toNumMap(),
+        this.fb.solenoidTap(),
+        this.logsService.tempTap(`${TheBobberService.name} - solenoid`)
+      )
+      .subscribe(data => {});
+
     this.biteSubject
       .pipe(
         this.cleanUpMap(this.BITE_DEL),
         this.toNumMap(),
-        this.fb.biteTap(),
+        // this.fb.biteTap(),
         tap(data => {
           if (data === environment.bitePeak) {
             this.vibration.triple();
@@ -73,6 +87,11 @@ export class TheBobberService extends BluetoothSerialService {
 
     this.bite$ = this.biteSubject.asObservable().pipe(
       this.cleanUpMap(this.BITE_DEL),
+      this.toNumMap()
+    );
+
+    this.solenoid$ = this.solenoidSubject.asObservable().pipe(
+      this.cleanUpMap(this.SOLENOID_DELIMETER),
       this.toNumMap()
     );
   }
@@ -103,6 +122,9 @@ export class TheBobberService extends BluetoothSerialService {
         }
         if (data.includes(this.BITE_DEL)) {
           this.biteSubject.next(data);
+        }
+        if (data.includes(this.SOLENOID_DELIMETER)) {
+          this.solenoidSubject.next(data);
         }
       });
   }

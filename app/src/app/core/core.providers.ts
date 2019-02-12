@@ -42,13 +42,19 @@ class BluetoothSerialMock extends BluetoothSerial {
     const mock = new Subject<string>();
     const TEMP_DEL = "#";
     const BITE_DEL = "@";
+    const SOLENOID_DELIMETER = "*";
 
     setInterval(() => {
       let mes = Math.random() > 0.5 ? TEMP_DEL : BITE_DEL;
       mes += Math.floor(Math.random() * 11).toString();
       // console.log("MOCK", mes);
       mock.next(mes);
-    }, 250);
+    }, 60000);
+
+    setInterval(() => {
+      mock.next(`${SOLENOID_DELIMETER}1`);
+    }, 5000);
+
 
     return mock.asObservable();
   }
