@@ -54,13 +54,11 @@ export const solenoidOnCreate = functions.firestore
     }
     const log = await logRef.get();
     const data = log.data();
-    if(!data){
+    if (!data) {
       return Promise.reject("No data found");
     }
     const confirmedBites =
-      log.exists && !isNaN(data.confirmedBites)
-        ? data.confirmedBites
-        : 0;
+      log.exists && !isNaN(data.confirmedBites) ? data.confirmedBites : 0;
     return logRef.update({
       confirmedBites: Number(confirmedBites) + 1
     });
@@ -69,21 +67,37 @@ export const solenoidOnCreate = functions.firestore
 export const tempOnCreate = functions.firestore
   .document("logs/{logUid}/temp/{tempUid}")
   .onCreate(async (snap, context) => {
-    const allTemps = snap.ref.parent.orderBy("timestramp");
-    const logRef = snap.ref.parent.parent; //firestore.doc(`logs/${context.params.logUid}`);
-    if (!logRef || !allTemps) {
+    const data = snap.data();
+    if (!data || isNaN(data.value)) {
       return Promise.reject("No data found");
     }
 
-    const allTempsData: number[] = (await allTemps.get()).docs.map(item =>
-      item.get("value")
-    );
-
-    if (allTempsData.length === 0) {
+    const logRef = snap.ref.parent.parent;
+    if (!logRef) {
       return Promise.reject("No data found");
     }
+
+    const log = await logRef.get();
+    const logData = log.data();
+    if (!logData || !log.exists) {
+      return Promise.reject("No data found");
+    }
+
+    const averageTemperature = !isNaN(logData.averageTemperature)
+      ? logData.averageTemperature
+      : 1;
+
+    const temperatureCount = !isNaN(logData.temperatureCount)
+      ? logData.temperatureCount
+      : 0;
+    const newTemperatureCount = Number(temperatureCount) + 1;
+
+    const differential =
+      (data.value - averageTemperature) / newTemperatureCount;
+    const newAverage = averageTemperature + differential;
 
     return logRef.update({
-      averageTemp: allTempsData.reduce((xx, y) => xx + y) / allTempsData.length
+      averageTemperature: newAverage,
+      temperatureCount: newTemperatureCount
     });
   });
