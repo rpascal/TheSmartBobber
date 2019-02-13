@@ -41,10 +41,8 @@ export interface ILogDatabase {
   weather?: IWeather;
   endDate?: Date;
   confirmedBites: number;
-  averageTemp: number;
+  averageTemperature: number;
   images?: Observable<Image[]>;
-  // temps?: Observable<number>;
-  // bites?: Observable<number>;
 }
 
 @Injectable({
@@ -169,12 +167,10 @@ export class FirebaseService {
     if (this.activeLog) {
       this.activeLog.collection<Image>("images").add({
         url: url,
-        // timestamp: new Date()
       })
     } else {
       this.afs.collection("uncategorizedImages").add({
         url: url,
-        // timestamp: new Date()
       })
     }
 

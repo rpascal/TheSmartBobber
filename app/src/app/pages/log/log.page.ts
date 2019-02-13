@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { FirebaseService, ILogDatabase } from '../../core';
-import { ImageUploaderService } from '../../core/image-uploader/image-uploader.service';
 
 @Component({
   selector: "app-log",
@@ -15,6 +13,7 @@ export class LogPage implements OnInit {
   logs$: Observable<ILogDatabase[]>;
   slideOpts = {
     loop: true,
+    // height: 200,
     autoHeight: true
   };
 
