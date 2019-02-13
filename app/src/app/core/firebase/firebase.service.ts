@@ -19,6 +19,11 @@ export interface Image {
   url: string;
 }
 
+export interface Solenoid {
+  value: number;
+  timestamp: Date;
+}
+
 export interface Log {
   title: string;
   description: string;
@@ -54,6 +59,8 @@ export class FirebaseService {
 
   bitesCollection: AngularFirestoreCollection<Bite>;
   tempsCollection: AngularFirestoreCollection<Temp>;
+  solenoidCollection: AngularFirestoreCollection<Solenoid>;
+
   weatherCollection: AngularFirestoreCollection<IWeather>;
 
   constructor(private afs: AngularFirestore) { }
@@ -87,6 +94,7 @@ export class FirebaseService {
     this.activeLog = this.afs.doc<Log>(`logs/${uid}`);
     this.bitesCollection = this.activeLog.collection<Bite>("bite");
     this.tempsCollection = this.activeLog.collection<Temp>("temp");
+    this.solenoidCollection = this.activeLog.collection<Temp>("solenoid");
     this.weatherCollection = this.activeLog.collection<IWeather>("weather");
     this.activelyLogging.next(true);
   }
@@ -98,6 +106,7 @@ export class FirebaseService {
     delete this.activeLog;
     delete this.bitesCollection;
     delete this.tempsCollection;
+    delete this.solenoidCollection;
     delete this.weatherCollection;
     this.activelyLogging.next(false);
     await Storage.clear();
@@ -115,6 +124,14 @@ export class FirebaseService {
     return tap((value: number) => {
       if (this.tempsCollection) {
         this.tempsCollection.add({ value: value, timestamp: new Date() });
+      }
+    });
+  }
+
+  solenoidTap() {
+    return tap((value: number) => {
+      if (this.solenoidCollection && value === 1) {
+        this.solenoidCollection.add({ value: value, timestamp: new Date() });
       }
     });
   }
