@@ -850,22 +850,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 &lt;br&gt;
 You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
 <packages>
-<package name="1210">
-<description>&lt;p&gt;&lt;b&gt;Generic 3225 (1210) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<wire x1="-1.5365" y1="1.1865" x2="1.5365" y2="1.1865" width="0.127" layer="51"/>
-<wire x1="1.5365" y1="1.1865" x2="1.5365" y2="-1.1865" width="0.127" layer="51"/>
-<wire x1="1.5365" y1="-1.1865" x2="-1.5365" y2="-1.1865" width="0.127" layer="51"/>
-<wire x1="-1.5365" y1="-1.1865" x2="-1.5365" y2="1.1865" width="0.127" layer="51"/>
-<smd name="1" x="-1.755" y="0" dx="1.27" dy="2.06" layer="1"/>
-<smd name="2" x="1.755" y="0" dx="1.27" dy="2.06" layer="1"/>
-<text x="0" y="1.397" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-1.397" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<wire x1="-2.59" y1="1.45" x2="2.59" y2="1.45" width="0.0508" layer="39"/>
-<wire x1="2.59" y1="1.45" x2="2.59" y2="-1.45" width="0.0508" layer="39"/>
-<wire x1="2.59" y1="-1.45" x2="-2.59" y2="-1.45" width="0.0508" layer="39"/>
-<wire x1="-2.59" y1="-1.45" x2="-2.59" y2="1.45" width="0.0508" layer="39"/>
-</package>
 <package name="AXIAL-0.3">
 <description>&lt;h3&gt;AXIAL-0.3&lt;/h3&gt;
 &lt;p&gt;Commonly used for 1/4W through-hole resistors. 0.3" pitch between holes.&lt;/p&gt;</description>
@@ -1006,27 +990,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="0.1OHM" prefix="R">
-<description>&lt;h3&gt;0.1Ω resistor&lt;/h3&gt;
-&lt;p&gt;A resistor is a passive two-terminal electrical component that implements electrical resistance as a circuit element. Resistors act to reduce current flow, and, at the same time, act to lower voltage levels within circuits. - Wikipedia&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="-1210-1/2W-1%" package="1210">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="RES-12374"/>
-<attribute name="VALUE" value="0.1"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="100KOHM" prefix="R">
 <description>&lt;h3&gt;100kΩ resistor&lt;/h3&gt;
 &lt;p&gt;A resistor is a passive two-terminal electrical component that implements electrical resistance as a circuit element. Resistors act to reduce current flow, and, at the same time, act to lower voltage levels within circuits. - Wikipedia&lt;/p&gt;</description>
@@ -2701,6 +2664,67 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
+<library name="RL1220S-R10-F">
+<packages>
+<package name="RESC2013X65N">
+<wire x1="-0.4318" y1="-0.7112" x2="-0.4318" y2="0.7112" width="0" layer="51"/>
+<wire x1="-0.4318" y1="0.7112" x2="-1.0668" y2="0.7112" width="0" layer="51"/>
+<wire x1="-1.0668" y1="-0.7112" x2="-0.4318" y2="-0.7112" width="0" layer="51"/>
+<wire x1="0.4318" y1="0.7112" x2="0.4318" y2="-0.7112" width="0" layer="51"/>
+<wire x1="0.4318" y1="-0.7112" x2="1.0668" y2="-0.7112" width="0" layer="51"/>
+<wire x1="1.0668" y1="0.7112" x2="0.4318" y2="0.7112" width="0" layer="51"/>
+<wire x1="-0.4318" y1="-0.7112" x2="0.4318" y2="-0.7112" width="0" layer="51"/>
+<wire x1="1.0668" y1="-0.7112" x2="1.0668" y2="0.7112" width="0" layer="51"/>
+<wire x1="0.4318" y1="0.7112" x2="-0.4318" y2="0.7112" width="0" layer="51"/>
+<wire x1="-1.0668" y1="0.7112" x2="-1.0668" y2="-0.7112" width="0" layer="51"/>
+<text x="-3.459290625" y="1.2718" size="2.08575" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-3.460059375" y="-3.1802" size="2.086209375" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
+<smd name="1" x="-0.9398" y="0" dx="1.016" dy="1.397" layer="1"/>
+<smd name="2" x="0.9398" y="0" dx="1.016" dy="1.397" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="RESH">
+<wire x1="3.175" y1="1.27" x2="4.445" y2="-1.27" width="0.2032" layer="94"/>
+<wire x1="4.445" y1="-1.27" x2="5.715" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="5.715" y1="1.27" x2="6.985" y2="-1.27" width="0.2032" layer="94"/>
+<wire x1="6.985" y1="-1.27" x2="8.255" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="8.255" y1="1.27" x2="9.525" y2="-1.27" width="0.2032" layer="94"/>
+<wire x1="2.54" y1="0" x2="3.175" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="9.525" y1="-1.27" x2="10.16" y2="0" width="0.2032" layer="94"/>
+<text x="-3.12755" y="-8.746959375" size="3.48353125" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+<text x="0.991640625" y="2.771509375" size="2.084990625" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
+<pin name="R2" x="0" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+<pin name="R1" x="12.7" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="RL1220S-R10-F" prefix="R">
+<description>RESISTOR, 0805</description>
+<gates>
+<gate name="A" symbol="RESH" x="0" y="0" swaplevel="1"/>
+</gates>
+<devices>
+<device name="" package="RESC2013X65N">
+<connects>
+<connect gate="A" pin="R1" pad="1"/>
+<connect gate="A" pin="R2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value=" Res Thin Film 0805 0.1 Ohm 1% 0.33W_1/3W_ 0ppm/C to 200ppm/C Pad SMD Automotive T/R "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="RL12S.10FCT-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/susumu/RL1220S-R10-F/RL12S.10FCT-ND/433019?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="MF" value="Susumu"/>
+<attribute name="MP" value="RL1220S-R10-F"/>
+<attribute name="PACKAGE" value="0805 Susumu"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2714,7 +2738,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="U1" library="SparkFun-IC-Power" deviceset="MCP7384XX" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="10UF-POLAR" device="-0603-6.3V-20%(TANT)" value="10uF"/>
-<part name="R1" library="SparkFun-Resistors" deviceset="0.1OHM" device="-1210-1/2W-1%" value="0.1"/>
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
@@ -2749,6 +2772,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="U$4" library="AP910C" deviceset="AP9101C" device=""/>
 <part name="U$5" library="DB2W31900L" deviceset="DB2W31900" device=""/>
 <part name="U$6" library="DB2W31900L" deviceset="DB2W31900" device=""/>
+<part name="R7" library="RL1220S-R10-F" deviceset="RL1220S-R10-F" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2774,10 +2798,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <instance part="C1" gate="G$1" x="-12.7" y="91.44" smashed="yes">
 <attribute name="NAME" x="-11.684" y="92.075" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="-11.684" y="87.249" size="1.778" layer="96" font="vector"/>
-</instance>
-<instance part="R1" gate="G$1" x="5.08" y="106.68" smashed="yes">
-<attribute name="NAME" x="5.08" y="108.204" size="1.778" layer="95" font="vector" align="bottom-center"/>
-<attribute name="VALUE" x="5.08" y="105.156" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
 <instance part="SUPPLY1" gate="GND" x="-12.7" y="81.28" smashed="yes">
 <attribute name="VALUE" x="-14.605" y="78.105" size="1.778" layer="96"/>
@@ -2895,6 +2915,10 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </instance>
 <instance part="U$5" gate="G$1" x="-48.26" y="93.98" smashed="yes" rot="R90"/>
 <instance part="U$6" gate="G$1" x="231.14" y="152.4" smashed="yes" rot="R90"/>
+<instance part="R7" gate="A" x="-7.62" y="106.68" smashed="yes">
+<attribute name="VALUE" x="-8.20755" y="113.173040625" size="3.48353125" layer="96" ratio="10" rot="SR0"/>
+<attribute name="NAME" x="-6.628359375" y="109.451509375" size="2.084990625" layer="95" ratio="10" rot="SR0"/>
+</instance>
 </instances>
 <busses>
 <bus name="B$1">
@@ -2942,8 +2966,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="C1" gate="G$1" pin="+"/>
 <wire x1="-12.7" y1="93.98" x2="-12.7" y2="106.68" width="0.1524" layer="91"/>
 <junction x="-12.7" y="93.98"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="-12.7" y1="106.68" x2="0" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="-12.7" y1="93.98" x2="-2.54" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="93.98" x2="-2.54" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="LED1" gate="G$1" pin="A"/>
@@ -2959,6 +2981,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="17.78" y1="91.44" x2="25.4" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="U$5" gate="G$1" pin="CATHODE"/>
 <wire x1="-25.4" y1="93.98" x2="-12.7" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="R7" gate="A" pin="R2"/>
+<wire x1="-12.7" y1="106.68" x2="-7.62" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -3077,8 +3101,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="10.16" y1="106.68" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="SENSE"/>
 <wire x1="25.4" y1="93.98" x2="25.4" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="99.06" x2="15.24" y2="99.06" width="0.1524" layer="91"/>
@@ -3088,6 +3110,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="15.24" y1="106.68" x2="15.24" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="139.7" x2="63.5" y2="139.7" width="0.1524" layer="91"/>
 <junction x="15.24" y="106.68"/>
+<pinref part="R7" gate="A" pin="R1"/>
+<wire x1="5.08" y1="106.68" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$6" class="0">
