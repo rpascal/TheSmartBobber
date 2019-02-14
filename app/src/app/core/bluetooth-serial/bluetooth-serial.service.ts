@@ -1,10 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
-import { BehaviorSubject, Observable, pipe, range, throwError, timer, UnaryFunction } from 'rxjs';
-import { concat, map, mergeMap, retryWhen, take, tap, zip } from 'rxjs/operators';
+import { BehaviorSubject, Observable, pipe, range, Subject, throwError, timer, UnaryFunction } from 'rxjs';
+import { concat, map, mergeMap, retryWhen, take, takeUntil, tap, zip } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment';
 import { CoreModule } from '../core.module';
 import { LogsService } from '../logs-service/logs.service';
 import { ToastService } from '../toast/toast.serivce';
@@ -19,14 +18,15 @@ export interface IDevice {
   providedIn: CoreModule
 })
 export abstract class BluetoothSerialService {
-  private connectionStatusSubject = new BehaviorSubject<boolean>(false);
-  private connectingSubject = new BehaviorSubject<boolean>(false);
+  private connectionStatusMessage = new BehaviorSubject<
+    "Connecting" | "Connected" | "Disconnected" | ""
+  >("");
 
-  connectionStatus$ = this.connectionStatusSubject.asObservable();
-  connecting$ = this.connectingSubject.asObservable();
+  private takeUntil: Subject<void>;
 
-  private connectionStatus = false;
-  private connecting = false;
+  connectionStatusMessage$ = this.connectionStatusMessage.asObservable();
+
+  private connected = false;
 
   constructor(
     protected bls: BluetoothSerial,
@@ -39,27 +39,37 @@ export abstract class BluetoothSerialService {
   abstract onConnect(): void;
   abstract onDisconnect(): void;
 
-  fakeConnecting() {
-    this.connectingSubject.next(true);
-    setTimeout(() => {
-      this.connectingSubject.next(false);
-    }, 5000);
-  }
-
   discoverUnpaired(): Promise<IDevice[]> {
     return this.bls.discoverUnpaired();
   }
 
+  disconnect(err?: any) {
+    this.takeUntil.next();
+    this.takeUntil.complete();
+    delete this.takeUntil;
+
+    this.logsService.addError(err, BluetoothSerialService.name);
+    this.connectionStatusMessage.next("Disconnected");
+    this.connected = false;
+    this.onDisconnect();
+  }
+
   connect(macAddress_or_uuid: string) {
+    this.takeUntil = new Subject();
+
+    this.connectionStatusMessage.next("Connecting");
+
     this.logsService.addMessage(
       `Attempting to connect to ${macAddress_or_uuid}`,
       BluetoothSerial.name
     );
-    if (!this.connectionStatus || !this.connecting) {
-      this.updateConnecting(true);
+    if (!this.connected) {
       this.bls
         .connect(macAddress_or_uuid)
-        .pipe(this.retryCall())
+        .pipe(
+          this.retryCall(),
+          takeUntil(this.takeUntil)
+        )
         .subscribe(
           connected => {
             this.logsService.addMessage(
@@ -69,33 +79,12 @@ export abstract class BluetoothSerialService {
               },
               BluetoothSerialService.name
             );
-            this.updateConnection(true);
-            this.updateConnecting(false);
 
+            this.connectionStatusMessage.next("Connected");
+            this.connected = true;
             this.onConnect();
-
-            this.router.navigateByUrl(environment.realTimePage);
           },
-          err => {
-            const errorMessage = this.connectionStatus
-              ? "Lost connection"
-              : "Couldn't connect";
-            this.toastService.error(errorMessage);
-            this.logsService.addError(
-              {
-                Text: errorMessage,
-                err: err
-              },
-              BluetoothSerialService.name
-            );
-
-            this.updateConnection(false);
-            this.updateConnecting(false);
-
-            this.onDisconnect();
-
-            this.router.navigateByUrl(environment.connectToBobberPage);
-          }
+          err => this.disconnect(err)
         );
     }
   }
@@ -116,20 +105,6 @@ export abstract class BluetoothSerialService {
     const writeData = str2ab(String(data));
 
     return this.bls.write(writeData);
-  }
-
-  private updateConnecting(status: boolean) {
-    this.zone.run(() => {
-      this.connecting = status;
-      this.connectingSubject.next(status);
-    });
-  }
-
-  private updateConnection(status: boolean) {
-    this.zone.run(() => {
-      this.connectionStatus = status;
-      this.connectionStatusSubject.next(status);
-    });
   }
 
   private retryCall<T>(

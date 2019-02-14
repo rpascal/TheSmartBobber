@@ -5,4 +5,9 @@
     <param name="android-package" value="com.megster.cordova.BluetoothSerial"/>
   </feature>
 
+
+  <feature name="NativeAudio">
+    <param name="android-package" value="com.rjfun.cordova.plugin.nativeaudio.NativeAudio"/>
+  </feature>
+
   </widget>

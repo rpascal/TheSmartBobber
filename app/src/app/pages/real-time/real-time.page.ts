@@ -1,31 +1,40 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 
-import { LogsService, TheBobberService, ToastService, WeatherService } from '../../core';
-
+import { IWeather, LogsService, TheBobberService, ToastService, WeatherService } from '../../core';
+import { SoundsService } from '../../core/sounds/sounds.service';
+import { VibrationService } from '../../core/vibration/vibration.service';
 
 @Component({
   selector: "app-real-time",
   templateUrl: "real-time.page.html",
   styleUrls: ["real-time.page.scss"]
 })
-export class RealTimePage implements OnInit, AfterViewInit {
+export class RealTimePage implements AfterViewInit {
+  weatherData: IWeather;
 
   constructor(
     private bobber: TheBobberService,
     private toast: ToastService,
     private weather: WeatherService,
-    private logsService: LogsService
+    private logsService: LogsService,
+    private vibration: VibrationService,
+    private sounds: SoundsService
   ) {}
 
   ngAfterViewInit() {
-    this.weather.getWeather().subscribe(data => {
-      this.logsService.addMessage(data, "Weather");
-    });
+    this.weather.getWeather().subscribe(
+      data => {
+        this.weatherData = data;
+      },
+      err => this.logsService.addError(err, "Weather")
+    );
   }
 
-  public ngOnInit() {}
+  vibrate() {
+    this.vibration.triple();
+  }
 
-
-
-
+  sound() {
+    this.sounds.bell();
+  }
 }

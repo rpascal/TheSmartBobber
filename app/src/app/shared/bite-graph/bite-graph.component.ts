@@ -1,23 +1,24 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import * as chartjs_plugin_annotationas from 'chartjs-plugin-annotation';
 
 import { TheBobberService } from '../../core';
 import { FirebaseService } from '../../core/firebase/firebase.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: "app-bite-graph",
   templateUrl: "./bite-graph.component.html",
   styleUrls: ["./bite-graph.component.scss"]
 })
-export class BiteGraphComponent implements OnInit, AfterViewInit {
-  private readonly MAX = 10;
+export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
+  private readonly MAX = environment.bitePeak;
 
   get greenUpper() {
-    return Math.floor(this.MAX * .2);
+    return Math.floor(this.MAX * 0.2);
   }
   get yellowUpper() {
-    return Math.floor(this.MAX * .8);
+    return Math.floor(this.MAX * 0.8);
   }
 
   @ViewChild("lineCanvas") lineCanvas;
@@ -28,7 +29,11 @@ export class BiteGraphComponent implements OnInit, AfterViewInit {
     const c = chartjs_plugin_annotationas;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  ngOnDestroy() {
+
+  }
 
   ngAfterViewInit() {
     const initLabels = [];

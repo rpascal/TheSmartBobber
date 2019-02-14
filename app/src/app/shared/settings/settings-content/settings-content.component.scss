@@ -1,0 +1,24 @@
+.statusHeader {
+    margin-bottom: 0px;
+    font-size: 1.25em;
+
+    ion-label {
+        margin-bottom: 0px;
+    }
+}
+
+ion-label.connecting {
+    color: yellow;
+}
+
+ion-label.connected {
+    color: green;
+}
+
+ion-label.disconnected {
+    color: red;
+}
+
+.closeIcon {
+    color: red;
+}

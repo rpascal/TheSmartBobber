@@ -1,0 +1,48 @@
+<ion-content padding>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Settings</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>LED</ion-label>
+      <ion-toggle (ionChange)="ledChange()" [(ngModel)]="ledStatus"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Autohook</ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Vibration</ion-label>
+      <ion-toggle (ionChange)="vibrationChange()" [(ngModel)]="vibrationStatus"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <ion-label>Sounds</ion-label>
+        <ion-toggle (ionChange)="soundChange()" [(ngModel)]="soundStatus"></ion-toggle>
+      </ion-item>
+
+    <!-- <ion-item-divider>
+    </ion-item-divider>
+     -->
+    <ion-list-header>
+      <!-- class="statusHeader" -->
+      <ion-label>Status</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label [ngClass]="{
+        'connecting':(connectionStatusMessage$ | async) === 'Connecting',
+        'connected':(connectionStatusMessage$ | async) === 'Connected',
+        'disconnected':(connectionStatusMessage$ | async) === 'Disconnected'
+      }">{{connectionStatusMessage$
+        | async}}</ion-label>
+
+      <ion-icon (click)="disconnect()" *ngIf="(connectionStatusMessage$ | async) !== 'Disconnected'" name="close" slot="end"
+        class="closeIcon"></ion-icon>
+
+      <ion-icon (click)="connect()" *ngIf="(connectionStatusMessage$ | async) === 'Disconnected'" name="bluetooth" slot="end"
+        class="bluetoothIcon"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

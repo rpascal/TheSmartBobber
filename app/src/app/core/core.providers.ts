@@ -1,12 +1,13 @@
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
-import { Observable, of, Subject } from 'rxjs';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { Observable, Subject, timer } from 'rxjs';
 
 import { IDevice } from './bluetooth-serial/bluetooth-serial.service';
 
 class BluetoothSerialMock extends BluetoothSerial {
   connect(macAddress_or_uuid: string): Observable<any> {
     // return throwError('Valid token not returned');
-    return of(true);
+    return timer(5000); // of(true);
   }
 
   write(data: any): Promise<any> {
@@ -16,22 +17,24 @@ class BluetoothSerialMock extends BluetoothSerial {
   }
   discoverUnpaired(): Promise<any> {
     return new Promise((resolve, reject) => {
-      const mock: IDevice[] = [
-        {
-          class: 12,
-          id: "id_1",
-          address: "address_1",
-          name: "name_1"
-        },
-        {
-          class: 22,
-          id: "id_2",
-          address: "address_2",
-          name: "name_2"
-        }
-      ];
+      setTimeout(() => {
+        const mock: IDevice[] = [
+          {
+            class: 12,
+            id: "id_1",
+            address: "address_1",
+            name: "name_1_bobber"
+          },
+          {
+            class: 22,
+            id: "id_2",
+            address: "address_2",
+            name: "name_2"
+          }
+        ];
 
-      resolve(mock);
+        resolve(mock);
+      }, 5000);
     });
   }
 
@@ -39,13 +42,19 @@ class BluetoothSerialMock extends BluetoothSerial {
     const mock = new Subject<string>();
     const TEMP_DEL = "#";
     const BITE_DEL = "@";
+    const SOLENOID_DELIMETER = "*";
 
     setInterval(() => {
       let mes = Math.random() > 0.5 ? TEMP_DEL : BITE_DEL;
       mes += Math.floor(Math.random() * 11).toString();
       // console.log("MOCK", mes);
       mock.next(mes);
-    }, 250);
+    }, 5000);
+
+    setInterval(() => {
+      mock.next(`${SOLENOID_DELIMETER}1`);
+    }, 5000);
+
 
     return mock.asObservable();
   }
@@ -65,6 +74,7 @@ export class CoreProviders {
       // Use device providers
       providers.push(BluetoothSerial);
     }
+    providers.push(NativeAudio);
 
     return providers;
   }

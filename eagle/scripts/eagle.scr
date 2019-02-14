@@ -21,16 +21,36 @@ MENU '[bin/designlink.svg] Search and order {\
                                           General : Run designlink-order.ulp -general; |\
                                           Schematic : Run designlink-order.ulp; \
                                           }'\
+
+     '[bin/LTspice.svg] LT Spice simulation {\
+                    Export: RUN ltspice.ulp /E; |\
+                    Export Setup: RUN ltspice.ulp /E /S; |\
+                    Export Group: RUN ltspice.ulp /E /G; |\
+                    Import: RUN ltspice.ulp /I; \
+     }' \
 ;
 
 LBR:
 MENU '[bin/designlink.svg] Search and order : Run designlink-order.ulp -general;'\
+
+     '[bin/LTspice.svg] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
      '[bin/pads-pcb.svg] PADS package import : RUN import-pads-powerpcb-v5;' \
 ;
 
 DEV:
 Grid Default;
 MENU '[bin/designlink.svg] Search and order : Run designlink-order.ulp -general;' \
+
+     '[bin/LTspice.svg] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  SpiceOrder : RUN spiceorder.ulp; |\
+                  SpiceModel: ATTRIBUTE SPICEMODEL |\
+                  Value2: ATTRIBUTE VALUE2 |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
      '[bin/pads-pcb.svg] PADS package import : RUN import-pads-powerpcb-v5;'\
 ;
 
@@ -38,9 +58,20 @@ SYM:
 Grid Default On;
 Change Width 0.010in;
 
+MENU '[bin/LTspice.svg] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  SpiceOrder : RUN spiceorder.ulp; |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+;
+
 PAC:
 Grid Default On;
 Change Width 0.005in;
 Change Size 0.050in;
-MENU '[bin/pads-pcb.svg] PADS package import : RUN import-pads-powerpcb-v5;' \
+
+MENU '[bin/LTspice.svg] LT Spice simulation {\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+     '[bin/pads-pcb.svg] PADS package import : RUN import-pads-powerpcb-v5;' \
      ;
