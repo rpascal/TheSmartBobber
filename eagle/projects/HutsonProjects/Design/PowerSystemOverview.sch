@@ -593,222 +593,6 @@ In this library the device names are the same as the pin names of the symbols, t
 </deviceset>
 </devicesets>
 </library>
-<library name="eagle-ltspice" urn="urn:adsk.eagle:library:217">
-<description>Default symbols for import LTspice schematics&lt;p&gt;
-2012-10-29 alf@cadsoft.de&lt;br&gt;</description>
-<packages>
-<package name="LED_1206" urn="urn:adsk.eagle:footprint:13254/1" library_version="1">
-<description>&lt;b&gt;CHICAGO MINIATURE LAMP, INC.&lt;/b&gt;&lt;p&gt;
-7022X Series SMT LEDs 1206 Package Size</description>
-<wire x1="1.55" y1="-0.75" x2="-1.55" y2="-0.75" width="0.1016" layer="51"/>
-<wire x1="-1.55" y1="-0.75" x2="-1.55" y2="0.75" width="0.1016" layer="51"/>
-<wire x1="-1.55" y1="0.75" x2="1.55" y2="0.75" width="0.1016" layer="51"/>
-<wire x1="1.55" y1="0.75" x2="1.55" y2="-0.75" width="0.1016" layer="51"/>
-<wire x1="-0.55" y1="-0.5" x2="0.55" y2="-0.5" width="0.1016" layer="21" curve="95.452622"/>
-<wire x1="-0.55" y1="-0.5" x2="-0.55" y2="0.5" width="0.1016" layer="51" curve="-84.547378"/>
-<wire x1="-0.55" y1="0.5" x2="0.55" y2="0.5" width="0.1016" layer="21" curve="-95.452622"/>
-<wire x1="0.55" y1="0.5" x2="0.55" y2="-0.5" width="0.1016" layer="51" curve="-84.547378"/>
-<rectangle x1="-0.1" y1="-0.1" x2="0.1" y2="0.1" layer="21"/>
-<rectangle x1="0.45" y1="-0.7" x2="0.8" y2="-0.45" layer="51"/>
-<rectangle x1="0.8" y1="-0.7" x2="0.9" y2="0.5" layer="51"/>
-<rectangle x1="0.8" y1="0.55" x2="0.9" y2="0.7" layer="51"/>
-<rectangle x1="-0.9" y1="-0.7" x2="-0.8" y2="0.5" layer="51"/>
-<rectangle x1="-0.9" y1="0.55" x2="-0.8" y2="0.7" layer="51"/>
-<rectangle x1="0.45" y1="-0.7" x2="0.6" y2="-0.45" layer="21"/>
-<smd name="A" x="-1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
-<smd name="C" x="1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
-<text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
-</package>
-<package name="LED_LD260" urn="urn:adsk.eagle:footprint:13255/1" library_version="1">
-<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
-5 mm, square, Siemens</description>
-<wire x1="-1.27" y1="-1.27" x2="0" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="0" y1="-1.27" x2="1.27" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="1.27" x2="0" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="0" y1="1.27" x2="-1.27" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="-1.27" x2="1.27" y2="-0.889" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="0.889" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="0.889" x2="1.27" y2="0" width="0.1524" layer="51"/>
-<wire x1="1.27" y1="0" x2="1.27" y2="-0.889" width="0.1524" layer="51"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0.889" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="-0.889" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-0.889" x2="-1.27" y2="0" width="0.1524" layer="51"/>
-<wire x1="-1.27" y1="0" x2="-1.27" y2="0.889" width="0.1524" layer="51"/>
-<wire x1="0" y1="1.27" x2="0.9917" y2="0.7934" width="0.1524" layer="21" curve="-51.33923"/>
-<wire x1="-0.9917" y1="0.7934" x2="0" y2="1.27" width="0.1524" layer="21" curve="-51.33923"/>
-<wire x1="0" y1="-1.27" x2="0.9917" y2="-0.7934" width="0.1524" layer="21" curve="51.33923"/>
-<wire x1="-0.9917" y1="-0.7934" x2="0" y2="-1.27" width="0.1524" layer="21" curve="51.33923"/>
-<wire x1="0.9558" y1="-0.8363" x2="1.27" y2="0" width="0.1524" layer="51" curve="41.185419"/>
-<wire x1="0.9756" y1="0.813" x2="1.2699" y2="0" width="0.1524" layer="51" curve="-39.806332"/>
-<wire x1="-1.27" y1="0" x2="-0.9643" y2="-0.8265" width="0.1524" layer="51" curve="40.600331"/>
-<wire x1="-1.27" y1="0" x2="-0.9643" y2="0.8265" width="0.1524" layer="51" curve="-40.600331"/>
-<wire x1="-0.889" y1="0" x2="0" y2="0.889" width="0.1524" layer="51" curve="-90"/>
-<wire x1="-0.508" y1="0" x2="0" y2="0.508" width="0.1524" layer="51" curve="-90"/>
-<wire x1="0" y1="-0.508" x2="0.508" y2="0" width="0.1524" layer="21" curve="90"/>
-<wire x1="0" y1="-0.889" x2="0.889" y2="0" width="0.1524" layer="51" curve="90"/>
-<rectangle x1="1.27" y1="-0.635" x2="2.032" y2="0.635" layer="51"/>
-<rectangle x1="1.905" y1="-0.635" x2="2.032" y2="0.635" layer="21"/>
-<pad name="A" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
-<text x="-1.2954" y="1.4732" size="1.016" layer="25" ratio="10">&gt;NAME</text>
-<text x="-1.27" y="-2.4892" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-<package name="LED_SML0603" urn="urn:adsk.eagle:footprint:13256/1" library_version="1">
-<description>&lt;b&gt;SML0603-XXX (HIGH INTENSITY) LED&lt;/b&gt;&lt;p&gt;
-&lt;table&gt;
-&lt;tr&gt;&lt;td&gt;AG3K&lt;/td&gt;&lt;td&gt;AQUA GREEN&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;B1K&lt;/td&gt;&lt;td&gt;SUPER BLUE&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;R1K&lt;/td&gt;&lt;td&gt;SUPER RED&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;R3K&lt;/td&gt;&lt;td&gt;ULTRA RED&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;O3K&lt;/td&gt;&lt;td&gt;SUPER ORANGE&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;O3KH&lt;/td&gt;&lt;td&gt;SOFT ORANGE&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Y3KH&lt;/td&gt;&lt;td&gt;SUPER YELLOW&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Y3K&lt;/td&gt;&lt;td&gt;SUPER YELLOW&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;2CW&lt;/td&gt;&lt;td&gt;WHITE&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-Source: http://www.ledtronics.com/ds/smd-0603/Dstr0092.pdf</description>
-<wire x1="-0.75" y1="0.35" x2="0.75" y2="0.35" width="0.1016" layer="51"/>
-<wire x1="0.75" y1="0.35" x2="0.75" y2="-0.35" width="0.1016" layer="51"/>
-<wire x1="0.75" y1="-0.35" x2="-0.75" y2="-0.35" width="0.1016" layer="51"/>
-<wire x1="-0.75" y1="-0.35" x2="-0.75" y2="0.35" width="0.1016" layer="51"/>
-<wire x1="-0.45" y1="0.3" x2="-0.45" y2="-0.3" width="0.1016" layer="51"/>
-<wire x1="0.45" y1="0.3" x2="0.45" y2="-0.3" width="0.1016" layer="51"/>
-<wire x1="-0.2" y1="0.35" x2="0.2" y2="0.35" width="0.1016" layer="21"/>
-<wire x1="-0.2" y1="-0.35" x2="0.2" y2="-0.35" width="0.1016" layer="21"/>
-<rectangle x1="-0.4" y1="0.175" x2="0" y2="0.4" layer="51"/>
-<rectangle x1="-0.25" y1="0.175" x2="0" y2="0.4" layer="21"/>
-<smd name="A" x="0.75" y="0" dx="0.8" dy="0.8" layer="1"/>
-<smd name="C" x="-0.75" y="0" dx="0.8" dy="0.8" layer="1"/>
-<text x="-1" y="1" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1" y="-2" size="1.27" layer="27">&gt;VALUE</text>
-</package>
-</packages>
-<packages3d>
-<package3d name="LED_1206" urn="urn:adsk.eagle:package:13319/1" type="box" library_version="1">
-<description>CHICAGO MINIATURE LAMP, INC.
-7022X Series SMT LEDs 1206 Package Size</description>
-<packageinstances>
-<packageinstance name="LED_1206"/>
-</packageinstances>
-</package3d>
-<package3d name="LED_LD260" urn="urn:adsk.eagle:package:13313/1" type="box" library_version="1">
-<description>LED
-5 mm, square, Siemens</description>
-<packageinstances>
-<packageinstance name="LED_LD260"/>
-</packageinstances>
-</package3d>
-<package3d name="LED_SML0603" urn="urn:adsk.eagle:package:13315/1" type="box" library_version="1">
-<description>SML0603-XXX (HIGH INTENSITY) LED
-
-AG3KAQUA GREEN
-B1KSUPER BLUE
-R1KSUPER RED
-R3KULTRA RED
-O3KSUPER ORANGE
-O3KHSOFT ORANGE
-Y3KHSUPER YELLOW
-Y3KSUPER YELLOW
-2CWWHITE
-
-Source: http://www.ledtronics.com/ds/smd-0603/Dstr0092.pdf</description>
-<packageinstances>
-<packageinstance name="LED_SML0603"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="LED_LED" urn="urn:adsk.eagle:symbol:13253/1" library_version="1">
-<wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-1.27" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="-2.032" y1="-0.762" x2="-3.429" y2="-2.159" width="0.1524" layer="94"/>
-<wire x1="-1.905" y1="-1.905" x2="-3.302" y2="-3.302" width="0.1524" layer="94"/>
-<pin name="A" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="C" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<text x="3.556" y="-4.572" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="5.715" y="-4.572" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<text x="0" y="-5.08" size="0.4064" layer="99" align="center">SpiceOrder 2</text>
-<text x="0" y="2.54" size="0.4064" layer="99" align="center">SpiceOrder 1</text>
-<polygon width="0.1524" layer="94">
-<vertex x="-3.429" y="-2.159"/>
-<vertex x="-3.048" y="-1.27"/>
-<vertex x="-2.54" y="-1.778"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="-3.302" y="-3.302"/>
-<vertex x="-2.921" y="-2.413"/>
-<vertex x="-2.413" y="-2.921"/>
-</polygon>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="LED_E" urn="urn:adsk.eagle:component:13323/1" prefix="LED" uservalue="yes" library_version="1">
-<description>&lt;b&gt;LED&lt;/b&gt;&lt;p&gt;
-Source: http://www.osram.convergy.de&lt;p&gt;
-Source: www.luxeon.com&lt;p&gt;
-Source: www.kingbright.com</description>
-<gates>
-<gate name="G$1" symbol="LED_LED" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="LED_1206">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:13319/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="SPICEMODEL" value="NONE" constant="no"/>
-<attribute name="SPICEPREFIX" value="D" constant="no"/>
-<attribute name="SPICETYPE" value="diode" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="LD260" package="LED_LD260">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="K"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:13313/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="SPICEMODEL" value="NONE" constant="no"/>
-<attribute name="SPICEPREFIX" value="D" constant="no"/>
-<attribute name="SPICETYPE" value="diode" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="SML0603" package="LED_SML0603">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:13315/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="SPICEMODEL" value="NONE" constant="no"/>
-<attribute name="SPICEPREFIX" value="D" constant="no"/>
-<attribute name="SPICETYPE" value="diode" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="NDS8434">
 <packages>
 <package name="SO08">
@@ -2483,6 +2267,144 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
+<library name="LTST-C191KGKT">
+<packages>
+<package name="0603">
+<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
+<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
+<text x="-0.63615" y="0.63615" size="1.272290625" layer="25">&gt;NAME</text>
+<text x="-0.636275" y="-1.90883125" size="1.272559375" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.840134375" y1="-0.470984375" x2="-0.3381" y2="0.4801" layer="51"/>
+<rectangle x1="0.330790625" y1="-0.47074375" x2="0.8303" y2="0.4801" layer="51"/>
+<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="LTST-C191KGKT">
+<wire x1="1.27" y1="1.778" x2="0" y2="-0.254" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.254" x2="-1.27" y2="1.778" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-0.254" x2="0" y2="-0.254" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.254" x2="-1.27" y2="-0.254" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.778" x2="-1.27" y2="1.778" width="0.254" layer="94"/>
+<wire x1="-2.032" y1="1.524" x2="-2.921" y2="0.635" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="0.762" x2="-2.159" y2="-0.127" width="0.1524" layer="94"/>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.048" y="1.016"/>
+<vertex x="-3.302" y="0.254"/>
+<vertex x="-2.54" y="0.508"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="-2.286" y="0.254"/>
+<vertex x="-2.54" y="-0.508"/>
+<vertex x="-1.778" y="-0.254"/>
+</polygon>
+<text x="2.54501875" y="2.54501875" size="1.78151875" layer="95">&gt;NAME</text>
+<text x="2.5425" y="0" size="1.77975" layer="96">&gt;VALUE</text>
+<pin name="A2" x="0" y="5.08" visible="off" length="middle" direction="pas" rot="R270"/>
+<pin name="K2" x="0" y="-2.54" visible="off" length="short" direction="pas" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="LTST-C191KGKT" prefix="D">
+<description>http://octopart.com/ltst-c190krkt-lite-on-549893</description>
+<gates>
+<gate name="G$1" symbol="LTST-C191KGKT" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="0603">
+<connects>
+<connect gate="G$1" pin="A2" pad="2"/>
+<connect gate="G$1" pin="K2" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value=" Green 1.6 x 0.8 x 0.55 mm 130º Water Clear 35 mcd Surface Mount LED "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="160-1446-1-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/lite-on-inc/LTST-C191KGKT/160-1446-1-ND/386834?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="MF" value="Lite-On Inc."/>
+<attribute name="MP" value="LTST-C191KGKT"/>
+<attribute name="PACKAGE" value="0603 Lite-On"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="JS102011SAQN">
+<packages>
+<package name="SW_JS102011SAQN">
+<wire x1="-4.5" y1="1.8" x2="4.5" y2="1.8" width="0.127" layer="51"/>
+<wire x1="-4.5" y1="-1.8" x2="4.5" y2="-1.8" width="0.127" layer="21"/>
+<wire x1="-4.5" y1="1.8" x2="-4.5" y2="-1.8" width="0.127" layer="21"/>
+<wire x1="4.5" y1="1.8" x2="4.5" y2="-1.8" width="0.127" layer="21"/>
+<rectangle x1="-2.800890625" y1="1.80056875" x2="-2.2" y2="3.7" layer="51"/>
+<rectangle x1="-2.801109375" y1="1.800709375" x2="-2.2" y2="3.7" layer="51"/>
+<rectangle x1="-0.30005625" y1="1.800340625" x2="0.3" y2="3.7" layer="51"/>
+<rectangle x1="2.203690625" y1="1.80301875" x2="2.8" y2="3.7" layer="51"/>
+<wire x1="-2.3" y1="-1.8" x2="-2.3" y2="-4" width="0.127" layer="51"/>
+<wire x1="-2.3" y1="-4" x2="-0.8" y2="-4" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="-4" x2="-0.8" y2="-1.8" width="0.127" layer="51"/>
+<wire x1="-4.5" y1="-1.5" x2="-3.2" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-3.2" y1="-1.5" x2="-3.2" y2="-1.8" width="0.127" layer="51"/>
+<wire x1="-4.5" y1="1.4" x2="-3.2" y2="1.4" width="0.127" layer="51"/>
+<wire x1="3.2" y1="1.4" x2="4.5" y2="1.4" width="0.127" layer="51"/>
+<wire x1="3.2" y1="-1.5" x2="4.5" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="3.2" y1="-1.5" x2="3.2" y2="-1.8" width="0.127" layer="51"/>
+<wire x1="3.2" y1="1.7" x2="3.2" y2="1.4" width="0.127" layer="51"/>
+<wire x1="-3.2" y1="1.7" x2="-3.2" y2="1.4" width="0.127" layer="51"/>
+<text x="-4.80353125" y="-3.0022" size="1.27093125" layer="25" rot="R90">&gt;NAME</text>
+<text x="6.10533125" y="-3.30288125" size="1.271109375" layer="27" rot="R90">&gt;VALUE</text>
+<smd name="1" x="-2.5" y="2.75" dx="1.2" dy="2.5" layer="1"/>
+<smd name="2" x="0" y="2.75" dx="1.2" dy="2.5" layer="1"/>
+<smd name="3" x="2.5" y="2.75" dx="1.2" dy="2.5" layer="1"/>
+<hole x="-3.4" y="0" drill="1"/>
+<hole x="3.4" y="0" drill="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="JS102011SAQN">
+<circle x="-1.778" y="2.54" radius="0.567959375" width="0.254" layer="94"/>
+<circle x="-1.778" y="-2.54" radius="0.567959375" width="0.254" layer="94"/>
+<circle x="1.778" y="0" radius="0.567959375" width="0.254" layer="94"/>
+<wire x1="1.016" y1="0" x2="-2.286" y2="2.032" width="0.254" layer="94"/>
+<text x="-7.622909375" y="5.081940625" size="1.270490625" layer="95">&gt;NAME</text>
+<text x="-7.628559375" y="-5.085709375" size="1.27143125" layer="96">&gt;VALUE</text>
+<pin name="1" x="-7.62" y="2.54" visible="pad" length="middle" direction="pas"/>
+<pin name="2" x="7.62" y="0" visible="pad" length="middle" direction="pas" rot="R180"/>
+<pin name="3" x="-7.62" y="-2.54" visible="pad" length="middle" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="JS102011SAQN" prefix="S">
+<description>&lt;b&amp;gt;
+JS10 Series SPDT On-On 6 V 0.3 A Gull Wing SMT Slide Switch&amp;lt;/b&amp;gt;&lt;p&amp;gt;http://www.snapeda.com/parts/JS102011SAQN/C%26K%20Components/view-part/</description>
+<gates>
+<gate name="G$1" symbol="JS102011SAQN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SW_JS102011SAQN">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value=" JS10 Series SPDT On-On 6 V 0.3 A Gull Wing SMT Slide Switch "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="401-1999-1-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/c-k/JS102011SAQN/401-1999-1-ND/1640114?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="MF" value="C&amp;K"/>
+<attribute name="MP" value="JS102011SAQN"/>
+<attribute name="PACKAGE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2497,7 +2419,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="LED1" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="LED_E" device="SML0603" package3d_urn="urn:adsk.eagle:package:13315/1"/>
 <part name="U$2" library="NDS8434" deviceset="NDS8434" device=""/>
 <part name="U$1" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
 <part name="U$3" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
@@ -2532,6 +2453,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="22_UF" library="CL21A226MOCLRNC" deviceset="CL21A226MOCLRNC" device=""/>
 <part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="2.2UF" library="C0805C225K4RACTU" deviceset="C0805C225K4RACTU" device=""/>
+<part name="D1" library="LTST-C191KGKT" deviceset="LTST-C191KGKT" device=""/>
+<part name="S1" library="JS102011SAQN" deviceset="JS102011SAQN" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2555,10 +2478,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </instance>
 <instance part="SUPPLY3" gate="GND" x="76.2" y="71.12" smashed="yes">
 <attribute name="VALUE" x="74.295" y="67.945" size="1.778" layer="96"/>
-</instance>
-<instance part="LED1" gate="G$1" x="7.62" y="88.9" smashed="yes" rot="R90">
-<attribute name="NAME" x="12.192" y="92.456" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="12.192" y="94.615" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="U$2" gate="G$1" x="55.88" y="121.92" smashed="yes" rot="R90"/>
 <instance part="U$1" gate="G$1" x="129.54" y="86.36" smashed="yes" rot="R270">
@@ -2645,7 +2564,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </instance>
 <instance part="10UF" gate="G$1" x="-12.7" y="86.36" smashed="yes" rot="R90">
 <attribute name="NAME" x="-16.51" y="86.36" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="-7.62" y="86.36" size="1.778" layer="96" rot="R90"/>
+<attribute name="VALUE" x="-7.62" y="81.28" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="10U" gate="G$1" x="76.2" y="83.82" smashed="yes" rot="R270">
 <attribute name="NAME" x="80.01" y="83.82" size="1.778" layer="95" rot="R270"/>
@@ -2678,6 +2597,14 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <attribute name="VALUE" x="121.109640625" y="189.91431875" size="3.480709375" layer="96" ratio="10" rot="SR90"/>
 <attribute name="NAME" x="108.99125" y="194.66555" size="2.082909375" layer="95" ratio="10" rot="SR90"/>
 </instance>
+<instance part="D1" gate="G$1" x="12.7" y="88.9" smashed="yes" rot="R90">
+<attribute name="NAME" x="10.15498125" y="91.44501875" size="1.78151875" layer="95" rot="R90"/>
+<attribute name="VALUE" x="12.7" y="91.4425" size="1.77975" layer="96" rot="R90"/>
+</instance>
+<instance part="S1" gate="G$1" x="104.14" y="124.46" smashed="yes">
+<attribute name="NAME" x="96.517090625" y="129.541940625" size="1.270490625" layer="95"/>
+<attribute name="VALUE" x="96.511440625" y="119.374290625" size="1.27143125" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -2685,10 +2612,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <net name="N$3" class="0">
 <segment>
 <wire x1="-2.54" y1="93.98" x2="-2.54" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
-<wire x1="-2.54" y1="88.9" x2="5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="88.9" x2="-2.54" y2="81.28" width="0.1524" layer="91"/>
-<junction x="-2.54" y="88.9"/>
 <wire x1="-2.54" y1="93.98" x2="17.78" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="93.98" x2="17.78" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="VDD"/>
@@ -2705,6 +2629,9 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="100K" gate="G$1" pin="1"/>
 <pinref part="10UF" gate="G$1" pin="1"/>
 <wire x1="-12.7" y1="93.98" x2="-12.7" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="D1" gate="G$1" pin="A2"/>
+<wire x1="-2.54" y1="88.9" x2="7.62" y2="88.9" width="0.1524" layer="91"/>
+<junction x="-2.54" y="88.9"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -2812,13 +2739,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="100K" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
-<pinref part="U1" gate="G$1" pin="STAT1"/>
-<wire x1="12.7" y1="88.9" x2="25.4" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$1" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="SENSE"/>
@@ -2910,19 +2830,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </net>
 <net name="N$16" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="S@3"/>
-<wire x1="58.42" y1="106.68" x2="58.42" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="106.68" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
-<junction x="76.2" y="106.68"/>
-<wire x1="76.2" y1="91.44" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="VBAT"/>
-<wire x1="55.88" y1="91.44" x2="76.2" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="106.68" x2="81.28" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="106.68" x2="81.28" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="LI-ION" gate="G$1" pin="+"/>
-<wire x1="88.9" y1="109.22" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="111.76" x2="88.9" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="121.92" x2="149.86" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="L1" gate="G$1" pin="1"/>
 <wire x1="167.64" y1="165.1" x2="172.72" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="U3" gate="G$1" pin="EN"/>
@@ -2934,12 +2841,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="167.64" y1="147.32" x2="167.64" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="147.32" x2="162.56" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="147.32" x2="167.64" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="121.92" x2="149.86" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="111.76" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
-<junction x="88.9" y="111.76"/>
 <wire x1="149.86" y1="147.32" x2="149.86" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="167.64" x2="83.82" y2="167.64" width="0.1524" layer="91"/>
-<junction x="149.86" y="147.32"/>
 <pinref part="U4" gate="A" pin="VIN"/>
 <wire x1="127" y1="213.36" x2="132.08" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="U4" gate="A" pin="*SHDN"/>
@@ -2948,19 +2851,17 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <junction x="127" y="213.36"/>
 <wire x1="83.82" y1="167.64" x2="83.82" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="213.36" x2="111.76" y2="213.36" width="0.1524" layer="91"/>
-<pinref part="330" gate="G$1" pin="1"/>
 <wire x1="111.76" y1="213.36" x2="127" y2="213.36" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="111.76" x2="93.98" y2="111.76" width="0.1524" layer="91"/>
-<junction x="88.9" y="111.76"/>
-<pinref part="10U" gate="G$1" pin="2"/>
-<wire x1="76.2" y1="91.44" x2="76.2" y2="86.36" width="0.1524" layer="91"/>
-<junction x="76.2" y="91.44"/>
 <pinref part="22UF" gate="G$1" pin="2"/>
 <wire x1="162.56" y1="147.32" x2="162.56" y2="145.288" width="0.1524" layer="91"/>
 <junction x="162.56" y="147.32"/>
 <pinref part="2.2UF" gate="A" pin="C2"/>
 <wire x1="111.76" y1="213.36" x2="111.76" y2="203.2" width="0.1524" layer="91"/>
 <junction x="111.76" y="213.36"/>
+<pinref part="S1" gate="G$1" pin="2"/>
+<wire x1="111.76" y1="124.46" x2="149.86" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="124.46" x2="149.86" y2="147.32" width="0.1524" layer="91"/>
+<junction x="149.86" y="147.32"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -3022,6 +2923,39 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="5V_USB" gate="G$1" pin="VUSB"/>
 <pinref part="U$5" gate="G$1" pin="ANODE"/>
 <wire x1="-81.28" y1="93.98" x2="-71.12" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="D1" gate="G$1" pin="K2"/>
+<pinref part="U1" gate="G$1" pin="STAT1"/>
+<wire x1="15.24" y1="88.9" x2="25.4" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$19" class="0">
+<segment>
+<pinref part="10U" gate="G$1" pin="2"/>
+<pinref part="330" gate="G$1" pin="1"/>
+<pinref part="LI-ION" gate="G$1" pin="+"/>
+<wire x1="88.9" y1="109.22" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="111.76" x2="88.9" y2="127" width="0.1524" layer="91"/>
+<junction x="88.9" y="111.76"/>
+<wire x1="88.9" y1="111.76" x2="93.98" y2="111.76" width="0.1524" layer="91"/>
+<junction x="88.9" y="111.76"/>
+<wire x1="81.28" y1="111.76" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="106.68" x2="81.28" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="S@3"/>
+<wire x1="58.42" y1="106.68" x2="58.42" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="106.68" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
+<junction x="76.2" y="106.68"/>
+<wire x1="76.2" y1="106.68" x2="81.28" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="91.44" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="91.44" x2="76.2" y2="86.36" width="0.1524" layer="91"/>
+<junction x="76.2" y="91.44"/>
+<pinref part="U1" gate="G$1" pin="VBAT"/>
+<wire x1="55.88" y1="91.44" x2="76.2" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="S1" gate="G$1" pin="1"/>
+<wire x1="88.9" y1="127" x2="96.52" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
