@@ -73,8 +73,8 @@ void main(void)
     {
         updateConnectionState();
 
-        monitorSolenoidSignal();
-        solenoidActiveMonitor();
+//        monitorSolenoidSignal();
+//        solenoidActiveMonitor();
 
         switch (connectionState)
         {
