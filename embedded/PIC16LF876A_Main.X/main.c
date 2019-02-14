@@ -174,7 +174,7 @@ void main(void)
                         UART_send_string("FISH BITE!");
                         UART_send_char(10);
                         RB5 = 1; //SOLENOID ON
-                        __delay_ms(500); 
+                        __delay_ms(200); 
                         RB5 = 0; //Solenoid OFF
                         RB4 = 0;
                     }
