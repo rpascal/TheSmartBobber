@@ -256,128 +256,6 @@ MSOP&lt;br&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-Capacitors">
-<description>&lt;h3&gt;SparkFun Capacitors&lt;/h3&gt;
-This library contains capacitors. 
-&lt;br&gt;
-&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
-&lt;br&gt;
-&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
-&lt;br&gt;
-&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;
-&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="0603">
-<description>&lt;p&gt;&lt;b&gt;Generic 1608 (0603) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<wire x1="-1.6" y1="0.7" x2="1.6" y2="0.7" width="0.0508" layer="39"/>
-<wire x1="1.6" y1="0.7" x2="1.6" y2="-0.7" width="0.0508" layer="39"/>
-<wire x1="1.6" y1="-0.7" x2="-1.6" y2="-0.7" width="0.0508" layer="39"/>
-<wire x1="-1.6" y1="-0.7" x2="-1.6" y2="0.7" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="0" y="0.762" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-0.762" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
-<package name="0805">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<text x="0" y="0.889" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-0.889" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-</package>
-<package name="1206">
-<description>&lt;p&gt;&lt;b&gt;Generic 3216 (1206) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<wire x1="-2.4" y1="1.1" x2="2.4" y2="1.1" width="0.0508" layer="39"/>
-<wire x1="2.4" y1="-1.1" x2="-2.4" y2="-1.1" width="0.0508" layer="39"/>
-<wire x1="-2.4" y1="-1.1" x2="-2.4" y2="1.1" width="0.0508" layer="39"/>
-<wire x1="2.4" y1="1.1" x2="2.4" y2="-1.1" width="0.0508" layer="39"/>
-<wire x1="-0.965" y1="0.787" x2="0.965" y2="0.787" width="0.1016" layer="51"/>
-<wire x1="-0.965" y1="-0.787" x2="0.965" y2="-0.787" width="0.1016" layer="51"/>
-<smd name="1" x="-1.4" y="0" dx="1.6" dy="1.8" layer="1"/>
-<smd name="2" x="1.4" y="0" dx="1.6" dy="1.8" layer="1"/>
-<text x="0" y="1.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-1.143" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<rectangle x1="-1.7018" y1="-0.8509" x2="-0.9517" y2="0.8491" layer="51"/>
-<rectangle x1="0.9517" y1="-0.8491" x2="1.7018" y2="0.8509" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-</package>
-</packages>
-<symbols>
-<symbol name="CAP">
-<wire x1="0" y1="2.54" x2="0" y2="2.032" width="0.1524" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="0.508" width="0.1524" layer="94"/>
-<text x="1.524" y="2.921" size="1.778" layer="95" font="vector">&gt;NAME</text>
-<text x="1.524" y="-2.159" size="1.778" layer="96" font="vector">&gt;VALUE</text>
-<rectangle x1="-2.032" y1="0.508" x2="2.032" y2="1.016" layer="94"/>
-<rectangle x1="-2.032" y1="1.524" x2="2.032" y2="2.032" layer="94"/>
-<pin name="1" x="0" y="5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="2" x="0" y="-2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="2.2UF" prefix="C">
-<description>&lt;h3&gt;2.2µF ceramic capacitors&lt;/h3&gt;
-&lt;p&gt;A capacitor is a passive two-terminal electrical component used to store electrical energy temporarily in an electric field.&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="CAP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="-0603-10V-20%" package="0603">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="CAP-07888" constant="no"/>
-<attribute name="VALUE" value="2.2uF" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="-0805-25V-(+80/-20%)" package="0805">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="CAP-11624"/>
-<attribute name="VALUE" value="2.2uF"/>
-</technology>
-</technologies>
-</device>
-<device name="-1206-50V-10%" package="1206">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="CAP-10009"/>
-<attribute name="VALUE" value="2.2uF"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Resistors">
 <description>&lt;h3&gt;SparkFun Resistors&lt;/h3&gt;
 This library contains resistors. Reference designator:R. 
@@ -2545,6 +2423,66 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
+<library name="C0805C225K4RACTU">
+<packages>
+<package name="CAPC2013X140N">
+<wire x1="-0.3556" y1="-0.7366" x2="-0.3556" y2="0.7366" width="0" layer="51"/>
+<wire x1="-0.3556" y1="0.7366" x2="-1.0922" y2="0.7366" width="0" layer="51"/>
+<wire x1="-1.0922" y1="-0.7366" x2="-0.3556" y2="-0.7366" width="0" layer="51"/>
+<wire x1="0.3556" y1="0.7366" x2="0.3556" y2="-0.7366" width="0" layer="51"/>
+<wire x1="0.3556" y1="-0.7366" x2="1.0922" y2="-0.7366" width="0" layer="51"/>
+<wire x1="1.0922" y1="0.7366" x2="0.3556" y2="0.7366" width="0" layer="51"/>
+<wire x1="-0.3556" y1="-0.7366" x2="0.3556" y2="-0.7366" width="0" layer="51"/>
+<wire x1="1.0922" y1="-0.7366" x2="1.0922" y2="0.7366" width="0" layer="51"/>
+<wire x1="0.3556" y1="0.7366" x2="-0.3556" y2="0.7366" width="0" layer="51"/>
+<wire x1="-1.0922" y1="0.7366" x2="-1.0922" y2="-0.7366" width="0" layer="51"/>
+<text x="-3.45678125" y="1.27086875" size="2.08423125" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-3.45611875" y="-3.17658125" size="2.083840625" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
+<smd name="1" x="-0.8128" y="0" dx="0.9144" dy="1.4478" layer="1"/>
+<smd name="2" x="0.8128" y="0" dx="0.9144" dy="1.4478" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="CAPH">
+<wire x1="3.4798" y1="-1.905" x2="3.4798" y2="0" width="0.2032" layer="94"/>
+<wire x1="3.4798" y1="0" x2="3.4798" y2="1.905" width="0.2032" layer="94"/>
+<wire x1="4.1148" y1="-1.905" x2="4.1148" y2="0" width="0.2032" layer="94"/>
+<wire x1="4.1148" y1="0" x2="4.1148" y2="1.905" width="0.2032" layer="94"/>
+<wire x1="4.1148" y1="0" x2="5.08" y2="0" width="0.2032" layer="94"/>
+<wire x1="2.54" y1="0" x2="3.4798" y2="0" width="0.2032" layer="94"/>
+<text x="-5.66568125" y="-9.349640625" size="3.480709375" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+<text x="-0.91445" y="2.76875" size="2.082909375" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
+<pin name="C2" x="7.62" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="C1" x="0" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="C0805C225K4RACTU" prefix="C">
+<description>CAPACITOR, 0805</description>
+<gates>
+<gate name="A" symbol="CAPH" x="0" y="0" swaplevel="1"/>
+</gates>
+<devices>
+<device name="" package="CAPC2013X140N">
+<connects>
+<connect gate="A" pin="C1" pad="1"/>
+<connect gate="A" pin="C2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value=" Capacitor; Ceramic; Cap; 2.20uf ; Tol+10%; Smd; Vol-Rtg 16v; High Cap. ; X7r "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="399-3523-1-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/kemet/C0805C225K4RACTU/399-3523-1-ND/789663?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="MF" value="KEMET"/>
+<attribute name="MP" value="C0805C225K4RACTU"/>
+<attribute name="PACKAGE" value="0805 KEMET"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2576,7 +2514,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="SUPPLY15" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="U4" library="LTC3531ES6-3_3" deviceset="LTC3531ES6-3_3" device=""/>
 <part name="L2" library="SparkFun-Coils" deviceset="INDUCTOR" device="INDUCTOR_10UH" value="10uH"/>
-<part name="C7" library="SparkFun-Capacitors" deviceset="2.2UF" device="-0603-10V-20%" value="2.2uF"/>
 <part name="U$4" library="AP910C" deviceset="AP9101C" device=""/>
 <part name="U$5" library="DB2W31900L" deviceset="DB2W31900" device=""/>
 <part name="U$6" library="DB2W31900L" deviceset="DB2W31900" device=""/>
@@ -2594,6 +2531,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="22UF" library="CL21A226MOCLRNC" deviceset="CL21A226MOCLRNC" device=""/>
 <part name="22_UF" library="CL21A226MOCLRNC" deviceset="CL21A226MOCLRNC" device=""/>
 <part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="2.2UF" library="C0805C225K4RACTU" deviceset="C0805C225K4RACTU" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2681,10 +2619,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <attribute name="NAME" x="167.64" y="191.77" size="1.778" layer="95" font="vector" rot="R90"/>
 <attribute name="VALUE" x="170.18" y="189.23" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
 </instance>
-<instance part="C7" gate="G$1" x="111.76" y="193.04" smashed="yes">
-<attribute name="NAME" x="113.284" y="195.961" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="113.284" y="190.881" size="1.778" layer="96" font="vector"/>
-</instance>
 <instance part="U$4" gate="G$1" x="137.16" y="109.22" smashed="yes">
 <attribute name="VALUE" x="124.46" y="99.06" size="1.778" layer="96"/>
 </instance>
@@ -2744,6 +2678,10 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <instance part="SUPPLY7" gate="GND" x="281.94" y="142.24" smashed="yes">
 <attribute name="VALUE" x="280.035" y="139.065" size="1.778" layer="96"/>
 </instance>
+<instance part="2.2UF" gate="A" x="111.76" y="195.58" smashed="yes" rot="R90">
+<attribute name="VALUE" x="121.109640625" y="189.91431875" size="3.480709375" layer="96" ratio="10" rot="SR90"/>
+<attribute name="NAME" x="108.99125" y="194.66555" size="2.082909375" layer="95" ratio="10" rot="SR90"/>
+</instance>
 </instances>
 <busses>
 <bus name="B$1">
@@ -2765,12 +2703,12 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </bus>
 <bus name="N$18">
 <segment>
-<wire x1="160.02" y1="175.26" x2="160.02" y2="124.46" width="0.508" layer="92"/>
-<wire x1="160.02" y1="124.46" x2="175.26" y2="124.46" width="0.508" layer="92"/>
+<wire x1="157.48" y1="175.26" x2="157.48" y2="124.46" width="0.508" layer="92"/>
+<wire x1="157.48" y1="124.46" x2="175.26" y2="124.46" width="0.508" layer="92"/>
 <wire x1="175.26" y1="124.46" x2="175.26" y2="116.84" width="0.508" layer="92"/>
 <wire x1="175.26" y1="116.84" x2="294.64" y2="116.84" width="0.508" layer="92"/>
 <wire x1="294.64" y1="116.84" x2="294.64" y2="175.26" width="0.508" layer="92"/>
-<wire x1="294.64" y1="175.26" x2="160.02" y2="175.26" width="0.508" layer="92"/>
+<wire x1="294.64" y1="175.26" x2="157.48" y2="175.26" width="0.508" layer="92"/>
 </segment>
 </bus>
 <bus name="B$4">
@@ -2865,9 +2803,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="167.64" y1="129.54" x2="167.64" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="129.54" x2="111.76" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="SUPPLY14" gate="GND" pin="GND"/>
-<pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="213.36" y1="185.42" x2="213.36" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="190.5" x2="111.76" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="185.42" x2="205.74" y2="185.42" width="0.1524" layer="91"/>
 <pinref part="U4" gate="A" pin="GND/PGND"/>
 <wire x1="205.74" y1="185.42" x2="213.36" y2="185.42" width="0.1524" layer="91"/>
@@ -2875,7 +2811,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="205.74" y1="213.36" x2="205.74" y2="185.42" width="0.1524" layer="91"/>
 <junction x="205.74" y="185.42"/>
 <wire x1="111.76" y1="129.54" x2="111.76" y2="185.42" width="0.1524" layer="91"/>
-<junction x="111.76" y="185.42"/>
 <junction x="167.64" y="129.54"/>
 <pinref part="2.7K" gate="A" pin="R2"/>
 <wire x1="154.94" y1="93.98" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
@@ -2884,6 +2819,9 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <junction x="213.36" y="185.42"/>
 <pinref part="22UF" gate="G$1" pin="1"/>
 <wire x1="162.56" y1="134.112" x2="162.56" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="2.2UF" gate="A" pin="C1"/>
+<wire x1="111.76" y1="195.58" x2="111.76" y2="185.42" width="0.1524" layer="91"/>
+<junction x="111.76" y="185.42"/>
 </segment>
 <segment>
 <pinref part="5V_USB" gate="G$1" pin="GND"/>
@@ -3043,19 +2981,16 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="149.86" y1="147.32" x2="149.86" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="167.64" x2="83.82" y2="167.64" width="0.1524" layer="91"/>
 <junction x="149.86" y="147.32"/>
-<pinref part="C7" gate="G$1" pin="1"/>
 <pinref part="U4" gate="A" pin="VIN"/>
 <wire x1="127" y1="213.36" x2="132.08" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="U4" gate="A" pin="*SHDN"/>
 <wire x1="132.08" y1="215.9" x2="127" y2="215.9" width="0.1524" layer="91"/>
 <wire x1="127" y1="215.9" x2="127" y2="213.36" width="0.1524" layer="91"/>
 <junction x="127" y="213.36"/>
-<wire x1="111.76" y1="213.36" x2="127" y2="213.36" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="213.36" x2="111.76" y2="198.12" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="167.64" x2="83.82" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="213.36" x2="111.76" y2="213.36" width="0.1524" layer="91"/>
-<junction x="111.76" y="213.36"/>
 <pinref part="330" gate="G$1" pin="1"/>
+<wire x1="111.76" y1="213.36" x2="127" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="111.76" x2="93.98" y2="111.76" width="0.1524" layer="91"/>
 <junction x="88.9" y="111.76"/>
 <pinref part="10U" gate="G$1" pin="2"/>
@@ -3064,6 +2999,9 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="22UF" gate="G$1" pin="2"/>
 <wire x1="162.56" y1="147.32" x2="162.56" y2="145.288" width="0.1524" layer="91"/>
 <junction x="162.56" y="147.32"/>
+<pinref part="2.2UF" gate="A" pin="C2"/>
+<wire x1="111.76" y1="213.36" x2="111.76" y2="203.2" width="0.1524" layer="91"/>
+<junction x="111.76" y="213.36"/>
 </segment>
 </net>
 <net name="N$10" class="0">
