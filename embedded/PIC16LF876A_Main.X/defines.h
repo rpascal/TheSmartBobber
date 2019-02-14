@@ -1,6 +1,8 @@
 #ifndef DEFINES
 #define DEFINES
 
+#include <xc.h>
+
 //#define NO_INPUT "a"
 const char * NO_INPUT  = "-1";
 
@@ -27,6 +29,7 @@ const char * NO_INPUT  = "-1";
 const char END_DELIMETER = '&';
 const char TEMP_DELIMETER = '#';
 const char BITE_DELIMETER = '@';
+const char SOLENOID_DELIMETER = '*';
 #define Baud_rate 9600
 
 #endif

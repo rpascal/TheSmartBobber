@@ -1,55 +1,54 @@
 #include "defines.h"
+#include "UART.h"
 #include "ds18b20.h"
-#include <xc.h>
-
 
 
 /*
  * Delay functions for RC3
  */
 
-
-
-
+//us Delay
 void delay_us(int useconds) {
     int s;
     for (s = 0; s < useconds; s++);
 }
 
+//ms Delay
 void delay_ms(int j) {
     unsigned char i;
     for (; j; j--)
         for (i = 122; i <= 0; i--);
 }
 
-//Each communication through DS18b20 begin with a reset pulse. This is use for resetting Ds18b20 sensor.
-
-//returns 0 if 1-wire is present
-//returns 1 if 1-wire is NOT present
+/*
+ * RESET Pulse for 1-Wire
+ */
 
 unsigned char ow_reset(void) {
-    DQ_TRIS = 0; // Tris = 0 (output)
-    DQ = 0; // set pin# to low (0)
-    __delay_us(480); // 1 wire require time delay
-    DQ_TRIS = 1; // Tris = 1 (input)
-    __delay_us(60); // 1 wire require time delay
-
-    if (DQ == 0) // if there is a presence pluse
+    DQ_TRIS = 0; // Set RC3 to Output
+    DQ = 0; // Set RC3 LOW
+    __delay_us(480); // 1-wire required delay
+    DQ_TRIS = 1; // Set RC3 HIGH
+    __delay_us(60); // 1-wire required delay
+    if (DQ == 0) // If there is a presence pluse
     {
         __delay_us(480);
-        return 0; // return 0 ( 1-wire is present)
-    } else {
+        return 0; // 1-wire is present
+    } else { // If there is NOT a prensence pulse
         __delay_us(480);
-        return 1; // return 1 ( 1-wire is NOT present)
+        return 1; // 1-wire is NOT present
     }
+}
 
-} // 0=presence, 1 = no part
+/*
+ * Communication Functions for 1-Wire Protocol
+ * Refer to Data Sheet for commands  
+ */
 
-// This is use for reading bit from ds18b20
-
+//Read Transmission bits from Temp Sensor
 unsigned char read_bit(void) {
     unsigned char i;
-    DQ_TRIS = 1;
+    DQ_TRIS = 1; //Set RC
     DQ = 0; // pull DQ low to start timeslot
     DQ_TRIS = 1;
     DQ = 1; // then return high
@@ -57,22 +56,21 @@ unsigned char read_bit(void) {
     return (DQ); // return value of DQ line
 }
 
+//Read Transmission bytes from Temp Sensor 
 unsigned char read_byte(void) {
     char i, result = 0;
     DQ_TRIS = 1; // TRIS is input(1)
     for (i = 0; i < 8; i++) {
-        DQ_TRIS = 0; // TRIS is output(0)
-        DQ = 0; // genarate low pluse for 2us
-        __delay_us(2);
-        DQ_TRIS = 1; // TRIS is input(1) release the bus
-        if (DQ != 0)
+        DQ_TRIS = 0; // Set RC3 as Output
+        DQ = 0; // Set RC3 Low 
+        __delay_us(2); //Keep RC3 LOW for 2us
+        DQ_TRIS = 1; // Set RC3 as Input
+        if (DQ != 0) // if Bit is 1 
             result |= 1 << i;
         __delay_us(60); // wait for recovery time
     }
     return result;
 }
-
-//writes a bit to the one-wire bus, passed in bitval
 
 void write_bit(char bitval) {
     DQ_TRIS = 0;
@@ -105,6 +103,73 @@ void write_byte(char val) {
     }
 
 }
+
 /*
- * Program flow related functions
+ * Initialize ds18b20 and set 12-bit resolution
  */
+
+void ds18b20_Initialize(void)
+{
+    ow_reset();
+    write_byte(write_scratchpad);
+    write_byte(0);
+    write_byte(0);
+    write_byte(resolution_12bit);
+}
+
+/*
+ * Function to read temperature 
+ * NOTE: void ds18b20_Initialize(void) must be called once before read_temp
+ */
+
+unsigned char read_temp(void)
+{
+    unsigned short TempL, TempH;
+    int temp = 0;
+    char str[30];
+    
+    ow_reset();
+    write_byte(skip_rom);
+    write_byte(convert_temp);
+
+    while (read_byte() == 0xff)
+        ;
+    __delay_ms(500);
+
+    ow_reset();
+
+    write_byte(skip_rom);
+    write_byte(read_scratchpad);
+
+    TempL = read_byte();
+    TempH = read_byte();
+
+    temp = ((unsigned int) TempH << 8) + (unsigned int) TempL; //put both value in one variable
+    temp = temp / 16; //calculations used from the table provided in the data sheet of ds18b20
+
+    return temp;
+    //i = 0; //I think I need this?
+    
+     /*This is for Negative temperature*/
+
+
+    //		if((TempH & 0x80)!=0)
+    //        {    // If condition will execute as TempH = 1111 1111 & 1000 0000 = 1000 0000. 
+    //			t=TempH;// Store tempH value in t = 1111 1111  .
+    //	        t<<=8;//after bitwise left shift 8 times value in t will be 1111 1111 0000 0000.  
+    //	        t=t|TempL;// t = 1111 1111 0000 0000 | 0101 1110 [ result t = 1111 1111 0101 1110] 
+    //	        t=t-1;//t = t-1 in this case t = 1111 1111 0101 1101.
+    //	        t=~t;// t = 0000 0000 1010 0010.
+    //	        t>>=4;// t = 0000 0000 0000 1010.
+    //			t=t*100;// t = 10 * 100 = 1000.
+    //			t2=TempL; //Store tempL value = 0101 1110.
+    //			t2=t2-1;// t2= 0101 1101
+    //	        t2=~t2;//t2 = 1010 0010
+    //	        t2=t2&0x0f;// t2 = 1010 0010 | 0000 1111 = 0000 0010
+    //			t2=t2 * 6.25; // 0000 00010 = 2 x 6.25 = 12.50
+    //			i=((unsigned int)t ) + (unsigned int)t2; //put both value in one variable 1000 + 12.5 = 1012.5
+    //		
+    //
+    //		}
+    /*This is for positive Temperature*/
+}

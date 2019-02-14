@@ -21,6 +21,7 @@ MENU '[bin/designlink.svg] Search and order {\
                                           General : Run designlink-order.ulp -general; |\
                                           Schematic : Run designlink-order.ulp; \
                                           }'\
+
      '[bin/LTspice.svg] LT Spice simulation {\
                     Export: RUN ltspice.ulp /E; |\
                     Export Setup: RUN ltspice.ulp /E /S; |\
@@ -31,6 +32,7 @@ MENU '[bin/designlink.svg] Search and order {\
 
 LBR:
 MENU '[bin/designlink.svg] Search and order : Run designlink-order.ulp -general;'\
+
      '[bin/LTspice.svg] LT Spice simulation {\
                   Export: RUN ltspice.ulp /E; |\
                   Import: RUN ltspice.ulp /I; \
@@ -41,6 +43,7 @@ MENU '[bin/designlink.svg] Search and order : Run designlink-order.ulp -general;
 DEV:
 Grid Default;
 MENU '[bin/designlink.svg] Search and order : Run designlink-order.ulp -general;' \
+
      '[bin/LTspice.svg] LT Spice simulation {\
                   Export: RUN ltspice.ulp /E; |\
                   SpiceOrder : RUN spiceorder.ulp; |\
@@ -54,6 +57,7 @@ MENU '[bin/designlink.svg] Search and order : Run designlink-order.ulp -general;
 SYM:
 Grid Default On;
 Change Width 0.010in;
+
 MENU '[bin/LTspice.svg] LT Spice simulation {\
                   Export: RUN ltspice.ulp /E; |\
                   SpiceOrder : RUN spiceorder.ulp; |\
@@ -65,6 +69,7 @@ PAC:
 Grid Default On;
 Change Width 0.005in;
 Change Size 0.050in;
+
 MENU '[bin/LTspice.svg] LT Spice simulation {\
                   Import: RUN ltspice.ulp /I; \
      }'\

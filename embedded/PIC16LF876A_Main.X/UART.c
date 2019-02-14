@@ -92,4 +92,9 @@ void UART_send_bite(char* st_pt) {
 }
 
 
+void UART_send_solenoid_change(char* st_pt){
+    UART_send_char(SOLENOID_DELIMETER);
+    UART_send_string(st_pt);
+}
+
 //___________End of UART SHIT______________//
