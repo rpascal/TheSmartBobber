@@ -68,8 +68,6 @@ void main(void)
     TRISB3 = 0; //Initialize RB3 as output
     TRISC4 = 0; //BITE OUTPUT
     RC4 = 0;
-    int i;
-    int sum1,avg1 = 0;
 
     while (1)
     {

@@ -177,3 +177,67 @@ void sendADCToPhone(void)
 //
 //    return (unsigned int)adcAverage;    // cast only needed if adcAverage is unsigned long
 //}
+<<<<<<< HEAD
+=======
+
+unsigned int ADC_Read(void)
+{
+    ADCON0 &= 0x11000101; //Clearing the Channel Selection Bits
+    ADCON0 |= 0 << 3;     //Setting the required Bits
+    __delay_ms(2);        //Acquisition time to charge hold capacitor
+    GO_nDONE = 1;         //Initializes A/D Conversion
+    while (GO_nDONE)
+        ;                            //Wait for A/D Conversion to complete
+    return ((ADRESH << 8) + ADRESL); //Returns Result
+}
+
+int count = 0;
+int iterationsPerAverage = 10;
+int mean = 0;
+int oldMean = 0;
+int threshold = 10;
+
+int monitorBiteAverage(void)
+{
+    if (count >= iterationsPerAverage)
+    {
+        count = 0;
+    }
+
+    int newValue = ADC_Read();
+
+    count++;
+
+    int differential = (newValue - mean) / count;
+    int newMean = mean + differential;
+    mean = newMean;
+
+    if (count % iterationsPerAverage == 0)
+    {
+        if (oldMean > 0 && abs(oldMean - mean) >= threshold)
+        {
+            RC4 = 1;
+            UART_send_string("FISH ATTACK");
+            UART_send_char(10);
+        }
+        else
+        {
+            RC4 = 0;
+        }
+        oldMean = mean;
+        mean = 0;
+    }
+
+    return mean;
+}
+
+void sendBiteDataToPhone(void)
+{
+
+    if (oldMean > 0 && count % iterationsPerAverage == 0)
+    {
+        // send oldMean to bobber
+        // UART_send_bite(oldMean);
+    }
+}
+>>>>>>> parent of 9162794... Nick_Update
