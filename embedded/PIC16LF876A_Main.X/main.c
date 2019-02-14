@@ -51,7 +51,8 @@ void updateConnectionState()
 
 void main(void)
 {
-
+    int i, sum1, avg1;
+    
     Initialize_UART();    //Initialize UART module [RC6 & RC7]
     PWM_Initialize();     //Initialize PWM Signal [RC2]
     ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
@@ -89,7 +90,7 @@ void main(void)
         case CONNECTED:
 
             // Send Current Average to phone
-            sendADCToPhone();
+            //sendADCToPhone();
 
             phoneInput = UART_get_char();
 
