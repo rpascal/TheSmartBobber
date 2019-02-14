@@ -300,22 +300,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
 <wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
 </package>
-<package name="1210">
-<description>&lt;p&gt;&lt;b&gt;Generic 3225 (1210) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<wire x1="-1.5365" y1="1.1865" x2="1.5365" y2="1.1865" width="0.127" layer="51"/>
-<wire x1="1.5365" y1="1.1865" x2="1.5365" y2="-1.1865" width="0.127" layer="51"/>
-<wire x1="1.5365" y1="-1.1865" x2="-1.5365" y2="-1.1865" width="0.127" layer="51"/>
-<wire x1="-1.5365" y1="-1.1865" x2="-1.5365" y2="1.1865" width="0.127" layer="51"/>
-<smd name="1" x="-1.755" y="0" dx="1.27" dy="2.06" layer="1"/>
-<smd name="2" x="1.755" y="0" dx="1.27" dy="2.06" layer="1"/>
-<text x="0" y="1.397" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-1.397" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<wire x1="-2.59" y1="1.45" x2="2.59" y2="1.45" width="0.0508" layer="39"/>
-<wire x1="2.59" y1="1.45" x2="2.59" y2="-1.45" width="0.0508" layer="39"/>
-<wire x1="2.59" y1="-1.45" x2="-2.59" y2="-1.45" width="0.0508" layer="39"/>
-<wire x1="-2.59" y1="-1.45" x2="-2.59" y2="1.45" width="0.0508" layer="39"/>
-</package>
 <package name="1206">
 <description>&lt;p&gt;&lt;b&gt;Generic 3216 (1206) package&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
@@ -347,36 +331,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="22UF" prefix="C">
-<description>&lt;h3&gt;22µF ceramic capacitors&lt;/h3&gt;
-&lt;p&gt;A capacitor is a passive two-terminal electrical component used to store electrical energy temporarily in an electric field.&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="CAP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="-0805-6.3V-20%" package="0805">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="CAP-08402"/>
-<attribute name="VALUE" value="22uF"/>
-</technology>
-</technologies>
-</device>
-<device name="-1210-16V-20%" package="1210">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="2.2UF" prefix="C">
 <description>&lt;h3&gt;2.2µF ceramic capacitors&lt;/h3&gt;
 &lt;p&gt;A capacitor is a passive two-terminal electrical component used to store electrical energy temporarily in an electric field.&lt;/p&gt;</description>
@@ -2534,6 +2488,63 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
+<library name="CL21A226MOCLRNC">
+<packages>
+<package name="CAPC2012X140N">
+<description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;</description>
+<wire x1="-1.7" y1="1" x2="1.7" y2="1" width="0.05" layer="39"/>
+<wire x1="1.7" y1="-1" x2="-1.7" y2="-1" width="0.05" layer="39"/>
+<wire x1="-1.7" y1="-1" x2="-1.7" y2="1" width="0.05" layer="39"/>
+<wire x1="1.7" y1="1" x2="1.7" y2="-1" width="0.05" layer="39"/>
+<text x="-1.72188125" y="0.9960875" size="0.800875" layer="25">&gt;NAME</text>
+<text x="-1.722940625" y="-1.868190625" size="0.801365625" layer="27">&gt;VALUE</text>
+<wire x1="-1" y1="0.6" x2="1" y2="0.6" width="0.2" layer="51"/>
+<wire x1="1" y1="0.6" x2="1" y2="-0.6" width="0.2" layer="51"/>
+<wire x1="1" y1="-0.6" x2="-1" y2="-0.6" width="0.2" layer="51"/>
+<wire x1="-1" y1="-0.6" x2="-1" y2="0.6" width="0.2" layer="51"/>
+<rectangle x1="-1.001159375" y1="-0.60069375" x2="-0.5" y2="0.6" layer="51"/>
+<rectangle x1="0.500159375" y1="-0.6001875" x2="1" y2="0.6" layer="51"/>
+<smd name="1" x="-0.85" y="0" dx="1.2" dy="1.45" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1.2" dy="1.45" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="CL21A226MOCLRNC">
+<rectangle x1="-2.546709375" y1="-0.254671875" x2="1.524" y2="0.254" layer="94" rot="R270"/>
+<rectangle x1="-1.52723125" y1="-0.2545375" x2="2.54" y2="0.254" layer="94" rot="R270"/>
+<text x="-4.079609375" y="2.29478125" size="1.78483125" layer="95">&gt;NAME</text>
+<text x="-4.07265" y="-4.07265" size="1.78178125" layer="96">&gt;VALUE</text>
+<pin name="1" x="-5.588" y="0" visible="off" length="middle" direction="pas" swaplevel="1"/>
+<pin name="2" x="5.588" y="0" visible="off" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="CL21A226MOCLRNC" prefix="C">
+<description>22µF ±20% 25V Ceramic Capacitor X5R 0805 (2012 Metric)</description>
+<gates>
+<gate name="G$1" symbol="CL21A226MOCLRNC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CAPC2012X140N">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value=" Cap Ceramic 22uF 16V X5R 20% SMD 0805 85°C Cardboard T/R "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="1276-6780-1-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21A226MOCLRNC/1276-6780-1-ND/5961639?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="MF" value="Samsung Electro-Mechanics"/>
+<attribute name="MP" value="CL21A226MOCLRNC"/>
+<attribute name="PACKAGE" value="0805 Samsung"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2554,13 +2565,10 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="U$3" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
 <part name="SUPPLY5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="U3" library="MT3608" deviceset="MT3608" device=""/>
-<part name="C5" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
-<part name="C6" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
 <part name="L1" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="L" device="" value="22uH"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="20KOHM" device="-0603-1/10W-1%" value="20k"/>
 <part name="R6" library="SparkFun-Resistors" deviceset="1KOHM" device="-0603-1/10W-1%" value="1k"/>
 <part name="SUPPLY4" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY8" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
@@ -2582,7 +2590,10 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="10U" library="GRM21BC81C106KE15L" deviceset="GRM21BC81C106KE15L" device=""/>
 <part name="10_UF" library="GRM21BC81C106KE15L" deviceset="GRM21BC81C106KE15L" device=""/>
 <part name="0.1UF" library="C0805C104K4RACTU" deviceset="C0805C104K4RACTU" device=""/>
-<part name="C2" library="C0805C104K4RACTU" deviceset="C0805C104K4RACTU" device=""/>
+<part name="0.1_UF" library="C0805C104K4RACTU" deviceset="C0805C104K4RACTU" device=""/>
+<part name="22UF" library="CL21A226MOCLRNC" deviceset="CL21A226MOCLRNC" device=""/>
+<part name="22_UF" library="CL21A226MOCLRNC" deviceset="CL21A226MOCLRNC" device=""/>
+<part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2631,14 +2642,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <attribute name="NAME" x="181.61" y="157.48" size="1.778" layer="95" rot="MR0" align="center-left"/>
 <attribute name="VALUE" x="181.61" y="154.94" size="1.778" layer="96" rot="MR0" align="center-left"/>
 </instance>
-<instance part="C5" gate="G$1" x="162.56" y="137.16" smashed="yes">
-<attribute name="NAME" x="164.084" y="140.081" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="164.084" y="135.001" size="1.778" layer="96" font="vector"/>
-</instance>
-<instance part="C6" gate="G$1" x="281.94" y="157.48" smashed="yes">
-<attribute name="NAME" x="283.464" y="160.401" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="283.464" y="155.321" size="1.778" layer="96" font="vector"/>
-</instance>
 <instance part="L1" gate="G$1" x="177.8" y="165.1" smashed="yes">
 <attribute name="NAME" x="175.26" y="167.64" size="1.778" layer="95"/>
 <attribute name="VALUE" x="175.26" y="162.56" size="1.778" layer="96"/>
@@ -2653,9 +2656,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </instance>
 <instance part="SUPPLY4" gate="GND" x="180.34" y="127" smashed="yes">
 <attribute name="VALUE" x="178.435" y="123.825" size="1.778" layer="96"/>
-</instance>
-<instance part="SUPPLY7" gate="GND" x="281.94" y="149.86" smashed="yes">
-<attribute name="VALUE" x="280.035" y="146.685" size="1.778" layer="96"/>
 </instance>
 <instance part="SUPPLY8" gate="GND" x="264.16" y="127" smashed="yes">
 <attribute name="VALUE" x="262.255" y="123.825" size="1.778" layer="96"/>
@@ -2729,9 +2729,20 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <attribute name="NAME" x="54.61" y="78.74" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="63.5" y="78.74" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="C2" gate="G$1" x="111.76" y="96.52" smashed="yes" rot="R90">
+<instance part="0.1_UF" gate="G$1" x="111.76" y="96.52" smashed="yes" rot="R90">
 <attribute name="NAME" x="107.95" y="96.52" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="116.84" y="96.52" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="22UF" gate="G$1" x="162.56" y="139.7" smashed="yes" rot="R90">
+<attribute name="NAME" x="160.26521875" y="135.620390625" size="1.78483125" layer="95" rot="R90"/>
+<attribute name="VALUE" x="166.63265" y="135.62735" size="1.78178125" layer="96" rot="R90"/>
+</instance>
+<instance part="22_UF" gate="G$1" x="281.94" y="154.94" smashed="yes" rot="R90">
+<attribute name="NAME" x="279.64521875" y="150.860390625" size="1.78483125" layer="95" rot="R90"/>
+<attribute name="VALUE" x="286.01265" y="150.86735" size="1.78178125" layer="96" rot="R90"/>
+</instance>
+<instance part="SUPPLY7" gate="GND" x="281.94" y="142.24" smashed="yes">
+<attribute name="VALUE" x="280.035" y="139.065" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -2812,11 +2823,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <junction x="76.2" y="76.2"/>
 </segment>
 <segment>
-<pinref part="C6" gate="G$1" pin="2"/>
-<pinref part="SUPPLY7" gate="GND" pin="GND"/>
-<wire x1="281.94" y1="154.94" x2="281.94" y2="152.4" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="R6" gate="G$1" pin="1"/>
 <pinref part="SUPPLY8" gate="GND" pin="GND"/>
 <wire x1="264.16" y1="132.08" x2="264.16" y2="129.54" width="0.1524" layer="91"/>
@@ -2834,7 +2840,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="111.76" y1="81.28" x2="119.38" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="104.14" x2="119.38" y2="81.28" width="0.1524" layer="91"/>
 <junction x="119.38" y="81.28"/>
-<pinref part="C2" gate="G$1" pin="2"/>
+<pinref part="0.1_UF" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="93.98" x2="111.76" y2="81.28" width="0.1524" layer="91"/>
 <junction x="111.76" y="81.28"/>
 </segment>
@@ -2845,8 +2851,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="154.94" y1="81.28" x2="154.94" y2="76.2" width="0.1524" layer="91"/>
 <junction x="154.94" y="81.28"/>
 <wire x1="154.94" y1="81.28" x2="167.64" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="162.56" y1="134.62" x2="162.56" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="132.08" x2="167.64" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="132.08" x2="180.34" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="132.08" x2="198.12" y2="132.08" width="0.1524" layer="91"/>
@@ -2878,6 +2882,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="10_UF" gate="G$1" pin="1"/>
 <wire x1="213.36" y1="198.12" x2="213.36" y2="185.42" width="0.1524" layer="91"/>
 <junction x="213.36" y="185.42"/>
+<pinref part="22UF" gate="G$1" pin="1"/>
+<wire x1="162.56" y1="134.112" x2="162.56" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="5V_USB" gate="G$1" pin="GND"/>
@@ -2894,6 +2900,11 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="0.1UF" gate="G$1" pin="2"/>
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
 <wire x1="58.42" y1="76.2" x2="58.42" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="22_UF" gate="G$1" pin="1"/>
+<pinref part="SUPPLY7" gate="GND" pin="GND"/>
+<wire x1="281.94" y1="149.352" x2="281.94" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -2987,7 +2998,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="U$4" gate="G$1" pin="VDD"/>
 <wire x1="109.22" y1="111.76" x2="111.76" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="330" gate="G$1" pin="2"/>
-<pinref part="C2" gate="G$1" pin="1"/>
+<pinref part="0.1_UF" gate="G$1" pin="1"/>
 <wire x1="111.76" y1="111.76" x2="119.38" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="101.6" x2="111.76" y2="111.76" width="0.1524" layer="91"/>
 <junction x="111.76" y="111.76"/>
@@ -3015,7 +3026,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="88.9" y1="109.22" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="111.76" x2="88.9" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="121.92" x2="149.86" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="1"/>
 <pinref part="L1" gate="G$1" pin="1"/>
 <wire x1="167.64" y1="165.1" x2="172.72" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="U3" gate="G$1" pin="EN"/>
@@ -3025,10 +3035,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="167.64" y1="147.32" x2="167.64" y2="144.78" width="0.1524" layer="91"/>
 <junction x="167.64" y="147.32"/>
 <wire x1="167.64" y1="147.32" x2="167.64" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="147.32" x2="167.64" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="147.32" x2="162.56" y2="142.24" width="0.1524" layer="91"/>
-<junction x="162.56" y="147.32"/>
 <wire x1="149.86" y1="147.32" x2="162.56" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="147.32" x2="167.64" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="121.92" x2="149.86" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="111.76" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
 <junction x="88.9" y="111.76"/>
@@ -3053,6 +3061,9 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="10U" gate="G$1" pin="2"/>
 <wire x1="76.2" y1="91.44" x2="76.2" y2="86.36" width="0.1524" layer="91"/>
 <junction x="76.2" y="91.44"/>
+<pinref part="22UF" gate="G$1" pin="2"/>
+<wire x1="162.56" y1="147.32" x2="162.56" y2="145.288" width="0.1524" layer="91"/>
+<junction x="162.56" y="147.32"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -3074,16 +3085,16 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="264.16" y1="165.1" x2="264.16" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="C6" gate="G$1" pin="1"/>
 <wire x1="264.16" y1="165.1" x2="281.94" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="281.94" y1="165.1" x2="281.94" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="281.94" y1="165.1" x2="287.02" y2="165.1" width="0.1524" layer="91"/>
-<junction x="281.94" y="165.1"/>
 <pinref part="U$6" gate="G$1" pin="CATHODE"/>
+<wire x1="281.94" y1="165.1" x2="287.02" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="254" y1="152.4" x2="256.54" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="256.54" y1="152.4" x2="256.54" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="256.54" y1="165.1" x2="264.16" y2="165.1" width="0.1524" layer="91"/>
 <junction x="264.16" y="165.1"/>
+<pinref part="22_UF" gate="G$1" pin="2"/>
+<wire x1="281.94" y1="165.1" x2="281.94" y2="160.528" width="0.1524" layer="91"/>
+<junction x="281.94" y="165.1"/>
 </segment>
 </net>
 <net name="N$18" class="0">
