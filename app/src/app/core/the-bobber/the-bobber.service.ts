@@ -53,7 +53,7 @@ export class TheBobberService extends BluetoothSerialService {
         this.cleanUpMap(this.TEMP_DEL),
         this.toNumMap(),
         this.fb.tempTap(),
-        this.logsService.tempTap(`${TheBobberService.name} - Temp Data`)
+        this.logsService.logTap(`${TheBobberService.name} - Temp Data`)
       )
       .subscribe(data => {});
 
@@ -62,7 +62,7 @@ export class TheBobberService extends BluetoothSerialService {
         this.cleanUpMap(this.SOLENOID_DELIMETER),
         this.toNumMap(),
         this.fb.solenoidTap(),
-        this.logsService.tempTap(`${TheBobberService.name} - solenoid`)
+        this.logsService.logTap(`${TheBobberService.name} - solenoid`)
       )
       .subscribe(data => {});
 
@@ -76,7 +76,7 @@ export class TheBobberService extends BluetoothSerialService {
             this.vibration.triple();
           }
         }),
-        this.logsService.tempTap(`${TheBobberService.name} - Bite Data`)
+        this.logsService.logTap(`${TheBobberService.name} - Bite Data`)
       )
       .subscribe(data => {});
 
@@ -114,7 +114,7 @@ export class TheBobberService extends BluetoothSerialService {
     this.listenForData()
       .pipe(
         takeUntil(this.takeUntilBobber),
-        this.logsService.tempTap(`${TheBobberService.name} - Data Line From &`)
+        this.logsService.logTap(`${TheBobberService.name} - Data Line From &`)
       )
       .subscribe((data: string) => {
         if (data.includes(this.TEMP_DEL)) {

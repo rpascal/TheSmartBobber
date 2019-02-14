@@ -24,7 +24,7 @@ export class LogsService {
     this.logsSubject$ = this.logsSubject.asObservable();
   }
 
-  tempTap(title?: string) {
+  logTap(title?: string) {
     return tap((value: any) => {
       this.addMessage(value, title);
     });

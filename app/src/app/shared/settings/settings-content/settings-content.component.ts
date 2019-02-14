@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { ActionSheetController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
@@ -9,7 +9,8 @@ import { VibrationService } from '../../../core/vibration/vibration.service';
 @Component({
   selector: "app-settings-content",
   templateUrl: "./settings-content.component.html",
-  styleUrls: ["./settings-content.component.scss"]
+  styleUrls: ["./settings-content.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsContentComponent implements OnInit {
   ledStatus = false;
@@ -25,8 +26,9 @@ export class SettingsContentComponent implements OnInit {
     public actionSheetController: ActionSheetController,
     public loadingController: LoadingController,
     private vibration: VibrationService,
-    private sounds: SoundsService
-  ) {}
+    private sounds: SoundsService,
+    private cd: ChangeDetectorRef
+  ) { }
 
   ngOnInit() {
     this.vibrationStatus = this.vibration.active;
