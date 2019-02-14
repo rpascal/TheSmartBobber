@@ -52,7 +52,7 @@ void updateConnectionState()
 void main(void)
 {
     int i, sum1, avg1;
-    
+
     Initialize_UART();    //Initialize UART module [RC6 & RC7]
     PWM_Initialize();     //Initialize PWM Signal [RC2]
     ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
@@ -76,8 +76,8 @@ void main(void)
     {
         updateConnectionState();
 
-//        monitorSolenoidSignal();
-//        solenoidActiveMonitor();
+        monitorSolenoidSignal();
+        isSolenoidOnMonitor();
 
         switch (connectionState)
         {
@@ -92,7 +92,7 @@ void main(void)
         case CONNECTED:
 
             // Send Current Average to phone
-            //sendADCToPhone();
+            sendADCToPhone();
 
             phoneInput = UART_get_char();
 
@@ -145,45 +145,15 @@ void main(void)
                     UART_send_char(10);
                     sum1 = 0;
                 }
-                
-                 if (phoneInput == '4') //If the user sends "3"
-                {
-                     RB5 = 1; //Solenoid ON
-                     UART_send_string("Solenoid ON!");
-                     UART_send_char(10);
-                     __delay_ms(500); 
-                     RB5 = 0; //Solenoid OFF
-                     
-                }
-            }
 
-            //break;
-            
-            else
-            {
-                for (i = 0; i < 40; i++)
-                    {
-                        sum1 = sum1 + ADC_Read();
-                    }
-                    avg1 = sum1 / 40;
-                    sum1 = 0;
-                    
-                    if (avg1 > 100)
-                    {
-                        RC4 = 1; //LED BITE
-                        UART_send_string("FISH BITE!");
-                        UART_send_char(10);
-                        RB5 = 1; //SOLENOID ON
-                        __delay_ms(200); 
-                        RB5 = 0; //Solenoid OFF
-                        RB4 = 0;
-                    }
-                    
-                    else 
-                    {
-                        RC4 = 0;
-                        //RB5 = 0;
-                    }
+                if (phoneInput == '4') //If the user sends "3"
+                {
+                    RB5 = 1; //Solenoid ON
+                    UART_send_string("Solenoid ON!");
+                    UART_send_char(10);
+                    __delay_ms(500);
+                    RB5 = 0; //Solenoid OFF
+                }
             }
         }
     }
