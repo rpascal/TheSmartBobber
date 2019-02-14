@@ -2491,67 +2491,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
-<library name="ERA-3AEB272V">
-<packages>
-<package name="RESC1608X55">
-<wire x1="-1.573" y1="0.683" x2="1.573" y2="0.683" width="0.0508" layer="39"/>
-<wire x1="1.573" y1="0.683" x2="1.573" y2="-0.683" width="0.0508" layer="39"/>
-<wire x1="1.573" y1="-0.683" x2="-1.573" y2="-0.683" width="0.0508" layer="39"/>
-<wire x1="-1.573" y1="-0.683" x2="-1.573" y2="0.683" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<text x="-1.63515" y="0.73506875" size="0.500046875" layer="25">&gt;NAME</text>
-<text x="-1.636640625" y="-1.256259375" size="0.5005" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.838521875" y1="-0.47008125" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.330340625" y1="-0.4701" x2="0.8303" y2="0.4801" layer="51"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-</package>
-</packages>
-<symbols>
-<symbol name="ERA-3AEB272V">
-<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.2032" layer="94"/>
-<text x="-3.811209375" y="1.49908125" size="1.77856875" layer="95">&gt;NAME</text>
-<text x="-3.810240625" y="-3.302209375" size="1.778109375" layer="96">&gt;VALUE</text>
-<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="ERA-3AEB272V" prefix="R">
-<description>Precision resistor/SMD 2.7kOhm±0.1%</description>
-<gates>
-<gate name="G$1" symbol="ERA-3AEB272V" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="RESC1608X55">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="DESCRIPTION" value=" Res Thin Film 0603 2.7K Ohm 0.1% 1/10W ±25ppm/°C Molded SMD SMD Punched Carrier T/R "/>
-<attribute name="DIGI-KEY_PART_NUMBER" value="P2.7KDBCT-ND"/>
-<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-3AEB272V/P2.7KDBCT-ND/1466062?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
-<attribute name="MF" value="Panasonic"/>
-<attribute name="MP" value="ERA-3AEB272V"/>
-<attribute name="PACKAGE" value="0603 Panasonic"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="10118193-0001LF">
 <packages>
 <package name="FCI_10118193-0001LF">
@@ -2793,6 +2732,72 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
+<library name="ERA-6AEB272V">
+<packages>
+<package name="RESC2013X65N">
+<description>RESISTOR, 0805</description>
+<text x="-3.4544" y="1.27" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-3.4544" y="-3.175" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
+<wire x1="-0.1016" y1="-0.7112" x2="0.1016" y2="-0.7112" width="0.1524" layer="21"/>
+<wire x1="0.1016" y1="0.7112" x2="-0.1016" y2="0.7112" width="0.1524" layer="21"/>
+<wire x1="-0.4318" y1="-0.7112" x2="-0.4318" y2="0.7112" width="0" layer="51"/>
+<wire x1="-0.4318" y1="0.7112" x2="-1.0668" y2="0.7112" width="0" layer="51"/>
+<wire x1="-1.0668" y1="-0.7112" x2="-0.4318" y2="-0.7112" width="0" layer="51"/>
+<wire x1="0.4318" y1="0.7112" x2="0.4318" y2="-0.7112" width="0" layer="51"/>
+<wire x1="0.4318" y1="-0.7112" x2="1.0668" y2="-0.7112" width="0" layer="51"/>
+<wire x1="1.0668" y1="0.7112" x2="0.4318" y2="0.7112" width="0" layer="51"/>
+<wire x1="-0.4318" y1="-0.7112" x2="0.4318" y2="-0.7112" width="0" layer="51"/>
+<wire x1="1.0668" y1="-0.7112" x2="1.0668" y2="0.7112" width="0" layer="51"/>
+<wire x1="0.4318" y1="0.7112" x2="-0.4318" y2="0.7112" width="0" layer="51"/>
+<wire x1="-1.0668" y1="0.7112" x2="-1.0668" y2="-0.7112" width="0" layer="51"/>
+<text x="-3.4544" y="1.27" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-3.4544" y="-3.175" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
+<smd name="1" x="-0.9398" y="0" dx="1.016" dy="1.397" layer="1"/>
+<smd name="2" x="0.9398" y="0" dx="1.016" dy="1.397" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="RESH">
+<wire x1="3.175" y1="1.27" x2="4.445" y2="-1.27" width="0.2032" layer="94"/>
+<wire x1="4.445" y1="-1.27" x2="5.715" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="5.715" y1="1.27" x2="6.985" y2="-1.27" width="0.2032" layer="94"/>
+<wire x1="6.985" y1="-1.27" x2="8.255" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="8.255" y1="1.27" x2="9.525" y2="-1.27" width="0.2032" layer="94"/>
+<wire x1="2.54" y1="0" x2="3.175" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="9.525" y1="-1.27" x2="10.16" y2="0" width="0.2032" layer="94"/>
+<text x="-3.1242" y="-8.7376" size="3.4798" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+<text x="0.9906" y="2.7686" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
+<pin name="R2" x="0" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+<pin name="R1" x="12.7" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="ERA-6AEB272V" prefix="R">
+<description>RESISTOR, 0805</description>
+<gates>
+<gate name="A" symbol="RESH" x="0" y="0" swaplevel="1"/>
+</gates>
+<devices>
+<device name="" package="RESC2013X65N">
+<connects>
+<connect gate="A" pin="R1" pad="1"/>
+<connect gate="A" pin="R2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value=" Res Thin Film 0805 2.7K Ohm 0.1% 0.125W_1/8W_ Ø¢Â±25ppm/Ø¢Â°C Molded SMD Automotive Punched T/R "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="P2.7KDACT-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB272V/P2.7KDACT-ND/1465957?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="MF" value="Panasonic"/>
+<attribute name="MP" value="ERA-6AEB272V"/>
+<attribute name="PACKAGE" value="0805 Panasonic"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2837,11 +2842,11 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="U$5" library="DB2W31900L" deviceset="DB2W31900" device=""/>
 <part name="U$6" library="DB2W31900L" deviceset="DB2W31900" device=""/>
 <part name="0.1OHM" library="RL1220S-R10-F" deviceset="RL1220S-R10-F" device=""/>
-<part name="2.7K" library="ERA-3AEB272V" deviceset="ERA-3AEB272V" device=""/>
 <part name="5V_USB" library="10118193-0001LF" deviceset="10118193-0001LF" device=""/>
 <part name="SUPPLY6" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="100K" library="CRGH0805J100K" deviceset="CRGH0805J100K" device=""/>
-<part name="R1" library="ERJP6WF3300V" deviceset="ERJP6WF3300V" device=""/>
+<part name="330" library="ERJP6WF3300V" deviceset="ERJP6WF3300V" device=""/>
+<part name="2.7K" library="ERA-6AEB272V" deviceset="ERA-6AEB272V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2973,10 +2978,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <attribute name="VALUE" x="-8.20755" y="113.173040625" size="3.48353125" layer="96" ratio="10" rot="SR0"/>
 <attribute name="NAME" x="-6.628359375" y="109.451509375" size="2.084990625" layer="95" ratio="10" rot="SR0"/>
 </instance>
-<instance part="2.7K" gate="G$1" x="154.94" y="96.52" smashed="yes" rot="R90">
-<attribute name="NAME" x="153.44091875" y="92.708790625" size="1.77856875" layer="95" rot="R90"/>
-<attribute name="VALUE" x="158.242209375" y="92.709759375" size="1.778109375" layer="96" rot="R90"/>
-</instance>
 <instance part="5V_USB" gate="G$1" x="-91.44" y="101.6" smashed="yes" rot="R180">
 <attribute name="NAME" x="-86.35835" y="90.6714" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-86.35806875" y="114.3097" size="1.778" layer="96" rot="R180"/>
@@ -2988,9 +2989,13 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <attribute name="NAME" x="8.89" y="82.7786" size="1.778" layer="95"/>
 <attribute name="VALUE" x="8.89" y="77.978" size="1.778" layer="96"/>
 </instance>
-<instance part="R1" gate="G$1" x="101.6" y="111.76" smashed="yes">
+<instance part="330" gate="G$1" x="101.6" y="111.76" smashed="yes">
 <attribute name="NAME" x="97.79" y="113.2586" size="1.778" layer="95"/>
 <attribute name="VALUE" x="97.79" y="108.458" size="1.778" layer="96"/>
+</instance>
+<instance part="2.7K" gate="A" x="154.94" y="93.98" smashed="yes" rot="R90">
+<attribute name="VALUE" x="163.6776" y="90.8558" size="3.4798" layer="96" ratio="10" rot="SR90"/>
+<attribute name="NAME" x="152.1714" y="94.9706" size="2.0828" layer="95" ratio="10" rot="SR90"/>
 </instance>
 </instances>
 <busses>
@@ -3145,8 +3150,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="111.76" y1="129.54" x2="111.76" y2="185.42" width="0.1524" layer="91"/>
 <junction x="111.76" y="185.42"/>
 <junction x="167.64" y="129.54"/>
-<pinref part="2.7K" gate="G$1" pin="1"/>
-<wire x1="154.94" y1="91.44" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="2.7K" gate="A" pin="R2"/>
+<wire x1="154.94" y1="93.98" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="5V_USB" gate="G$1" pin="GND"/>
@@ -3246,7 +3251,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="111.76" x2="119.38" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="104.14" x2="111.76" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
+<pinref part="330" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="111.76" x2="111.76" y2="111.76" width="0.1524" layer="91"/>
 <junction x="111.76" y="111.76"/>
 </segment>
@@ -3308,7 +3313,7 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="83.82" y1="167.64" x2="83.82" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="213.36" x2="111.76" y2="213.36" width="0.1524" layer="91"/>
 <junction x="111.76" y="213.36"/>
-<pinref part="R1" gate="G$1" pin="1"/>
+<pinref part="330" gate="G$1" pin="1"/>
 <wire x1="88.9" y1="111.76" x2="93.98" y2="111.76" width="0.1524" layer="91"/>
 <junction x="88.9" y="111.76"/>
 </segment>
@@ -3363,8 +3368,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <segment>
 <pinref part="U$4" gate="G$1" pin="VM"/>
 <wire x1="152.4" y1="111.76" x2="154.94" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="2.7K" gate="G$1" pin="2"/>
-<wire x1="154.94" y1="111.76" x2="154.94" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="2.7K" gate="A" pin="R1"/>
+<wire x1="154.94" y1="111.76" x2="154.94" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
