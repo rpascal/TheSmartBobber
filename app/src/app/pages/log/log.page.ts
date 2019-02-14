@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { FirebaseService, ILogDatabase } from '../../core';
+import { FirebaseService, ILogDatabase, Image } from '../../core';
 
 @Component({
   selector: "app-log",
@@ -11,6 +11,8 @@ import { FirebaseService, ILogDatabase } from '../../core';
 })
 export class LogPage implements OnInit {
   logs$: Observable<ILogDatabase[]>;
+  uncategorizedImages$: Observable<Image[]>;
+
   slideOpts = {
     loop: true,
     // height: 200,
@@ -21,6 +23,7 @@ export class LogPage implements OnInit {
 
   ngOnInit() {
     this.logs$ = this.fb.getLogs().pipe(tap(data => console.log("Tap", data)));
+    this.uncategorizedImages$ = this.fb.getUncategorizedImages();
   }
 
 

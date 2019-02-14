@@ -11,10 +11,11 @@
 
 <ion-content padding>
 
+
   <ion-card *ngFor='let log of (logs$ | async)'>
 
 
-    <ion-slides pager="true" [options]="slideOpts" >
+    <ion-slides pager="true" [options]="slideOpts">
       <ion-slide *ngFor='let image of (log.images | async)'>
         <img [src]="image.url">
       </ion-slide>
@@ -41,6 +42,18 @@
       </p>
 
     </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+
+
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor='let image of (uncategorizedImages$ | async)'>
+        <img [src]="image.url">
+      </ion-slide>
+    </ion-slides>
+
   </ion-card>
 
 </ion-content>

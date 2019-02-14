@@ -59,6 +59,9 @@ export class FirebaseService {
   tempsCollection: AngularFirestoreCollection<Temp>;
   solenoidCollection: AngularFirestoreCollection<Solenoid>;
 
+
+  uncategorizedImagesCollection: AngularFirestoreCollection<Solenoid>;
+
   weatherCollection: AngularFirestoreCollection<IWeather>;
 
   constructor(private afs: AngularFirestore) { }
@@ -142,6 +145,12 @@ export class FirebaseService {
     });
   }
 
+  getUncategorizedImages(): Observable<Image[]> {
+    return this.afs
+      .collection<Image>("uncategorizedImages")
+      .valueChanges()
+  }
+
   getLogs(): Observable<ILogDatabase[]> {
     return this.afs
       .collection<ILogDatabase>("logs", ref => ref.orderBy("timestamp", "desc"))
@@ -162,6 +171,7 @@ export class FirebaseService {
         })
       );
   }
+
 
   attachImage(url: string) {
     if (this.activeLog) {
