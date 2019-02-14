@@ -2537,10 +2537,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <sheet>
 <plain>
 <text x="45.72" y="121.92" size="1.778" layer="91">NDS8434 P-Channel </text>
-<text x="-38.1" y="149.86" size="2.54" layer="92">Charging Circuit</text>
-<text x="96.52" y="142.24" size="2.54" layer="92">Protection IC Circuit</text>
-<text x="228.6" y="111.76" size="2.54" layer="92">12V Step Up DC-DC Converter</text>
-<text x="104.14" y="233.68" size="2.54" layer="92">3.3V Step-Down DC-DC Converter</text>
 <text x="190.5" y="81.28" size="2.54" layer="94">Power Distribution Circuit</text>
 <text x="210.82" y="71.12" size="2.54" layer="94">DWG-001</text>
 <text x="187.96" y="63.5" size="2.54" layer="94">November 28, 2018</text>
@@ -2684,43 +2680,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </instance>
 </instances>
 <busses>
-<bus name="B$1">
-<segment>
-<wire x1="-106.68" y1="147.32" x2="83.82" y2="147.32" width="0.508" layer="92"/>
-<wire x1="83.82" y1="147.32" x2="83.82" y2="60.96" width="0.508" layer="92"/>
-<wire x1="83.82" y1="60.96" x2="-106.68" y2="60.96" width="0.508" layer="92"/>
-<wire x1="-106.68" y1="60.96" x2="-106.68" y2="147.32" width="0.508" layer="92"/>
-</segment>
-</bus>
-<bus name="B$2">
-<segment>
-<wire x1="93.98" y1="60.96" x2="172.72" y2="60.96" width="0.508" layer="92"/>
-<wire x1="172.72" y1="60.96" x2="172.72" y2="121.92" width="0.508" layer="92"/>
-<wire x1="172.72" y1="121.92" x2="152.4" y2="121.92" width="0.508" layer="92"/>
-<wire x1="152.4" y1="121.92" x2="152.4" y2="139.7" width="0.508" layer="92"/>
-<wire x1="152.4" y1="139.7" x2="93.98" y2="139.7" width="0.508" layer="92"/>
-</segment>
-</bus>
-<bus name="N$18">
-<segment>
-<wire x1="157.48" y1="175.26" x2="157.48" y2="124.46" width="0.508" layer="92"/>
-<wire x1="157.48" y1="124.46" x2="175.26" y2="124.46" width="0.508" layer="92"/>
-<wire x1="175.26" y1="124.46" x2="175.26" y2="116.84" width="0.508" layer="92"/>
-<wire x1="175.26" y1="116.84" x2="294.64" y2="116.84" width="0.508" layer="92"/>
-<wire x1="294.64" y1="116.84" x2="294.64" y2="175.26" width="0.508" layer="92"/>
-<wire x1="294.64" y1="175.26" x2="157.48" y2="175.26" width="0.508" layer="92"/>
-</segment>
-</bus>
-<bus name="B$4">
-<segment>
-<wire x1="104.14" y1="231.14" x2="104.14" y2="172.72" width="0.508" layer="92"/>
-<wire x1="104.14" y1="172.72" x2="154.94" y2="172.72" width="0.508" layer="92"/>
-<wire x1="154.94" y1="172.72" x2="154.94" y2="175.26" width="0.508" layer="92"/>
-<wire x1="154.94" y1="175.26" x2="266.7" y2="175.26" width="0.508" layer="92"/>
-<wire x1="266.7" y1="175.26" x2="266.7" y2="231.14" width="0.508" layer="92"/>
-<wire x1="266.7" y1="231.14" x2="104.14" y2="231.14" width="0.508" layer="92"/>
-</segment>
-</bus>
 </busses>
 <nets>
 <net name="N$3" class="0">
