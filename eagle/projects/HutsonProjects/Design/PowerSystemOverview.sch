@@ -256,40 +256,6 @@ MSOP&lt;br&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="supply1" urn="urn:adsk.eagle:library:371">
-<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
- GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
- Please keep in mind, that these devices are necessary for the
- automatic wiring of the supply signals.&lt;p&gt;
- The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
- In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
- &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-</packages>
-<symbols>
-<symbol name="+5V" urn="urn:adsk.eagle:symbol:26929/1" library_version="1">
-<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="+5V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="+5V" urn="urn:adsk.eagle:component:26963/1" prefix="P+" library_version="1">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="+5V" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Capacitors">
 <description>&lt;h3&gt;SparkFun Capacitors&lt;/h3&gt;
 This library contains capacitors. 
@@ -2525,69 +2491,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
-<library name="RC0201JR-07100KL">
-<packages>
-<package name="RESC0603X26N">
-<wire x1="-0.32" y1="-0.17" x2="-0.32" y2="0.17" width="0.127" layer="51"/>
-<wire x1="-0.32" y1="0.17" x2="0.32" y2="0.17" width="0.127" layer="51"/>
-<wire x1="0.32" y1="0.17" x2="0.32" y2="-0.17" width="0.127" layer="51"/>
-<wire x1="0.32" y1="-0.17" x2="-0.32" y2="-0.17" width="0.127" layer="51"/>
-<wire x1="-0.3" y1="0.515" x2="0.3" y2="0.515" width="0.127" layer="21"/>
-<wire x1="-0.3" y1="-0.515" x2="0.3" y2="-0.515" width="0.127" layer="21"/>
-<wire x1="-0.62" y1="-0.579" x2="-0.62" y2="0.579" width="0.05" layer="39"/>
-<wire x1="-0.62" y1="0.579" x2="0.62" y2="0.579" width="0.05" layer="39"/>
-<wire x1="0.62" y1="0.579" x2="0.62" y2="-0.579" width="0.05" layer="39"/>
-<wire x1="0.62" y1="-0.579" x2="-0.62" y2="-0.579" width="0.05" layer="39"/>
-<text x="-0.7" y="0.727" size="0.254" layer="25">&gt;NAME</text>
-<text x="-0.7" y="-0.927" size="0.254" layer="27">&gt;VALUE</text>
-<smd name="1" x="-0.305" y="0" dx="0.4" dy="0.33" layer="1" roundness="50" rot="R90"/>
-<smd name="2" x="0.28" y="0" dx="0.4" dy="0.38" layer="1" roundness="50" rot="R90"/>
-</package>
-</packages>
-<symbols>
-<symbol name="RC0201JR-07100KL">
-<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.2032" layer="94"/>
-<text x="-3.81" y="1.4986" size="1.778" layer="95">&gt;NAME</text>
-<text x="-3.81" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="2" x="7.62" y="0" visible="pad" length="middle" direction="pas" rot="R180"/>
-<pin name="1" x="-7.62" y="0" visible="pad" length="middle" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="RC0201JR-07100KL" prefix="R">
-<description>Res, Thick Film, 100K, 5%, 0.05W, 0201</description>
-<gates>
-<gate name="G$1" symbol="RC0201JR-07100KL" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="RESC0603X26N">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="DESCRIPTION" value=" Res Thick Film 0.6 x 0.3 mm 100K Ohm 5% 0.05W_1/20W_ 200ppm/ C Molded SMD Paper T/R "/>
-<attribute name="DIGI-KEY_PART_NUMBER" value="311-100KNCT-ND"/>
-<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/yageo/RC0201JR-07100KL/311-100KNCT-ND/1949005?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
-<attribute name="MF" value="Yageo"/>
-<attribute name="MP" value="RC0201JR-07100KL"/>
-<attribute name="PACKAGE" value="0201 Yageo"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="3521330RFT">
 <packages>
 <package name="RESC6331X70N">
@@ -2715,6 +2618,183 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </deviceset>
 </devicesets>
 </library>
+<library name="10118193-0001LF">
+<packages>
+<package name="FCI_10118193-0001LF">
+<wire x1="-3.55" y1="0.35" x2="-3.3" y2="0.6" width="0" layer="46" curve="-90"/>
+<wire x1="-3.3" y1="0.6" x2="-3.05" y2="0.35" width="0" layer="46" curve="-90"/>
+<wire x1="-3.05" y1="0.35" x2="-3.05" y2="-0.35" width="0" layer="46"/>
+<wire x1="-3.05" y1="-0.35" x2="-3.3" y2="-0.6" width="0" layer="46" curve="-90"/>
+<wire x1="-3.3" y1="-0.6" x2="-3.55" y2="-0.35" width="0" layer="46" curve="-90"/>
+<wire x1="-3.55" y1="-0.35" x2="-3.55" y2="0.35" width="0" layer="46"/>
+<wire x1="3.05" y1="0.35" x2="3.3" y2="0.6" width="0" layer="46" curve="-90"/>
+<wire x1="3.3" y1="0.6" x2="3.55" y2="0.35" width="0" layer="46" curve="-90"/>
+<wire x1="3.55" y1="0.35" x2="3.55" y2="-0.35" width="0" layer="46"/>
+<wire x1="3.55" y1="-0.35" x2="3.3" y2="-0.6" width="0" layer="46" curve="-90"/>
+<wire x1="3.3" y1="-0.6" x2="3.05" y2="-0.35" width="0" layer="46" curve="-90"/>
+<wire x1="3.05" y1="-0.35" x2="3.05" y2="0.35" width="0" layer="46"/>
+<wire x1="-4.2" y1="3.6" x2="-4.2" y2="-3" width="0.05" layer="39"/>
+<wire x1="-4.2" y1="-3" x2="4.2" y2="-3" width="0.05" layer="39"/>
+<wire x1="4.2" y1="-3" x2="4.2" y2="3.6" width="0.05" layer="39"/>
+<wire x1="4.2" y1="3.6" x2="-4.2" y2="3.6" width="0.05" layer="39"/>
+<text x="-3.854409375" y="3.85391875" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.88608125" y="-4.40371875" size="1.27" layer="27">&gt;VALUE</text>
+<circle x="-2" y="3.5" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-3.8" y1="-1.45" x2="3.8" y2="-1.45" width="0.127" layer="21"/>
+<wire x1="-3.8" y1="2.9" x2="3.8" y2="2.9" width="0.127" layer="51"/>
+<wire x1="3.8" y1="2.9" x2="3.8" y2="-1.45" width="0.127" layer="51"/>
+<wire x1="3.8" y1="-1.45" x2="3.8" y2="-2.15" width="0.127" layer="51"/>
+<wire x1="3.8" y1="-2.15" x2="-3.8" y2="-2.15" width="0.127" layer="51"/>
+<wire x1="-3.8" y1="-2.15" x2="-3.8" y2="-2.1" width="0.127" layer="51"/>
+<wire x1="-3.8" y1="-2.1" x2="-3.8" y2="2.9" width="0.127" layer="51"/>
+<wire x1="-3.8" y1="-2.1" x2="-3.93" y2="-2.5" width="0.127" layer="51" curve="-90"/>
+<wire x1="-3.93" y1="-2.5" x2="-3.75" y2="-2.75" width="0.127" layer="51"/>
+<wire x1="-3.75" y1="-2.75" x2="-3.4" y2="-2.2" width="0.127" layer="51" curve="90"/>
+<wire x1="-3.2" y1="-2.2" x2="-3.2" y2="-2.75" width="0.127" layer="51"/>
+<wire x1="-3.2" y1="-2.75" x2="3.2" y2="-2.75" width="0.127" layer="51"/>
+<wire x1="3.2" y1="-2.75" x2="3.2" y2="-2.2" width="0.127" layer="51"/>
+<wire x1="3.8" y1="-2.1" x2="3.93" y2="-2.5" width="0.127" layer="51" curve="90"/>
+<wire x1="3.93" y1="-2.5" x2="3.75" y2="-2.8" width="0.127" layer="51"/>
+<wire x1="3.75" y1="-2.8" x2="3.4" y2="-2.2" width="0.127" layer="51" curve="-90"/>
+<wire x1="-3.8" y1="1.5" x2="-3.8" y2="1.1" width="0.127" layer="21"/>
+<wire x1="3.8" y1="1.1" x2="3.8" y2="1.5" width="0.127" layer="21"/>
+<wire x1="-3.8" y1="-1.1" x2="-3.8" y2="-1.4" width="0.127" layer="21"/>
+<wire x1="3.8" y1="-1.1" x2="3.8" y2="-1.4" width="0.127" layer="21"/>
+<wire x1="3.8" y1="-1.45" x2="6.15" y2="-1.45" width="0.127" layer="51"/>
+<text x="4.75" y="-1.3" size="0.4064" layer="51">PCB END</text>
+<smd name="1" x="-1.3" y="2.675" dx="0.4" dy="1.35" layer="1"/>
+<smd name="2" x="-0.65" y="2.675" dx="0.4" dy="1.35" layer="1"/>
+<smd name="3" x="0" y="2.675" dx="0.4" dy="1.35" layer="1"/>
+<smd name="4" x="0.65" y="2.675" dx="0.4" dy="1.35" layer="1"/>
+<smd name="5" x="1.3" y="2.675" dx="0.4" dy="1.35" layer="1"/>
+<smd name="S1" x="-3.2" y="2.45" dx="1.6" dy="1.4" layer="1"/>
+<smd name="S2" x="3.2" y="2.45" dx="1.6" dy="1.4" layer="1"/>
+<smd name="S4" x="-1.2" y="0" dx="1.9" dy="1.9" layer="1"/>
+<smd name="S3" x="1.2" y="0" dx="1.9" dy="1.9" layer="1"/>
+<hole x="-3.3" y="0" drill="0.5"/>
+<hole x="3.3" y="0" drill="0.5"/>
+<pad name="S5" x="-3.3" y="0" drill="0.5" diameter="0.9" shape="long" rot="R90"/>
+<pad name="S6" x="3.3" y="0" drill="0.5" diameter="0.9" shape="long" rot="R90"/>
+</package>
+</packages>
+<symbols>
+<symbol name="10118193-0001LF">
+<text x="-5.08165" y="10.9286" size="1.778" layer="95">&gt;NAME</text>
+<text x="-5.08193125" y="-12.7097" size="1.778" layer="96">&gt;VALUE</text>
+<wire x1="-5.08" y1="10.16" x2="5.08" y2="10.16" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="10.16" x2="5.08" y2="-10.16" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="-10.16" x2="-5.08" y2="-10.16" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="-10.16" x2="-5.08" y2="10.16" width="0.1524" layer="94"/>
+<pin name="VUSB" x="-10.16" y="7.62" length="middle" direction="pas"/>
+<pin name="D-" x="-10.16" y="5.08" length="middle" direction="pas"/>
+<pin name="D+" x="-10.16" y="2.54" length="middle" direction="pas"/>
+<pin name="ID" x="-10.16" y="0" length="middle" direction="pas"/>
+<pin name="GND" x="-10.16" y="-2.54" length="middle" direction="pas"/>
+<pin name="SHIELD" x="-10.16" y="-7.62" length="middle" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="10118193-0001LF" prefix="J">
+<description>Micro USB B Type Receptacle</description>
+<gates>
+<gate name="G$1" symbol="10118193-0001LF" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="FCI_10118193-0001LF">
+<connects>
+<connect gate="G$1" pin="D+" pad="3"/>
+<connect gate="G$1" pin="D-" pad="2"/>
+<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="ID" pad="4"/>
+<connect gate="G$1" pin="SHIELD" pad="S1 S2 S3 S4 S5 S6"/>
+<connect gate="G$1" pin="VUSB" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value=" Single Port 5 Contact Shielded SMT MICRO USB B-Type Receptacle "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="609-4616-1-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/amphenol-icc-fci/10118193-0001LF/609-4616-1-ND/2785380?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="MF" value="Amphenol ICC"/>
+<attribute name="MP" value="10118193-0001LF"/>
+<attribute name="PACKAGE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="CRGH0805J100K">
+<packages>
+<package name="RESC2012X65N">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
+<wire x1="-1.69" y1="0.96" x2="1.69" y2="0.96" width="0.05" layer="39"/>
+<wire x1="1.69" y1="0.96" x2="1.69" y2="-0.96" width="0.05" layer="39"/>
+<wire x1="1.69" y1="-0.96" x2="-1.69" y2="-0.96" width="0.05" layer="39"/>
+<wire x1="-1.69" y1="-0.96" x2="-1.69" y2="0.96" width="0.05" layer="39"/>
+<wire x1="-1.08" y1="0.7" x2="1.08" y2="0.7" width="0.127" layer="51"/>
+<wire x1="-1.08" y1="-0.7" x2="1.08" y2="-0.7" width="0.127" layer="51"/>
+<text x="-1.78401875" y="1.5657" size="0.665021875" layer="25">&gt;NAME</text>
+<text x="-1.796809375" y="-2.146890625" size="0.66856875" layer="27">&gt;VALUE</text>
+<wire x1="1.08" y1="0.7" x2="1.08" y2="-0.7" width="0.127" layer="51"/>
+<wire x1="-1.08" y1="0.7" x2="-1.08" y2="-0.7" width="0.127" layer="51"/>
+<wire x1="-1" y1="0.89" x2="1" y2="0.89" width="0.127" layer="21"/>
+<wire x1="-1" y1="-0.89" x2="1" y2="-0.89" width="0.127" layer="21"/>
+<smd name="1" x="-0.935" y="0" dx="1" dy="1.42" layer="1" roundness="25"/>
+<smd name="2" x="0.935" y="0" dx="1" dy="1.42" layer="1" roundness="25"/>
+</package>
+</packages>
+<symbols>
+<symbol name="CRGH0805J100K">
+<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.2032" layer="94"/>
+<text x="-3.81" y="1.4986" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="CRGH0805J100K" prefix="R">
+<description>CRGH Series Resistor 0805 5% 100K 0.33W</description>
+<gates>
+<gate name="G$1" symbol="CRGH0805J100K" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="RESC2012X65N">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="Unavailable"/>
+<attribute name="COMMENT" value="2-1879496-3"/>
+<attribute name="DESCRIPTION" value=" CRGH0805 5% 100K 0.33W "/>
+<attribute name="EU_ROHS_COMPLIANCE" value="Compliant with Exemptions"/>
+<attribute name="MF" value="TE Connectivity"/>
+<attribute name="MP" value="CRGH0805J100K"/>
+<attribute name="PACKAGE" value="0805"/>
+<attribute name="POWER_RATING" value=".33 W"/>
+<attribute name="PRICE" value="None"/>
+<attribute name="RESISTANCE" value="100K "/>
+<attribute name="TE_PURCHASE_URL" value="https://www.te.com/usa-en/product-2-1879496-3.html?te_bu=Cor&amp;te_type=disp&amp;te_campaign=seda_glo_cor-seda-global-disp-prtnr-fy19-seda-model-bom-cta_sma-317_1&amp;elqCampaignId=32493"/>
+<attribute name="TOLERANCE" value="5%"/>
+<attribute name="VOLTAGE_RATING" value="150 V"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2726,7 +2806,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 </classes>
 <parts>
 <part name="U1" library="SparkFun-IC-Power" deviceset="MCP7384XX" device=""/>
-<part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="10UF-POLAR" device="-0603-6.3V-20%(TANT)" value="10uF"/>
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
@@ -2760,9 +2839,11 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <part name="U$5" library="DB2W31900L" deviceset="DB2W31900" device=""/>
 <part name="U$6" library="DB2W31900L" deviceset="DB2W31900" device=""/>
 <part name="0.1OHM" library="RL1220S-R10-F" deviceset="RL1220S-R10-F" device=""/>
-<part name="100K" library="RC0201JR-07100KL" deviceset="RC0201JR-07100KL" device=""/>
 <part name="330" library="3521330RFT" deviceset="3521330RFT" device=""/>
 <part name="2.7K" library="ERA-3AEB272V" deviceset="ERA-3AEB272V" device=""/>
+<part name="5V_USB" library="10118193-0001LF" deviceset="10118193-0001LF" device=""/>
+<part name="SUPPLY6" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="100K" library="CRGH0805J100K" deviceset="CRGH0805J100K" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2781,9 +2862,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <instance part="U1" gate="G$1" x="40.64" y="91.44" smashed="yes">
 <attribute name="VALUE" x="30.48" y="81.28" size="1.778" layer="96"/>
 <attribute name="NAME" x="30.48" y="97.282" size="1.778" layer="95"/>
-</instance>
-<instance part="P+1" gate="1" x="-99.06" y="106.68" smashed="yes" rot="R270">
-<attribute name="VALUE" x="-104.14" y="109.22" size="1.778" layer="96"/>
 </instance>
 <instance part="C1" gate="G$1" x="-12.7" y="88.9" smashed="yes">
 <attribute name="NAME" x="-11.684" y="89.535" size="1.778" layer="95" font="vector"/>
@@ -2897,10 +2975,6 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <attribute name="VALUE" x="-8.20755" y="113.173040625" size="3.48353125" layer="96" ratio="10" rot="SR0"/>
 <attribute name="NAME" x="-6.628359375" y="109.451509375" size="2.084990625" layer="95" ratio="10" rot="SR0"/>
 </instance>
-<instance part="100K" gate="G$1" x="12.7" y="81.28" smashed="yes">
-<attribute name="NAME" x="8.89" y="82.7786" size="1.778" layer="95"/>
-<attribute name="VALUE" x="8.89" y="77.978" size="1.778" layer="96"/>
-</instance>
 <instance part="330" gate="G$1" x="104.14" y="111.76" smashed="yes">
 <attribute name="NAME" x="100.33" y="113.2586" size="1.778" layer="95"/>
 <attribute name="VALUE" x="100.33" y="108.458" size="1.778" layer="96"/>
@@ -2908,6 +2982,17 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <instance part="2.7K" gate="G$1" x="154.94" y="96.52" smashed="yes" rot="R90">
 <attribute name="NAME" x="153.44091875" y="92.708790625" size="1.77856875" layer="95" rot="R90"/>
 <attribute name="VALUE" x="158.242209375" y="92.709759375" size="1.778109375" layer="96" rot="R90"/>
+</instance>
+<instance part="5V_USB" gate="G$1" x="-91.44" y="101.6" smashed="yes" rot="R180">
+<attribute name="NAME" x="-86.35835" y="90.6714" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-86.35806875" y="114.3097" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="SUPPLY6" gate="GND" x="-76.2" y="76.2" smashed="yes">
+<attribute name="VALUE" x="-78.105" y="73.025" size="1.778" layer="96"/>
+</instance>
+<instance part="100K" gate="G$1" x="12.7" y="81.28" smashed="yes">
+<attribute name="NAME" x="8.89" y="82.7786" size="1.778" layer="95"/>
+<attribute name="VALUE" x="8.89" y="77.978" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -2972,8 +3057,8 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <junction x="-12.7" y="93.98"/>
 <wire x1="-2.54" y1="93.98" x2="-12.7" y2="93.98" width="0.1524" layer="91"/>
 <junction x="-2.54" y="93.98"/>
+<wire x1="-2.54" y1="81.28" x2="7.62" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="100K" gate="G$1" pin="1"/>
-<wire x1="-2.54" y1="81.28" x2="5.08" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -3066,21 +3151,19 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <pinref part="2.7K" gate="G$1" pin="1"/>
 <wire x1="154.94" y1="91.44" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="CONT_ON_SOLENOID" class="0">
 <segment>
-<pinref part="P+1" gate="1" pin="+5V"/>
-<wire x1="-101.6" y1="106.68" x2="-101.6" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="ANODE"/>
-<wire x1="-101.6" y1="93.98" x2="-71.12" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="5V_USB" gate="G$1" pin="GND"/>
+<wire x1="-81.28" y1="104.14" x2="-76.2" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="104.14" x2="-76.2" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="SUPPLY6" gate="GND" pin="GND"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="EN"/>
 <wire x1="25.4" y1="81.28" x2="25.4" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="81.28" x2="25.4" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="100K" gate="G$1" pin="2"/>
-<wire x1="20.32" y1="81.28" x2="25.4" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -3288,11 +3371,17 @@ The AP9101C also has a built-in fixed time circuit (external capacitors are unne
 <wire x1="154.94" y1="111.76" x2="154.94" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="5V_USB" gate="G$1" pin="VUSB"/>
+<pinref part="U$5" gate="G$1" pin="ANODE"/>
+<wire x1="-81.28" y1="93.98" x2="-71.12" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="102,1,-30.48,99.06,+5V,CONT_ON_SOLENOID,,,,"/>
 <approved hash="104,1,203.2,213.36,U4,GND/PGND,GND,,,"/>
 <approved hash="113,1,8.89,89.2217,LED1,,,,,"/>
 <approved hash="113,1,225.831,81.0514,FRAME1,,,,,"/>
