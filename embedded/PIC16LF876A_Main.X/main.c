@@ -68,6 +68,8 @@ void main(void)
     TRISB0 = 1; //Initialize RB0 as input
     TRISB3 = 0; //Initialize RB3 as output
     TRISC4 = 0; //BITE OUTPUT
+    TRISB5 = 0; //Solenoid Drive
+    RB5 = 0;
     RC4 = 0;
 
     while (1)
@@ -132,20 +134,57 @@ void main(void)
 
                 if (phoneInput == '3') //If the user sends "3"
                 {
-                    for (i = 0; i < 20; i++)
+                    for (i = 0; i < 40; i++)
                     {
                         sum1 = sum1 + ADC_Read();
                     }
-                    avg1 = sum1 / 20;
+                    avg1 = sum1 / 40;
                     //volt = ((3.3 * avg)/1023); //it works doe
                     sprintf(str, "ADC Voltage Value: %u", avg1);
                     UART_send_string(str);
                     UART_send_char(10);
                     sum1 = 0;
                 }
+                
+                 if (phoneInput == '4') //If the user sends "3"
+                {
+                     RB5 = 1; //Solenoid ON
+                     UART_send_string("Solenoid ON!");
+                     UART_send_char(10);
+                     __delay_ms(500); 
+                     RB5 = 0; //Solenoid OFF
+                     
+                }
             }
 
-            break;
+            //break;
+            
+            else
+            {
+                for (i = 0; i < 40; i++)
+                    {
+                        sum1 = sum1 + ADC_Read();
+                    }
+                    avg1 = sum1 / 40;
+                    sum1 = 0;
+                    
+                    if (avg1 > 100)
+                    {
+                        RC4 = 1; //LED BITE
+                        UART_send_string("FISH BITE!");
+                        UART_send_char(10);
+                        RB5 = 1; //SOLENOID ON
+                        __delay_ms(500); 
+                        RB5 = 0; //Solenoid OFF
+                        RB4 = 0;
+                    }
+                    
+                    else 
+                    {
+                        RC4 = 0;
+                        //RB5 = 0;
+                    }
+            }
         }
     }
     return;

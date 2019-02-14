@@ -21,15 +21,15 @@ void PWM_Initialize(void)
   CCP1M2 = 1;
   // The CCP1 Output Pin (PWM) [RC2]
   TRISC2 = 0; 
-  // Set The PWM Frequency of 2.7kHz
-  PR2 = 92; 
+  // Set The PWM Frequency of 8kHz
+  PR2 = 124; 
   // Set The PS For Timer2 (1:4 Ratio)
-  T2CKPS0 = 1;
+  T2CKPS0 = 0;
   T2CKPS1 = 0;
   // Start CCP1 PWM
   TMR2ON = 1; //TIMER2 Begins
   //--[ End of Configuration ]--
   
   //--[ Set Duty Cycle to 50% ]--
-  PWM1_Set_Duty(250);//Set duty cycle to 50% 
+  PWM1_Set_Duty(400);//Set duty cycle to 50% 
 }
