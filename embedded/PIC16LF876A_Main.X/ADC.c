@@ -11,8 +11,8 @@
 
 
 
-float MAX_SOLENOID_ON = 1;
-float MAX_SOLENOID_DELAY_BETWEEN_ON = 2;
+float MAX_SOLENOID_ON = 0;
+float MAX_SOLENOID_DELAY_BETWEEN_ON = 0;
 int count = 0;
 int iterationsPerAverage = 10;
 int mean = 0;
@@ -39,9 +39,9 @@ unsigned int ADC_Read(void) {
 }
 
 void monitorSolenoidSignal(void) {
-    if (isSolenoidOn) {
-        return; // Solenoid is currently on so need to monitor its values
-    }
+//    if (isSolenoidOn) {
+//        return; // Solenoid is currently on so need to monitor its values
+//    }
 
     if (count >= iterationsPerAverage) //sets count to 0 when count = iterationsPerAverage
     {
@@ -62,7 +62,7 @@ void monitorSolenoidSignal(void) {
         //       {
         //           turnOnSolenoid();
         //      }
-        if (mean >= 100) // Some condition that says we want to turn on solenoid
+        if (!isSolenoidOn && mean >= 100) // Some condition that says we want to turn on solenoid
         {
             turnOnSolenoid();
         }
@@ -96,7 +96,7 @@ void isSolenoidOnMonitor(void) {
     //    time_t end = clock();
     //    double time_taken = ((double) (end - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
     double end = getClock();
-    time_taken = timeEllapsed(end);
+    double time_taken = timeEllapsed(end);
 
 
     if (time_taken > MAX_SOLENOID_ON) // Solenoid has been on for at least MAX_SOLENOID_ON
@@ -116,11 +116,11 @@ void sendADCToPhone(void) {
         //        char tm[30];
         //        sprintf(tm, "time taken; %d,%s,%s", time_taken, end, clock());
         //        UART_send_string(tm);
-        double x = getClock();
-
-        char tm[30];
-        sprintf(tm, "clock: %d", x);
-        UART_send_string(tm);
+//        double x = getClock();
+//
+//        char tm[30];
+//        sprintf(tm, "clock: %d", x);
+//        UART_send_string(tm);
 
         // time_taken = timeEllapsed(x);
 

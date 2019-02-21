@@ -1,13 +1,17 @@
-/*
- * File:   counter.c
- * Author: spout
- *
- * Created on February 21, 2019, 3:57 PM
- */
+#include "defines.h"
+#include "counter.h"
 
 
-#include <xc.h>
+double dummyClock = 0;
 
-void main(void) {
-    return;
+void Counter_Initialize(void){
+    
+}
+
+double getClock(){
+    return ++dummyClock;
+}
+
+double timeEllapsed(double past){
+    return getClock()-past;
 }
