@@ -7,6 +7,7 @@
 #include <stdbool.h>
 
 float MAX_SOLENOID_ON = 1;
+float MAX_SOLENOID_DELAY_BETWEEN_ON = 2;
 int count = 0;
 int iterationsPerAverage = 10;
 int mean = 0;
@@ -66,10 +67,19 @@ void monitorSolenoidSignal(void) {
 }
 
 void turnOnSolenoid(void) {
+    double time_ellapsed = 0;
+    
+    if(startSolenoidOnClock){
+        clock_t current = clock();
+        time_ellapsed = ((double)(current - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
+    }
+
+    if(!startSolenoidOnClock || time_ellapsed > MAX_SOLENOID_DELAY_BETWEEN_ON){
+        isSolenoidOn = true;
+        RC4 = 1; // Turn on solenoid
+        isSolenoidOnMessageTrigger = true;
+    }
     startSolenoidOnClock = clock();
-    isSolenoidOn = true;
-    RC4 = 1; // Turn on solenoid
-    isSolenoidOnMessageTrigger = true;
 }
 
 void isSolenoidOnMonitor(void) {
