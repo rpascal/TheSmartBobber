@@ -1228,17 +1228,17 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="13.399" y1="14.614" x2="13.4" y2="14.613" width="0.254" layer="1"/>
 <wire x1="13.399" y1="14.614" x2="30.226" y2="1.155" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$2">
+<signal name="PIO2">
 <contactref element="U1" pad="19"/>
 <contactref element="D2" pad="A"/>
+<contactref element="J2" pad="1"/>
+<wire x1="32.893" y1="15.0375" x2="36.83" y2="12.255" width="0" layer="19" extent="1-1"/>
 <wire x1="15.799" y1="14.614" x2="32.893" y2="15.0375" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="PIO4">
 <contactref element="U1" pad="22"/>
 <contactref element="R9" pad="2"/>
 <wire x1="12.192" y1="14.607" x2="12.199" y2="14.614" width="0.254" layer="1"/>
-<contactref element="J2" pad="1"/>
-<wire x1="27.94" y1="13.4375" x2="36.83" y2="12.255" width="0" layer="19" extent="1-1"/>
 <wire x1="12.199" y1="14.614" x2="27.94" y2="13.4375" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>

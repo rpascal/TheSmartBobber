@@ -3837,7 +3837,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <attribute name="VALUE" x="171.45" y="50.8" size="1.778" layer="96"/>
 </instance>
 <instance part="GND3" gate="1" x="219.71" y="50.8" smashed="yes">
-<attribute name="VALUE" x="217.17" y="48.26" size="1.778" layer="96"/>
+<attribute name="VALUE" x="229.87" y="19.05" size="1.778" layer="96"/>
 </instance>
 <instance part="P+2" gate="1" x="219.71" y="71.12" smashed="yes">
 <attribute name="VALUE" x="218.694" y="74.676" size="1.778" layer="96"/>
@@ -4127,12 +4127,18 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <pinref part="U1" gate="G$1" pin="PIO5"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="PIO2" class="0">
 <segment>
 <wire x1="87.63" y1="55.88" x2="128.27" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="128.27" y1="55.88" x2="128.27" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="PIO2"/>
 <pinref part="D2" gate="G$1" pin="A"/>
+<label x="99.06" y="55.88" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="1"/>
+<wire x1="191.77" y1="138.43" x2="199.39" y2="138.43" width="0.1524" layer="91"/>
+<label x="194.31" y="138.43" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PIO4" class="0">
@@ -4142,11 +4148,6 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="99.06" y="50.8" size="1.778" layer="95"/>
 <pinref part="U1" gate="G$1" pin="PIO4"/>
 <pinref part="R9" gate="G$1" pin="2"/>
-</segment>
-<segment>
-<pinref part="J2" gate="G$1" pin="1"/>
-<wire x1="191.77" y1="138.43" x2="199.39" y2="138.43" width="0.1524" layer="91"/>
-<label x="194.31" y="138.43" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
