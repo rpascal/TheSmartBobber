@@ -10,6 +10,7 @@
       <itemPath>defines.h</itemPath>
       <itemPath>PWM.h</itemPath>
       <itemPath>ADC.h</itemPath>
+      <itemPath>counter.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,6 +24,7 @@
       <itemPath>ds18b20.c</itemPath>
       <itemPath>PWM.c</itemPath>
       <itemPath>ADC.c</itemPath>
+      <itemPath>counter.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

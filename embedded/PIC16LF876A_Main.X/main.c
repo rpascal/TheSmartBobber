@@ -18,6 +18,24 @@
 #include "PWM.h"
 #include "ADC.h"
 
+ // -- [[  IO Configurations ]] --
+  TRISB0 = 0;
+  RB0 = 0;
+ 
+  // -- [[ Configure Timer1 To Operate In Timer Mode&nbsp; ]] --
+  // Clear The Timer1 Register. To start counting from 0
+  TMR1 = 0;
+  // Choose the local clock source (timer mode)
+  TMR1CS = 0;
+  // Choose the desired prescaler ratio (1:1)
+  T1CKPS0 = 0;
+  T1CKPS1 = 0;
+  // Event1 = LED ON
+  RB0 = 1;
+  // Switch ON Timer1 Module!
+  TMR1ON = 1;
+
+
 enum connectionStates
 {
     DISCONNECTED,
