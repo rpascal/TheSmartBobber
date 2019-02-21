@@ -39,9 +39,9 @@ unsigned int ADC_Read(void) {
 }
 
 void monitorSolenoidSignal(void) {
-//    if (isSolenoidOn) {
-//        return; // Solenoid is currently on so need to monitor its values
-//    }
+    //    if (isSolenoidOn) {
+    //        return; // Solenoid is currently on so need to monitor its values
+    //    }
 
     if (count >= iterationsPerAverage) //sets count to 0 when count = iterationsPerAverage
     {
@@ -75,8 +75,8 @@ void turnOnSolenoid(void) {
     double time_ellapsed = 0;
 
     if (startSolenoidOnClock) {
-        double current = getClock();
-        time_ellapsed = timeEllapsed(current); //((double)(current - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
+        // double current = getClock();
+        time_ellapsed = timeEllapsed(startSolenoidOnClock); //((double)(current - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
     }
 
     if (!startSolenoidOnClock || time_ellapsed > MAX_SOLENOID_DELAY_BETWEEN_ON) {
@@ -85,7 +85,7 @@ void turnOnSolenoid(void) {
         RB5 = 1; //Turn on solenoid 
         isSolenoidOnMessageTrigger = true;
     }
-    startSolenoidOnClock = clock();
+    startSolenoidOnClock = getClock(); // = clock();
 }
 
 void isSolenoidOnMonitor(void) {
@@ -95,8 +95,8 @@ void isSolenoidOnMonitor(void) {
 
     //    time_t end = clock();
     //    double time_taken = ((double) (end - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
-    double end = getClock();
-    double time_taken = timeEllapsed(end);
+    // double end = getClock();
+    double time_taken = timeEllapsed(startSolenoidOnClock);
 
 
     if (time_taken > MAX_SOLENOID_ON) // Solenoid has been on for at least MAX_SOLENOID_ON
@@ -116,11 +116,11 @@ void sendADCToPhone(void) {
         //        char tm[30];
         //        sprintf(tm, "time taken; %d,%s,%s", time_taken, end, clock());
         //        UART_send_string(tm);
-//        double x = getClock();
-//
-//        char tm[30];
-//        sprintf(tm, "clock: %d", x);
-//        UART_send_string(tm);
+        //        double x = getClock();
+        //
+        //        char tm[30];
+        //        sprintf(tm, "clock: %d", x);
+        //        UART_send_string(tm);
 
         // time_taken = timeEllapsed(x);
 
