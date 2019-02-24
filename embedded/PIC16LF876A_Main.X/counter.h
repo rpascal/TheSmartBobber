@@ -4,7 +4,7 @@
 void Counter_Initialize(void);
 void turnOffCounter(void);
 void interrupt(void);
-double getClock();
+double getCounter();
 double timeEllapsed(double);
 
 #endif

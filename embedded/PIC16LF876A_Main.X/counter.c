@@ -2,11 +2,7 @@
 #include "counter.h"
 #include <stdint.h>
 
-double dummyClock = 0;
-
-uint8_t C = 0; // Global Counter Variable
-
-
+double counter = 0;
 
 void Counter_Initialize(void){
   // -- [[ Configure Timer1 To Operate In Timer Mode]] --
@@ -36,25 +32,18 @@ void turnOffCounter(void){
 }
 
 void interrupt(void)
-//void interrupt   tc_int  (void)
 {
-   // Check The Flag Bit
-   if (TMR1IF)
+   if (TMR1IF)  // Check The Flag Bit
    {
-      C++;
-      if(C==3)//3 * .065536 = .2seconds
-      {
-        // Clear The Global Counter
-        C = 0;
-      }
+      counter+= .065536;
       TMR1IF = 0; // Clear The Flag Bit
    }
 }
 
-double getClock(){
-    return ++dummyClock;
+double getCounter(){
+    return ++counter;
 }
 
 double timeEllapsed(double past){
-    return getClock()-past;
+    return getCounter()-past;
 }

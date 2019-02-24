@@ -16,7 +16,7 @@ int iterationsPerAverage = 10;
 int mean = 0;
 int oldMean = 0;
 int threshold = 10;
-time_t startSolenoidOnClock;
+double startSolenoidOnClock;
 bool isSolenoidOn = false;
 bool isSolenoidOnMessageTrigger = false;
 bool isSolenoidOffMessageTrigger = false;
@@ -73,7 +73,7 @@ void turnOnSolenoid(void) {
     double time_ellapsed = 0;
 
     if (startSolenoidOnClock) {
-        // double current = getClock();
+        // double current = getCounter();
         time_ellapsed = timeEllapsed(startSolenoidOnClock); //((double)(current - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
     }
 
@@ -83,7 +83,7 @@ void turnOnSolenoid(void) {
         RB5 = 1; //Turn on solenoid 
         isSolenoidOnMessageTrigger = true;
     }
-    startSolenoidOnClock = getClock(); // = clock();
+    startSolenoidOnClock = getCounter(); // = clock();
 }
 
 void isSolenoidOnMonitor(void) {
@@ -93,7 +93,7 @@ void isSolenoidOnMonitor(void) {
 
     //    time_t end = clock();
     //    double time_taken = ((double) (end - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
-    // double end = getClock();
+    // double end = getCounter();
     double time_taken = timeEllapsed(startSolenoidOnClock);
 
 
@@ -114,7 +114,7 @@ void sendADCToPhone(void) {
         //        char tm[30];
         //        sprintf(tm, "time taken; %d,%s,%s", time_taken, end, clock());
         //        UART_send_string(tm);
-        //        double x = getClock();
+        //        double x = getCounter();
         //
         //        char tm[30];
         //        sprintf(tm, "clock: %d", x);
