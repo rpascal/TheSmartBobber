@@ -13,10 +13,12 @@
 
 <ion-content padding>
 
-  
+
   <app-bite-graph></app-bite-graph>
-  
-  
+
+
+  <p><b>Current Water Temperature:</b> {{tempData$| async}} <span class="degree"></span>F</p>
+
   <ng-container *ngIf="weatherData">
     <p><b>Location:</b> {{weatherData.name}}</p>
     <p><b>Temperature:</b> {{weatherData.main.temp}} <span class="degree"></span>F</p>

@@ -2,9 +2,9 @@ import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular
 import { Chart } from 'chart.js';
 import * as chartjs_plugin_annotationas from 'chartjs-plugin-annotation';
 
+import { environment } from '../../../environments/environment';
 import { TheBobberService } from '../../core';
 import { FirebaseService } from '../../core/firebase/firebase.service';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: "app-bite-graph",
@@ -13,6 +13,7 @@ import { environment } from '../../../environments/environment';
 })
 export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly MAX = environment.bitePeak;
+  private readonly MAX_X = 10;
 
   get greenUpper() {
     return Math.floor(this.MAX * 0.2);
@@ -39,9 +40,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
     const initLabels = [];
     const initData = [];
 
-    const max = 100;
-
-    for (let i = 0; i < max; i++) {
+    for (let i = 0; i < this.MAX_X; i++) {
       initLabels.push("");
       initData.push(0);
     }
@@ -67,7 +66,13 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
                 max: this.MAX
               }
             }
-          ]
+          ] //,
+          // xAxes: [ {
+          //   display: true,
+          //   scaleLabel: {
+          //     display: true,
+          //   }
+          // } ]
         },
         elements: {
           line: {
@@ -123,10 +128,12 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
     this.bobber.bite$.subscribe((data: number) => {
+      // console.log("start");
       this.addDataItem(data);
       this.removeOldItem();
       this.setBackgroundColor(data);
       this.lineChart.update();
+      // console.log("end");
     });
   }
 

@@ -7,7 +7,7 @@ import { IDevice } from './bluetooth-serial/bluetooth-serial.service';
 class BluetoothSerialMock extends BluetoothSerial {
   connect(macAddress_or_uuid: string): Observable<any> {
     // return throwError('Valid token not returned');
-    return timer(5000); // of(true);
+    return timer(1000); // of(true);
   }
 
   write(data: any): Promise<any> {
@@ -44,16 +44,23 @@ class BluetoothSerialMock extends BluetoothSerial {
     const BITE_DEL = "@";
     const SOLENOID_DELIMETER = "*";
 
-    setInterval(() => {
-      let mes = Math.random() > 0.5 ? TEMP_DEL : BITE_DEL;
-      mes += Math.floor(Math.random() * 11).toString();
-      // console.log("MOCK", mes);
-      mock.next(mes);
-    }, 5000);
+    // setInterval(() => {
+    //   let mes = Math.random() > 0.5 ? TEMP_DEL : BITE_DEL;
+    //   mes += Math.floor(Math.random() * 11).toString();
+    //   // console.log("MOCK", mes);
+    //   mock.next(mes);
+    // }, 250);
 
     setInterval(() => {
-      mock.next(`${SOLENOID_DELIMETER}1`);
-    }, 5000);
+      let mes = BITE_DEL;
+      mes += Math.floor(Math.random() * 140).toString();
+      // console.log("MOCK", mes);
+      mock.next(mes);
+    }, 10);
+
+    // setInterval(() => {
+    //   mock.next(`${SOLENOID_DELIMETER}1`);
+    // }, 5000);
 
 
     return mock.asObservable();
