@@ -65,12 +65,14 @@ void main(void)
     int currentBiteLogicValue = 0;
     //float volt = 0;
     //int ADC;
+    TRISC5 = 0;
     TRISB0 = 1; //Initialize RB0 as input
     TRISB3 = 0; //Initialize RB3 as output
-    TRISC4 = 0; //BITE OUTPUT
+    //TRISC4 = 0; //BITE OUTPUT
     TRISB5 = 0; //Solenoid Drive
     RB5 = 0;
-    RC4 = 0;
+    //RC4 = 0;
+    RC5 = 0;
 
     while (1)
     {
@@ -82,9 +84,9 @@ void main(void)
         switch (connectionState)
         {
         case DISCONNECTED:
-            RB3 = 1; //Turn on LED
+            RC5 = 1; //Turn on LED
             __delay_ms(100);
-            RB3 = 0; //Turn on LED
+            RC5 = 0; //Turn on LED
             __delay_ms(100);
             // break;
 
