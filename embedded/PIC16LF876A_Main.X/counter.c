@@ -36,8 +36,9 @@ void interrupt(void)
    if (TMR1IF)  // Check The Flag Bit
    {
       counter+= .065536;
-      TMR1IF = 0; // Clear The Flag Bit
+      
    }
+   TMR1IF = 0; // Clear The Flag Bit
 }
 
 double getCounter(){
