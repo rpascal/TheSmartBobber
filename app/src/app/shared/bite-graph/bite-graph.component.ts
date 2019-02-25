@@ -39,7 +39,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
     const initLabels = [];
     const initData = [];
 
-    const max = 25;
+    const max = 100;
 
     for (let i = 0; i < max; i++) {
       initLabels.push("");

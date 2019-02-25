@@ -90,4 +90,28 @@ export class SettingsContentComponent implements OnInit {
 
     await loading.dismiss();
   }
+
+  async send(num: string) {
+    try {
+      const result = await this.bobber.write(num);
+      // this.logsService.addMessage(result, ControlsPage.name);
+    } catch (err) {
+      this.toast.message(`Error send message ${err}`);
+      this.logsService.addError(err);
+    }
+
+  }
+
+  sendOne() {
+    this.send("1")
+  }
+  sendTwo() {
+    this.send("2")
+  }
+  sendThree() {
+    this.send("3")
+  }
+  sendFour() {
+    this.send("4")
+  }
 }

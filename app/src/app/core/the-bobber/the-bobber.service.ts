@@ -76,7 +76,7 @@ export class TheBobberService extends BluetoothSerialService {
             this.vibration.triple();
           }
         }),
-        this.logsService.logTap(`${TheBobberService.name} - Bite Data`)
+        // this.logsService.logTap(`${TheBobberService.name} - Bite Data`)
       )
       .subscribe(data => {});
 
@@ -114,17 +114,17 @@ export class TheBobberService extends BluetoothSerialService {
     this.listenForData()
       .pipe(
         takeUntil(this.takeUntilBobber),
-        this.logsService.logTap(`${TheBobberService.name} - Data Line From &`)
+        // this.logsService.logTap(`${TheBobberService.name} - Data Line From &`)
       )
       .subscribe((data: string) => {
         if (data.includes(this.TEMP_DEL)) {
           this.tempSubject.next(data);
-        }
-        if (data.includes(this.BITE_DEL)) {
+        }else if (data.includes(this.BITE_DEL)) {
           this.biteSubject.next(data);
-        }
-        if (data.includes(this.SOLENOID_DELIMETER)) {
+        }else   if (data.includes(this.SOLENOID_DELIMETER)) {
           this.solenoidSubject.next(data);
+        }else{
+          this.logsService.addMessage(data, TheBobberService.name);
         }
       });
   }
