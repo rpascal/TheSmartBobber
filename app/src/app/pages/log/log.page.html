@@ -17,7 +17,9 @@
 
     <ion-slides pager="true" [options]="slideOpts">
       <ion-slide *ngFor='let image of (log.images | async)'>
-        <img [src]="image.url">
+        <!-- <img [src]="image.url"> -->
+        <img [defaultImage]="'assets/loading.gif'" [lazyLoad]="image.url" [offset]="100">
+
       </ion-slide>
     </ion-slides>
 

@@ -16,7 +16,10 @@ export class LogPage implements OnInit {
   slideOpts = {
     loop: true,
     // height: 200,
-    autoHeight: true
+    autoHeight: true,
+    preloadImages: false,
+    // Enable lazy loading
+    lazy: true
   };
 
   constructor(private fb: FirebaseService) { }

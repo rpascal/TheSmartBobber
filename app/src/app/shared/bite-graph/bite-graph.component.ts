@@ -13,7 +13,7 @@ import { FirebaseService } from '../../core/firebase/firebase.service';
 })
 export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly MAX = environment.bitePeak;
-  private readonly MAX_X = 10;
+  private readonly MAX_X = environment.bite_graph_max_x;
 
   get greenUpper() {
     return Math.floor(this.MAX * 0.2);
@@ -48,6 +48,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: "line",
       options: {
+        animation: false,
         responsive: true,
         legend: {
           display: false
@@ -66,13 +67,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
                 max: this.MAX
               }
             }
-          ] //,
-          // xAxes: [ {
-          //   display: true,
-          //   scaleLabel: {
-          //     display: true,
-          //   }
-          // } ]
+          ] 
         },
         elements: {
           line: {
@@ -128,12 +123,10 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
     this.bobber.bite$.subscribe((data: number) => {
-      // console.log("start");
       this.addDataItem(data);
       this.removeOldItem();
       this.setBackgroundColor(data);
       this.lineChart.update();
-      // console.log("end");
     });
   }
 

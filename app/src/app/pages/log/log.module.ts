@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '../../shared/shared.module';
 import { LogPage } from './log.page';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+
 
 @NgModule({
   imports: [
@@ -13,6 +15,7 @@ import { LogPage } from './log.page';
     CommonModule,
     FormsModule,
     SharedModule,
+    LazyLoadImageModule,
     RouterModule.forChild([{ path: '', component: LogPage }])
   ],
   declarations: [LogPage]
