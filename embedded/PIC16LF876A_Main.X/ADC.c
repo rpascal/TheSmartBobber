@@ -9,8 +9,8 @@
 
 
 
-float MAX_SOLENOID_ON = 0;
-float MAX_SOLENOID_DELAY_BETWEEN_ON = 0;
+float MAX_SOLENOID_ON = .2;
+float MAX_SOLENOID_DELAY_BETWEEN_ON = 5;
 int count = 0;
 int iterationsPerAverage = 10;
 int mean = 0;
@@ -72,18 +72,17 @@ void monitorSolenoidSignal(void) {
 void turnOnSolenoid(void) {
     double time_ellapsed = 0;
 
-    if (startSolenoidOnClock) {
-        // double current = getCounter();
-        time_ellapsed = timeEllapsed(startSolenoidOnClock); //((double)(current - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
+    if (startSolenoidOnClock != NULL) {
+        time_ellapsed = timeEllapsed(startSolenoidOnClock);
     }
 
-    if (!startSolenoidOnClock || time_ellapsed > MAX_SOLENOID_DELAY_BETWEEN_ON) {
+    if (startSolenoidOnClock = NULL || time_ellapsed > MAX_SOLENOID_DELAY_BETWEEN_ON) {
         isSolenoidOn = true;
         RC4 = 1; // LED on for bite
         RB5 = 1; //Turn on solenoid 
         isSolenoidOnMessageTrigger = true;
     }
-    startSolenoidOnClock = getCounter(); // = clock();
+    startSolenoidOnClock = getCounter(); 
 }
 
 void isSolenoidOnMonitor(void) {
@@ -91,16 +90,14 @@ void isSolenoidOnMonitor(void) {
         return; // We didnt trigger solenoid to be on so leave
     }
 
-    //    time_t end = clock();
-    //    double time_taken = ((double) (end - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
-    // double end = getCounter();
+
     double time_taken = timeEllapsed(startSolenoidOnClock);
 
 
     if (time_taken > MAX_SOLENOID_ON) // Solenoid has been on for at least MAX_SOLENOID_ON
     {
-        RC4 = 0; //LED on for bite
-        RB5 = 0; //Turn on solenoid 
+        RC4 = 0; //LED OFF for bite
+        RB5 = 0; //Turn OFF solenoid 
         isSolenoidOn = false;
         isSolenoidOffMessageTrigger = true;
     }
@@ -108,21 +105,7 @@ void isSolenoidOnMonitor(void) {
 
 void sendADCToPhone(void) {
     if (count % iterationsPerAverage == 0) {
-        //        unsigned int end = clock();
-        // double time_taken = ((double) (end - startSolenoidOnClock)) / CLOCKS_PER_SEC; // time ellapsed in seconds
         char str[30];
-        //        char tm[30];
-        //        sprintf(tm, "time taken; %d,%s,%s", time_taken, end, clock());
-        //        UART_send_string(tm);
-        //        double x = getCounter();
-        //
-        //        char tm[30];
-        //        sprintf(tm, "clock: %d", x);
-        //        UART_send_string(tm);
-
-        // time_taken = timeEllapsed(x);
-
-
         sprintf(str, "%d", oldMean);
         UART_send_bite(str); // contiously send the mean to phone for graph
     }

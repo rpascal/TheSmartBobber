@@ -4,7 +4,9 @@
 void Counter_Initialize(void);
 void turnOffCounter(void);
 void interrupt(void);
-double getCounter();
-double timeEllapsed(double);
+float getCounter();
+float timeEllapsed(float);
+
+void printCounter(void);
 
 #endif
