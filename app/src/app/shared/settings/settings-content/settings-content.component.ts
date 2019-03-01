@@ -34,6 +34,9 @@ export class SettingsContentComponent implements OnInit {
     this.vibrationStatus = this.vibration.active;
     this.soundStatus = this.sounds.active;
     this.connectionStatusMessage$ = this.bobber.connectionStatusMessage$;
+    this.connectionStatusMessage$.subscribe(data =>{
+      this.cd.detectChanges();
+    })
   }
 
   async ledChange() {

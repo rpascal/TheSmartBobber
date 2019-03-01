@@ -9,63 +9,73 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <div [hidden]="!networkStatus">
+    <!-- [selectedIndex]="0" -->
+    <mat-tab-group #tabs animationDuration="0ms" [selectedIndex]="selectedTab" mat-align-tabs="center" mat-stretch-tabs
+      [backgroundColor]="'primary'">
+      <mat-tab #tab1 label="Saved Logs">
+        <ng-template matTabContent>
 
 
-  <ng-container *ngIf="(status | async); else notConnected">
-
-    <ion-card *ngFor='let log of (logs$ | async)'>
+          <ion-card *ngFor='let log of (logs$ | async)'>
 
 
-      <ion-slides pager="true" [options]="slideOpts">
-        <ion-slide *ngFor='let image of (log.images | async)'>
-          <!-- <img [src]="image.url"> -->
-          <img [defaultImage]="'assets/loading.gif'" [lazyLoad]="image.url" [offset]="100">
+            <ion-slides pager="true" [options]="slideOpts">
+              <ion-slide *ngFor='let image of (log.images | async)'>
+                <!-- <img [src]="image.url"> -->
+                <img [defaultImage]="'assets/loading.gif'" [lazyLoad]="image.url" [offset]="100">
 
-        </ion-slide>
-      </ion-slides>
+              </ion-slide>
+            </ion-slides>
 
-      <ion-card-header>
-        <ion-card-title>{{log.title}}</ion-card-title>
-        <ion-card-subtitle>{{log.description}}</ion-card-subtitle>
-      </ion-card-header>
+            <ion-card-header>
+              <ion-card-title>{{log.title}}</ion-card-title>
+              <ion-card-subtitle>{{log.description}}</ion-card-subtitle>
+            </ion-card-header>
 
-      <ion-card-content>
-        <p>
-          <b>Date:</b> {{log.timestamp?.toDate() | date:'MM/dd/yyyy'}}
-        </p>
-        <ng-container *ngIf="log.weather">
-          <p><b>Location:</b> {{log.weather.name}}</p>
-          <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
-        </ng-container>
-        <p>
-          <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span class="degree"></span>F
-        </p>
-        <p>
-          <b>Confirmed bites:</b> {{log.confirmedBites}}
-        </p>
+            <ion-card-content>
+              <p>
+                <b>Date:</b> {{log.timestamp?.toDate() | date:'MM/dd/yyyy'}}
+              </p>
+              <ng-container *ngIf="log.weather">
+                <p><b>Location:</b> {{log.weather.name}}</p>
+                <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
+              </ng-container>
+              <p>
+                <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span class="degree"></span>F
+              </p>
+              <p>
+                <b>Confirmed bites:</b> {{log.confirmedBites}}
+              </p>
 
-      </ion-card-content>
-    </ion-card>
-
-
-    <ion-card>
+            </ion-card-content>
+          </ion-card>
 
 
-      <ion-slides pager="true" [options]="slideOpts">
-        <ion-slide *ngFor='let image of (uncategorizedImages$ | async)'>
-          <img [src]="image.url">
-        </ion-slide>
-      </ion-slides>
-
-    </ion-card>
-
-  </ng-container>
+        </ng-template>
 
 
-  <ng-template #notConnected>
-    <img src="assets/not-connected.png"/>
-  </ng-template>
+      </mat-tab>
+      <mat-tab label="Random Images">
+        <ng-template matTabContent>
+          <ion-slides pager="true" [options]="slideOpts">
+            <ion-slide *ngFor='let image of (uncategorizedImages$ | async)'>
+              <img class="tallerImg" [src]="image.url">
+            </ion-slide>
+          </ion-slides>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+
+
+
+  <div [hidden]="networkStatus">
+    <img src="assets/not-connected.png" />
+  </div>
+
 
 
 

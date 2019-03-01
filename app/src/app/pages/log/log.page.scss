@@ -1,17 +1,38 @@
-
 ion-card-header {
     padding-bottom: 0px;
 }
 
-ion-card-content{
+ion-card-content {
     padding-top: 0px;
-    p{
+
+    p {
         font-size: 11px;
     }
-} 
+}
 
-ion-slide img{
+ion-slide img {
     max-height: 45vh;
     max-width: auto;
     width: auto;
 }
+
+ion-slide img.tallerImg {
+    max-height: 67vh;
+}
+
+
+
+::ng-deep .mat-tab-header {
+    z-index: 999;
+    width: 100vw;
+    position: fixed !important;
+}
+
+::ng-deep .mat-tab-body-wrapper {
+    position: relative !important;
+    margin-top: 55px;
+}
+
+// ::ng-deep mat-tab-header {
+//     background-color: transparent !important;
+// }
