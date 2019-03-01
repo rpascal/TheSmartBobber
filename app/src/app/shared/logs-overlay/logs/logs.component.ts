@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, scan } from 'rxjs/operators';
 
 import { ILogMessage, LogsService } from '../../../core';
 
@@ -18,12 +18,16 @@ export class LogsComponent implements OnInit, OnDestroy {
   constructor(
     private modalCtrl: ModalController,
     private logsService: LogsService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.logs = this.logsService.getMessages();
     this.logsService.logsSubject$
-      .pipe(takeUntil(this.takeUntil))
+      .pipe(takeUntil(this.takeUntil),
+        scan((acc, val) => {
+          acc.push(val);
+          return acc.slice(-20);
+        }, []))
       .subscribe(data => {
         this.logs = data;
       });
