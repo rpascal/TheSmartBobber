@@ -12,7 +12,7 @@
 <ion-content padding>
 
 
-  <ng-container *ngIf="(status | async); else notConnected">
+  <div [hidden]="!networkStatus">
 
     <ion-card *ngFor='let log of (logs$ | async)'>
 
@@ -60,12 +60,12 @@
 
     </ion-card>
 
-  </ng-container>
+  </div>
 
 
-  <ng-template #notConnected>
+  <div [hidden]="networkStatus">
     <img src="assets/not-connected.png"/>
-  </ng-template>
+  </div>
 
 
 
