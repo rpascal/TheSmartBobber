@@ -105,12 +105,19 @@
     }
   }
 
-  ion-card-title, ion-card-content {
+  ion-card-title,
+  ion-card-content {
     color: white;
   }
 
   .error-toast {
     color: #d33939;
+  }
+
+
+  mat-tab-header {
+    background-color: var(--ion-color-dark) !important;
+
   }
 
 }

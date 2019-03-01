@@ -20,6 +20,10 @@ export class LogsService {
 
   private logs: ILogMessage[] = [];
 
+
+  get reveredLogs(): ILogMessage[]{
+    return this.logs.slice().reverse();
+  }
   constructor() {
     this.logsSubject$ = this.logsSubject.asObservable();
   }
@@ -31,41 +35,48 @@ export class LogsService {
   }
 
   addMessage(mes: any, title?: string) {
-    this.logs.push({
+    this.push({
       title: title,
       data: mes,
       timestamp: Date.now(),
       type: "normal"
     });
-    this.logsSubject.next(this.logs);
   }
 
   addError(mes: any, title?: string) {
-    this.logs.push({
+    this.push({
       title: title,
       data: mes,
       timestamp: Date.now(),
       type: "error"
     });
-    this.logsSubject.next(this.logs);
   }
 
   addWarn(mes: any, title?: string) {
-    this.logs.push({
+    this.push({
       title: title,
       data: mes,
       timestamp: Date.now(),
       type: "warn"
     });
-    this.logsSubject.next(this.logs);
   }
 
+  private push(data: ILogMessage) {
+    this.logs.push(data);
+    if (this.logs.length > 50) {
+      this.logs.shift();
+    }
+    this.logsSubject.next(this.reveredLogs);
+  }
+
+
+
   getMessages() {
-    return this.logs;
+    return this.reveredLogs;
   }
 
   clear(): void {
     this.logs = [];
-    this.logsSubject.next(this.logs);
+    this.logsSubject.next(this.reveredLogs);
   }
 }

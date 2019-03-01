@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 import { IonicModule } from '@ionic/angular';
 
 import { BiteGraphComponent } from './bite-graph/bite-graph.component';
@@ -19,7 +20,8 @@ import { TakePhotoComponent } from './take-photo/take-photo.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   declarations: [
     LogsComponent,
@@ -36,7 +38,9 @@ import { TakePhotoComponent } from './take-photo/take-photo.component';
     BiteGraphComponent,
     ManageLogComponent,
     SettingsComponent,
-    TakePhotoComponent
+    TakePhotoComponent,
+    MatInputModule,
+    MatTabsModule
   ],
   entryComponents: [LogsComponent, SettingsContentComponent, NewLogComponent],
   providers: []

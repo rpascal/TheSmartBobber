@@ -1,9 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, NgZone } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 import { FirebaseService, ILogDatabase, Image, NetworkService } from '../../core';
-import { stat } from 'fs';
 
 @Component({
   selector: "app-log",
@@ -11,11 +10,14 @@ import { stat } from 'fs';
   styleUrls: ["log.page.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LogPage implements OnInit {
+export class LogPage implements OnInit, AfterViewInit {
+  @ViewChild("tabs") tabs: MatTabGroup;
+  @ViewChild("tab1") tab1: MatTab;
+
+  selectedTab = 1;
 
   status: Observable<boolean>;
-  networkStatus: boolean = false;
-
+  networkStatus = false;
 
   logs$: Observable<ILogDatabase[]>;
   uncategorizedImages$: Observable<Image[]>;
@@ -29,9 +31,12 @@ export class LogPage implements OnInit {
     lazy: true
   };
 
-  constructor(private fb: FirebaseService, private network: NetworkService,
-    private cd: ChangeDetectorRef, private zone: NgZone) {
-  }
+  constructor(
+    private fb: FirebaseService,
+    private network: NetworkService,
+    private cd: ChangeDetectorRef,
+    private zone: NgZone
+  ) {}
 
   ngOnInit() {
     this.status = this.network.status.asObservable();
@@ -41,8 +46,15 @@ export class LogPage implements OnInit {
       this.networkStatus = status;
       this.zone.run(() => {
         this.cd.detectChanges();
-      })
-    })
+      });
+    });
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.selectedTab = 0;
+      this.cd.detectChanges();
+    }, 250);
   }
 
   getDummyLogs() {
