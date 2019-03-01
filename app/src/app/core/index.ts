@@ -5,3 +5,4 @@ export * from "./the-bobber/the-bobber.service";
 export * from "./toast/toast.serivce";
 export * from "./weather/weather.service";
 export * from "./core.module";
+export * from "./network/network.service";

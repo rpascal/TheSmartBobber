@@ -12,48 +12,61 @@
 <ion-content padding>
 
 
-  <ion-card *ngFor='let log of (logs$ | async)'>
+  <ng-container *ngIf="(status | async); else notConnected">
+
+    <ion-card *ngFor='let log of (logs$ | async)'>
 
 
-    <ion-slides pager="true" [options]="slideOpts">
-      <ion-slide *ngFor='let image of (log.images | async)'>
-        <img [src]="image.url">
-      </ion-slide>
-    </ion-slides>
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor='let image of (log.images | async)'>
+          <!-- <img [src]="image.url"> -->
+          <img [defaultImage]="'assets/loading.gif'" [lazyLoad]="image.url" [offset]="100">
 
-    <ion-card-header>
-      <ion-card-title>{{log.title}}</ion-card-title>
-      <ion-card-subtitle>{{log.description}}</ion-card-subtitle>
-    </ion-card-header>
+        </ion-slide>
+      </ion-slides>
 
-    <ion-card-content>
-      <p>
-        <b>Date:</b> {{log.timestamp?.toDate() | date:'MM/dd/yyyy'}}
-      </p>
-      <ng-container *ngIf="log.weather">
-        <p><b>Location:</b> {{log.weather.name}}</p>
-        <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
-      </ng-container>
-      <p>
-        <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span class="degree"></span>F
-      </p>
-      <p>
-        <b>Confirmed bites:</b> {{log.confirmedBites}}
-      </p>
+      <ion-card-header>
+        <ion-card-title>{{log.title}}</ion-card-title>
+        <ion-card-subtitle>{{log.description}}</ion-card-subtitle>
+      </ion-card-header>
 
-    </ion-card-content>
-  </ion-card>
+      <ion-card-content>
+        <p>
+          <b>Date:</b> {{log.timestamp?.toDate() | date:'MM/dd/yyyy'}}
+        </p>
+        <ng-container *ngIf="log.weather">
+          <p><b>Location:</b> {{log.weather.name}}</p>
+          <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
+        </ng-container>
+        <p>
+          <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span class="degree"></span>F
+        </p>
+        <p>
+          <b>Confirmed bites:</b> {{log.confirmedBites}}
+        </p>
+
+      </ion-card-content>
+    </ion-card>
 
 
-  <ion-card>
+    <ion-card>
 
 
-    <ion-slides pager="true" [options]="slideOpts">
-      <ion-slide *ngFor='let image of (uncategorizedImages$ | async)'>
-        <img [src]="image.url">
-      </ion-slide>
-    </ion-slides>
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor='let image of (uncategorizedImages$ | async)'>
+          <img [src]="image.url">
+        </ion-slide>
+      </ion-slides>
 
-  </ion-card>
+    </ion-card>
+
+  </ng-container>
+
+
+  <ng-template #notConnected>
+    <img src="assets/not-connected.png"/>
+  </ng-template>
+
+
 
 </ion-content>

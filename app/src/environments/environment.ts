@@ -17,7 +17,8 @@ export const environment = {
     storageBucket: "thesmartbobber.appspot.com",
     messagingSenderId: "63099600878"
   },
-  bitePeak: 150
+  bitePeak: 150,
+  bite_graph_max_x: 150
 };
 
 /*
