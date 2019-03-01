@@ -2594,7 +2594,7 @@ JS10 Series SPDT On-On 6 V 0.3 A Gull Wing SMT Slide Switch&amp;lt;/b&amp;gt;&lt
 <attribute name="VALUE" x="280.035" y="139.065" size="1.778" layer="96"/>
 </instance>
 <instance part="2.2UF" gate="A" x="111.76" y="195.58" smashed="yes" rot="R90">
-<attribute name="VALUE" x="121.109640625" y="189.91431875" size="3.480709375" layer="96" ratio="10" rot="SR90"/>
+<attribute name="VALUE" x="118.569640625" y="189.91431875" size="3.480709375" layer="96" ratio="10" rot="SR90"/>
 <attribute name="NAME" x="108.99125" y="194.66555" size="2.082909375" layer="95" ratio="10" rot="SR90"/>
 </instance>
 <instance part="D1" gate="G$1" x="12.7" y="88.9" smashed="yes" rot="R90">
