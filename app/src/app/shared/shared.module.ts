@@ -10,6 +10,8 @@ import { LogsOverlayComponent } from './logs-overlay/logs-overlay.component';
 import { LogsComponent } from './logs-overlay/logs/logs.component';
 import { ManageLogComponent } from './manage-log/manage-log.component';
 import { NewLogComponent } from './manage-log/new-log/new-log.component';
+import { SecretOverlayComponent } from './secret-overlay/secret-overlay.component';
+import { SecretComponent } from './secret-overlay/secret/secret.component';
 import { SettingsContentComponent } from './settings/settings-content/settings-content.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TakePhotoComponent } from './take-photo/take-photo.component';
@@ -31,7 +33,9 @@ import { TakePhotoComponent } from './take-photo/take-photo.component';
     SettingsComponent,
     SettingsContentComponent,
     NewLogComponent,
-    TakePhotoComponent
+    TakePhotoComponent,
+    SecretOverlayComponent,
+    SecretComponent
   ],
   exports: [
     LogsOverlayComponent,
@@ -40,9 +44,15 @@ import { TakePhotoComponent } from './take-photo/take-photo.component';
     SettingsComponent,
     TakePhotoComponent,
     MatInputModule,
-    MatTabsModule
+    MatTabsModule,
+    SecretOverlayComponent
   ],
-  entryComponents: [LogsComponent, SettingsContentComponent, NewLogComponent],
+  entryComponents: [
+    LogsComponent,
+    SettingsContentComponent,
+    NewLogComponent,
+    SecretComponent
+  ],
   providers: []
 })
 export class SharedModule {}
