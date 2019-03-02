@@ -81,6 +81,9 @@
 <wire x1="5" y1="5.25" x2="5" y2="-5.25" width="0.127" layer="51"/>
 <wire x1="5" y1="-5.25" x2="-5" y2="-5.25" width="0.127" layer="51"/>
 <wire x1="-5" y1="-5.25" x2="-5" y2="5.25" width="0.127" layer="51"/>
+<wire x1="-5" y1="5.25" x2="-5" y2="-5.25" width="0.127" layer="21"/>
+<wire x1="5" y1="5.25" x2="5" y2="-5.25" width="0.127" layer="21"/>
+<text x="-4.8" y="5.7" size="1.27" layer="25">CDRH104R</text>
 </package>
 </packages>
 <symbols>
