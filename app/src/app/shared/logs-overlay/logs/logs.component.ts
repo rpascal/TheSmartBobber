@@ -5,7 +5,6 @@ import { takeUntil } from 'rxjs/operators';
 
 import { ILogMessage, LogsService } from '../../../core';
 
-
 @Component({
   selector: "app-logs",
   templateUrl: "./logs.component.html",
@@ -20,7 +19,7 @@ export class LogsComponent implements OnInit, OnDestroy {
     private modalCtrl: ModalController,
     private logsService: LogsService,
     private cd: ChangeDetectorRef
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.logs = this.logsService.getMessages();

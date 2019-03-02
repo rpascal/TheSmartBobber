@@ -36,6 +36,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.bobber.connect();
-    this.fb.appLoad();
   }
 }

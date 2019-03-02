@@ -4,7 +4,6 @@ import * as chartjs_plugin_annotationas from 'chartjs-plugin-annotation';
 
 import { environment } from '../../../environments/environment';
 import { TheBobberService } from '../../core';
-import { FirebaseService } from '../../core/firebase/firebase.service';
 
 @Component({
   selector: "app-bite-graph",
@@ -13,28 +12,27 @@ import { FirebaseService } from '../../core/firebase/firebase.service';
 })
 export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly MAX = environment.bitePeak;
+  private readonly MIN = environment.biteMin;
   private readonly MAX_X = environment.bite_graph_max_x;
 
   get greenUpper() {
-    return Math.floor(this.MAX * 0.2);
+    return this.MIN + Math.floor((this.MAX - this.MIN) * 0.2);
   }
   get yellowUpper() {
-    return Math.floor(this.MAX * 0.8);
+    return this.MIN + Math.floor((this.MAX - this.MIN) * 0.8);
   }
 
   @ViewChild("lineCanvas") lineCanvas;
   lineChart: any;
 
-  constructor(private fb: FirebaseService, private bobber: TheBobberService) {
+  constructor(private bobber: TheBobberService) {
     // Need to do this so stupid auto remover wont remove import
     const c = chartjs_plugin_annotationas;
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
-  ngOnDestroy() {
-
-  }
+  ngOnDestroy() {}
 
   ngAfterViewInit() {
     const initLabels = [];
@@ -61,13 +59,14 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
             {
               display: false,
               ticks: {
-                beginAtZero: true,
+                // beginAtZero: true,
                 steps: this.MAX,
                 stepValue: 1,
-                max: this.MAX
+                max: this.MAX,
+                min: this.MIN
               }
             }
-          ] 
+          ]
         },
         elements: {
           line: {
@@ -83,7 +82,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
               type: "box",
               xScaleID: "x-axis-0",
               yScaleID: "y-axis-0",
-              yMin: 0,
+              yMin: this.MIN,
               yMax: this.greenUpper,
               backgroundColor: "rgba(0, 255, 0, 0.05)",
               borderColor: "rgba(0, 255, 0,0.05)",

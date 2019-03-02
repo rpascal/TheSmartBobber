@@ -2,6 +2,7 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Observable, Subject, timer } from 'rxjs';
 
+import { environment } from '../../environments/environment';
 import { IDevice } from './bluetooth-serial/bluetooth-serial.service';
 
 class BluetoothSerialMock extends BluetoothSerial {
@@ -52,9 +53,15 @@ class BluetoothSerialMock extends BluetoothSerial {
     // }, 250);
 
     setInterval(() => {
+      const getRandomArbitrary = (min, max) => {
+        return Math.random() * (max - min) + min;
+      };
       let mes = BITE_DEL;
-      mes += Math.floor(Math.random() * 140).toString();
-      // console.log("MOCK", mes);
+      mes += getRandomArbitrary(
+        environment.biteMin,
+        environment.bitePeak
+      ).toString();
+
       mock.next(mes);
     }, 10);
 
@@ -63,11 +70,9 @@ class BluetoothSerialMock extends BluetoothSerial {
     //   mock.next((++i).toString());
     // }, 100);
 
-
     // setInterval(() => {
     //   mock.next(`${SOLENOID_DELIMETER}1`);
     // }, 5000);
-
 
     return mock.asObservable();
   }

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Storage } from '@capacitor/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
+import { StorageService } from '../storage/storage.service';
 import { IWeather } from '../weather/weather.service';
 
 export interface Bite {
@@ -59,29 +59,25 @@ export class FirebaseService {
   tempsCollection: AngularFirestoreCollection<Temp>;
   solenoidCollection: AngularFirestoreCollection<Solenoid>;
 
-
   uncategorizedImagesCollection: AngularFirestoreCollection<Solenoid>;
 
   weatherCollection: AngularFirestoreCollection<IWeather>;
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore, private storage: StorageService) {
+    this.appLoad();
+  }
 
   async appLoad() {
     try {
-      const log_uid = (await Storage.get({ key: this.log_uid })).value;
-      if (log_uid) {
-        this.setupActiveLog(log_uid);
-      }
-    } catch { }
+      const value = await this.storage.get(this.log_uid);
+      this.setupActiveLog(value);
+    } catch {}
   }
 
   async createNewLog(title: string, description: string, weather?: IWeather) {
     const uid = this.afs.createId();
     this.setupActiveLog(uid);
-    await Storage.set({
-      key: this.log_uid,
-      value: uid
-    });
+    await this.storage.set(this.log_uid, uid);
 
     await this.activeLog.set({
       title: title,
@@ -110,7 +106,7 @@ export class FirebaseService {
     delete this.solenoidCollection;
     delete this.weatherCollection;
     this.activelyLogging.next(false);
-    await Storage.clear();
+    await this.storage.clear();
   }
 
   biteTap() {
@@ -146,9 +142,7 @@ export class FirebaseService {
   }
 
   getUncategorizedImages(): Observable<Image[]> {
-    return this.afs
-      .collection<Image>("uncategorizedImages")
-      .valueChanges()
+    return this.afs.collection<Image>("uncategorizedImages").valueChanges();
   }
 
   getLogs(): Observable<ILogDatabase[]> {
@@ -172,17 +166,15 @@ export class FirebaseService {
       );
   }
 
-
   attachImage(url: string) {
     if (this.activeLog) {
       this.activeLog.collection<Image>("images").add({
-        url: url,
-      })
+        url: url
+      });
     } else {
       this.afs.collection("uncategorizedImages").add({
-        url: url,
-      })
+        url: url
+      });
     }
-
   }
 }

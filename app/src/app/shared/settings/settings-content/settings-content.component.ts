@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActionSheetController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
@@ -28,15 +28,19 @@ export class SettingsContentComponent implements OnInit {
     private vibration: VibrationService,
     private sounds: SoundsService,
     private cd: ChangeDetectorRef
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.vibrationStatus = this.vibration.active;
-    this.soundStatus = this.sounds.active;
+    this.vibration.active.asObservable().subscribe(data => {
+      this.vibrationStatus = data;
+    });
+    this.sounds.active.asObservable().subscribe(data => {
+      this.soundStatus = data;
+    });
     this.connectionStatusMessage$ = this.bobber.connectionStatusMessage$;
-    this.connectionStatusMessage$.subscribe(data =>{
+    this.connectionStatusMessage$.subscribe(data => {
       this.cd.detectChanges();
-    })
+    });
   }
 
   async ledChange() {
@@ -50,11 +54,11 @@ export class SettingsContentComponent implements OnInit {
   }
 
   vibrationChange() {
-    this.vibration.active = this.vibrationStatus;
+    this.vibration.setActive(this.vibrationStatus);
   }
 
   soundChange() {
-    this.sounds.active = this.soundStatus;
+    this.sounds.setActive(this.soundStatus);
   }
 
   disconnect() {
@@ -102,19 +106,18 @@ export class SettingsContentComponent implements OnInit {
       this.toast.message(`Error send message ${err}`);
       this.logsService.addError(err);
     }
-
   }
 
   sendOne() {
-    this.send("1")
+    this.send("1");
   }
   sendTwo() {
-    this.send("2")
+    this.send("2");
   }
   sendThree() {
-    this.send("3")
+    this.send("3");
   }
   sendFour() {
-    this.send("4")
+    this.send("4");
   }
 }
