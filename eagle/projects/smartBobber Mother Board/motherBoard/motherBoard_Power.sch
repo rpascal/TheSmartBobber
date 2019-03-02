@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1389,6 +1389,59 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 </deviceset>
 </devicesets>
 </library>
+<library name="CDRH104R">
+<packages>
+<package name="220-INDUCTOR">
+<smd name="1" x="0" y="4.45" dx="1.6" dy="3.2" layer="1" rot="R90"/>
+<smd name="2" x="0" y="-4.45" dx="1.6" dy="3.2" layer="1" rot="R90"/>
+<circle x="-1.4" y="5.05" radius="0.1" width="0" layer="21"/>
+<wire x1="-5" y1="5.25" x2="5" y2="5.25" width="0.127" layer="51"/>
+<wire x1="5" y1="5.25" x2="5" y2="-5.25" width="0.127" layer="51"/>
+<wire x1="5" y1="-5.25" x2="-5" y2="-5.25" width="0.127" layer="51"/>
+<wire x1="-5" y1="-5.25" x2="-5" y2="5.25" width="0.127" layer="51"/>
+<wire x1="-5" y1="5.25" x2="-5" y2="-5.25" width="0.127" layer="21"/>
+<wire x1="5" y1="5.25" x2="5" y2="-5.25" width="0.127" layer="21"/>
+<text x="-4.8" y="5.7" size="1.27" layer="25">CDRH104R</text>
+</package>
+</packages>
+<symbols>
+<symbol name="CDRH104R">
+<pin name="1" x="-7.62" y="0" length="middle" rot="R180"/>
+<pin name="2" x="7.62" y="0" length="middle"/>
+<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="7.62" y2="2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="-7.62" y2="2.54" width="0.254" layer="94"/>
+<text x="-7.62" y="2.54" size="1.778" layer="95">CDRH104R</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="CDRH104R">
+<description>CDRH104C:  
+Ferrite drum core construction.
+• Magnetically shielded.
+• L×W×H:10.5×10.3×4.0mm Max.
+• Product weight: 1.5g(Ref.)
+• Moisture Sensitivity Level: 1
+• RoHS compliance.
+• Halogen Free available.</description>
+<gates>
+<gate name="G$1" symbol="CDRH104R" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="220-INDUCTOR">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1424,6 +1477,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <part name="D4" library="SS34" deviceset="SS34" device=""/>
 <part name="D5" library="SS34" deviceset="SS34" device=""/>
 <part name="J4" library="10118193-0001LF" deviceset="10118193-0001LF" device=""/>
+<part name="U$1" library="CDRH104R" deviceset="CDRH104R" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1507,6 +1561,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <attribute name="NAME" x="-104.13835" y="59.1886" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="-114.30193125" y="35.5503" size="1.778" layer="96"/>
 </instance>
+<instance part="U$1" gate="G$1" x="142.24" y="81.28" smashed="yes"/>
 </instances>
 <busses>
 </busses>
