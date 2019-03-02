@@ -7804,6 +7804,183 @@ wave soldering</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="MT3608">
+<description>&lt;High Efficiency 1.2MHz 2A Step Up Converter&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SOT95P280X145-6N">
+<description>&lt;b&gt;TSOT23-6/SOT23-6&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.25" y="0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="2" x="-1.25" y="0" dx="1.2" dy="0.6" layer="1"/>
+<smd name="3" x="-1.25" y="-0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="4" x="1.25" y="-0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="5" x="1.25" y="0" dx="1.2" dy="0.6" layer="1"/>
+<smd name="6" x="1.25" y="0.95" dx="1.2" dy="0.6" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.1" y1="1.75" x2="2.1" y2="1.75" width="0.05" layer="51"/>
+<wire x1="2.1" y1="1.75" x2="2.1" y2="-1.75" width="0.05" layer="51"/>
+<wire x1="2.1" y1="-1.75" x2="-2.1" y2="-1.75" width="0.05" layer="51"/>
+<wire x1="-2.1" y1="-1.75" x2="-2.1" y2="1.75" width="0.05" layer="51"/>
+<wire x1="-0.8" y1="1.45" x2="0.8" y2="1.45" width="0.1" layer="51"/>
+<wire x1="0.8" y1="1.45" x2="0.8" y2="-1.45" width="0.1" layer="51"/>
+<wire x1="0.8" y1="-1.45" x2="-0.8" y2="-1.45" width="0.1" layer="51"/>
+<wire x1="-0.8" y1="-1.45" x2="-0.8" y2="1.45" width="0.1" layer="51"/>
+<wire x1="-0.8" y1="0.5" x2="0.15" y2="1.45" width="0.1" layer="51"/>
+<wire x1="-0.3" y1="1.45" x2="0.3" y2="1.45" width="0.2" layer="21"/>
+<wire x1="0.3" y1="1.45" x2="0.3" y2="-1.45" width="0.2" layer="21"/>
+<wire x1="0.3" y1="-1.45" x2="-0.3" y2="-1.45" width="0.2" layer="21"/>
+<wire x1="-0.3" y1="-1.45" x2="-0.3" y2="1.45" width="0.2" layer="21"/>
+<wire x1="-1.85" y1="1.6" x2="-0.65" y2="1.6" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="MT3608">
+<wire x1="5.08" y1="2.54" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<text x="21.59" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="21.59" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="SW" x="0" y="0" length="middle"/>
+<pin name="GND" x="0" y="-2.54" length="middle"/>
+<pin name="FB" x="0" y="-5.08" length="middle"/>
+<pin name="NC" x="25.4" y="0" length="middle" direction="nc" rot="R180"/>
+<pin name="IN" x="25.4" y="-2.54" length="middle" rot="R180"/>
+<pin name="EN" x="25.4" y="-5.08" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MT3608" prefix="U">
+<description>&lt;b&gt;High Efficiency 1.2MHz 2A Step Up Converter&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/resources/MT3608.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="MT3608" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT95P280X145-6N">
+<connects>
+<connect gate="G$1" pin="EN" pad="4"/>
+<connect gate="G$1" pin="FB" pad="3"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="IN" pad="5"/>
+<connect gate="G$1" pin="NC" pad="6"/>
+<connect gate="G$1" pin="SW" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="MT3608" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="" constant="no"/>
+<attribute name="DESCRIPTION" value="High Efficiency 1.2MHz 2A Step Up Converter" constant="no"/>
+<attribute name="HEIGHT" value="1.45mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Aerosemi" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="MT3608" constant="no"/>
+<attribute name="RS_PART_NUMBER" value="" constant="no"/>
+<attribute name="RS_PRICE-STOCK" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="SS34">
+<packages>
+<package name="SMB">
+<description>&lt;B&gt;DIODE&lt;/B&gt;</description>
+<wire x1="-2.2606" y1="1.905" x2="2.2606" y2="1.905" width="0.1016" layer="21"/>
+<wire x1="-2.2606" y1="-1.905" x2="2.2606" y2="-1.905" width="0.1016" layer="21"/>
+<wire x1="-2.2606" y1="-1.905" x2="-2.2606" y2="1.905" width="0.1016" layer="51"/>
+<wire x1="2.2606" y1="-1.905" x2="2.2606" y2="1.905" width="0.1016" layer="51"/>
+<wire x1="0.193" y1="1" x2="-0.83" y2="0" width="0.2032" layer="21"/>
+<wire x1="-0.83" y1="0" x2="0.193" y2="-1" width="0.2032" layer="21"/>
+<wire x1="0.193" y1="-1" x2="0.193" y2="1" width="0.2032" layer="21"/>
+<text x="-2.159" y="2.159" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.159" y="-3.429" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-2.794" y1="-1.0922" x2="-2.2606" y2="1.0922" layer="51"/>
+<rectangle x1="2.2606" y1="-1.0922" x2="2.794" y2="1.0922" layer="51"/>
+<rectangle x1="-1.35" y1="-1.9" x2="-0.8" y2="1.9" layer="51"/>
+<smd name="C" x="-2.2" y="0" dx="2.4" dy="2.4" layer="1"/>
+<smd name="A" x="2.2" y="0" dx="2.4" dy="2.4" layer="1"/>
+</package>
+<package name="SMA">
+<wire x1="-2.5" y1="-1.5" x2="2" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="2" y1="-1.5" x2="2" y2="1.5" width="0.127" layer="21"/>
+<wire x1="2" y1="1.5" x2="-2.5" y2="1.5" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="1.5" x2="-2.5" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-0.007" y1="1" x2="-1.03" y2="0" width="0.2032" layer="21"/>
+<wire x1="-1.03" y1="0" x2="-0.007" y2="-1" width="0.2032" layer="21"/>
+<wire x1="-0.007" y1="-1" x2="-0.007" y2="1" width="0.2032" layer="21"/>
+<text x="-2.659" y="2.159" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.659" y="-3.429" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-3" y1="-0.8" x2="-2.5" y2="0.8" layer="21"/>
+<rectangle x1="2" y1="-0.8" x2="2.5" y2="0.8" layer="21"/>
+<rectangle x1="-1.5" y1="-1.5" x2="-1" y2="1.5" layer="21"/>
+<smd name="C" x="-2.25" y="0" dx="2" dy="2" layer="1"/>
+<smd name="A" x="1.75" y="0" dx="2" dy="2" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="SCHOTTKY">
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.905" y2="1.016" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-1.016" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<text x="-2.286" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.286" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SS34" prefix="D">
+<description>3A 40V Schottky diode</description>
+<gates>
+<gate name="A" symbol="SCHOTTKY" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SMB">
+<connects>
+<connect gate="A" pin="A" pad="A"/>
+<connect gate="A" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="Unavailable"/>
+<attribute name="DESCRIPTION" value=" SS Series 500 mV 3 A 40 V Max Reverse Voltage Schottky Rectifier - DO-214AB "/>
+<attribute name="MF" value="ON Semiconductor"/>
+<attribute name="MP" value="SS34"/>
+<attribute name="PACKAGE" value="DO-214 ON Semiconductor"/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+<device name="SMA" package="SMA">
+<connects>
+<connect gate="A" pin="A" pad="A"/>
+<connect gate="A" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="Unavailable"/>
+<attribute name="DESCRIPTION" value=" SS Series 500 mV 3 A 40 V Max Reverse Voltage Schottky Rectifier - DO-214AB "/>
+<attribute name="MF" value="ON Semiconductor"/>
+<attribute name="MP" value="SS34"/>
+<attribute name="PACKAGE" value="DO-214 ON Semiconductor"/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -7847,7 +8024,6 @@ wave soldering</description>
 <part name="J2" library="SparkFun-Connectors" deviceset="CONN_06" device="POLAR"/>
 <part name="J3" library="SparkFun-Connectors" deviceset="CONN_03" device="POLAR"/>
 <part name="J4" library="1-2295018-2" deviceset="1-2295018-2" device=""/>
-<part name="U$2" library="DB2W31900L" deviceset="DB2W31900" device=""/>
 <part name="10UF" library="GRM21BC81C106KE15L" deviceset="GRM21BC81C106KE15L" device=""/>
 <part name="0.1" library="RL1220S-R10-F" deviceset="RL1220S-R10-F" device=""/>
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
@@ -7869,6 +8045,10 @@ wave soldering</description>
 <part name="U$5" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
 <part name="U$6" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
 <part name="2.7K" library="ERA-6AEB272V" deviceset="ERA-6AEB272V" device=""/>
+<part name="U2" library="MT3608" deviceset="MT3608" device=""/>
+<part name="U$7" library="DB2W31900L" deviceset="DB2W31900" device=""/>
+<part name="D4" library="SS34" deviceset="SS34" device=""/>
+<part name="D5" library="SS34" deviceset="SS34" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8365,19 +8545,18 @@ wave soldering</description>
 <plain>
 </plain>
 <instances>
-<instance part="J4" gate="G$1" x="-294.64" y="-5.08" smashed="yes">
-<attribute name="NAME" x="-307.4104" y="13.3093" size="1.787859375" layer="95"/>
-<attribute name="VALUE" x="-307.3962" y="-28.0411" size="1.785859375" layer="96"/>
+<instance part="J4" gate="G$1" x="-271.78" y="-5.08" smashed="yes">
+<attribute name="NAME" x="-284.5504" y="13.3093" size="1.787859375" layer="95"/>
+<attribute name="VALUE" x="-284.5362" y="-28.0411" size="1.785859375" layer="96"/>
 </instance>
-<instance part="U$2" gate="G$1" x="-251.46" y="-10.16" smashed="yes" rot="R90"/>
 <instance part="10UF" gate="G$1" x="-220.98" y="-20.32" smashed="yes" rot="R90">
 <attribute name="NAME" x="-224.79" y="-20.32" size="1.778" layer="95" rot="R90"/>
 </instance>
 <instance part="0.1" gate="A" x="-218.44" y="0" smashed="yes">
 <attribute name="NAME" x="-217.448359375" y="2.771509375" size="2.084990625" layer="95" ratio="10" rot="SR0"/>
 </instance>
-<instance part="SUPPLY1" gate="GND" x="-274.32" y="-30.48" smashed="yes">
-<attribute name="VALUE" x="-276.225" y="-33.655" size="1.778" layer="96"/>
+<instance part="SUPPLY1" gate="GND" x="-248.92" y="-30.48" smashed="yes">
+<attribute name="VALUE" x="-250.825" y="-33.655" size="1.778" layer="96"/>
 </instance>
 <instance part="SUPPLY2" gate="GND" x="-220.98" y="-30.48" smashed="yes">
 <attribute name="VALUE" x="-222.885" y="-33.655" size="1.778" layer="96"/>
@@ -8431,23 +8610,29 @@ wave soldering</description>
 <instance part="2.7K" gate="A" x="-60.96" y="-17.78" smashed="yes" rot="R90">
 <attribute name="NAME" x="-63.7286" y="-16.7894" size="2.0828" layer="95" ratio="10" rot="SR90"/>
 </instance>
+<instance part="U2" gate="G$1" x="-7.62" y="2.54" smashed="yes" rot="MR0">
+<attribute name="NAME" x="-29.21" y="10.16" size="1.778" layer="95" rot="MR0" align="center-left"/>
+<attribute name="VALUE" x="-29.21" y="7.62" size="1.778" layer="96" rot="MR0" align="center-left"/>
+</instance>
+<instance part="U$7" gate="G$1" x="40.64" y="15.24" smashed="yes"/>
+<instance part="D4" gate="A" x="0" y="22.86" smashed="yes">
+<attribute name="NAME" x="-2.286" y="24.765" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-2.286" y="19.431" size="1.778" layer="96"/>
+</instance>
+<instance part="D5" gate="A" x="-236.22" y="-10.16" smashed="yes">
+<attribute name="NAME" x="-238.506" y="-8.255" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-238.506" y="-13.589" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="N$2" class="0">
-<segment>
-<pinref part="J4" gate="G$1" pin="VBUS@4"/>
-<pinref part="U$2" gate="G$1" pin="ANODE"/>
-<wire x1="-279.4" y1="-10.16" x2="-274.32" y2="-10.16" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="GND" class="0">
 <segment>
 <pinref part="J4" gate="G$1" pin="GND@4"/>
-<wire x1="-279.4" y1="-17.78" x2="-274.32" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="-256.54" y1="-17.78" x2="-248.92" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="SUPPLY1" gate="GND" pin="GND"/>
-<wire x1="-274.32" y1="-17.78" x2="-274.32" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-248.92" y1="-17.78" x2="-248.92" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="10UF" gate="G$1" pin="2"/>
@@ -8491,8 +8676,7 @@ wave soldering</description>
 </net>
 <net name="N$5" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="CATHODE"/>
-<wire x1="-228.6" y1="-10.16" x2="-220.98" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="-233.68" y1="-10.16" x2="-220.98" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="10UF" gate="G$1" pin="1"/>
 <wire x1="-220.98" y1="-10.16" x2="-220.98" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="-220.98" y1="-10.16" x2="-220.98" y2="0" width="0.1524" layer="91"/>
@@ -8510,6 +8694,7 @@ wave soldering</description>
 <wire x1="-213.36" y1="-12.7" x2="-213.36" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="-213.36" y1="-20.32" x2="-208.28" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="-213.36" y="-12.7"/>
+<pinref part="D5" gate="A" pin="C"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -8630,6 +8815,13 @@ wave soldering</description>
 <wire x1="-73.66" y1="-30.48" x2="-60.96" y2="-30.48" width="0.1524" layer="91"/>
 <pinref part="2.7K" gate="A" pin="R2"/>
 <wire x1="-60.96" y1="-30.48" x2="-60.96" y2="-17.78" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="J4" gate="G$1" pin="VBUS@4"/>
+<pinref part="D5" gate="A" pin="A"/>
+<wire x1="-256.54" y1="-10.16" x2="-238.76" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
