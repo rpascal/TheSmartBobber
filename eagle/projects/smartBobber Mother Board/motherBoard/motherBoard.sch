@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -6802,60 +6802,6 @@ Source: www.kingbright.com</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="DB2W31900L">
-<packages>
-<package name="SOT-23-5">
-<smd name="2" x="0" y="1.55" dx="0.85" dy="1.2" layer="1" rot="R90"/>
-<smd name="1" x="0" y="-1.5" dx="0.85" dy="1.2" layer="1" rot="R90"/>
-<circle x="-0.45" y="-1.75" radius="0.111803125" width="0" layer="21"/>
-<wire x1="-0.8" y1="1.3" x2="0.8" y2="1.3" width="0.127" layer="51"/>
-<wire x1="0.8" y1="1.3" x2="0.8" y2="-1.3" width="0.127" layer="51"/>
-<wire x1="0.8" y1="-1.3" x2="-0.8" y2="-1.3" width="0.127" layer="51"/>
-<wire x1="-0.8" y1="-1.3" x2="-0.8" y2="1.3" width="0.127" layer="51"/>
-<wire x1="-0.8" y1="1.3" x2="-0.8" y2="-1.3" width="0.127" layer="21"/>
-<wire x1="0.8" y1="1.3" x2="0.8" y2="-1.3" width="0.127" layer="21"/>
-<text x="1.5" y="0.9" size="1.27" layer="25">DB2W31900L</text>
-</package>
-</packages>
-<symbols>
-<symbol name="DB2W31900L">
-<pin name="ANODE" x="0" y="22.86" length="middle" rot="R270"/>
-<pin name="CATHODE" x="0" y="-22.86" length="middle" rot="R90"/>
-<wire x1="-5.08" y1="17.78" x2="-5.08" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-17.78" x2="5.08" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-17.78" x2="5.08" y2="17.78" width="0.254" layer="94"/>
-<wire x1="5.08" y1="17.78" x2="-5.08" y2="17.78" width="0.254" layer="94"/>
-<text x="7.62" y="15.24" size="1.778" layer="95">DB2W31900L</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="DB2W31900">
-<description>DB2W31900:
-
-- Low forward voltage VF 
-- Low terminal capacitance Ct 
-- Halogen-free / RoHS compliant 
-(EU RoHS / UL-94 V-0 / MSL:Level 1 compliant) 
-
-- Reverse Voltage : 30V 
-- Forward Current: 3A</description>
-<gates>
-<gate name="G$1" symbol="DB2W31900L" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT-23-5">
-<connects>
-<connect gate="G$1" pin="ANODE" pad="2"/>
-<connect gate="G$1" pin="CATHODE" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="GRM21BC81C106KE15L">
 <packages>
 <package name="CAPC2012X135N">
@@ -8046,7 +7992,6 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <part name="U$6" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
 <part name="2.7K" library="ERA-6AEB272V" deviceset="ERA-6AEB272V" device=""/>
 <part name="U2" library="MT3608" deviceset="MT3608" device=""/>
-<part name="U$7" library="DB2W31900L" deviceset="DB2W31900" device=""/>
 <part name="D4" library="SS34" deviceset="SS34" device=""/>
 <part name="D5" library="SS34" deviceset="SS34" device=""/>
 </parts>
@@ -8614,7 +8559,6 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <attribute name="NAME" x="-29.21" y="10.16" size="1.778" layer="95" rot="MR0" align="center-left"/>
 <attribute name="VALUE" x="-29.21" y="7.62" size="1.778" layer="96" rot="MR0" align="center-left"/>
 </instance>
-<instance part="U$7" gate="G$1" x="40.64" y="15.24" smashed="yes"/>
 <instance part="D4" gate="A" x="0" y="22.86" smashed="yes">
 <attribute name="NAME" x="-2.286" y="24.765" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-2.286" y="19.431" size="1.778" layer="96"/>
