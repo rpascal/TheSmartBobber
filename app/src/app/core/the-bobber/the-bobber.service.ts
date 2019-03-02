@@ -4,11 +4,11 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil, tap } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment';
 import { BluetoothSerialService } from '../bluetooth-serial/bluetooth-serial.service';
 import { CoreModule } from '../core.module';
 import { FirebaseService } from '../firebase/firebase.service';
 import { LogsService } from '../logs-service/logs.service';
+import { SoundsService } from '../sounds/sounds.service';
 import { ToastService } from '../toast/toast.serivce';
 import { VibrationService } from '../vibration/vibration.service';
 
@@ -44,6 +44,7 @@ export class TheBobberService extends BluetoothSerialService {
     zone: NgZone,
     logsService: LogsService,
     private fb: FirebaseService,
+    private sound: SoundsService,
     private vibration: VibrationService
   ) {
     super(bls, router, toastService, zone, logsService);
@@ -62,6 +63,12 @@ export class TheBobberService extends BluetoothSerialService {
         this.cleanUpMap(this.SOLENOID_DELIMETER),
         this.toNumMap(),
         this.fb.solenoidTap(),
+        tap(data => {
+          if (data === 1) {
+            this.vibration.triple();
+            this.sound.bell();
+          }
+        }),
         this.logsService.logTap(`${TheBobberService.name} - solenoid`)
       )
       .subscribe(data => {});
@@ -69,14 +76,7 @@ export class TheBobberService extends BluetoothSerialService {
     this.biteSubject
       .pipe(
         this.cleanUpMap(this.BITE_DEL),
-        this.toNumMap(),
-        // this.fb.biteTap(),
-        tap(data => {
-          if (data === environment.bitePeak) {
-            this.vibration.triple();
-          }
-        }),
-        // this.logsService.logTap(`${TheBobberService.name} - Bite Data`)
+        this.toNumMap()
       )
       .subscribe(data => {});
 
@@ -112,18 +112,15 @@ export class TheBobberService extends BluetoothSerialService {
     this.takeUntilBobber = new Subject();
 
     this.listenForData()
-      .pipe(
-        takeUntil(this.takeUntilBobber),
-        // this.logsService.logTap(`${TheBobberService.name} - Data Line From &`)
-      )
+      .pipe(takeUntil(this.takeUntilBobber))
       .subscribe((data: string) => {
         if (data.includes(this.TEMP_DEL)) {
           this.tempSubject.next(data);
-        }else if (data.includes(this.BITE_DEL)) {
+        } else if (data.includes(this.BITE_DEL)) {
           this.biteSubject.next(data);
-        }else   if (data.includes(this.SOLENOID_DELIMETER)) {
+        } else if (data.includes(this.SOLENOID_DELIMETER)) {
           this.solenoidSubject.next(data);
-        }else{
+        } else {
           this.logsService.addMessage(data, TheBobberService.name);
         }
       });

@@ -20,8 +20,7 @@ export class LogsService {
 
   private logs: ILogMessage[] = [];
 
-
-  get reveredLogs(): ILogMessage[]{
+  get reveredLogs(): ILogMessage[] {
     return this.logs.slice().reverse();
   }
   constructor() {
@@ -68,8 +67,6 @@ export class LogsService {
     }
     this.logsSubject.next(this.reveredLogs);
   }
-
-
 
   getMessages() {
     return this.reveredLogs;

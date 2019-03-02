@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Platform } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
+import { StorageService } from '../storage/storage.service';
 
 interface Sound {
   key: string;
@@ -14,14 +17,32 @@ interface Sound {
   providedIn: CoreModule
 })
 export class SoundsService {
-  active = true;
+  private readonly sound_uid = "sound_uid";
+  active = new BehaviorSubject<boolean>(true);
 
   private sounds: Sound[] = [];
   private audioPlayer: HTMLAudioElement = new Audio();
-  private forceWebAudio = true;
 
-  constructor(private platform: Platform, private nativeAudio: NativeAudio) {
+  constructor(
+    private platform: Platform,
+    private nativeAudio: NativeAudio,
+    private storage: StorageService
+  ) {
     this.preload("bell", "assets/audio/bell.mp3");
+    this.appLoad();
+  }
+
+  async appLoad() {
+    try {
+      const value = await this.storage.getBoolean(this.sound_uid);
+      this.active.next(value);
+    } catch {
+      this.setActive(true);
+    }
+  }
+  setActive(value: boolean) {
+    this.active.next(value);
+    this.storage.set(this.sound_uid, value);
   }
 
   bell() {
@@ -29,7 +50,7 @@ export class SoundsService {
   }
 
   preload(key: string, asset: string): void {
-    if (this.platform.is("cordova") && !this.forceWebAudio) {
+    if (this.platform.is("cordova")) {
       this.nativeAudio.preloadSimple(key, asset);
 
       this.sounds.push({
@@ -50,24 +71,26 @@ export class SoundsService {
   }
 
   play(key: string): void {
-    if (this.active) {
-      const soundToPlay = this.sounds.find(sound => {
-        return sound.key === key;
-      });
+    this.active.pipe(first()).subscribe(value => {
+      if (value) {
+        const soundToPlay = this.sounds.find(sound => {
+          return sound.key === key;
+        });
 
-      if (soundToPlay.isNative) {
-        this.nativeAudio.play(soundToPlay.asset).then(
-          res => {
-            console.log(res);
-          },
-          err => {
-            console.log(err);
-          }
-        );
-      } else {
-        this.audioPlayer.src = soundToPlay.asset;
-        this.audioPlayer.play();
+        if (soundToPlay.isNative) {
+          this.nativeAudio.play(soundToPlay.asset).then(
+            res => {
+              console.log(res);
+            },
+            err => {
+              console.log(err);
+            }
+          );
+        } else {
+          this.audioPlayer.src = soundToPlay.asset;
+          this.audioPlayer.play();
+        }
       }
-    }
+    });
   }
 }
