@@ -7449,6 +7449,7 @@ DIN A4, landscape with location and doc. field</description>
 <text x="134.62" y="170.18" size="2.54" layer="94">EXTERNAL CLOCK</text>
 <text x="182.88" y="170.18" size="2.54" layer="94">LED ARRAYS</text>
 <text x="91.44" y="106.68" size="2.54" layer="94">MICROCONTROLLER</text>
+<text x="215.9" y="10.16" size="2.54" layer="94">Nicholas Champ Spoutz</text>
 </plain>
 <instances>
 <instance part="U$1" gate="A" x="193.04" y="66.04" smashed="yes">
@@ -7598,8 +7599,8 @@ DIN A4, landscape with location and doc. field</description>
 <attribute name="NAME" x="12.7" y="28.448" size="1.778" layer="95" font="vector"/>
 </instance>
 <instance part="FRAME2" gate="G$1" x="0" y="0" smashed="yes">
-<attribute name="DRAWING_NAME" x="217.17" y="20.32" size="2.54" layer="94"/>
-<attribute name="LAST_DATE_TIME" x="217.17" y="15.24" size="2.286" layer="94"/>
+<attribute name="DRAWING_NAME" x="215.9" y="20.32" size="2.54" layer="94"/>
+<attribute name="LAST_DATE_TIME" x="215.9" y="15.24" size="2.286" layer="94"/>
 <attribute name="SHEET" x="230.505" y="5.08" size="2.54" layer="94"/>
 </instance>
 <instance part="12V" gate="G$1" x="73.66" y="162.56" smashed="yes">
