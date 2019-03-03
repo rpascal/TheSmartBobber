@@ -1648,9 +1648,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="0" y="2.54" size="1.778" layer="27">http://creativecommons.org/licenses/by-sa/3.0</text>
 <text x="11.43" y="0" size="1.778" layer="27">Designed by:</text>
 </package>
-<package name="REVISION">
-<text x="0" y="0" size="1.778" layer="27">Revision By: </text>
-</package>
 </packages>
 <symbols>
 <symbol name="LETTER_L">
@@ -1691,9 +1688,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="2.54" y="24.13" size="1.9304" layer="94">http://creativecommons.org/licenses/by-sa/3.0</text>
 <text x="1.27" y="11.43" size="2.54" layer="94">Design by:</text>
 </symbol>
-<symbol name="REVISION">
-<text x="0" y="0" size="2.54" layer="94">Revision By: </text>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FRAME-LETTER" prefix="FRAME">
@@ -1705,18 +1699,6 @@ Standard 8.5x11 US Letter frame</description>
 </gates>
 <devices>
 <device name="" package="CREATIVE_COMMONS">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="REVISION">
-<gates>
-<gate name="G$1" symbol="REVISION" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="REVISION">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -1986,7 +1968,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="D1" library="SparkFun" deviceset="LED" device="0603" value="Red"/>
 <part name="R9" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="10K"/>
 <part name="GND8" library="SparkFun" deviceset="GND" device=""/>
-<part name="U$2" library="SparkFun-Aesthetics" deviceset="REVISION" device=""/>
 <part name="J1" library="640456-5" deviceset="640456-5" device=""/>
 </parts>
 <sheets>
@@ -2101,7 +2082,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="GND8" gate="1" x="114.3" y="10.16" smashed="yes">
 <attribute name="VALUE" x="111.76" y="7.62" size="1.778" layer="96"/>
 </instance>
-<instance part="U$2" gate="G$1" x="148.59" y="6.604" smashed="yes"/>
 <instance part="J1" gate="G$1" x="190.5" y="144.78" smashed="yes" rot="MR180">
 <attribute name="NAME" x="185.414740625" y="136.38931875" size="1.779840625" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="185.411040625" y="154.9579" size="1.781140625" layer="96" rot="MR180"/>
