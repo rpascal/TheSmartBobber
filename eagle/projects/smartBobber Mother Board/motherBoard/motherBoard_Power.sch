@@ -1561,7 +1561,7 @@ Ferrite drum core construction.
 <attribute name="NAME" x="-104.13835" y="59.1886" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="-114.30193125" y="35.5503" size="1.778" layer="96"/>
 </instance>
-<instance part="U$1" gate="G$1" x="142.24" y="81.28" smashed="yes"/>
+<instance part="U$1" gate="G$1" x="142.24" y="78.74" smashed="yes"/>
 </instances>
 <busses>
 </busses>
@@ -1761,6 +1761,24 @@ Ferrite drum core construction.
 <pinref part="D5" gate="A" pin="A"/>
 <wire x1="-99.06" y1="55.88" x2="-76.2" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="J4" gate="G$1" pin="VUSB"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="IN"/>
+<wire x1="129.54" y1="66.04" x2="127" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="1"/>
+<wire x1="127" y1="66.04" x2="127" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="127" y1="78.74" x2="134.62" y2="78.74" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="78.74" x2="157.48" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="78.74" x2="157.48" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="SW"/>
+<wire x1="157.48" y1="68.58" x2="154.94" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
