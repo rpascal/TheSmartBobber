@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -7442,13 +7442,13 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="88.9" y1="111.76" x2="5.08" y2="111.76" width="0.508" layer="94" style="dashdot"/>
 <wire x1="88.9" y1="111.76" x2="88.9" y2="175.26" width="0.508" layer="94" style="dashdot"/>
 <wire x1="132.08" y1="175.26" x2="132.08" y2="111.76" width="0.508" layer="94" style="dashdot"/>
-<text x="7.62" y="172.72" size="2.54" layer="94">SOLENOID DRIVER</text>
-<text x="7.62" y="109.22" size="2.54" layer="94">SOLENOID DETECTOR</text>
-<text x="7.62" y="58.42" size="2.54" layer="94">HEADERS</text>
-<text x="91.44" y="172.72" size="2.54" layer="94">TEST POWER SUPPLY</text>
-<text x="134.62" y="172.72" size="2.54" layer="94">EXTERNAL CLOCK</text>
-<text x="182.88" y="172.72" size="2.54" layer="94">LED ARRAYS</text>
-<text x="91.44" y="109.22" size="2.54" layer="94">MICROCONTROLLER</text>
+<text x="7.62" y="170.18" size="2.54" layer="94">SOLENOID DRIVER</text>
+<text x="7.62" y="106.68" size="2.54" layer="94">SOLENOID DETECTOR</text>
+<text x="7.62" y="55.88" size="2.54" layer="94">HEADERS</text>
+<text x="91.44" y="170.18" size="2.54" layer="94">TEST POWER SUPPLY</text>
+<text x="134.62" y="170.18" size="2.54" layer="94">EXTERNAL CLOCK</text>
+<text x="182.88" y="170.18" size="2.54" layer="94">LED ARRAYS</text>
+<text x="91.44" y="106.68" size="2.54" layer="94">MICROCONTROLLER</text>
 </plain>
 <instances>
 <instance part="U$1" gate="A" x="193.04" y="66.04" smashed="yes">
