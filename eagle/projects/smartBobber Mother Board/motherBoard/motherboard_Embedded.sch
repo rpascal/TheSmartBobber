@@ -7373,6 +7373,62 @@ DIN A4, landscape with location and doc. field</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="PTS645button">
+<packages>
+<package name="SPST--NO">
+<text x="-3.81" y="-3.14" size="1.27" layer="25" rot="R90">PTS645</text>
+<smd name="2" x="-2.25" y="3.95" dx="1.3" dy="1.55" layer="1"/>
+<smd name="4" x="2.25" y="3.95" dx="1.3" dy="1.55" layer="1"/>
+<smd name="1" x="-2.25" y="-3.95" dx="1.3" dy="1.55" layer="1"/>
+<smd name="3" x="2.25" y="-3.95" dx="1.3" dy="1.55" layer="1"/>
+<circle x="-2.7" y="-4.5" radius="0.111803125" width="0" layer="21"/>
+<wire x1="-3.2" y1="3.2" x2="3.2" y2="3.2" width="0.127" layer="51"/>
+<wire x1="3.2" y1="3.2" x2="3.2" y2="-3.2" width="0.127" layer="51"/>
+<wire x1="3.2" y1="-3.2" x2="-3.2" y2="-3.2" width="0.127" layer="51"/>
+<wire x1="-3.2" y1="-3.2" x2="-3.2" y2="3.2" width="0.127" layer="51"/>
+<wire x1="-3.2" y1="3.2" x2="-3.2" y2="-3.2" width="0.127" layer="21"/>
+<wire x1="-1.45" y1="-3.2" x2="1.45" y2="-3.2" width="0.127" layer="21"/>
+<wire x1="3.2" y1="-3.2" x2="3.2" y2="3.2" width="0.127" layer="21"/>
+<wire x1="-1.45" y1="3.2" x2="1.35" y2="3.2" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="PTS645">
+<pin name="1" x="-10.16" y="2.54" length="middle"/>
+<pin name="3" x="-10.16" y="-2.54" length="middle"/>
+<pin name="2" x="10.16" y="2.54" length="middle" rot="R180"/>
+<pin name="4" x="10.16" y="-2.54" length="middle" rot="R180"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<text x="-5.08" y="5.08" size="1.778" layer="95">PTS645</text>
+<text x="-5.08" y="-7.62" size="1.778" layer="95">PushButton</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PTS645">
+<description>PTS645SL50SMTR92 LFS:
+Tactile Switch SPST-NO Top Actuated Surface Mount</description>
+<gates>
+<gate name="G$1" symbol="PTS645" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SPST--NO">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -7427,6 +7483,7 @@ DIN A4, landscape with location and doc. field</description>
 <part name="J5" library="SparkFun-Connectors" deviceset="CONN_02" device=""/>
 <part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="3.3V2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device="" value="3.3V"/>
+<part name="U$2" library="PTS645button" deviceset="PTS645" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7616,6 +7673,7 @@ DIN A4, landscape with location and doc. field</description>
 <instance part="3.3V2" gate="VCC" x="119.38" y="157.48" smashed="yes">
 <attribute name="VALUE" x="116.84" y="154.94" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="U$2" gate="G$1" x="106.68" y="99.06" smashed="yes"/>
 </instances>
 <busses>
 </busses>
