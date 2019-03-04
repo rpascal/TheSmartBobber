@@ -4741,6 +4741,7 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <part name="SUPPLY12" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY13" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="SUPPLY15" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4893,6 +4894,9 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <instance part="SUPPLY14" gate="GND" x="307.34" y="30.48" smashed="yes">
 <attribute name="VALUE" x="305.435" y="27.305" size="1.778" layer="96"/>
 </instance>
+<instance part="SUPPLY15" gate="GND" x="170.18" y="30.48" smashed="yes">
+<attribute name="VALUE" x="168.275" y="27.305" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -4987,6 +4991,8 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <pinref part="SUPPLY14" gate="GND" pin="GND"/>
 <wire x1="307.34" y1="35.56" x2="307.34" y2="33.02" width="0.1524" layer="91"/>
 <junction x="307.34" y="35.56"/>
+<pinref part="SUPPLY15" gate="GND" pin="GND"/>
+<wire x1="170.18" y1="35.56" x2="170.18" y2="33.02" width="0.1524" layer="91" style="dashdot"/>
 </segment>
 </net>
 <net name="N$5" class="0">
