@@ -4762,6 +4762,10 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <wire x1="320.04" y1="86.36" x2="320.04" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
 <wire x1="320.04" y1="17.78" x2="205.74" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
 <wire x1="205.74" y1="17.78" x2="205.74" y2="86.36" width="0.1524" layer="94" style="dashdot"/>
+<text x="-119.38" y="15.24" size="1.778" layer="95">Charging Circuit </text>
+<text x="33.02" y="15.24" size="1.778" layer="95">Protection Circuit </text>
+<text x="205.74" y="15.24" size="1.778" layer="95">3.3V Supply Circuit </text>
+<text x="116.84" y="15.24" size="1.778" layer="95">12V Supply Circuit </text>
 </plain>
 <instances>
 <instance part="SUPPLY1" gate="GND" x="-86.36" y="35.56" smashed="yes">
@@ -5056,27 +5060,27 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <wire x1="2.54" y1="50.8" x2="2.54" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="VBAT"/>
-<wire x1="0" y1="55.88" x2="15.24" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-<wire x1="15.24" y1="55.88" x2="15.24" y2="50.8" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$19" class="0">
 <segment>
 <pinref part="U$3" gate="G$1" pin="S@3"/>
 <wire x1="-7.62" y1="68.58" x2="-7.62" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="3.6V_LI-ION" gate="G$1" pin="+"/>
 <wire x1="27.94" y1="66.04" x2="27.94" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="66.04" x2="27.94" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="66.04" x2="15.24" y2="66.04" width="0.1524" layer="91"/>
 <junction x="27.94" y="66.04"/>
 <pinref part="S1" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="66.04" x2="27.94" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="66.04" x2="27.94" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="83.82" x2="66.04" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="27.94" y1="66.04" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="VBAT"/>
+<wire x1="0" y1="55.88" x2="15.24" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="55.88" x2="15.24" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="66.04" x2="15.24" y2="55.88" width="0.1524" layer="91"/>
+<junction x="15.24" y="66.04"/>
+<junction x="15.24" y="55.88"/>
 </segment>
 </net>
 <net name="N$10" class="0">
