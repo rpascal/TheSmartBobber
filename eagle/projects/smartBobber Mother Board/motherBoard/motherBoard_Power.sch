@@ -4745,6 +4745,22 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <sheets>
 <sheet>
 <plain>
+<wire x1="-119.38" y1="104.14" x2="-119.38" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="-119.38" y1="17.78" x2="20.32" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="20.32" y1="17.78" x2="20.32" y2="104.14" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="20.32" y1="104.14" x2="-119.38" y2="104.14" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="33.02" y1="104.14" x2="33.02" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="33.02" y1="17.78" x2="109.22" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="109.22" y1="17.78" x2="109.22" y2="104.14" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="109.22" y1="104.14" x2="33.02" y2="104.14" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="116.84" y1="93.98" x2="116.84" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="116.84" y1="17.78" x2="198.12" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="198.12" y1="17.78" x2="198.12" y2="93.98" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="198.12" y1="93.98" x2="116.84" y2="93.98" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="205.74" y1="86.36" x2="320.04" y2="86.36" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="320.04" y1="86.36" x2="320.04" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="320.04" y1="17.78" x2="205.74" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
+<wire x1="205.74" y1="17.78" x2="205.74" y2="86.36" width="0.1524" layer="94" style="dashdot"/>
 </plain>
 <instances>
 <instance part="SUPPLY1" gate="GND" x="-86.36" y="35.56" smashed="yes">
