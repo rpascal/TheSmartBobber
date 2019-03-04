@@ -4669,15 +4669,15 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 </class>
 </classes>
 <parts>
-<part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="GND1"/>
+<part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="GND1"/>
 <part name="U1" library="SparkFun-IC-Power" deviceset="MCP7384XX" device=""/>
 <part name="U$3" library="NDS8434" deviceset="NDS8434" device=""/>
 <part name="3.6V_LI-ION" library="battery" library_urn="urn:adsk.eagle:library:109" deviceset="SL-160AA/PR" device="" package3d_urn="urn:adsk.eagle:package:4609/1"/>
 <part name="D3" library="LTST-C191KGKT" deviceset="LTST-C191KGKT" device=""/>
-<part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="SUPPLY4" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="SUPPLY5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="GND1"/>
+<part name="SUPPLY4" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="GND1"/>
+<part name="SUPPLY5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="GND1"/>
 <part name="U$4" library="AP910C" deviceset="AP9101C" device=""/>
 <part name="S1" library="JS102011SAQN" deviceset="JS102011SAQN" device=""/>
 <part name="U$5" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
@@ -4737,6 +4737,10 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <part name="C2" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="22uF"/>
 <part name="C13" library="SparkFun-Capacitors" deviceset="2.2UF" device="-0603-10V-20%" value="2.2uF"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="10uF"/>
+<part name="SUPPLY11" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="SUPPLY12" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="SUPPLY13" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4861,6 +4865,18 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <attribute name="NAME" x="308.864" y="51.181" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="308.864" y="46.101" size="1.778" layer="96" font="vector"/>
 </instance>
+<instance part="SUPPLY11" gate="GND" x="101.6" y="30.48" smashed="yes">
+<attribute name="VALUE" x="99.695" y="27.305" size="1.778" layer="96"/>
+</instance>
+<instance part="SUPPLY12" gate="GND" x="121.92" y="30.48" smashed="yes">
+<attribute name="VALUE" x="120.015" y="27.305" size="1.778" layer="96"/>
+</instance>
+<instance part="SUPPLY13" gate="GND" x="210.82" y="30.48" smashed="yes">
+<attribute name="VALUE" x="208.915" y="27.305" size="1.778" layer="96"/>
+</instance>
+<instance part="SUPPLY14" gate="GND" x="307.34" y="30.48" smashed="yes">
+<attribute name="VALUE" x="305.435" y="27.305" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -4910,6 +4926,51 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <pinref part="C11" gate="G$1" pin="2"/>
 <pinref part="SUPPLY3" gate="GND" pin="GND"/>
 <wire x1="2.54" y1="38.1" x2="2.54" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="S"/>
+<pinref part="U2" gate="G$1" pin="GND"/>
+<wire x1="101.6" y1="35.56" x2="88.9" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="66.04" x2="157.48" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="66.04" x2="157.48" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="35.56" x2="121.92" y2="35.56" width="0.1524" layer="91"/>
+<junction x="157.48" y="35.56"/>
+<wire x1="121.92" y1="35.56" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="35.56" x2="157.48" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="U3" gate="A" pin="GND/PGND"/>
+<wire x1="185.42" y1="35.56" x2="170.18" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="63.5" x2="297.18" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="297.18" y1="63.5" x2="297.18" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="297.18" y1="35.56" x2="210.82" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="35.56" x2="185.42" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="35.56" x2="297.18" y2="35.56" width="0.1524" layer="91"/>
+<junction x="297.18" y="35.56"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="101.6" y1="45.72" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
+<junction x="101.6" y="35.56"/>
+<pinref part="R10" gate="G$1" pin="1"/>
+<wire x1="170.18" y1="45.72" x2="170.18" y2="35.56" width="0.1524" layer="91"/>
+<junction x="170.18" y="35.56"/>
+<pinref part="C1" gate="G$1" pin="2"/>
+<wire x1="121.92" y1="45.72" x2="121.92" y2="35.56" width="0.1524" layer="91"/>
+<junction x="121.92" y="35.56"/>
+<pinref part="C2" gate="G$1" pin="2"/>
+<wire x1="185.42" y1="58.42" x2="185.42" y2="35.56" width="0.1524" layer="91"/>
+<junction x="185.42" y="35.56"/>
+<pinref part="C13" gate="G$1" pin="2"/>
+<wire x1="210.82" y1="45.72" x2="210.82" y2="35.56" width="0.1524" layer="91"/>
+<junction x="210.82" y="35.56"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="307.34" y1="45.72" x2="307.34" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="SUPPLY11" gate="GND" pin="GND"/>
+<wire x1="101.6" y1="35.56" x2="101.6" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="SUPPLY12" gate="GND" pin="GND"/>
+<wire x1="121.92" y1="35.56" x2="121.92" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="SUPPLY13" gate="GND" pin="GND"/>
+<wire x1="210.82" y1="35.56" x2="210.82" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="SUPPLY14" gate="GND" pin="GND"/>
+<wire x1="307.34" y1="35.56" x2="307.34" y2="33.02" width="0.1524" layer="91"/>
+<junction x="307.34" y="35.56"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -5045,44 +5106,6 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <wire x1="91.44" y1="66.04" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="66.04" x2="101.6" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$25" class="0">
-<segment>
-<pinref part="U$6" gate="G$1" pin="S"/>
-<pinref part="U2" gate="G$1" pin="GND"/>
-<wire x1="101.6" y1="35.56" x2="88.9" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="66.04" x2="157.48" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="66.04" x2="157.48" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="35.56" x2="121.92" y2="35.56" width="0.1524" layer="91"/>
-<junction x="157.48" y="35.56"/>
-<wire x1="121.92" y1="35.56" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="35.56" x2="157.48" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="U3" gate="A" pin="GND/PGND"/>
-<wire x1="185.42" y1="35.56" x2="170.18" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="63.5" x2="297.18" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="63.5" x2="297.18" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="35.56" x2="210.82" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="210.82" y1="35.56" x2="185.42" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="35.56" x2="297.18" y2="35.56" width="0.1524" layer="91"/>
-<junction x="297.18" y="35.56"/>
-<pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="101.6" y1="45.72" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
-<junction x="101.6" y="35.56"/>
-<pinref part="R10" gate="G$1" pin="1"/>
-<wire x1="170.18" y1="45.72" x2="170.18" y2="35.56" width="0.1524" layer="91"/>
-<junction x="170.18" y="35.56"/>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="121.92" y1="45.72" x2="121.92" y2="35.56" width="0.1524" layer="91"/>
-<junction x="121.92" y="35.56"/>
-<pinref part="C2" gate="G$1" pin="2"/>
-<wire x1="185.42" y1="58.42" x2="185.42" y2="35.56" width="0.1524" layer="91"/>
-<junction x="185.42" y="35.56"/>
-<pinref part="C13" gate="G$1" pin="2"/>
-<wire x1="210.82" y1="45.72" x2="210.82" y2="35.56" width="0.1524" layer="91"/>
-<junction x="210.82" y="35.56"/>
-<pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="307.34" y1="45.72" x2="307.34" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
