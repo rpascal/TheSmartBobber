@@ -4659,57 +4659,58 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 </deviceset>
 </devicesets>
 </library>
-<library name="con-molex" urn="urn:adsk.eagle:library:165">
-<description>&lt;b&gt;Molex Connectors&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<library name="1053131202">
 <packages>
-<package name="22-23-2021" library_version="2">
-<description>&lt;b&gt;KK® 254 Solid Header, Vertical, with Friction Lock, 2 Circuits, Tin (Sn) Plating&lt;/b&gt;&lt;p&gt;&lt;a href =http://www.molex.com/pdm_docs/sd/022232021_sd.pdf&gt;Datasheet &lt;/a&gt;</description>
-<wire x1="-2.54" y1="3.175" x2="2.54" y2="3.175" width="0.254" layer="21"/>
-<wire x1="2.54" y1="3.175" x2="2.54" y2="1.27" width="0.254" layer="21"/>
-<wire x1="2.54" y1="1.27" x2="2.54" y2="-3.175" width="0.254" layer="21"/>
-<wire x1="2.54" y1="-3.175" x2="-2.54" y2="-3.175" width="0.254" layer="21"/>
-<wire x1="-2.54" y1="-3.175" x2="-2.54" y2="1.27" width="0.254" layer="21"/>
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="3.175" width="0.254" layer="21"/>
-<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.254" layer="21"/>
-<pad name="1" x="-1.27" y="0" drill="1" shape="long" rot="R90"/>
-<pad name="2" x="1.27" y="0" drill="1" shape="long" rot="R90"/>
-<text x="-2.54" y="3.81" size="1.016" layer="25" ratio="10">&gt;NAME</text>
-<text x="-2.54" y="-5.08" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
+<package name="MOLEX_1053131202">
+<wire x1="-4.22" y1="-1.92" x2="1.72" y2="-1.92" width="0.127" layer="21"/>
+<wire x1="1.72" y1="-1.92" x2="1.72" y2="-10.38" width="0.127" layer="21"/>
+<wire x1="1.72" y1="-10.38" x2="-4.22" y2="-10.38" width="0.127" layer="21"/>
+<wire x1="-4.22" y1="-10.38" x2="-4.22" y2="-1.92" width="0.127" layer="21"/>
+<circle x="0.11" y="-1.384" radius="0.25" width="0" layer="21"/>
+<text x="-4.754759375" y="1.32081875" size="0.61136875" layer="25">&gt;NAME</text>
+<text x="-4.481809375" y="-11.4764" size="0.611484375" layer="27">&gt;VALUE</text>
+<wire x1="-4.47" y1="1.266" x2="1.97" y2="1.266" width="0.05" layer="39"/>
+<wire x1="1.97" y1="1.266" x2="1.97" y2="-10.63" width="0.05" layer="39"/>
+<wire x1="1.97" y1="-10.63" x2="-4.47" y2="-10.63" width="0.05" layer="39"/>
+<wire x1="-4.47" y1="-10.63" x2="-4.47" y2="1.266" width="0.05" layer="39"/>
+<pad name="1" x="0" y="0" drill="1.2" shape="square"/>
+<pad name="2" x="-2.5" y="0" drill="1.2"/>
+<hole x="0" y="-7.18" drill="1.7"/>
+<hole x="-2.5" y="-7.18" drill="1.7"/>
 </package>
 </packages>
 <symbols>
-<symbol name="MV" library_version="2">
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
-<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
-<text x="-0.762" y="1.397" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-</symbol>
-<symbol name="M" library_version="2">
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
-<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
-<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<symbol name="1053131202">
+<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<text x="-2.548" y="3.0576" size="1.783609375" layer="95">&gt;NAME</text>
+<text x="-2.546459375" y="-7.639390625" size="1.78251875" layer="96">&gt;VALUE</text>
+<pin name="1" x="-5.08" y="0" length="short" direction="pas"/>
+<pin name="2" x="-5.08" y="-2.54" length="short" direction="pas"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="22-23-2021" prefix="X" library_version="2">
-<description>.100" (2.54mm) Center Header - 2 Pin</description>
+<deviceset name="1053131202" prefix="J">
+<description>Nano-Fit Right Angle Header; Through Hole; 2.50mm; Single Row; 2 Circuit; Gold Plated</description>
 <gates>
-<gate name="-1" symbol="MV" x="0" y="0" addlevel="always" swaplevel="1"/>
-<gate name="-2" symbol="M" x="0" y="-2.54" addlevel="always" swaplevel="1"/>
+<gate name="G$1" symbol="1053131202" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="22-23-2021">
+<device name="" package="MOLEX_1053131202">
 <connects>
-<connect gate="-1" pin="S" pad="1"/>
-<connect gate="-2" pin="S" pad="2"/>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="MF" value="MOLEX" constant="no"/>
-<attribute name="MPN" value="22-23-2021" constant="no"/>
-<attribute name="OC_FARNELL" value="1462926" constant="no"/>
-<attribute name="OC_NEWARK" value="25C3832" constant="no"/>
+<attribute name="AVAILABILITY" value="Unavailable"/>
+<attribute name="DESCRIPTION" value=" Nano-Fit Right Angle Header; Through Hole; 2.50mm; Single Row; 2 Circuit; Gold Plated "/>
+<attribute name="MF" value="Molex"/>
+<attribute name="MP" value="1053131202"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="PRICE" value="None"/>
 </technology>
 </technologies>
 </device>
@@ -4799,7 +4800,7 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <part name="SUPPLY13" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY15" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="BAT" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="22-23-2021" device=""/>
+<part name="J2" library="1053131202" deviceset="1053131202" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4956,12 +4957,9 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <instance part="SUPPLY15" gate="GND" x="170.18" y="30.48" smashed="yes">
 <attribute name="VALUE" x="168.275" y="27.305" size="1.778" layer="96"/>
 </instance>
-<instance part="BAT" gate="-1" x="25.4" y="55.88" smashed="yes">
-<attribute name="NAME" x="27.94" y="55.118" size="1.524" layer="95"/>
-<attribute name="VALUE" x="24.638" y="57.277" size="1.778" layer="96"/>
-</instance>
-<instance part="BAT" gate="-2" x="25.4" y="53.34" smashed="yes">
-<attribute name="NAME" x="27.94" y="52.578" size="1.524" layer="95"/>
+<instance part="J2" gate="G$1" x="30.48" y="55.88" smashed="yes">
+<attribute name="NAME" x="27.932" y="58.9376" size="1.783609375" layer="95"/>
+<attribute name="VALUE" x="27.933540625" y="48.240609375" size="1.78251875" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -4999,11 +4997,9 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <pinref part="C12" gate="G$1" pin="2"/>
 <wire x1="48.26" y1="48.26" x2="48.26" y2="35.56" width="0.1524" layer="91"/>
 <junction x="48.26" y="35.56"/>
-<wire x1="25.4" y1="35.56" x2="25.4" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="53.34" x2="25.4" y2="35.56" width="0.1524" layer="91"/>
 <junction x="25.4" y="35.56"/>
-<wire x1="25.4" y1="50.8" x2="22.86" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="BAT" gate="-2" pin="S"/>
-<wire x1="22.86" y1="50.8" x2="22.86" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C9" gate="G$1" pin="2"/>
@@ -5129,13 +5125,13 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <pinref part="U$3" gate="G$1" pin="S@3"/>
 <wire x1="-7.62" y1="68.58" x2="-7.62" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="-7.62" y1="66.04" x2="15.24" y2="66.04" width="0.1524" layer="91"/>
-<junction x="22.86" y="66.04"/>
+<junction x="25.4" y="66.04"/>
 <pinref part="S1" gate="G$1" pin="1"/>
-<wire x1="15.24" y1="66.04" x2="22.86" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="66.04" x2="22.86" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="83.82" x2="66.04" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="66.04" x2="25.4" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="66.04" x2="25.4" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="83.82" x2="66.04" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="1"/>
-<wire x1="22.86" y1="66.04" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="66.04" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="VBAT"/>
 <wire x1="0" y1="55.88" x2="15.24" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="C10" gate="G$1" pin="1"/>
@@ -5143,9 +5139,9 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <wire x1="15.24" y1="66.04" x2="15.24" y2="55.88" width="0.1524" layer="91"/>
 <junction x="15.24" y="66.04"/>
 <junction x="15.24" y="55.88"/>
-<pinref part="BAT" gate="-1" pin="S"/>
-<wire x1="22.86" y1="66.04" x2="22.86" y2="55.88" width="0.1524" layer="91"/>
-<junction x="22.86" y="66.04"/>
+<junction x="25.4" y="66.04"/>
+<pinref part="J2" gate="G$1" pin="1"/>
+<wire x1="25.4" y1="66.04" x2="25.4" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$10" class="0">
