@@ -5,12 +5,13 @@ import { BehaviorSubject } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
+import { LogsService } from '../logs-service/logs.service';
 import { StorageService } from '../storage/storage.service';
 
 interface Sound {
   key: string;
-  asset: string;
-  isNative: boolean;
+  // asset: string;
+  play: () => void;
 }
 
 @Injectable({
@@ -21,11 +22,13 @@ export class SoundsService {
   active = new BehaviorSubject<boolean>(true);
 
   private sounds: Sound[] = [];
-  private audioPlayer: HTMLAudioElement = new Audio();
+  // private audioPlayer: HTMLAudioElement = new Audio();
+  private forceWeb = true;
 
   constructor(
     private platform: Platform,
     private nativeAudio: NativeAudio,
+    private log: LogsService,
     private storage: StorageService
   ) {
     this.preload("bell", "assets/audio/bell.mp3");
@@ -50,13 +53,18 @@ export class SoundsService {
   }
 
   preload(key: string, asset: string): void {
-    if (this.platform.is("cordova")) {
+    if (this.platform.is("cordova") && !this.forceWeb) {
       this.nativeAudio.preloadSimple(key, asset);
 
       this.sounds.push({
         key: key,
-        asset: asset,
-        isNative: true
+        play: async () => {
+          try {
+            const value = await this.nativeAudio.play(key);
+          } catch (err) {
+            this.log.addError(`Error playing audio ${err}`, SoundsService.name);
+          }
+        }
       });
     } else {
       const audio = new Audio();
@@ -64,8 +72,13 @@ export class SoundsService {
 
       this.sounds.push({
         key: key,
-        asset: asset,
-        isNative: false
+        play: async () => {
+          try {
+            const value = await audio.play();
+          } catch (err) {
+            this.log.addError(`Error playing audio ${err}`, SoundsService.name);
+          }
+        }
       });
     }
   }
@@ -77,19 +90,21 @@ export class SoundsService {
           return sound.key === key;
         });
 
-        if (soundToPlay.isNative) {
-          this.nativeAudio.play(soundToPlay.asset).then(
-            res => {
-              console.log(res);
-            },
-            err => {
-              console.log(err);
-            }
-          );
-        } else {
-          this.audioPlayer.src = soundToPlay.asset;
-          this.audioPlayer.play();
-        }
+        soundToPlay.play();
+
+        // if (soundToPlay.isNative) {
+        //   this.nativeAudio.play(soundToPlay.asset).then(
+        //     res => {
+        //       console.log(res);
+        //     },
+        //     err => {
+        //       console.log(err);
+        //     }
+        //   );
+        // } else {
+        //   this.audioPlayer.src = soundToPlay.asset;
+        //   this.audioPlayer.play();
+        // }
       }
     });
   }

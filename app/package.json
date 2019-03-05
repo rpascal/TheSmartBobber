@@ -12,6 +12,7 @@
     "e2e": "ng e2e",
     "firebase-deploy": "ionic build && firebase deploy",
     "firebase-deploy-prod": "ionic build --prod && firebase deploy",
+    "c": "npm run cap-android-sync",
     "cap-android-sync": "ionic build && npx cap sync",
     "cap-android-sync-prod": "ionic build --prod && npx cap sync",
     "cap-android-open": "npx cap open android",
