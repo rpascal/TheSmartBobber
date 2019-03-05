@@ -55,11 +55,12 @@ void main(void) {
     PWM_Initialize(); //Initialize PWM Signal [RC2]
     ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
     ADC_Initialize(); //Initialize ADC [RA0]
+    read_temp(); //Read temp to get rid of junk data
     Counter_Initialize(); //Initialize TIMER1
     //______End of Function Initialization______//
 
 
-    read_temp();
+    
     __delay_ms(1000); //Delay for to stop error bits in UART
 
     connectionState = DISCONNECTED; //Initialize connection state
@@ -97,6 +98,7 @@ void main(void) {
 
                 break;
             case CONNECTED:
+                broadcastTempValue();
 
                 // Send Current Average to phone
                 sendADCToPhone();
@@ -125,13 +127,7 @@ void main(void) {
                     if (phoneInput == '2') //If the user sends "2"
                     {
                         int temp = read_temp();
-                        if(temp != -999){
-                            UART_send_string("Temp. IS connected");
-                            UART_send_char(10);
-                            sprintf(str, "Water Temp: %d", temp);
-                            UART_send_string(str);
-                            UART_send_char(10);
-                        }
+                        sendTemp(temp);
                     }
 
                     if (phoneInput == '3') //If the user sends "3"

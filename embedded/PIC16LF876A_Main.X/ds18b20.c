@@ -1,19 +1,22 @@
 #include "defines.h"
 #include "UART.h"
 #include "ds18b20.h"
+#include "counter.h"
 
 
 /*
  * Delay functions for RC3
  */
-
+int previousTemp = -999;
 //us Delay
+
 void delay_us(int useconds) {
     int s;
     for (s = 0; s < useconds; s++);
 }
 
 //ms Delay
+
 void delay_ms(int j) {
     unsigned char i;
     for (; j; j--)
@@ -46,6 +49,7 @@ unsigned char ow_reset(void) {
  */
 
 //Read Transmission bits from Temp Sensor
+
 unsigned char read_bit(void) {
     unsigned char i;
     DQ_TRIS = 1; //Set RC
@@ -57,6 +61,7 @@ unsigned char read_bit(void) {
 }
 
 //Read Transmission bytes from Temp Sensor 
+
 unsigned char read_byte(void) {
     char i, result = 0;
     DQ_TRIS = 1; // TRIS is input(1)
@@ -108,8 +113,7 @@ void write_byte(char val) {
  * Initialize ds18b20 and set 12-bit resolution
  */
 
-void ds18b20_Initialize(void)
-{
+void ds18b20_Initialize(void) {
     ow_reset();
     write_byte(write_scratchpad);
     write_byte(0);
@@ -117,13 +121,29 @@ void ds18b20_Initialize(void)
     write_byte(resolution_12bit);
 }
 
-/*
- * Function to read temperature 
- * NOTE: void ds18b20_Initialize(void) must be called once before read_temp
- */
+void broadcastTempValue(void) {
+    int getTimer = (int) getCounter();
+    if (getTimer % 60 != 0) {
+        return;
+    }
+    int temp = read_temp();
+    if (temp != previousTemp) {
+        sendTemp(temp);
+    }
+    previousTemp = temp;
+}
 
-unsigned int read_temp(void)
-{
+void sendTemp(int temp) {
+    if (temp != -999 && temp < 100) {
+        char str[40];
+        sprintf(str, "%d", temp);
+        UART_send_temp(str);
+    }
+}
+
+//***Function to read temp data***//
+
+unsigned int read_temp(void) {
     if (ow_reset() == 1) {
         UART_send_string("Temp. NOT connected");
         UART_send_char(10);
@@ -133,7 +153,7 @@ unsigned int read_temp(void)
     unsigned short TempL, TempH;
     int temp = 0;
     char str[30];
-    
+
     ow_reset();
     write_byte(skip_rom);
     write_byte(convert_temp);
@@ -155,8 +175,8 @@ unsigned int read_temp(void)
 
     return temp;
     //i = 0; //I think I need this?
-    
-     /*This is for Negative temperature*/
+
+    /*This is for Negative temperature*/
 
 
     //		if((TempH & 0x80)!=0)
