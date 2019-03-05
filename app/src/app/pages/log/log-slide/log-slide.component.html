@@ -1,0 +1,8 @@
+<ion-slides>
+<!--  pager="true" [options]="slideOpts" -->
+  <ion-slide *ngFor='let image of images'>
+    <!-- [defaultImage]="'assets/loading.gif'" [lazyLoad]="image.url" [offset]="100" -->
+    <img [src]="image.url">
+  </ion-slide>
+
+</ion-slides>

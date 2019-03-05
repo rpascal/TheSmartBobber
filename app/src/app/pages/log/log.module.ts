@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SharedModule } from '../../shared/shared.module';
 import { LogPage } from './log.page';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { LogSlideComponent } from './log-slide/log-slide.component';
 
 
 @NgModule({
@@ -18,6 +19,6 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     LazyLoadImageModule,
     RouterModule.forChild([{ path: '', component: LogPage }])
   ],
-  declarations: [LogPage]
+  declarations: [LogPage, LogSlideComponent]
 })
 export class LogPageModule {}
