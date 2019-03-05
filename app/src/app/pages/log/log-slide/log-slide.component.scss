@@ -1,9 +1,17 @@
-ion-slide img {
+img {
     max-height: 45vh;
     max-width: auto;
     width: auto;
+    margin:auto;
 }
 
-ion-slide img.tallerImg {
+img.tallerImg {
     max-height: 67vh;
+}
+
+
+.carousel, .carousel-inner{
+    border: 0px !important;
+    outline: none !important;
+
 }

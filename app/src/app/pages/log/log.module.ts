@@ -8,6 +8,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { LogPage } from './log.page';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { LogSlideComponent } from './log-slide/log-slide.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -16,9 +17,10 @@ import { LogSlideComponent } from './log-slide/log-slide.component';
     CommonModule,
     FormsModule,
     SharedModule,
+    NgbModule,
     LazyLoadImageModule,
     RouterModule.forChild([{ path: '', component: LogPage }])
   ],
   declarations: [LogPage, LogSlideComponent]
 })
-export class LogPageModule {}
+export class LogPageModule { }

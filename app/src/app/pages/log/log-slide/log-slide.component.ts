@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ChangeDetectorRef, ChangeDetection
 import { Observable } from 'rxjs';
 import { Image } from '../../../core';
 import { Slides } from '@ionic/angular';
+import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-log-slide',
@@ -11,15 +12,15 @@ import { Slides } from '@ionic/angular';
 })
 export class LogSlideComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  // @ViewChild(Slides) slides: Slides;
+  @ViewChild(Slides) slides: NgbCarousel;
 
   @Input() images: Image[];
 
-  slides: Slides;
+  // slides: Slides;
 
-  @ViewChild(Slides) set slidesvc(slides) {
-    this.slides = slides;
-  }
+  // @ViewChild(Slides) set slidesvc(slides) {
+  //   this.slides = slides;
+  // }
 
   slideOpts = {
     loop: true,
@@ -41,9 +42,14 @@ export class LogSlideComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.slides.options = this.slideOpts;
-    this.slides.pager = true;
-    console.log("LogSlideComponent ngAfterViewInit", this.slides);
+    console.log(this.slides);
+    if (this.slides) {
+      this.slides.wrap = true;
+      this.slides.pause();
+    }
+    // this.slides.options = this.slideOpts;
+    // this.slides.pager = true;
+    // console.log("LogSlideComponent ngAfterViewInit", this.slides);
 
     // this.slides.update();
   }
@@ -54,14 +60,14 @@ export class LogSlideComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async refresh() {
     try {
-      this.slides.options = this.slideOpts;
-      this.slides.pager = true;
-      const d = await this.slides.update();
-      console.log(d);
+      // this.slides.options = this.slideOpts;
+      // this.slides.pager = true;
+      // const d = await this.slides.update();
+      // console.log(d);
     } catch (err) {
       console.error(err);
     }
-    // this.cd.detectChanges();
+    this.cd.detectChanges();
   }
 
 }
