@@ -18,9 +18,8 @@ void Counter_Initialize(void) {
     // Choose the desired prescaler ratio (1:1)
     T1CKPS0 = 0;
     T1CKPS1 = 0;
-    // Switch ON Timer1 Module!
+    // Switch ON Timer1 Module
     TMR1ON = 1;
-
     // -- [[ Interrupts Configurations ]] --
     TMR1IE = 1; // Timer1 Interrupt Enable Bit
     TMR1IF = 0; // Clear The Interrupt Flag Bit
@@ -53,8 +52,8 @@ float timeEllapsed(float past) {
     return getCounter() - past;
 }
 
-void printCounter(void) {
-    char s[30];
-    sprintf(s, "%d", (int)counter);
-    UART_send_string(s);
-}
+//void printCounter(void) {
+//    char s[30];
+//    sprintf(s, "%d", (int)counter);
+//    UART_send_string(s);
+//}
