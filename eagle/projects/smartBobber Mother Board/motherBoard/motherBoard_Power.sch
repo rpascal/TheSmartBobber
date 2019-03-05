@@ -4822,7 +4822,7 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <wire x1="320.04" y1="17.78" x2="205.74" y2="17.78" width="0.1524" layer="94" style="dashdot"/>
 <wire x1="205.74" y1="17.78" x2="205.74" y2="86.36" width="0.1524" layer="94" style="dashdot"/>
 <text x="-119.38" y="15.24" size="1.778" layer="95">Charging Circuit </text>
-<text x="33.02" y="15.24" size="1.778" layer="95">Protection Circuit </text>
+<text x="35.56" y="15.24" size="1.778" layer="95">Protection Circuit </text>
 <text x="205.74" y="15.24" size="1.778" layer="95">3.3V Supply Circuit </text>
 <text x="116.84" y="15.24" size="1.778" layer="95">12V Supply Circuit </text>
 </plain>
