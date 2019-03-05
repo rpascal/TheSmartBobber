@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, switchMap } from 'rxjs/operators';
 
 import { CoreModule } from '../core.module';
 import { StorageService } from '../storage/storage.service';
@@ -71,7 +71,7 @@ export class FirebaseService {
     try {
       const value = await this.storage.get(this.log_uid);
       this.setupActiveLog(value);
-    } catch {}
+    } catch { }
   }
 
   async createNewLog(title: string, description: string, weather?: IWeather) {
