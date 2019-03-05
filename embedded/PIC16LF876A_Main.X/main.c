@@ -149,6 +149,8 @@ void main(void) {
                 // Send Current Average to phone
                 sendADCToPhone();
 
+                
+
                 phoneInput = UART_get_char();
 
                 if (phoneInput != *NO_INPUT) {
