@@ -122,8 +122,14 @@ void ds18b20_Initialize(void)
  * NOTE: void ds18b20_Initialize(void) must be called once before read_temp
  */
 
-unsigned char read_temp(void)
+unsigned int read_temp(void)
 {
+    if (ow_reset() == 1) {
+        UART_send_string("Temp. NOT connected");
+        UART_send_char(10);
+        return -999;
+    }
+
     unsigned short TempL, TempH;
     int temp = 0;
     char str[30];

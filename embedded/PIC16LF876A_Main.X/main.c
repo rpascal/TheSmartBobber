@@ -108,6 +108,9 @@ void main(void) {
     ADC_Initialize(); //Initialize ADC [RA0]
     Counter_Initialize(); //Initialize TIMER1
 
+
+    read_temp();
+
     __delay_ms(1000); //Delay for UART communication
     connectionState = DISCONNECTED; //Initialize connection state
     char str[40]; //String length for all sprintf functions
@@ -167,15 +170,11 @@ void main(void) {
 
                     if (phoneInput == '2') //If the user sends "2"
                     {
-                        if (ow_reset() == 1) {
-                            UART_send_string("Temp. NOT connected");
-                            UART_send_char(10);
-                        }
-
-                        if (ow_reset() == 0) {
+                        int temp = read_temp();
+                        if(temp != -999){
                             UART_send_string("Temp. IS connected");
                             UART_send_char(10);
-                            sprintf(str, "Water Temp: %d", read_temp());
+                            sprintf(str, "Water Temp: %d", temp);
                             UART_send_string(str);
                             UART_send_char(10);
                         }
