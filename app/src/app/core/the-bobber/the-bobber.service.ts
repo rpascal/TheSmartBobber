@@ -124,6 +124,11 @@ export class TheBobberService extends BluetoothSerialService {
           this.logsService.addMessage(data, TheBobberService.name);
         }
       });
+      this.requestTemp();
+  }
+
+  requestTemp() {
+    this.write("2");
   }
 
   onDisconnect(): void {
