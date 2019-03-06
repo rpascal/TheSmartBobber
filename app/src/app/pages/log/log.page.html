@@ -14,42 +14,59 @@
     <mat-tab-group #tabs animationDuration="0ms" [selectedIndex]="selectedTab" mat-align-tabs="center" mat-stretch-tabs
       [backgroundColor]="'primary'">
       <mat-tab label="Saved Logs">
-        <ion-card *ngFor='let log of logs'>
-
-          <ng-container *ngIf="(log.images | async) as images">
-            <app-log-slide #tabOneSlides [images]="images"></app-log-slide>
+        <ng-container *ngIf="(logs$ | async) as logs">
+          <ng-container *ngIf="logs.length === 0; else logsExist">
+            <ion-card>
+              <ion-card-content>
+                <p>
+                  No Logs created yet! Try creating one!
+                </p>
+              </ion-card-content>
+            </ion-card>
           </ng-container>
+          <ng-template #logsExist>
+            <ion-card *ngFor='let log of logs'>
 
-          <ion-card-header>
-            <ion-card-title>{{log.title}}</ion-card-title>
-            <ion-card-subtitle>{{log.description}}</ion-card-subtitle>
-          </ion-card-header>
+              <ng-container *ngIf="(log.images | async) as images">
+                <ng-container *ngIf="images.length > 0">
+                  <app-log-slide [images]="images"></app-log-slide>
+                </ng-container>
+              </ng-container>
 
-          <ion-card-content>
-            <p>
-              <b>Date:</b> {{log.timestamp?.toDate() | date:'MM/dd/yyyy'}}
-            </p>
-            <ng-container *ngIf="log.weather">
-              <p><b>Location:</b> {{log.weather.name}}</p>
-              <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
-            </ng-container>
-            <p>
-              <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span
-                class="degree"></span>F
-            </p>
-            <p>
-              <b>Confirmed bites:</b> {{log.confirmedBites}}
-            </p>
+              <ion-card-header>
+                <ion-card-title>{{log.title}}</ion-card-title>
+                <ion-card-subtitle>{{log.description}}</ion-card-subtitle>
+              </ion-card-header>
 
-          </ion-card-content>
-        </ion-card>
-      </mat-tab>
-      <mat-tab label="Random Images">
+              <ion-card-content>
+                <p>
+                  <b>Date:</b> {{log.timestamp?.toDate() | date:'MM/dd/yyyy'}}
+                </p>
+                <ng-container *ngIf="log.weather">
+                  <p><b>Location:</b> {{log.weather.name}}</p>
+                  <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
+                </ng-container>
+                <p>
+                  <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span class="degree"></span>F
+                </p>
+                <p>
+                  <b>Confirmed bites:</b> {{log.confirmedBites}}
+                </p>
 
-        <ng-container *ngIf="(uncategorizedImages | async) as images">
-          <app-log-slide #tabTwoSlide [images]="images"></app-log-slide>
+              </ion-card-content>
+            </ion-card>
+          </ng-template>
+
         </ng-container>
+
       </mat-tab>
+      <ng-container *ngIf="(uncategorizedImages | async) as images">
+        <mat-tab *ngIf="images.length > 0" label="Random Images">
+          <ion-card>
+            <app-log-slide [images]="images" [taller]="true"></app-log-slide>
+          </ion-card>
+        </mat-tab>
+      </ng-container>
     </mat-tab-group>
 
   </div>
