@@ -60,7 +60,7 @@ void monitorSolenoidSignal(void) {
         //       {
         //           turnOnSolenoid();
         //      }
-        if (!isSolenoidOn && mean >= 100) // Some condition that says we want to turn on solenoid
+        if (!isSolenoidOn && mean >= 120) // Some condition that says we want to turn on solenoid
         {
             turnOnSolenoid();
         }
