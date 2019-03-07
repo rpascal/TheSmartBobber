@@ -24,6 +24,7 @@ bool isSolenoidOffMessageTrigger = false;
 void ADC_Initialize(void) {
     ADCON0 = 0x41; //ADC ON and Fosc/16 is selected
     ADCON1 = 0xC0; // Internal reference voltage is selected
+    startSolenoidOnClock = getCounter(); 
 }
 
 unsigned int ADC_Read(void) {
@@ -70,13 +71,9 @@ void monitorSolenoidSignal(void) {
 }
 
 void turnOnSolenoid(void) {
-    double time_ellapsed = 0;
+    double time_ellapsed = timeEllapsed(startSolenoidOnClock);
 
-    if (startSolenoidOnClock != NULL) {
-        time_ellapsed = timeEllapsed(startSolenoidOnClock);
-    }
-
-    if (startSolenoidOnClock = NULL || time_ellapsed > MAX_SOLENOID_DELAY_BETWEEN_ON) {
+    if (time_ellapsed > MAX_SOLENOID_DELAY_BETWEEN_ON) {
         isSolenoidOn = true;
         RC4 = 1; // LED on for bite
         RB5 = 1; //Turn on solenoid 
