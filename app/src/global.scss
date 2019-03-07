@@ -12,8 +12,12 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-@import "~bootstrap/dist/css/bootstrap.css";
-@import "~font-awesome/css/font-awesome.css";
+// Required
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/carousel";
+
 
 
 .mat-form-field {

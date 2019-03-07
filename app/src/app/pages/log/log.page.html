@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <div [hidden]="!networkStatus">
+  <div [hidden]="!networkStatus"  class="bootstrap-css">
     <mat-tab-group #tabs animationDuration="0ms" [selectedIndex]="selectedTab" mat-align-tabs="center" mat-stretch-tabs
       [backgroundColor]="'primary'">
       <mat-tab label="Saved Logs">
@@ -47,7 +47,8 @@
                   <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
                 </ng-container>
                 <p>
-                  <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span class="degree"></span>F
+                  <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span
+                    class="degree"></span>F
                 </p>
                 <p>
                   <b>Confirmed bites:</b> {{log.confirmedBites}}
