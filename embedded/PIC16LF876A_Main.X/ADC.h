@@ -8,5 +8,6 @@ void monitorSolenoidSignal(void);
 void sendADCToPhone(void);
 void isSolenoidOnMonitor(void);
 void turnOnSolenoid(void);
+void toggleAutoHook(void);
 
 #endif

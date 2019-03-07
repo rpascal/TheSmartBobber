@@ -88,12 +88,12 @@ void main(void) {
 
         switch (connectionState) {
             case DISCONNECTED:
-                RC4 = 0; //IDK why I need this but I do
+               // RC4 = 0; //IDK why I need this but I do
                 RC5 = 1; //Turn on LED
                 __delay_ms(100);
                 RC5 = 0; //Turn on LED
                 __delay_ms(100);
-                RC4 = 0; //IDK why I need this but I do
+                //RC4 = 0; //IDK why I need this but I do
                 // break;
 
                 break;
@@ -143,9 +143,9 @@ void main(void) {
                         sum1 = 0;
                     }
 
-                    if (phoneInput == '4') //If the user sends "3"
+                    if (phoneInput == '4') //If the user sends "4"
                     {
-                        //printCounter();
+                        toggleAutoHook();
                     }
                 }
         }
