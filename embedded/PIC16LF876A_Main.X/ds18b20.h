@@ -9,6 +9,8 @@ unsigned char read_byte(void);
 void write_bit(char bitval);
 void write_byte(char val);
 void ds18b20_Initialize(void);
-unsigned char read_temp(void);
+void broadcastTempValue(void);
+unsigned int read_temp(void);
+void sendTemp(int temp);
 
 #endif

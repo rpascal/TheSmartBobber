@@ -545,34 +545,42 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.3048" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 </package>
-<package name="0805">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<text x="0" y="0.889" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-0.889" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-</package>
-<package name="1206">
-<description>&lt;p&gt;&lt;b&gt;Generic 3216 (1206) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<wire x1="-2.4" y1="1.1" x2="2.4" y2="1.1" width="0.0508" layer="39"/>
-<wire x1="2.4" y1="-1.1" x2="-2.4" y2="-1.1" width="0.0508" layer="39"/>
-<wire x1="-2.4" y1="-1.1" x2="-2.4" y2="1.1" width="0.0508" layer="39"/>
-<wire x1="2.4" y1="1.1" x2="2.4" y2="-1.1" width="0.0508" layer="39"/>
-<wire x1="-0.965" y1="0.787" x2="0.965" y2="0.787" width="0.1016" layer="51"/>
-<wire x1="-0.965" y1="-0.787" x2="0.965" y2="-0.787" width="0.1016" layer="51"/>
-<smd name="1" x="-1.4" y="0" dx="1.6" dy="1.8" layer="1"/>
-<smd name="2" x="1.4" y="0" dx="1.6" dy="1.8" layer="1"/>
-<text x="0" y="1.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-1.143" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<rectangle x1="-1.7018" y1="-0.8509" x2="-0.9517" y2="0.8491" layer="51"/>
-<rectangle x1="0.9517" y1="-0.8491" x2="1.7018" y2="0.8509" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
+<package name="CAP-PTH-SMALL-KIT">
+<description>&lt;h3&gt;CAP-PTH-SMALL-KIT&lt;/h3&gt;
+Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.com/products/8375) or 22pF caps (http://www.sparkfun.com/products/8571).&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Warning:&lt;/b&gt; This is the KIT version of this package. This package has a smaller diameter top stop mask, which doesn't cover the diameter of the pad. This means only the bottom side of the pads' copper will be exposed. You'll only be able to solder to the bottom side.</description>
+<wire x1="0" y1="0.635" x2="0" y2="-0.635" width="0.254" layer="21"/>
+<wire x1="-2.667" y1="1.27" x2="2.667" y2="1.27" width="0.254" layer="21"/>
+<wire x1="2.667" y1="1.27" x2="2.667" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="2.667" y1="-1.27" x2="-2.667" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="-2.667" y1="-1.27" x2="-2.667" y2="1.27" width="0.254" layer="21"/>
+<pad name="1" x="-1.397" y="0" drill="1.016" diameter="2.032" stop="no"/>
+<pad name="2" x="1.397" y="0" drill="1.016" diameter="2.032" stop="no"/>
+<polygon width="0.127" layer="30">
+<vertex x="-1.4021" y="-0.9475" curve="-90"/>
+<vertex x="-2.357" y="-0.0178" curve="-90.011749"/>
+<vertex x="-1.4046" y="0.9576" curve="-90"/>
+<vertex x="-0.4546" y="-0.0204" curve="-90.024193"/>
+</polygon>
+<polygon width="0.127" layer="29">
+<vertex x="-1.4046" y="-0.4395" curve="-90.012891"/>
+<vertex x="-1.8491" y="-0.0153" curve="-90"/>
+<vertex x="-1.4046" y="0.452" curve="-90"/>
+<vertex x="-0.9627" y="-0.0051" curve="-90.012967"/>
+</polygon>
+<polygon width="0.127" layer="30">
+<vertex x="1.397" y="-0.9475" curve="-90"/>
+<vertex x="0.4421" y="-0.0178" curve="-90.011749"/>
+<vertex x="1.3945" y="0.9576" curve="-90"/>
+<vertex x="2.3445" y="-0.0204" curve="-90.024193"/>
+</polygon>
+<polygon width="0.127" layer="29">
+<vertex x="1.3945" y="-0.4395" curve="-90.012891"/>
+<vertex x="0.95" y="-0.0153" curve="-90"/>
+<vertex x="1.3945" y="0.452" curve="-90"/>
+<vertex x="1.8364" y="-0.0051" curve="-90.012967"/>
+</polygon>
 </package>
 </packages>
 <symbols>
@@ -642,25 +650,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </device>
 </devices>
 </deviceset>
-<deviceset name="1.0UF" prefix="C">
-<description>&lt;h3&gt;1µF ceramic capacitors&lt;/h3&gt;
+<deviceset name="0.1UF" prefix="C">
+<description>&lt;h3&gt;0.1µF ceramic capacitors&lt;/h3&gt;
 &lt;p&gt;A capacitor is a passive two-terminal electrical component used to store electrical energy temporarily in an electric field.&lt;/p&gt;</description>
 <gates>
 <gate name="G$1" symbol="CAP" x="0" y="0"/>
 </gates>
 <devices>
-<device name="-0603-16V-10%" package="0603">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="CAP-00868"/>
-<attribute name="VALUE" value="1.0uF"/>
-</technology>
-</technologies>
-</device>
 <device name="-0402-16V-10%" package="0402">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
@@ -668,56 +664,56 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </connects>
 <technologies>
 <technology name="">
-<attribute name="PROD_ID" value="CAP-12417"/>
-<attribute name="VALUE" value="1.0uF"/>
+<attribute name="PROD_ID" value="CAP-12416"/>
+<attribute name="VALUE" value="0.1uF"/>
 </technology>
 </technologies>
 </device>
-<device name="-0805-25V-(+80/-20%)" package="0805">
+<device name="-0603-25V-(+80/-20%)" package="0603">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="PROD_ID" value="CAP-11625"/>
-<attribute name="VALUE" value="1.0uF"/>
+<attribute name="PROD_ID" value="CAP-00810"/>
+<attribute name="VALUE" value="0.1uF"/>
 </technology>
 </technologies>
 </device>
-<device name="-1206-50V-10%" package="1206">
+<device name="-0603-25V-5%" package="0603">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="PROD_ID" value="CAP-09822"/>
-<attribute name="VALUE" value="1.0uF"/>
+<attribute name="PROD_ID" value="CAP-08604"/>
+<attribute name="VALUE" value="0.1uF"/>
 </technology>
 </technologies>
 </device>
-<device name="-0805-25V-10%" package="0805">
+<device name="-KIT-EZ-50V-20%" package="CAP-PTH-SMALL-KIT">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="PROD_ID" value="CAP-08064"/>
-<attribute name="VALUE" value="1.0uF"/>
+<attribute name="PROD_ID" value="CAP-08370"/>
+<attribute name="VALUE" value="0.1uF"/>
 </technology>
 </technologies>
 </device>
-<device name="-0603-16V-10%-X7R" package="0603">
+<device name="-0603-100V-10%" package="0603">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="PROD_ID" value="CAP-13930"/>
-<attribute name="VALUE" value="1.0uF"/>
+<attribute name="PROD_ID" value="CAP-08390"/>
+<attribute name="VALUE" value="0.1uF"/>
 </technology>
 </technologies>
 </device>
@@ -8076,8 +8072,8 @@ DIN A4, landscape with location and doc. field</description>
 <part name="GND10" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="S2" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2MM" value="Button"/>
 <part name="R11" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value=" 100k"/>
-<part name="C3" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%-X7R" value="1.0uF"/>
-<part name="C5" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%-X7R" value="1.0uF"/>
+<part name="C6" library="SparkFun-Capacitors" deviceset="0.1UF" device="-0603-25V-5%" value="0.1uF"/>
+<part name="GND11" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8221,9 +8217,7 @@ DIN A4, landscape with location and doc. field</description>
 <attribute name="NAME" x="130.556" y="91.44" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="133.604" y="91.44" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="3.3V" gate="VCC" x="132.08" y="106.68" smashed="yes">
-<attribute name="VALUE" x="139.7" y="106.68" size="1.778" layer="96" rot="R180"/>
-</instance>
+<instance part="3.3V" gate="VCC" x="132.08" y="106.68" smashed="yes"/>
 <instance part="GND7" gate="1" x="58.42" y="30.48" smashed="yes">
 <attribute name="VALUE" x="58.42" y="30.226" size="1.778" layer="96" align="top-center"/>
 </instance>
@@ -8278,13 +8272,12 @@ DIN A4, landscape with location and doc. field</description>
 <attribute name="NAME" x="78.74" y="98.044" size="1.778" layer="95" font="vector" align="bottom-center"/>
 <attribute name="VALUE" x="78.74" y="94.996" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
-<instance part="C3" gate="G$1" x="93.98" y="43.18" smashed="yes">
-<attribute name="NAME" x="95.504" y="46.101" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="95.504" y="41.021" size="1.778" layer="96" font="vector"/>
+<instance part="C6" gate="G$1" x="99.06" y="43.18" smashed="yes">
+<attribute name="NAME" x="100.584" y="46.101" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="100.584" y="41.021" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="C5" gate="G$1" x="101.6" y="43.18" smashed="yes">
-<attribute name="NAME" x="103.124" y="46.101" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="103.124" y="41.021" size="1.778" layer="96" font="vector"/>
+<instance part="GND11" gate="1" x="99.06" y="30.48" smashed="yes">
+<attribute name="VALUE" x="99.06" y="30.226" size="1.778" layer="96" align="top-center"/>
 </instance>
 </instances>
 <busses>
@@ -8471,6 +8464,11 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="116.84" y1="60.96" x2="116.84" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="C6" gate="G$1" pin="2"/>
+<wire x1="99.06" y1="40.64" x2="99.06" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="SOLENOID_ON/OFF" class="0">
 <segment>
@@ -8628,6 +8626,22 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="20.32" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
 <label x="25.4" y="15.24" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="A" pin="VDD"/>
+<wire x1="149.86" y1="91.44" x2="142.24" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="91.44" x2="142.24" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="142.24" y1="96.52" x2="132.08" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="96.52" x2="132.08" y2="104.14" width="0.1524" layer="91"/>
+<junction x="132.08" y="96.52"/>
+<pinref part="3.3V" gate="VCC" pin="VCC"/>
+<label x="134.62" y="101.6" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="99.06" y1="48.26" x2="99.06" y2="55.88" width="0.1524" layer="91"/>
+<label x="99.06" y="55.88" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PGD" class="0">
 <segment>
@@ -8661,16 +8675,6 @@ DIN A4, landscape with location and doc. field</description>
 </segment>
 </net>
 <net name="VCC" class="0">
-<segment>
-<pinref part="U$1" gate="A" pin="VDD"/>
-<wire x1="149.86" y1="91.44" x2="142.24" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="91.44" x2="142.24" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="142.24" y1="96.52" x2="132.08" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="96.52" x2="132.08" y2="104.14" width="0.1524" layer="91"/>
-<junction x="132.08" y="96.52"/>
-<pinref part="3.3V" gate="VCC" pin="VCC"/>
-</segment>
 <segment>
 <pinref part="J3" gate="J$1" pin="3"/>
 <wire x1="48.26" y1="45.72" x2="53.34" y2="45.72" width="0.1524" layer="91"/>

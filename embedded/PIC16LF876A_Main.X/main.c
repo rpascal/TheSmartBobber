@@ -46,85 +46,41 @@ void updateConnectionState() {
     }
 }
 
-void reverse(char *str, int len) {
-    int i = 0, j = len - 1, temp;
-    while (i < j) {
-        temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
-        i++;
-        j--;
-    }
-}
-
-int intToStr(int x, char str[], int d) {
-    int i = 0;
-    while (x) {
-        str[i++] = (x % 10) + '0';
-        x = x / 10;
-    }
-
-    // If number of digits required is more, then 
-    // add 0s at the beginning 
-    while (i < d)
-        str[i++] = '0';
-
-    reverse(str, i);
-    str[i] = '\0';
-    return i;
-}
-
-// Converts a floating point number to string. 
-
-void ftoa(float n, char *res, int afterpoint) {
-    // Extract integer part 
-    int ipart = (int) n;
-
-    // Extract floating part 
-    float fpart = n - (float) ipart;
-
-    // convert integer part to string 
-    int i = intToStr(ipart, res, 0);
-
-    // check for display option after point 
-    if (afterpoint != 0) {
-        res[i] = '.'; // add dot 
-
-        // Get the value of fraction part upto given no. 
-        // of points after dot. The third parameter is needed 
-        // to handle cases like 233.007 
-        fpart = fpart * pow(10, afterpoint);
-
-        intToStr((int) fpart, res + i + 1, afterpoint);
-    }
-}
-
 void main(void) {
+    //Variables to send ADC average to user
     int i, sum1, avg1;
 
+    //***Initialization Functions for PIC16LF876A***//
     Initialize_UART(); //Initialize UART module [RC6 & RC7]
     PWM_Initialize(); //Initialize PWM Signal [RC2]
     ds18b20_Initialize(); //Initialize DS18b20 and 1-Wire Protocol [RC3]
     ADC_Initialize(); //Initialize ADC [RA0]
+    read_temp(); //Read temp to get rid of junk data
     Counter_Initialize(); //Initialize TIMER1
+    //______End of Function Initialization______//
 
-    __delay_ms(1000); //Delay for UART communication
+
+    
+    __delay_ms(1000); //Delay for to stop error bits in UART
+
     connectionState = DISCONNECTED; //Initialize connection state
     char str[40]; //String length for all sprintf functions
     int phoneInput; //Data Sent from SmartPhone
     int currentBiteLogicValue = 0;
-    //float volt = 0;
-    //int ADC;
+   
+    //***Initialization of GPIO pins***//
     TRISC5 = 0; //Connection LED
     TRISC4 = 0; //Bite LED
-    TRISB0 = 1; //Initialize RB0 as input
+    TRISB0 = 1; //Initialize RB0 as input for ADC
     TRISB3 = 0; //Initialize RB3 as output
-    //TRISC4 = 0; //BITE OUTPUT
-    TRISB5 = 0; //Solenoid Drive 
+    TRISB5 = 0; //Solenoid Drive [RB5 = 1 = Solenoid ON] ; [RB5 = 0 = Solenoid OFF]
+    
+               
     RB5 = 0;
     RC4 = 0;
     RC5 = 0;
-
+    //______End of GPIO Initialization______//
+    
     while (1) {
         updateConnectionState();
         monitorSolenoidSignal();
@@ -132,19 +88,22 @@ void main(void) {
 
         switch (connectionState) {
             case DISCONNECTED:
-                RC4 = 0; //IDK why I need this but I do
+               // RC4 = 0; //IDK why I need this but I do
                 RC5 = 1; //Turn on LED
                 __delay_ms(100);
                 RC5 = 0; //Turn on LED
                 __delay_ms(100);
-                RC4 = 0; //IDK why I need this but I do
+                //RC4 = 0; //IDK why I need this but I do
                 // break;
 
                 break;
             case CONNECTED:
+                broadcastTempValue();
 
                 // Send Current Average to phone
                 sendADCToPhone();
+
+                
 
                 phoneInput = UART_get_char();
 
@@ -167,18 +126,8 @@ void main(void) {
 
                     if (phoneInput == '2') //If the user sends "2"
                     {
-                        if (ow_reset() == 1) {
-                            UART_send_string("Temp. NOT connected");
-                            UART_send_char(10);
-                        }
-
-                        if (ow_reset() == 0) {
-                            UART_send_string("Temp. IS connected");
-                            UART_send_char(10);
-                            sprintf(str, "Water Temp: %d", read_temp());
-                            UART_send_string(str);
-                            UART_send_char(10);
-                        }
+                        int temp = read_temp();
+                        sendTemp(temp);
                     }
 
                     if (phoneInput == '3') //If the user sends "3"
@@ -194,9 +143,9 @@ void main(void) {
                         sum1 = 0;
                     }
 
-                    if (phoneInput == '4') //If the user sends "3"
+                    if (phoneInput == '4') //If the user sends "4"
                     {
-                        printCounter();
+                        toggleAutoHook();
                     }
                 }
         }

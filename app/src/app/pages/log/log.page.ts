@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, OnInit, ViewChild } from '@angular/core';
-import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import { MatTabGroup } from '@angular/material/tabs';
 import { Observable } from 'rxjs';
 
 import { FirebaseService, ILogDatabase, Image, NetworkService } from '../../core';
@@ -12,24 +12,14 @@ import { FirebaseService, ILogDatabase, Image, NetworkService } from '../../core
 })
 export class LogPage implements OnInit, AfterViewInit {
   @ViewChild("tabs") tabs: MatTabGroup;
-  @ViewChild("tab1") tab1: MatTab;
 
-  selectedTab = 1;
+  selectedTab = 0;
 
   status: Observable<boolean>;
   networkStatus = false;
 
   logs$: Observable<ILogDatabase[]>;
-  uncategorizedImages$: Observable<Image[]>;
-
-  slideOpts = {
-    loop: true,
-    // height: 200,
-    autoHeight: true,
-    preloadImages: false,
-    // Enable lazy loading
-    lazy: true
-  };
+  uncategorizedImages: Observable<Image[]>;
 
   constructor(
     private fb: FirebaseService,
@@ -41,7 +31,8 @@ export class LogPage implements OnInit, AfterViewInit {
   ngOnInit() {
     this.status = this.network.status.asObservable();
     this.logs$ = this.fb.getLogs();
-    this.uncategorizedImages$ = this.fb.getUncategorizedImages();
+    this.uncategorizedImages = this.fb.getUncategorizedImages();
+
     this.network.status.asObservable().subscribe(status => {
       this.networkStatus = status;
       this.zone.run(() => {
@@ -52,7 +43,7 @@ export class LogPage implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.selectedTab = 0;
+      this.tabs.realignInkBar();
       this.cd.detectChanges();
     }, 250);
   }

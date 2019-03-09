@@ -12,6 +12,16 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+// Required
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/carousel";
+@import "~font-awesome/css/font-awesome.css";
+
+
+
+
 .mat-form-field {
     width: 100%;
 

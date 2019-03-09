@@ -112,7 +112,7 @@ export class SettingsContentComponent implements OnInit {
     this.send("1");
   }
   sendTwo() {
-    this.send("2");
+    this.bobber.requestTemp();
   }
   sendThree() {
     this.send("3");

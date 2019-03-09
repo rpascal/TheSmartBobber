@@ -9,21 +9,26 @@
 
 
 
-float MAX_SOLENOID_ON = .2;
-float MAX_SOLENOID_DELAY_BETWEEN_ON = 5;
+float MAX_SOLENOID_ON = .5;
+float MAX_SOLENOID_DELAY_BETWEEN_ON = 1;
+unsigned int MAX_ADC_TO_ACTIVE = 120;
 int count = 0;
 int iterationsPerAverage = 10;
-int mean = 0;
-int oldMean = 0;
+unsigned int currentSolenoidValue = 0;
 int threshold = 10;
 double startSolenoidOnClock;
+double lastBiteSendUART;
 bool isSolenoidOn = false;
 bool isSolenoidOnMessageTrigger = false;
 bool isSolenoidOffMessageTrigger = false;
+bool isAutoHookEnabled = true;
 
 void ADC_Initialize(void) {
     ADCON0 = 0x41; //ADC ON and Fosc/16 is selected
     ADCON1 = 0xC0; // Internal reference voltage is selected
+    startSolenoidOnClock = getCounter();
+    lastBiteSendUART = getCounter();
+
 }
 
 unsigned int ADC_Read(void) {
@@ -37,52 +42,25 @@ unsigned int ADC_Read(void) {
 }
 
 void monitorSolenoidSignal(void) {
-    //    if (isSolenoidOn) {
-    //        return; // Solenoid is currently on so need to monitor its values
-    //    }
-
-    if (count >= iterationsPerAverage) //sets count to 0 when count = iterationsPerAverage
+    currentSolenoidValue = ADC_Read();
+    if (!isSolenoidOn && currentSolenoidValue >= MAX_ADC_TO_ACTIVE) // Some condition that says we want to turn on solenoid
     {
-        count = 0;
-    }
-
-    int newValue = ADC_Read();
-
-    count++;
-
-    int differential = (newValue - mean) / count;
-    int newMean = mean + differential;
-    mean = newMean;
-
-    if (count % iterationsPerAverage == 0) //Runs if remainder is 0
-    {
-        //       if (oldMean > 0 && abs(oldMean - mean) >= threshold) // Some condition that says we want to turn on solenoid
-        //       {
-        //           turnOnSolenoid();
-        //      }
-        if (!isSolenoidOn && mean >= 100) // Some condition that says we want to turn on solenoid
-        {
-            turnOnSolenoid();
-        }
-        oldMean = mean;
-        mean = 0;
+        turnOnSolenoid();
     }
 }
 
 void turnOnSolenoid(void) {
-    double time_ellapsed = 0;
-
-    if (startSolenoidOnClock != NULL) {
-        time_ellapsed = timeEllapsed(startSolenoidOnClock);
+    if (!isAutoHookEnabled) {
+        return;
     }
 
-    if (startSolenoidOnClock = NULL || time_ellapsed > MAX_SOLENOID_DELAY_BETWEEN_ON) {
+    if (timeEllapsed(startSolenoidOnClock) > MAX_SOLENOID_DELAY_BETWEEN_ON) {
         isSolenoidOn = true;
         RC4 = 1; // LED on for bite
         RB5 = 1; //Turn on solenoid 
         isSolenoidOnMessageTrigger = true;
     }
-    startSolenoidOnClock = getCounter(); 
+    startSolenoidOnClock = getCounter();
 }
 
 void isSolenoidOnMonitor(void) {
@@ -90,11 +68,7 @@ void isSolenoidOnMonitor(void) {
         return; // We didnt trigger solenoid to be on so leave
     }
 
-
-    double time_taken = timeEllapsed(startSolenoidOnClock);
-
-
-    if (time_taken > MAX_SOLENOID_ON) // Solenoid has been on for at least MAX_SOLENOID_ON
+    if (timeEllapsed(startSolenoidOnClock) > MAX_SOLENOID_ON) // Solenoid has been on for at least MAX_SOLENOID_ON
     {
         RC4 = 0; //LED OFF for bite
         RB5 = 0; //Turn OFF solenoid 
@@ -104,9 +78,10 @@ void isSolenoidOnMonitor(void) {
 }
 
 void sendADCToPhone(void) {
-    if (count % iterationsPerAverage == 0) {
+    if (timeEllapsed(lastBiteSendUART) > .005) {
+        lastBiteSendUART = getCounter();
         char str[30];
-        sprintf(str, "%d", oldMean);
+        sprintf(str, "%d", currentSolenoidValue);
         UART_send_bite(str); // contiously send the mean to phone for graph
     }
 
@@ -122,4 +97,8 @@ void sendADCToPhone(void) {
 
         isSolenoidOffMessageTrigger = false;
     }
+}
+
+void toggleAutoHook(void) {
+    isAutoHookEnabled = !isAutoHookEnabled;
 }

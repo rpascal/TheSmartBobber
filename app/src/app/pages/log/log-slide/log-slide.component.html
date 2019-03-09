@@ -1,0 +1,7 @@
+<ngb-carousel #carousel  [showNavigationArrows]="images.length > 1" [showNavigationIndicators]="images.length > 1">
+  <ng-template ngbSlide *ngFor='let image of images'>
+    <img [src]="image.url" alt="Random first slide" [ngClass]="{'tallerImg': taller}">
+    <!-- <img [defaultImage]="'assets/loading.gif'" [lazyLoad]="image.url" [offset]="100" [ngClass]="{'tallerImg': taller}"> -->
+
+  </ng-template>
+</ngb-carousel>
