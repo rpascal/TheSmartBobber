@@ -11423,6 +11423,64 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="FS8205">
+<packages>
+<package name="SOT-23-6">
+<smd name="1" x="-1.1" y="0.95" dx="0.6" dy="0.5" layer="1"/>
+<smd name="2" x="-1.1" y="0" dx="0.6" dy="0.5" layer="1"/>
+<smd name="3" x="-1.1" y="-0.95" dx="0.6" dy="0.5" layer="1"/>
+<smd name="6" x="1.1" y="0.95" dx="0.6" dy="0.5" layer="1"/>
+<smd name="5" x="1.1" y="0" dx="0.6" dy="0.5" layer="1"/>
+<smd name="4" x="1.1" y="-0.95" dx="0.6" dy="0.5" layer="1"/>
+<circle x="-1.25" y="1.05" radius="0.070709375" width="0" layer="21"/>
+<wire x1="0.8" y1="1.45" x2="0.8" y2="-1.45" width="0.127" layer="51"/>
+<wire x1="0.8" y1="-1.45" x2="-0.8" y2="-1.45" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="-1.45" x2="-0.8" y2="1.45" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="1.45" x2="0.8" y2="1.45" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="1.45" x2="0.8" y2="1.45" width="0.127" layer="21"/>
+<wire x1="-0.8" y1="-1.45" x2="0.8" y2="-1.45" width="0.127" layer="21"/>
+<text x="-0.85" y="1.6" size="0.3048" layer="25">FS8205</text>
+<text x="-0.85" y="2" size="0.3048" layer="25">N-MOS</text>
+</package>
+</packages>
+<symbols>
+<symbol name="FS8205">
+<pin name="S1" x="-10.16" y="5.08" length="middle"/>
+<pin name="D12" x="-10.16" y="0" length="middle"/>
+<pin name="S2" x="-10.16" y="-5.08" length="middle"/>
+<pin name="G1" x="12.7" y="5.08" length="middle" rot="R180"/>
+<pin name="_" x="12.7" y="0" length="middle" rot="R180"/>
+<pin name="G2" x="12.7" y="-5.08" length="middle" rot="R180"/>
+<wire x1="-5.08" y1="7.62" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
+<text x="-5.08" y="7.62" size="1.778" layer="95">FS8205</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="FS8205">
+<gates>
+<gate name="G$1" symbol="FS8205" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT-23-6">
+<connects>
+<connect gate="G$1" pin="D12" pad="2"/>
+<connect gate="G$1" pin="G1" pad="6"/>
+<connect gate="G$1" pin="G2" pad="4"/>
+<connect gate="G$1" pin="S1" pad="1"/>
+<connect gate="G$1" pin="S2" pad="3"/>
+<connect gate="G$1" pin="_" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11516,6 +11574,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND11" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="U1" library="SparkFun-IC-Power" deviceset="MCP73831" device=""/>
 <part name="U$3" library="FS312F-G" deviceset="FS312F-G" device=""/>
+<part name="U$4" library="FS8205" deviceset="FS8205" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12219,9 +12278,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="SUPPLY5" gate="GND" x="144.78" y="15.24" smashed="yes">
 <attribute name="VALUE" x="142.875" y="12.065" size="1.778" layer="96"/>
 </instance>
-<instance part="S1" gate="G$1" x="193.04" y="66.04" smashed="yes">
-<attribute name="NAME" x="185.417090625" y="71.121940625" size="1.270490625" layer="95"/>
-<attribute name="VALUE" x="185.411440625" y="60.954290625" size="1.27143125" layer="96"/>
+<instance part="S1" gate="G$1" x="193.04" y="104.14" smashed="yes">
+<attribute name="NAME" x="185.417090625" y="109.221940625" size="1.270490625" layer="95"/>
+<attribute name="VALUE" x="185.411440625" y="99.054290625" size="1.27143125" layer="96"/>
 </instance>
 <instance part="U2" gate="G$1" x="274.32" y="53.34" smashed="yes" rot="MR0">
 <attribute name="NAME" x="252.73" y="60.96" size="1.778" layer="95" rot="MR0" align="center-left"/>
@@ -12320,6 +12379,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="VALUE" x="83.82" y="30.48" size="1.778" layer="96"/>
 </instance>
 <instance part="U$3" gate="G$1" x="185.42" y="53.34" smashed="yes" rot="R180"/>
+<instance part="U$4" gate="G$1" x="210.82" y="76.2" smashed="yes"/>
 </instances>
 <busses>
 </busses>
@@ -12522,18 +12582,18 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="246.38" y1="48.26" x2="246.38" y2="50.8" width="0.1524" layer="91"/>
 <junction x="246.38" y="50.8"/>
 <wire x1="241.3" y1="50.8" x2="246.38" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="241.3" y1="50.8" x2="241.3" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="S1" gate="G$1" pin="2"/>
-<wire x1="241.3" y1="66.04" x2="200.66" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="50.8" x2="241.3" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="330.2" y1="83.82" x2="241.3" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="241.3" y1="83.82" x2="241.3" y2="66.04" width="0.1524" layer="91"/>
-<junction x="241.3" y="66.04"/>
 <pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="241.3" y1="50.8" x2="241.3" y2="38.1" width="0.1524" layer="91"/>
 <junction x="241.3" y="50.8"/>
 <pinref part="C13" gate="G$1" pin="1"/>
 <wire x1="330.2" y1="48.26" x2="330.2" y2="38.1" width="0.1524" layer="91"/>
 <junction x="330.2" y="48.26"/>
+<pinref part="S1" gate="G$1" pin="2"/>
+<wire x1="200.66" y1="104.14" x2="241.3" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="104.14" x2="241.3" y2="83.82" width="0.1524" layer="91"/>
+<junction x="241.3" y="83.82"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -12573,8 +12633,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <junction x="144.78" y="50.8"/>
 <pinref part="S1" gate="G$1" pin="1"/>
 <wire x1="134.62" y1="50.8" x2="144.78" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="50.8" x2="144.78" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="68.58" x2="185.42" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="50.8" x2="144.78" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="106.68" x2="185.42" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="R15" gate="G$1" pin="1"/>
 <wire x1="144.78" y1="50.8" x2="154.94" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="50.8" x2="134.62" y2="40.64" width="0.1524" layer="91"/>
