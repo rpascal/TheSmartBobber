@@ -48,6 +48,7 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
       options: {
         animation: false,
         responsive: true,
+        bezierCurve : true,
         legend: {
           display: false
         },
@@ -59,7 +60,6 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
             {
               display: false,
               ticks: {
-                // beginAtZero: true,
                 steps: this.MAX,
                 stepValue: 1,
                 max: this.MAX,

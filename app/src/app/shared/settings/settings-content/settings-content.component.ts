@@ -16,6 +16,7 @@ export class SettingsContentComponent implements OnInit {
   ledStatus = false;
   vibrationStatus = true;
   soundStatus = true;
+  autohook = true;
 
   connectionStatusMessage$: Observable<string>;
 
@@ -37,20 +38,27 @@ export class SettingsContentComponent implements OnInit {
     this.sounds.active.asObservable().subscribe(data => {
       this.soundStatus = data;
     });
+
+    this.bobber.led.asObservable().subscribe(data => {
+      this.ledStatus = data;
+    });
+
+    this.bobber.autohook.asObservable().subscribe(data => {
+      this.autohook = data;
+    });
+
     this.connectionStatusMessage$ = this.bobber.connectionStatusMessage$;
     this.connectionStatusMessage$.subscribe(data => {
       this.cd.detectChanges();
     });
   }
 
-  async ledChange() {
-    try {
-      const result = await this.bobber.write(this.ledStatus ? "1" : "0");
-      // this.logsService.addMessage(result, ControlsPage.name);
-    } catch (err) {
-      this.toast.message(`Error send message ${err}`);
-      this.logsService.addError(err);
-    }
+  ledChange() {
+    this.bobber.setLED(this.ledStatus);
+  }
+
+  autoHookChange() {
+    this.bobber.setAutohook(this.autohook);
   }
 
   vibrationChange() {

@@ -6,6 +6,7 @@ import { concat, map, mergeMap, retryWhen, take, takeUntil, tap, zip } from 'rxj
 
 import { CoreModule } from '../core.module';
 import { LogsService } from '../logs-service/logs.service';
+import { StorageService } from '../storage/storage.service';
 import { ToastService } from '../toast/toast.serivce';
 
 export interface IDevice {
@@ -33,7 +34,8 @@ export abstract class BluetoothSerialService {
     protected router: Router,
     protected toastService: ToastService,
     protected zone: NgZone,
-    protected logsService: LogsService
+    protected logsService: LogsService,
+    protected storage: StorageService
   ) {}
 
   abstract onConnect(): void;

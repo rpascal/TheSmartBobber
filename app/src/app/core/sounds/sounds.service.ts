@@ -22,7 +22,6 @@ export class SoundsService {
   active = new BehaviorSubject<boolean>(true);
 
   private sounds: Sound[] = [];
-  // private audioPlayer: HTMLAudioElement = new Audio();
   private forceWeb = true;
 
   constructor(
@@ -60,23 +59,29 @@ export class SoundsService {
         key: key,
         play: async () => {
           try {
-            const value = await this.nativeAudio.play(key);
+            await this.nativeAudio.play(key);
           } catch (err) {
             this.log.addError(`Error playing audio ${err}`, SoundsService.name);
           }
         }
       });
     } else {
-      const audio = new Audio();
-      audio.src = asset;
-
+      const audio = new Audio(asset);
+      let retryOnce = true;
       this.sounds.push({
         key: key,
         play: async () => {
           try {
-            const value = await audio.play();
+            await audio.play();
+            retryOnce = true;
           } catch (err) {
             this.log.addError(`Error playing audio ${err}`, SoundsService.name);
+            if (retryOnce) {
+              setTimeout(() => this.play(key), 10);
+              retryOnce = false;
+            } else {
+              retryOnce = true;
+            }
           }
         }
       });
@@ -89,22 +94,7 @@ export class SoundsService {
         const soundToPlay = this.sounds.find(sound => {
           return sound.key === key;
         });
-
         soundToPlay.play();
-
-        // if (soundToPlay.isNative) {
-        //   this.nativeAudio.play(soundToPlay.asset).then(
-        //     res => {
-        //       console.log(res);
-        //     },
-        //     err => {
-        //       console.log(err);
-        //     }
-        //   );
-        // } else {
-        //   this.audioPlayer.src = soundToPlay.asset;
-        //   this.audioPlayer.play();
-        // }
       }
     });
   }
