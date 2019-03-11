@@ -1296,70 +1296,6 @@ In this library the device names are the same as the pin names of the symbols, t
 </deviceset>
 </devicesets>
 </library>
-<library name="AP910C">
-<packages>
-<package name="SOT23-5">
-<smd name="5" x="-0.95" y="1.2" dx="1.27" dy="0.635" layer="1" rot="R90"/>
-<smd name="1" x="-0.95" y="-1.2" dx="1.27" dy="0.635" layer="1" rot="R90"/>
-<smd name="2" x="0" y="-1.2" dx="1.27" dy="0.635" layer="1" rot="R90"/>
-<smd name="3" x="0.95" y="-1.2" dx="1.27" dy="0.635" layer="1" rot="R90"/>
-<smd name="4" x="0.95" y="1.2" dx="1.27" dy="0.635" layer="1" rot="R90"/>
-<circle x="-1.2" y="-1.75" radius="0.05" width="0" layer="21"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-1.5" y1="0.8" x2="-1.5" y2="-0.8" width="0.127" layer="21"/>
-<wire x1="-0.6" y1="0.8" x2="0.6" y2="0.8" width="0.127" layer="21"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.127" layer="21"/>
-<text x="-2.54" y="2.54" size="1.27" layer="25">AP9101C</text>
-<text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="AP9101C">
-<pin name="VM" x="15.24" y="2.54" length="middle" rot="R180"/>
-<pin name="VDD" x="-17.78" y="2.54" length="middle"/>
-<pin name="VSS" x="-17.78" y="-5.08" length="middle"/>
-<pin name="CO" x="5.08" y="-12.7" length="middle" rot="R90"/>
-<pin name="DO" x="-2.54" y="-12.7" length="middle" rot="R90"/>
-<wire x1="-12.7" y1="5.08" x2="-12.7" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="-7.62" x2="10.16" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-7.62" x2="10.16" y2="5.08" width="0.254" layer="94"/>
-<wire x1="10.16" y1="5.08" x2="-12.7" y2="5.08" width="0.254" layer="94"/>
-<text x="-12.7" y="7.62" size="1.778" layer="95">AP9101C</text>
-<text x="-12.7" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="AP9101C">
-<description>AP9101CAK-ABTRG1 Protection IC Chip
-
-The AP9101C is a protection IC designed with high precision voltage detection circuit.
-
-The AP9101C provides a function to protect batteries by detecting overcharge voltage, overdischarge voltage, overcharge current, overdischarge current and other abnormalities and turning off the external MOSFET switch.
-
-The AP9101C also has a built-in fixed time circuit (external capacitors are unnecessary), the protection circuitry can be comprised with fewer external components.</description>
-<gates>
-<gate name="G$1" symbol="AP9101C" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23-5">
-<connects>
-<connect gate="G$1" pin="CO" pad="5"/>
-<connect gate="G$1" pin="DO" pad="4"/>
-<connect gate="G$1" pin="VDD" pad="2"/>
-<connect gate="G$1" pin="VM" pad="1"/>
-<connect gate="G$1" pin="VSS" pad="3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="JS102011SAQN">
 <packages>
 <package name="SW_JS102011SAQN">
@@ -1426,78 +1362,6 @@ JS10 Series SPDT On-On 6 V 0.3 A Gull Wing SMT Slide Switch&amp;lt;/b&amp;gt;&lt
 <attribute name="MF" value="C&amp;K"/>
 <attribute name="MP" value="JS102011SAQN"/>
 <attribute name="PACKAGE" value="None"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="ZXM61N02F">
-<packages>
-<package name="SOT23W">
-<description>&lt;b&gt;SMALL OUTLINE TRANSISTOR&lt;/b&gt;&lt;p&gt;
-wave soldering</description>
-<wire x1="-1.973" y1="1.983" x2="1.973" y2="1.983" width="0.0508" layer="39"/>
-<wire x1="1.973" y1="-1.983" x2="-1.973" y2="-1.983" width="0.0508" layer="39"/>
-<wire x1="-1.973" y1="-1.983" x2="-1.973" y2="1.983" width="0.0508" layer="39"/>
-<wire x1="1.973" y1="1.983" x2="1.973" y2="-1.983" width="0.0508" layer="39"/>
-<wire x1="1.422" y1="0.66" x2="1.422" y2="-0.66" width="0.1524" layer="51"/>
-<wire x1="1.422" y1="-0.66" x2="-1.422" y2="-0.66" width="0.1524" layer="51"/>
-<wire x1="-1.422" y1="-0.66" x2="-1.422" y2="0.66" width="0.1524" layer="51"/>
-<wire x1="-1.422" y1="0.66" x2="1.422" y2="0.66" width="0.1524" layer="51"/>
-<text x="-2.03396875" y="2.07415" size="1.272490625" layer="25">&gt;NAME</text>
-<text x="-1.99523125" y="-3.37066875" size="1.270209375" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.228853125" y1="0.711990625" x2="0.2286" y2="1.2954" layer="51"/>
-<rectangle x1="0.7114875" y1="-1.29591875" x2="1.1684" y2="-0.7112" layer="51"/>
-<rectangle x1="-1.17043125" y1="-1.29765" x2="-0.7112" y2="-0.7112" layer="51"/>
-<rectangle x1="-0.5008" y1="-0.5008" x2="0.5001" y2="0.5001" layer="35"/>
-<smd name="3" x="0" y="1.303" dx="1" dy="1.4" layer="1"/>
-<smd name="2" x="0.95" y="-1.303" dx="1" dy="1.4" layer="1"/>
-<smd name="1" x="-0.95" y="-1.303" dx="1" dy="1.4" layer="1"/>
-</package>
-</packages>
-<symbols>
-<symbol name="N-CH_MOSFET">
-<wire x1="-2.54" y1="-2.54" x2="-1.2192" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="0.762" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="-0.762" width="0.254" layer="94"/>
-<wire x1="0" y1="3.683" x2="0" y2="1.397" width="0.254" layer="94"/>
-<wire x1="1.905" y1="0.635" x2="0.635" y2="0" width="0.254" layer="94"/>
-<wire x1="1.905" y1="-0.635" x2="0.635" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="0.635" y2="0" width="0.1524" layer="94"/>
-<wire x1="0.635" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="0" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1.397" x2="0" y2="-3.683" width="0.254" layer="94"/>
-<wire x1="-1.143" y1="2.54" x2="-1.143" y2="-2.54" width="0.254" layer="94"/>
-<text x="-11.4446" y="0" size="1.78026875" layer="96">&gt;VALUE</text>
-<text x="-11.4415" y="2.542559375" size="1.779790625" layer="95">&gt;NAME</text>
-<pin name="D" x="5.08" y="2.54" visible="off" length="middle" direction="pas" rot="R180"/>
-<pin name="S" x="5.08" y="-2.54" visible="off" length="middle" direction="pas" rot="R180"/>
-<pin name="G" x="-5.08" y="-2.54" visible="off" length="short" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="ZXM61N02F">
-<description>N-Ch Enhancement MOSFET, Logic Level (SOT23)</description>
-<gates>
-<gate name="G$1" symbol="N-CH_MOSFET" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23W">
-<connects>
-<connect gate="G$1" pin="D" pad="3"/>
-<connect gate="G$1" pin="G" pad="1"/>
-<connect gate="G$1" pin="S" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AVAILABILITY" value="Unavailable"/>
-<attribute name="DESCRIPTION" value=" N CHANNEL MOSFET, 20V, 1.7A, SOT-23; Transistor Polarity: N Channel; Continuous Drain Current Id: 1.7A; Drain Source ... "/>
-<attribute name="MF" value="Diodes Inc."/>
-<attribute name="MP" value="ZXM61N02F"/>
-<attribute name="PACKAGE" value="SOT-23-3 Diodes Inc."/>
-<attribute name="PRICE" value="None"/>
 </technology>
 </technologies>
 </device>
@@ -11501,6 +11365,64 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="FS312F-G">
+<packages>
+<package name="SOT-23-6">
+<smd name="1" x="-1.1" y="0.95" dx="0.6" dy="0.5" layer="1"/>
+<smd name="2" x="-1.1" y="0" dx="0.6" dy="0.5" layer="1"/>
+<smd name="3" x="-1.1" y="-0.95" dx="0.6" dy="0.5" layer="1"/>
+<smd name="6" x="1.1" y="0.95" dx="0.6" dy="0.5" layer="1"/>
+<smd name="5" x="1.1" y="0" dx="0.6" dy="0.5" layer="1"/>
+<smd name="4" x="1.1" y="-0.95" dx="0.6" dy="0.5" layer="1"/>
+<circle x="-1.25" y="1.05" radius="0.070709375" width="0" layer="21"/>
+<wire x1="0.8" y1="1.45" x2="0.8" y2="-1.45" width="0.127" layer="51"/>
+<wire x1="0.8" y1="-1.45" x2="-0.8" y2="-1.45" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="-1.45" x2="-0.8" y2="1.45" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="1.45" x2="0.8" y2="1.45" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="1.45" x2="0.8" y2="1.45" width="0.127" layer="21"/>
+<wire x1="-0.8" y1="-1.45" x2="0.8" y2="-1.45" width="0.127" layer="21"/>
+<text x="-0.95" y="1.7" size="0.3048" layer="25">FS312F-G</text>
+<text x="-0.95" y="2.2" size="0.3048" layer="25">Prot. Chip</text>
+</package>
+</packages>
+<symbols>
+<symbol name="FS312F-G">
+<pin name="OD" x="-15.24" y="7.62" length="middle"/>
+<pin name="CS" x="-15.24" y="2.54" length="middle"/>
+<pin name="OC" x="-15.24" y="-2.54" length="middle"/>
+<pin name="GND" x="10.16" y="7.62" length="middle" rot="R180"/>
+<pin name="VCC" x="10.16" y="2.54" length="middle" rot="R180"/>
+<pin name="TD" x="10.16" y="-2.54" length="middle" rot="R180"/>
+<wire x1="-10.16" y1="10.16" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="5.08" y2="10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
+<text x="-10.16" y="10.16" size="1.778" layer="95">FS312F-G</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="FS312F-G">
+<gates>
+<gate name="G$1" symbol="FS312F-G" x="2.54" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="SOT-23-6">
+<connects>
+<connect gate="G$1" pin="CS" pad="2"/>
+<connect gate="G$1" pin="GND" pad="6"/>
+<connect gate="G$1" pin="OC" pad="3"/>
+<connect gate="G$1" pin="OD" pad="1"/>
+<connect gate="G$1" pin="TD" pad="4"/>
+<connect gate="G$1" pin="VCC" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11517,10 +11439,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="GND1"/>
 <part name="SUPPLY4" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="GND1"/>
 <part name="SUPPLY5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="GND1"/>
-<part name="U$4" library="AP910C" deviceset="AP9101C" device=""/>
 <part name="S1" library="JS102011SAQN" deviceset="JS102011SAQN" device=""/>
-<part name="U$5" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
-<part name="U$6" library="ZXM61N02F" deviceset="ZXM61N02F" device=""/>
 <part name="U2" library="MT3608" deviceset="MT3608" device=""/>
 <part name="D4" library="SS34" deviceset="SS34" device=""/>
 <part name="J1" library="10118193-0001LF" deviceset="10118193-0001LF" device=""/>
@@ -11530,7 +11449,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="10UH" library="MLZ2012N100LT000" deviceset="MLZ2012N100LT000" device=""/>
 <part name="R13" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805" value="2k"/>
 <part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="470"/>
-<part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="330"/>
+<part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="100"/>
 <part name="R16" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value=" 2.7K"/>
 <part name="R17" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value=" 1.5K"/>
 <part name="C9" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="4.7uF"/>
@@ -11596,6 +11515,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C6" library="SparkFun-Capacitors" deviceset="0.1UF" device="-0603-25V-5%" value="0.1uF"/>
 <part name="GND11" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="U1" library="SparkFun-IC-Power" deviceset="MCP73831" device=""/>
+<part name="U$3" library="FS312F-G" deviceset="FS312F-G" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12299,16 +12219,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="SUPPLY5" gate="GND" x="144.78" y="15.24" smashed="yes">
 <attribute name="VALUE" x="142.875" y="12.065" size="1.778" layer="96"/>
 </instance>
-<instance part="U$4" gate="G$1" x="195.58" y="48.26" smashed="yes"/>
 <instance part="S1" gate="G$1" x="193.04" y="66.04" smashed="yes">
 <attribute name="NAME" x="185.417090625" y="71.121940625" size="1.270490625" layer="95"/>
 <attribute name="VALUE" x="185.411440625" y="60.954290625" size="1.27143125" layer="96"/>
-</instance>
-<instance part="U$5" gate="G$1" x="195.58" y="25.4" smashed="yes" rot="R270">
-<attribute name="VALUE" x="190.5" y="21.5754" size="1.78026875" layer="96" rot="R90"/>
-</instance>
-<instance part="U$6" gate="G$1" x="205.74" y="25.4" smashed="yes" rot="MR270">
-<attribute name="VALUE" x="210.82" y="21.5754" size="1.78026875" layer="96" rot="MR90"/>
 </instance>
 <instance part="U2" gate="G$1" x="274.32" y="53.34" smashed="yes" rot="MR0">
 <attribute name="NAME" x="252.73" y="60.96" size="1.778" layer="95" rot="MR0" align="center-left"/>
@@ -12406,6 +12319,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="NAME" x="83.82" y="43.688" size="1.778" layer="95"/>
 <attribute name="VALUE" x="83.82" y="30.48" size="1.778" layer="96"/>
 </instance>
+<instance part="U$3" gate="G$1" x="185.42" y="53.34" smashed="yes" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -12419,24 +12333,22 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </segment>
 <segment>
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
-<pinref part="U$5" gate="G$1" pin="S"/>
 <wire x1="144.78" y1="20.32" x2="144.78" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="20.32" x2="167.64" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="20.32" x2="175.26" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="175.26" y1="20.32" x2="193.04" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="VSS"/>
-<wire x1="177.8" y1="43.18" x2="175.26" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="175.26" y1="43.18" x2="175.26" y2="20.32" width="0.1524" layer="91"/>
-<junction x="175.26" y="20.32"/>
+<wire x1="167.64" y1="20.32" x2="193.04" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="2"/>
-<wire x1="167.64" y1="33.02" x2="167.64" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="33.02" x2="167.64" y2="27.94" width="0.1524" layer="91"/>
 <junction x="167.64" y="20.32"/>
 <pinref part="J6" gate="G$1" pin="2"/>
+<wire x1="167.64" y1="27.94" x2="167.64" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="38.1" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
 <junction x="144.78" y="20.32"/>
+<wire x1="167.64" y1="27.94" x2="175.26" y2="27.94" width="0.1524" layer="91"/>
+<junction x="167.64" y="27.94"/>
+<pinref part="U$3" gate="G$1" pin="GND"/>
+<wire x1="175.26" y1="27.94" x2="175.26" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="S"/>
 <pinref part="U2" gate="G$1" pin="GND"/>
 <wire x1="220.98" y1="20.32" x2="208.28" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="274.32" y1="50.8" x2="276.86" y2="50.8" width="0.1524" layer="91"/>
@@ -12506,44 +12418,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </net>
 <net name="N$20" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="VDD"/>
 <wire x1="165.1" y1="50.8" x2="167.64" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="C12" gate="G$1" pin="1"/>
-<wire x1="167.64" y1="50.8" x2="177.8" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="50.8" x2="167.64" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="G$1" pin="VCC"/>
+<wire x1="167.64" y1="50.8" x2="175.26" y2="50.8" width="0.1524" layer="91"/>
 <junction x="167.64" y="50.8"/>
-</segment>
-</net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="D"/>
-<pinref part="U$6" gate="G$1" pin="D"/>
-<wire x1="198.12" y1="20.32" x2="203.2" y2="20.32" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="G"/>
-<pinref part="U$4" gate="G$1" pin="DO"/>
-<wire x1="193.04" y1="30.48" x2="193.04" y2="35.56" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$23" class="0">
-<segment>
-<pinref part="U$4" gate="G$1" pin="CO"/>
-<wire x1="200.66" y1="35.56" x2="200.66" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="33.02" x2="208.28" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="G"/>
-<wire x1="208.28" y1="33.02" x2="208.28" y2="30.48" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="U$4" gate="G$1" pin="VM"/>
-<wire x1="210.82" y1="50.8" x2="220.98" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="R16" gate="G$1" pin="2"/>
-<wire x1="220.98" y1="50.8" x2="220.98" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
