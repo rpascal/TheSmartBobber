@@ -11460,6 +11460,55 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="WNER50FET">
+<packages>
+<package name="RESISTOR">
+<pad name="1" x="-16.25" y="0" drill="1.1" shape="square"/>
+<pad name="2" x="16.25" y="0" drill="1.1" shape="square"/>
+<wire x1="-10" y1="3.75" x2="-10" y2="-3.75" width="0.127" layer="51"/>
+<wire x1="-10" y1="-3.75" x2="10" y2="-3.75" width="0.127" layer="51"/>
+<wire x1="10" y1="-3.75" x2="10" y2="3.75" width="0.127" layer="51"/>
+<wire x1="10" y1="3.75" x2="-10" y2="3.75" width="0.127" layer="51"/>
+<wire x1="-10" y1="3.75" x2="10" y2="3.75" width="0.127" layer="21"/>
+<wire x1="10" y1="3.75" x2="10" y2="-3.75" width="0.127" layer="21"/>
+<wire x1="10" y1="-3.75" x2="-10" y2="-3.75" width="0.127" layer="21"/>
+<wire x1="-10" y1="-3.75" x2="-10" y2="3.75" width="0.127" layer="21"/>
+<text x="-10" y="4" size="0.4064" layer="25">WNER50FET</text>
+<text x="7" y="4" size="0.4064" layer="25">0.5ohm/5W</text>
+</package>
+</packages>
+<symbols>
+<symbol name="WNER50FET">
+<pin name="1" x="-10.16" y="0" length="middle"/>
+<pin name="2" x="10.16" y="0" length="middle" rot="R180"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="95">0.5ohm/5W</text>
+<wire x1="-5.08" y1="0" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="2.54" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="WNER50FET">
+<description>WNER50FET: 0.5ohm, 5W Resistor for 12V DC-DC Converter</description>
+<gates>
+<gate name="G$1" symbol="WNER50FET" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="RESISTOR">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11556,6 +11605,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GLED" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="5MM" package3d_urn="urn:adsk.eagle:package:15799/2"/>
 <part name="U$5" library="SCMRCapacitor" deviceset="SCMR18G604SRBA0" device=""/>
 <part name="U$6" library="SCMRCapacitor" deviceset="SCMR18G604SRBA0" device=""/>
+<part name="U$7" library="WNER50FET" deviceset="WNER50FET" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12364,6 +12414,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </instance>
 <instance part="U$5" gate="G$1" x="294.64" y="88.9" smashed="yes"/>
 <instance part="U$6" gate="G$1" x="320.04" y="88.9" smashed="yes"/>
+<instance part="U$7" gate="G$1" x="241.3" y="66.04" smashed="yes" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -12575,13 +12626,17 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="337.82" y1="45.72" x2="337.82" y2="48.26" width="0.1524" layer="91"/>
 <junction x="337.82" y="48.26"/>
 <wire x1="330.2" y1="48.26" x2="330.2" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="330.2" y1="83.82" x2="233.68" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="83.82" x2="241.3" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="C13" gate="G$1" pin="1"/>
+<wire x1="241.3" y1="83.82" x2="233.68" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="330.2" y1="48.26" x2="330.2" y2="38.1" width="0.1524" layer="91"/>
 <junction x="330.2" y="48.26"/>
 <pinref part="S1" gate="G$1" pin="2"/>
 <wire x1="203.2" y1="78.74" x2="233.68" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="78.74" x2="233.68" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="2"/>
+<wire x1="241.3" y1="83.82" x2="241.3" y2="76.2" width="0.1524" layer="91"/>
+<junction x="241.3" y="83.82"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -12687,6 +12742,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <junction x="246.38" y="50.8"/>
 <wire x1="241.3" y1="50.8" x2="246.38" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="241.3" y1="50.8" x2="241.3" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="1"/>
+<wire x1="241.3" y1="55.88" x2="241.3" y2="50.8" width="0.1524" layer="91"/>
+<junction x="241.3" y="50.8"/>
 </segment>
 </net>
 </nets>
