@@ -11416,6 +11416,50 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="SCMRCapacitor">
+<packages>
+<package name="SUPERCAP">
+<pad name="+" x="-6.75" y="0" drill="0.65" shape="square"/>
+<pad name="-" x="6.8" y="0" drill="0.65" shape="square"/>
+<wire x1="-12" y1="4" x2="-12" y2="-4.05" width="0.127" layer="51"/>
+<wire x1="-12" y1="-4.05" x2="12" y2="-4.05" width="0.127" layer="51"/>
+<wire x1="12" y1="-4.05" x2="12" y2="4" width="0.127" layer="51"/>
+<wire x1="12" y1="4" x2="-12" y2="4" width="0.127" layer="51"/>
+<text x="-11.8" y="4.3" size="0.4064" layer="25">SCMR18G604SRBA0</text>
+<text x="-11.85" y="4.9" size="0.4064" layer="25">Super Capacitor</text>
+</package>
+</packages>
+<symbols>
+<symbol name="SCMR18G604SRBA0">
+<pin name="+" x="-10.16" y="0" length="middle"/>
+<pin name="-" x="10.16" y="0" length="middle" rot="R180"/>
+<wire x1="-5.08" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-2.54" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
+<text x="-5.08" y="2.54" size="1.27" layer="95">SCMR18G604SRBA0</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SCMR18G604SRBA0">
+<description>SCMR18G604SRBA0: 0.6F/7.5V/1.77A</description>
+<gates>
+<gate name="G$1" symbol="SCMR18G604SRBA0" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SUPERCAP">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11510,6 +11554,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="U$3" library="FS312F-G" deviceset="FS312F-G" device=""/>
 <part name="U$4" library="FS8205" deviceset="FS8205" device=""/>
 <part name="GLED" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="5MM" package3d_urn="urn:adsk.eagle:package:15799/2"/>
+<part name="U$5" library="SCMRCapacitor" deviceset="SCMR18G604SRBA0" device=""/>
+<part name="U$6" library="SCMRCapacitor" deviceset="SCMR18G604SRBA0" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11805,7 +11851,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="81.28" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GND" class="0">
+<net name="_12V" class="0">
 <segment>
 <pinref part="D2" gate="G$1" pin="A"/>
 <wire x1="27.94" y1="81.28" x2="27.94" y2="76.2" width="0.1524" layer="91"/>
@@ -12316,11 +12362,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="NAME" x="67.056" y="30.988" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="69.215" y="30.988" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="U$5" gate="G$1" x="294.64" y="88.9" smashed="yes"/>
+<instance part="U$6" gate="G$1" x="320.04" y="88.9" smashed="yes"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="GND" class="0">
+<net name="_12V" class="0">
 <segment>
 <wire x1="20.32" y1="30.48" x2="33.02" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="SUPPLY1" gate="GND" pin="GND"/>
@@ -12360,7 +12408,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="414.02" y1="48.26" x2="416.56" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="416.56" y1="48.26" x2="416.56" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="416.56" y1="20.32" x2="330.2" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="330.2" y1="20.32" x2="304.8" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="20.32" x2="314.96" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="20.32" x2="304.8" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="426.72" y1="20.32" x2="416.56" y2="20.32" width="0.1524" layer="91"/>
 <junction x="416.56" y="20.32"/>
 <pinref part="R16" gate="G$1" pin="1"/>
@@ -12394,6 +12443,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U$4" gate="G$1" pin="S2"/>
 <wire x1="185.42" y1="27.94" x2="185.42" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="20.32" x2="220.98" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="U$6" gate="G$1" pin="-"/>
+<wire x1="330.2" y1="88.9" x2="335.28" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="335.28" y1="88.9" x2="335.28" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="335.28" y1="73.66" x2="314.96" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="73.66" x2="314.96" y2="20.32" width="0.1524" layer="91"/>
+<junction x="314.96" y="20.32"/>
+<wire x1="335.28" y1="88.9" x2="342.9" y2="88.9" width="0.1524" layer="91"/>
+<junction x="335.28" y="88.9"/>
+<label x="342.9" y="88.9" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="C9" gate="G$1" pin="2"/>
@@ -12473,17 +12531,20 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </net>
 <net name="12V" class="0">
 <segment>
+<wire x1="304.8" y1="81.28" x2="279.4" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="279.4" y1="81.28" x2="279.4" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="+"/>
+<wire x1="279.4" y1="88.9" x2="284.48" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="R12" gate="G$1" pin="E"/>
 <pinref part="D4" gate="A" pin="C"/>
 <wire x1="284.48" y1="73.66" x2="289.56" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="289.56" y1="73.66" x2="304.8" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R12" gate="G$1" pin="E"/>
 <wire x1="289.56" y1="73.66" x2="289.56" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="73.66" x2="304.8" y2="73.66" width="0.1524" layer="91"/>
 <junction x="289.56" y="73.66"/>
 <pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="304.8" y1="73.66" x2="304.8" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="304.8" y1="73.66" x2="312.42" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="73.66" x2="304.8" y2="81.28" width="0.1524" layer="91"/>
 <junction x="304.8" y="73.66"/>
-<label x="312.42" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -12619,6 +12680,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="GLED" gate="G$1" pin="C"/>
 <pinref part="R14" gate="G$1" pin="2"/>
 <wire x1="63.5" y1="30.48" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$19" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="-"/>
+<pinref part="U$6" gate="G$1" pin="+"/>
+<wire x1="304.8" y1="88.9" x2="309.88" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
