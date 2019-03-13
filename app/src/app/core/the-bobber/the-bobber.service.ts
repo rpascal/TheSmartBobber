@@ -56,7 +56,6 @@ export class TheBobberService extends BluetoothSerialService {
     protected storage: StorageService
   ) {
     super(bls, router, toastService, zone, logsService, storage);
-    this.appLoad();
 
     this.tempSubject
       .pipe(
@@ -118,6 +117,8 @@ export class TheBobberService extends BluetoothSerialService {
   }
 
   onConnect(): void {
+    this.appLoad();
+
     this.takeUntilBobber = new Subject();
 
     this.listenForData()
