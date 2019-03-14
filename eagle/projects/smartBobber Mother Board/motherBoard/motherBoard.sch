@@ -4184,65 +4184,6 @@ Cermet, abgedichtet nach IP67</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="1053131202">
-<packages>
-<package name="MOLEX_1053131202">
-<wire x1="-4.22" y1="-1.92" x2="1.72" y2="-1.92" width="0.127" layer="21"/>
-<wire x1="1.72" y1="-1.92" x2="1.72" y2="-10.38" width="0.127" layer="21"/>
-<wire x1="1.72" y1="-10.38" x2="-4.22" y2="-10.38" width="0.127" layer="21"/>
-<wire x1="-4.22" y1="-10.38" x2="-4.22" y2="-1.92" width="0.127" layer="21"/>
-<circle x="0.11" y="-1.384" radius="0.25" width="0" layer="21"/>
-<text x="-4.754759375" y="1.32081875" size="0.61136875" layer="25">&gt;NAME</text>
-<text x="-4.481809375" y="-11.4764" size="0.611484375" layer="27">&gt;VALUE</text>
-<wire x1="-4.47" y1="1.266" x2="1.97" y2="1.266" width="0.05" layer="39"/>
-<wire x1="1.97" y1="1.266" x2="1.97" y2="-10.63" width="0.05" layer="39"/>
-<wire x1="1.97" y1="-10.63" x2="-4.47" y2="-10.63" width="0.05" layer="39"/>
-<wire x1="-4.47" y1="-10.63" x2="-4.47" y2="1.266" width="0.05" layer="39"/>
-<pad name="1" x="0" y="0" drill="1.2" shape="square"/>
-<pad name="2" x="-2.5" y="0" drill="1.2"/>
-<hole x="0" y="-7.18" drill="1.7"/>
-<hole x="-2.5" y="-7.18" drill="1.7"/>
-</package>
-</packages>
-<symbols>
-<symbol name="1053131202">
-<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
-<text x="-2.548" y="3.0576" size="1.783609375" layer="95">&gt;NAME</text>
-<text x="-2.546459375" y="-7.639390625" size="1.78251875" layer="96">&gt;VALUE</text>
-<pin name="1" x="-5.08" y="0" length="short" direction="pas"/>
-<pin name="2" x="-5.08" y="-2.54" length="short" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="1053131202" prefix="J">
-<description>Nano-Fit Right Angle Header; Through Hole; 2.50mm; Single Row; 2 Circuit; Gold Plated</description>
-<gates>
-<gate name="G$1" symbol="1053131202" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="MOLEX_1053131202">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AVAILABILITY" value="Unavailable"/>
-<attribute name="DESCRIPTION" value=" Nano-Fit Right Angle Header; Through Hole; 2.50mm; Single Row; 2 Circuit; Gold Plated "/>
-<attribute name="MF" value="Molex"/>
-<attribute name="MP" value="1053131202"/>
-<attribute name="PACKAGE" value="None"/>
-<attribute name="PRICE" value="None"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="PIC16LF876A-I_SS">
 <packages>
 <package name="SOP254P785X200-28N">
@@ -11509,6 +11450,71 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="640456-2">
+<packages>
+<package name="TE_640456-2">
+<wire x1="3.81" y1="2.54" x2="-1.27" y2="2.54" width="0.127" layer="51"/>
+<wire x1="-1.27" y1="2.54" x2="-1.27" y2="-3.18" width="0.127" layer="51"/>
+<wire x1="-1.27" y1="-3.18" x2="3.81" y2="-3.18" width="0.127" layer="51"/>
+<wire x1="3.81" y1="-3.18" x2="3.81" y2="2.54" width="0.127" layer="51"/>
+<wire x1="3.81" y1="-3.18" x2="-1.27" y2="-3.18" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-3.18" x2="-1.27" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="2.54" x2="3.81" y2="-3.18" width="0.127" layer="21"/>
+<wire x1="4.06" y1="-3.43" x2="-1.52" y2="-3.43" width="0.05" layer="39"/>
+<wire x1="-1.52" y1="-3.43" x2="-1.52" y2="2.79" width="0.05" layer="39"/>
+<wire x1="-1.52" y1="2.79" x2="4.06" y2="2.79" width="0.05" layer="39"/>
+<wire x1="4.06" y1="2.79" x2="4.06" y2="-3.43" width="0.05" layer="39"/>
+<text x="-1.500540625" y="3.251159375" size="1.27045" layer="25">&gt;NAME</text>
+<text x="-1.50081875" y="-5.00271875" size="1.270690625" layer="27">&gt;VALUE</text>
+<circle x="0" y="3.25" radius="0.1" width="0.2" layer="21"/>
+<circle x="0" y="0" radius="0.1" width="0.2" layer="51"/>
+<pad name="2" x="2.54" y="0" drill="1.02" rot="R180"/>
+<pad name="1" x="0" y="0" drill="1.02" shape="square" rot="R180"/>
+</package>
+</packages>
+<symbols>
+<symbol name="640456-2">
+<wire x1="-5.08" y1="5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<text x="-5.08463125" y="6.101559375" size="1.271159375" layer="95">&gt;NAME</text>
+<text x="-5.087859375" y="-7.631790625" size="1.271959375" layer="96">&gt;VALUE</text>
+<pin name="P1" x="-7.62" y="2.54" length="short" direction="pas"/>
+<pin name="P2" x="-7.62" y="-2.54" length="short" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="640456-2" prefix="J">
+<description>CONN HEADER VERT 2POS .100 TIN</description>
+<gates>
+<gate name="G$1" symbol="640456-2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TE_640456-2">
+<connects>
+<connect gate="G$1" pin="P1" pad="1"/>
+<connect gate="G$1" pin="P2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="COMMENT" value="640456-2"/>
+<attribute name="DESCRIPTION" value=" 02P MTA100 HDR ASSY F/L SQ STR "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="A1921-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/640456-2/A1921-ND/109003?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="EU_ROHS_COMPLIANCE" value="Compliant"/>
+<attribute name="MF" value="TE Connectivity"/>
+<attribute name="MP" value="640456-2"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="TE_PURCHASE_URL" value="https://www.te.com/usa-en/product-640456-2.html?te_bu=Cor&amp;te_type=disp&amp;te_campaign=seda_glo_cor-seda-global-disp-prtnr-fy19-seda-model-bom-cta_sma-317_1&amp;elqCampaignId=32493"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11549,7 +11555,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="SUPPLY13" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY15" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J6" library="1053131202" deviceset="1053131202" device=""/>
 <part name="U$1" library="PIC16LF876A-I_SS" deviceset="PIC16LF876A-I/SS" device=""/>
 <part name="Y1" library="ECS-40-S-4X" deviceset="ECS-40-S-4X" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="22PF" device="-0603-50V-5%" value="22pF"/>
@@ -11606,6 +11611,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="U$5" library="SCMRCapacitor" deviceset="SCMR18G604SRBA0" device=""/>
 <part name="U$6" library="SCMRCapacitor" deviceset="SCMR18G604SRBA0" device=""/>
 <part name="U$7" library="WNER50FET" deviceset="WNER50FET" device=""/>
+<part name="J6" library="640456-2" deviceset="640456-2" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12398,10 +12404,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="SUPPLY15" gate="GND" x="289.56" y="15.24" smashed="yes">
 <attribute name="VALUE" x="287.655" y="12.065" size="1.778" layer="96"/>
 </instance>
-<instance part="J6" gate="G$1" x="149.86" y="40.64" smashed="yes">
-<attribute name="NAME" x="147.312" y="43.6976" size="1.783609375" layer="95"/>
-<attribute name="VALUE" x="147.313540625" y="33.000609375" size="1.78251875" layer="96"/>
-</instance>
 <instance part="U1" gate="G$1" x="91.44" y="38.1" smashed="yes">
 <attribute name="NAME" x="83.82" y="43.688" size="1.778" layer="95"/>
 <attribute name="VALUE" x="83.82" y="30.48" size="1.778" layer="96"/>
@@ -12415,6 +12417,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="U$5" gate="G$1" x="294.64" y="88.9" smashed="yes"/>
 <instance part="U$6" gate="G$1" x="320.04" y="88.9" smashed="yes"/>
 <instance part="U$7" gate="G$1" x="241.3" y="66.04" smashed="yes" rot="R90"/>
+<instance part="J6" gate="G$1" x="149.86" y="35.56" smashed="yes">
+<attribute name="NAME" x="144.77536875" y="41.661559375" size="1.271159375" layer="95"/>
+<attribute name="VALUE" x="144.772140625" y="27.928209375" size="1.271959375" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -12431,10 +12437,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="144.78" y1="20.32" x2="144.78" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="20.32" x2="167.64" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="2"/>
-<pinref part="J6" gate="G$1" pin="2"/>
 <wire x1="167.64" y1="33.02" x2="167.64" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="38.1" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
-<junction x="144.78" y="20.32"/>
 <wire x1="167.64" y1="20.32" x2="175.26" y2="20.32" width="0.1524" layer="91"/>
 <junction x="167.64" y="20.32"/>
 <wire x1="175.26" y1="20.32" x2="180.34" y2="20.32" width="0.1524" layer="91"/>
@@ -12445,6 +12448,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="185.42" y1="53.34" x2="175.26" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="53.34" x2="175.26" y2="20.32" width="0.1524" layer="91"/>
 <junction x="175.26" y="20.32"/>
+<pinref part="J6" gate="G$1" pin="P2"/>
+<wire x1="142.24" y1="33.02" x2="142.24" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="20.32" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
+<junction x="144.78" y="20.32"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="GND"/>
@@ -12675,10 +12682,12 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="144.78" y1="50.8" x2="154.94" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="50.8" x2="134.62" y2="40.64" width="0.1524" layer="91"/>
 <junction x="144.78" y="50.8"/>
-<pinref part="J6" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="50.8" x2="144.78" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="40.64" x2="134.62" y2="40.64" width="0.1524" layer="91"/>
 <junction x="121.92" y="40.64"/>
+<wire x1="144.78" y1="50.8" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="43.18" x2="142.24" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="J6" gate="G$1" pin="P1"/>
+<wire x1="142.24" y1="43.18" x2="142.24" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
