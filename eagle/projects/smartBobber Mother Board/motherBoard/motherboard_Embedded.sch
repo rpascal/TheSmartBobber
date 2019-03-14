@@ -1564,77 +1564,6 @@ Switches electrical signals</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="1N4002">
-<packages>
-<package name="DIOAD520W79L463D238">
-<wire x1="2.082" y1="-0.92" x2="-2.082" y2="-0.92" width="0.1524" layer="21"/>
-<wire x1="2.082" y1="-0.92" x2="2.082" y2="0.92" width="0.1524" layer="21"/>
-<wire x1="-2.082" y1="0.92" x2="2.082" y2="0.92" width="0.1524" layer="21"/>
-<wire x1="-2.082" y1="0.92" x2="-2.082" y2="-0.92" width="0.1524" layer="21"/>
-<wire x1="3.81" y1="0" x2="2.494" y2="0" width="0.85" layer="51"/>
-<wire x1="-3.81" y1="0" x2="-2.519" y2="0" width="0.85" layer="51"/>
-<wire x1="-0.635" y1="0" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="0.635" x2="1.016" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="-0.635" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="1.016" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="0.635" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="0" y2="-0.635" width="0.1524" layer="21"/>
-<text x="-5.03513125" y="1.40186875" size="1.270790625" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5.03861875" y="-2.674509375" size="1.27166875" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-1.653659375" y1="-0.95153125" x2="-1.143" y2="0.92" layer="21"/>
-<rectangle x1="2.08313125" y1="-0.42523125" x2="2.717" y2="0.425" layer="21"/>
-<rectangle x1="-2.71921875" y1="-0.425346875" x2="-2.082" y2="0.425" layer="21"/>
-<wire x1="-5" y1="1.25" x2="5.25" y2="1.25" width="0.127" layer="39"/>
-<wire x1="5.25" y1="1.25" x2="5.25" y2="-1.25" width="0.127" layer="39"/>
-<wire x1="5.25" y1="-1.25" x2="-5" y2="-1.25" width="0.127" layer="39"/>
-<wire x1="-5" y1="-1.25" x2="-5" y2="1.25" width="0.127" layer="39"/>
-<pad name="C" x="-3.81" y="0" drill="1.1" diameter="1.7"/>
-<pad name="A" x="3.81" y="0" drill="1.1" diameter="1.7"/>
-</package>
-</packages>
-<symbols>
-<symbol name="1N4002">
-<wire x1="-1.27" y1="-1.905" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.905" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="1.397" y1="1.905" x2="1.397" y2="-1.905" width="0.254" layer="94"/>
-<text x="-2.31448125" y="2.64511875" size="1.78036875" layer="95">&gt;NAME</text>
-<text x="-2.569559375" y="-4.503090625" size="1.78088125" layer="96">&gt;VALUE</text>
-<wire x1="-5.08" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="5.08" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
-<pin name="A" x="-7.62" y="0" length="short" direction="pas"/>
-<pin name="C" x="7.62" y="0" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="1N4002" prefix="D">
-<description>1N400 Series 1.1 V 1 A 100 V Max Reverse Voltage Standard Rectifier - DO-41</description>
-<gates>
-<gate name="G$1" symbol="1N4002" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="DIOAD520W79L463D238">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AVAILABILITY" value="Unavailable"/>
-<attribute name="DESCRIPTION" value=" Diode Gen Purp 100v 1a Do41 "/>
-<attribute name="MF" value="ON Semiconductor"/>
-<attribute name="MP" value="1N4002"/>
-<attribute name="PACKAGE" value="DO-204 MCC"/>
-<attribute name="PRICE" value="None"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="1N914">
 <packages>
 <package name="DO35-2">
@@ -6725,6 +6654,77 @@ DIN A4, landscape with location and doc. field</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="1N4002">
+<packages>
+<package name="DIOAD520W79L463D238">
+<wire x1="2.717" y1="-0.92" x2="-2.082" y2="-0.92" width="0.1524" layer="21"/>
+<wire x1="2.717" y1="-0.92" x2="2.717" y2="0.92" width="0.1524" layer="21"/>
+<wire x1="-2.082" y1="0.92" x2="2.717" y2="0.92" width="0.1524" layer="21"/>
+<wire x1="-2.082" y1="0.92" x2="-2.082" y2="-0.92" width="0.1524" layer="21"/>
+<wire x1="4.445" y1="0" x2="3.129" y2="0" width="0.85" layer="51"/>
+<wire x1="-3.81" y1="0" x2="-2.519" y2="0" width="0.85" layer="51"/>
+<wire x1="-0.635" y1="0" x2="0" y2="0" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="0.635" x2="1.016" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="-0.635" x2="0" y2="0" width="0.1524" layer="21"/>
+<wire x1="0" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="0" y1="0" x2="1.016" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="0.635" x2="0" y2="0" width="0.1524" layer="21"/>
+<wire x1="0" y1="0" x2="0" y2="-0.635" width="0.1524" layer="21"/>
+<text x="-5.03513125" y="2.67186875" size="1.270790625" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.03861875" y="-3.944509375" size="1.27166875" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-1.653659375" y1="-0.95153125" x2="-1.143" y2="0.92" layer="21"/>
+<rectangle x1="2.71813125" y1="-0.42523125" x2="3.352" y2="0.425" layer="21"/>
+<rectangle x1="-2.71921875" y1="-0.425346875" x2="-2.082" y2="0.425" layer="21"/>
+<wire x1="-5" y1="1.4405" x2="5.6945" y2="1.4405" width="0.127" layer="39"/>
+<wire x1="5.6945" y1="1.4405" x2="5.6945" y2="-1.377" width="0.127" layer="39"/>
+<wire x1="5.6945" y1="-1.377" x2="-5" y2="-1.377" width="0.127" layer="39"/>
+<wire x1="-5" y1="-1.377" x2="-5" y2="1.4405" width="0.127" layer="39"/>
+<pad name="C" x="-3.81" y="0" drill="1.1" diameter="1.7"/>
+<pad name="A" x="4.445" y="0" drill="1.1" diameter="1.7"/>
+</package>
+</packages>
+<symbols>
+<symbol name="1N4002">
+<wire x1="-1.27" y1="-1.905" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.905" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.397" y1="1.905" x2="1.397" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.31448125" y="2.64511875" size="1.78036875" layer="95">&gt;NAME</text>
+<text x="-2.569559375" y="-4.503090625" size="1.78088125" layer="96">&gt;VALUE</text>
+<wire x1="-5.08" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
+<pin name="A" x="-7.62" y="0" length="short" direction="pas"/>
+<pin name="C" x="7.62" y="0" length="short" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="1N4002" prefix="D">
+<description>1N400 Series 1.1 V 1 A 100 V Max Reverse Voltage Standard Rectifier - DO-41</description>
+<gates>
+<gate name="G$1" symbol="1N4002" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DIOAD520W79L463D238">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="Unavailable"/>
+<attribute name="DESCRIPTION" value=" Diode Gen Purp 100v 1a Do41 "/>
+<attribute name="MF" value="ON Semiconductor"/>
+<attribute name="MP" value="1N4002"/>
+<attribute name="PACKAGE" value="DO-204 MCC"/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -6746,7 +6746,6 @@ DIN A4, landscape with location and doc. field</description>
 <part name="R4" library="SparkFun-Resistors" deviceset="1KOHM" device="-0603-1/10W-1%" value="1k"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="100KOHM" device="-0603-1/10W-1%" value="100k"/>
 <part name="R6" library="SparkFun-Resistors" deviceset="470OHM" device="-0603-1/10W-1%" value="470"/>
-<part name="D1" library="1N4002" deviceset="1N4002" device=""/>
 <part name="D2" library="1N914" deviceset="1N914" device=".3"/>
 <part name="C4" library="SparkFun-Capacitors" deviceset="1.0NF/1000PF" device="-0603-50V-10%" value="1nF"/>
 <part name="GND1" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
@@ -6784,6 +6783,7 @@ DIN A4, landscape with location and doc. field</description>
 <part name="J1" library="640456-2" deviceset="640456-2" device=""/>
 <part name="J6" library="640456-3" deviceset="640456-3" device=""/>
 <part name="J7" library="640456-5" deviceset="640456-5" device=""/>
+<part name="D1" library="1N4002" deviceset="1N4002" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6852,10 +6852,6 @@ DIN A4, landscape with location and doc. field</description>
 <instance part="R6" gate="G$1" x="22.86" y="96.52" smashed="yes" rot="R180">
 <attribute name="NAME" x="22.86" y="94.996" size="1.778" layer="95" font="vector" rot="R180" align="bottom-center"/>
 <attribute name="VALUE" x="22.86" y="98.044" size="1.778" layer="96" font="vector" rot="R180" align="top-center"/>
-</instance>
-<instance part="D1" gate="G$1" x="45.72" y="96.52" smashed="yes">
-<attribute name="NAME" x="43.40551875" y="99.16511875" size="1.78036875" layer="95"/>
-<attribute name="VALUE" x="43.150440625" y="92.016909375" size="1.78088125" layer="96"/>
 </instance>
 <instance part="D2" gate="G$1" x="27.94" y="86.36" smashed="yes" rot="R90">
 <attribute name="NAME" x="25.9334" y="82.804" size="1.778" layer="95" rot="R90"/>
@@ -6989,6 +6985,10 @@ DIN A4, landscape with location and doc. field</description>
 <attribute name="NAME" x="40.634740625" y="26.17068125" size="1.779840625" layer="95"/>
 <attribute name="VALUE" x="40.631040625" y="7.6021" size="1.781140625" layer="96"/>
 </instance>
+<instance part="D1" gate="G$1" x="45.72" y="96.52" smashed="yes">
+<attribute name="NAME" x="43.40551875" y="99.16511875" size="1.78036875" layer="95"/>
+<attribute name="VALUE" x="43.150440625" y="92.016909375" size="1.78088125" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -7026,7 +7026,6 @@ DIN A4, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
-<pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="27.94" y1="96.52" x2="33.02" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="96.52" x2="38.1" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="96.52" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
@@ -7041,6 +7040,7 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="35.56" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="86.36" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
 <junction x="33.02" y="91.44"/>
+<pinref part="D1" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="PWM" class="0">
@@ -7057,7 +7057,6 @@ DIN A4, landscape with location and doc. field</description>
 </net>
 <net name="ADC" class="0">
 <segment>
-<pinref part="D1" gate="G$1" pin="C"/>
 <wire x1="53.34" y1="96.52" x2="58.42" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="58.42" y1="96.52" x2="71.12" y2="96.52" width="0.1524" layer="91"/>
@@ -7068,6 +7067,7 @@ DIN A4, landscape with location and doc. field</description>
 <pinref part="R11" gate="G$1" pin="1"/>
 <wire x1="71.12" y1="96.52" x2="73.66" y2="96.52" width="0.1524" layer="91"/>
 <junction x="71.12" y="96.52"/>
+<pinref part="D1" gate="G$1" pin="C"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="A" pin="RA0/AN0"/>
