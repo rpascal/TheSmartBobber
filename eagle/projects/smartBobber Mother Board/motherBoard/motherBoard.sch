@@ -9336,7 +9336,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <part name="U$5" library="SCMRCapacitor" deviceset="SCMR18G604SRBA0" device=""/>
 <part name="U$6" library="SCMRCapacitor" deviceset="SCMR18G604SRBA0" device=""/>
 <part name="U$7" library="WNER50FET" deviceset="WNER50FET" device=""/>
-<part name="J6" library="640456-2" deviceset="640456-2" device=""/>
+<part name="BATT" library="640456-2" deviceset="640456-2" device=""/>
 <part name="U$8" library="PIC16LF876A-I_SS" deviceset="PIC16LF876A-I/SS" device=""/>
 <part name="Y2" library="ECS-40-S-4X" deviceset="ECS-40-S-4X" device=""/>
 <part name="C8" library="SparkFun-Capacitors" deviceset="22PF" device="-0603-50V-5%" value="22pF"/>
@@ -10190,7 +10190,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <instance part="U$5" gate="G$1" x="294.64" y="88.9" smashed="yes"/>
 <instance part="U$6" gate="G$1" x="320.04" y="88.9" smashed="yes"/>
 <instance part="U$7" gate="G$1" x="241.3" y="66.04" smashed="yes" rot="R90"/>
-<instance part="J6" gate="G$1" x="149.86" y="35.56" smashed="yes">
+<instance part="BATT" gate="G$1" x="149.86" y="35.56" smashed="yes">
 <attribute name="NAME" x="144.77536875" y="41.661559375" size="1.271159375" layer="95"/>
 <attribute name="VALUE" x="144.772140625" y="27.928209375" size="1.271959375" layer="96"/>
 </instance>
@@ -10225,7 +10225,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="185.42" y1="53.34" x2="175.26" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="53.34" x2="175.26" y2="20.32" width="0.1524" layer="91"/>
 <junction x="175.26" y="20.32"/>
-<pinref part="J6" gate="G$1" pin="P2"/>
+<pinref part="BATT" gate="G$1" pin="P2"/>
 <wire x1="142.24" y1="33.02" x2="142.24" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="20.32" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
 <junction x="144.78" y="20.32"/>
@@ -10463,7 +10463,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <junction x="121.92" y="40.64"/>
 <wire x1="144.78" y1="50.8" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="43.18" x2="142.24" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="J6" gate="G$1" pin="P1"/>
+<pinref part="BATT" gate="G$1" pin="P1"/>
 <wire x1="142.24" y1="43.18" x2="142.24" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
