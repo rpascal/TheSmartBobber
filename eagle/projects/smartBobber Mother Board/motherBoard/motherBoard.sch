@@ -9365,7 +9365,6 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <part name="R24" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value=" 1"/>
 <part name="GND17" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="R25" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value=" 10K"/>
-<part name="3.3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device="" value="3.3V"/>
 <part name="GND18" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="R26" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value=" 10K"/>
 <part name="3.3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device="" value="3.3V"/>
@@ -9518,7 +9517,6 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <attribute name="NAME" x="130.556" y="91.44" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="133.604" y="91.44" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="3.3V3" gate="VCC" x="132.08" y="106.68" smashed="yes"/>
 <instance part="GND18" gate="1" x="58.42" y="30.48" smashed="yes">
 <attribute name="VALUE" x="58.42" y="30.226" size="1.778" layer="96" align="top-center"/>
 </instance>
@@ -9790,10 +9788,6 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="142.24" y1="91.44" x2="142.24" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="R25" gate="G$1" pin="2"/>
 <wire x1="142.24" y1="96.52" x2="132.08" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="96.52" x2="132.08" y2="104.14" width="0.1524" layer="91"/>
-<junction x="132.08" y="96.52"/>
-<pinref part="3.3V3" gate="VCC" pin="VCC"/>
-<label x="134.62" y="101.6" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="C15" gate="G$1" pin="1"/>
@@ -10285,8 +10279,8 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="335.28" y1="88.9" x2="342.9" y2="88.9" width="0.1524" layer="91"/>
 <junction x="335.28" y="88.9"/>
 <label x="342.9" y="88.9" size="1.778" layer="95"/>
-<pinref part="U2" gate="G$1" pin="GND"/>
 <wire x1="276.86" y1="50.8" x2="274.32" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C9" gate="G$1" pin="2"/>
@@ -10346,8 +10340,8 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="279.4" y1="73.66" x2="276.86" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="276.86" y1="73.66" x2="276.86" y2="63.5" width="0.1524" layer="91"/>
 <junction x="276.86" y="63.5"/>
-<pinref part="U2" gate="G$1" pin="SW"/>
 <wire x1="276.86" y1="53.34" x2="274.32" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="SW"/>
 </segment>
 </net>
 <net name="N$13" class="0">
@@ -10358,10 +10352,10 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="281.94" y1="58.42" x2="284.48" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="289.56" y1="50.8" x2="289.56" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="FB"/>
 <wire x1="289.56" y1="48.26" x2="289.56" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="274.32" y1="48.26" x2="289.56" y2="48.26" width="0.1524" layer="91"/>
 <junction x="289.56" y="48.26"/>
+<pinref part="U2" gate="G$1" pin="FB"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -10425,13 +10419,9 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 </net>
 <net name="3.3V" class="0">
 <segment>
-<pinref part="U3" gate="A" pin="VOUT"/>
-<wire x1="414.02" y1="45.72" x2="426.72" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="C7" gate="G$1" pin="1"/>
 <wire x1="426.72" y1="45.72" x2="426.72" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="426.72" y1="45.72" x2="434.34" y2="45.72" width="0.1524" layer="91"/>
-<junction x="426.72" y="45.72"/>
-<label x="434.34" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -10527,10 +10517,10 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <pinref part="U$7" gate="G$1" pin="1"/>
 <wire x1="241.3" y1="55.88" x2="241.3" y2="50.8" width="0.1524" layer="91"/>
 <junction x="241.3" y="50.8"/>
-<pinref part="U2" gate="G$1" pin="IN"/>
 <wire x1="246.38" y1="50.8" x2="248.92" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="EN"/>
 <wire x1="246.38" y1="48.26" x2="248.92" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="IN"/>
+<pinref part="U2" gate="G$1" pin="EN"/>
 </segment>
 </net>
 </nets>
