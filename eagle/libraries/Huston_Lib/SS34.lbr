@@ -121,14 +121,14 @@
 </connects>
 <technologies>
 <technology name="">
-<attribute name="Price" value="None"/>
 <attribute name="MF" value="ON Semiconductor"/>
+<attribute name="Price" value="None"/>
 <attribute name="Package" value="DO-214 ON Semiconductor"/>
+<attribute name="Availability" value="Unavailable"/>
+<attribute name="MP" value="SS34"/>
 <attribute name="Description" value="
 SS Series 500 mV 3 A 40 V Max Reverse Voltage Schottky Rectifier - DO-214AB
 "/>
-<attribute name="Availability" value="Unavailable"/>
-<attribute name="MP" value="SS34"/>
 </technology>
 </technologies>
 </device>
@@ -139,14 +139,14 @@ SS Series 500 mV 3 A 40 V Max Reverse Voltage Schottky Rectifier - DO-214AB
 </connects>
 <technologies>
 <technology name="">
-<attribute name="Price" value="None"/>
 <attribute name="MF" value="ON Semiconductor"/>
+<attribute name="Price" value="None"/>
 <attribute name="Package" value="DO-214 ON Semiconductor"/>
+<attribute name="Availability" value="Unavailable"/>
+<attribute name="MP" value="SS34"/>
 <attribute name="Description" value="
 SS Series 500 mV 3 A 40 V Max Reverse Voltage Schottky Rectifier - DO-214AB
 "/>
-<attribute name="Availability" value="Unavailable"/>
-<attribute name="MP" value="SS34"/>
 </technology>
 </technologies>
 </device>
