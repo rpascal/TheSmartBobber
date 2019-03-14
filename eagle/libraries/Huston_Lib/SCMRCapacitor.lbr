@@ -75,7 +75,7 @@
 <packages>
 <package name="SUPERCAP">
 <pad name="+" x="-6.75" y="0" drill="0.7" shape="square"/>
-<pad name="-" x="6.8" y="0" drill="0.7" shape="square"/>
+<pad name="-" x="6.75" y="0" drill="0.7" shape="square"/>
 <wire x1="-12" y1="4" x2="-12" y2="-4.05" width="0.127" layer="51"/>
 <wire x1="-12" y1="-4.05" x2="12" y2="-4.05" width="0.127" layer="51"/>
 <wire x1="12" y1="-4.05" x2="12" y2="4" width="0.127" layer="51"/>
