@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.3.0">
+<eagle version="9.3.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9369,7 +9369,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <part name="R26" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value=" 10K"/>
 <part name="3.3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device="" value="3.3V"/>
 <part name="GND19" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="J7" library="SparkFun-Connectors" deviceset="CONN_06" device="SILK_FEMALE_PTH"/>
+<part name="PIC" library="SparkFun-Connectors" deviceset="CONN_06" device="SILK_FEMALE_PTH"/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="12V1" library="SparkFun-PowerSymbols" deviceset="VCC" device="" value="12V"/>
 <part name="GND20" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -9380,12 +9380,13 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <part name="R28" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value=" 100k"/>
 <part name="C15" library="SparkFun-Capacitors" deviceset="0.1UF" device="-0603-25V-5%" value="0.1uF"/>
 <part name="GND22" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="J8" library="640456-2" deviceset="640456-2" device=""/>
-<part name="J9" library="640456-3" deviceset="640456-3" device=""/>
-<part name="J10" library="640456-5" deviceset="640456-5" device=""/>
+<part name="SOLENOID" library="640456-2" deviceset="640456-2" device=""/>
+<part name="TEMP" library="640456-3" deviceset="640456-3" device=""/>
+<part name="BLUE" library="640456-5" deviceset="640456-5" device=""/>
 <part name="D5" library="1N4002" deviceset="1N4002" device=""/>
-<part name="J11" library="640456-2" deviceset="640456-2" device=""/>
+<part name="TSTSPPLY" library="640456-2" deviceset="640456-2" device=""/>
 <part name="U2" library="MT3608" deviceset="MT3608" device=""/>
+<part name="3.3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device="" value="3.3V"/>
 </parts>
 <sheets>
 <sheet>
@@ -9530,7 +9531,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <instance part="GND19" gate="1" x="139.7" y="25.4" smashed="yes">
 <attribute name="VALUE" x="139.7" y="25.146" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="J7" gate="G$1" x="12.7" y="15.24" smashed="yes">
+<instance part="PIC" gate="G$1" x="12.7" y="15.24" smashed="yes">
 <attribute name="VALUE" x="7.62" y="5.334" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="10.16" y="25.908" size="1.778" layer="95" font="vector"/>
 </instance>
@@ -9570,15 +9571,15 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <instance part="GND22" gate="1" x="99.06" y="30.48" smashed="yes">
 <attribute name="VALUE" x="99.06" y="30.226" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="J8" gate="G$1" x="43.18" y="83.82" smashed="yes">
+<instance part="SOLENOID" gate="G$1" x="43.18" y="83.82" smashed="yes">
 <attribute name="NAME" x="38.09536875" y="89.921559375" size="1.271159375" layer="95"/>
 <attribute name="VALUE" x="38.092140625" y="76.188209375" size="1.271959375" layer="96"/>
 </instance>
-<instance part="J9" gate="G$1" x="40.64" y="43.18" smashed="yes" rot="R180">
+<instance part="TEMP" gate="G$1" x="40.64" y="43.18" smashed="yes" rot="R180">
 <attribute name="NAME" x="43.18371875" y="37.583809375" size="1.780609375" layer="95" rot="R180"/>
 <attribute name="VALUE" x="43.180209375" y="50.80061875" size="1.778140625" layer="96" rot="R180"/>
 </instance>
-<instance part="J10" gate="G$1" x="45.72" y="17.78" smashed="yes">
+<instance part="BLUE" gate="G$1" x="45.72" y="17.78" smashed="yes">
 <attribute name="NAME" x="40.634740625" y="26.17068125" size="1.779840625" layer="95"/>
 <attribute name="VALUE" x="40.631040625" y="7.6021" size="1.781140625" layer="96"/>
 </instance>
@@ -9586,9 +9587,12 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <attribute name="NAME" x="43.40551875" y="99.16511875" size="1.78036875" layer="95"/>
 <attribute name="VALUE" x="43.150440625" y="92.016909375" size="1.78088125" layer="96"/>
 </instance>
-<instance part="J11" gate="G$1" x="106.68" y="144.78" smashed="yes" rot="R180">
+<instance part="TSTSPPLY" gate="G$1" x="106.68" y="144.78" smashed="yes" rot="R180">
 <attribute name="NAME" x="111.76463125" y="138.678440625" size="1.271159375" layer="95" rot="R180"/>
 <attribute name="VALUE" x="111.767859375" y="152.411790625" size="1.271959375" layer="96" rot="R180"/>
+</instance>
+<instance part="3.3V1" gate="VCC" x="142.24" y="109.22" smashed="yes">
+<attribute name="VALUE" x="139.7" y="104.14" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -9612,7 +9616,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="33.02" y1="96.52" x2="33.02" y2="106.68" width="0.1524" layer="91"/>
 <label x="55.88" y="109.22" size="1.778" layer="95" rot="R180"/>
 <wire x1="33.02" y1="106.68" x2="55.88" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="J8" gate="G$1" pin="P1"/>
+<pinref part="SOLENOID" gate="G$1" pin="P1"/>
 <wire x1="35.56" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="86.36" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
 <junction x="33.02" y="91.44"/>
@@ -9677,7 +9681,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <segment>
 <wire x1="50.8" y1="17.78" x2="60.96" y2="17.78" width="0.1524" layer="91"/>
 <label x="55.88" y="17.78" size="1.778" layer="95"/>
-<pinref part="J10" gate="G$1" pin="3"/>
+<pinref part="BLUE" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -9689,7 +9693,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <segment>
 <wire x1="50.8" y1="15.24" x2="60.96" y2="15.24" width="0.1524" layer="91"/>
 <label x="55.88" y="15.24" size="1.778" layer="95"/>
-<pinref part="J10" gate="G$1" pin="4"/>
+<pinref part="BLUE" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="OSC1" class="0">
@@ -9766,7 +9770,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 </net>
 <net name="MCLR" class="0">
 <segment>
-<pinref part="J7" gate="G$1" pin="1"/>
+<pinref part="PIC" gate="G$1" pin="1"/>
 <wire x1="17.78" y1="10.16" x2="27.94" y2="10.16" width="0.1524" layer="91"/>
 <label x="22.86" y="10.16" size="1.778" layer="95"/>
 </segment>
@@ -9775,10 +9779,10 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <segment>
 <wire x1="50.8" y1="20.32" x2="60.96" y2="20.32" width="0.1524" layer="91"/>
 <label x="55.88" y="20.32" size="1.778" layer="95"/>
-<pinref part="J10" gate="G$1" pin="2"/>
+<pinref part="BLUE" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="J7" gate="G$1" pin="2"/>
+<pinref part="PIC" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="12.7" x2="27.94" y2="12.7" width="0.1524" layer="91"/>
 <label x="22.86" y="12.7" size="1.778" layer="95"/>
 </segment>
@@ -9788,6 +9792,8 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="142.24" y1="91.44" x2="142.24" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="R25" gate="G$1" pin="2"/>
 <wire x1="142.24" y1="96.52" x2="132.08" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="96.52" x2="142.24" y2="99.06" width="0.1524" layer="91"/>
+<junction x="142.24" y="96.52"/>
 </segment>
 <segment>
 <pinref part="C15" gate="G$1" pin="1"/>
@@ -9797,21 +9803,21 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 </net>
 <net name="PGD" class="0">
 <segment>
-<pinref part="J7" gate="G$1" pin="4"/>
+<pinref part="PIC" gate="G$1" pin="4"/>
 <wire x1="17.78" y1="17.78" x2="27.94" y2="17.78" width="0.1524" layer="91"/>
 <label x="22.86" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PGC" class="0">
 <segment>
-<pinref part="J7" gate="G$1" pin="5"/>
+<pinref part="PIC" gate="G$1" pin="5"/>
 <wire x1="17.78" y1="20.32" x2="27.94" y2="20.32" width="0.1524" layer="91"/>
 <label x="22.86" y="20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LVP" class="0">
 <segment>
-<pinref part="J7" gate="G$1" pin="6"/>
+<pinref part="PIC" gate="G$1" pin="6"/>
 <wire x1="17.78" y1="22.86" x2="27.94" y2="22.86" width="0.1524" layer="91"/>
 <label x="22.86" y="22.86" size="1.778" layer="95"/>
 </segment>
@@ -9824,7 +9830,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="53.34" y1="45.72" x2="53.34" y2="53.34" width="0.1524" layer="91"/>
 <junction x="53.34" y="45.72"/>
 <pinref part="3.3V4" gate="VCC" pin="VCC"/>
-<pinref part="J9" gate="G$1" pin="3"/>
+<pinref part="TEMP" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <pinref part="R20" gate="G$1" pin="1"/>
@@ -9836,10 +9842,14 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <junction x="73.66" y="157.48"/>
 </segment>
 <segment>
-<pinref part="J11" gate="G$1" pin="P2"/>
+<pinref part="TSTSPPLY" gate="G$1" pin="P2"/>
 <wire x1="114.3" y1="147.32" x2="119.38" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="3.3V5" gate="VCC" pin="VCC"/>
 <wire x1="119.38" y1="147.32" x2="119.38" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="142.24" y1="99.06" x2="142.24" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="3.3V1" gate="VCC" pin="VCC"/>
 </segment>
 </net>
 <net name="TEMP_DQ" class="0">
@@ -9851,7 +9861,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="71.12" y1="43.18" x2="81.28" y2="43.18" width="0.1524" layer="91"/>
 <junction x="71.12" y="43.18"/>
 <label x="71.12" y="43.18" size="1.778" layer="95"/>
-<pinref part="J9" gate="G$1" pin="2"/>
+<pinref part="TEMP" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="U$8" gate="A" pin="RC3/SCK/SCL"/>
@@ -9863,7 +9873,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <segment>
 <wire x1="50.8" y1="12.7" x2="60.96" y2="12.7" width="0.1524" layer="91"/>
 <label x="55.88" y="12.7" size="1.778" layer="95"/>
-<pinref part="J10" gate="G$1" pin="5"/>
+<pinref part="BLUE" gate="G$1" pin="5"/>
 </segment>
 <segment>
 <pinref part="U$8" gate="A" pin="RB0/INT"/>
@@ -9916,7 +9926,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <pinref part="GND13" gate="1" pin="GND"/>
 <wire x1="33.02" y1="71.12" x2="33.02" y2="66.04" width="0.1524" layer="91"/>
 <junction x="33.02" y="71.12"/>
-<pinref part="J8" gate="G$1" pin="P2"/>
+<pinref part="SOLENOID" gate="G$1" pin="P2"/>
 <wire x1="35.56" y1="81.28" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="81.28" x2="33.02" y2="76.2" width="0.1524" layer="91"/>
 <junction x="33.02" y="76.2"/>
@@ -9962,7 +9972,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <wire x1="45.72" y1="40.64" x2="58.42" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="GND18" gate="1" pin="GND"/>
 <wire x1="58.42" y1="40.64" x2="58.42" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="J9" gate="G$1" pin="1"/>
+<pinref part="TEMP" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U$8" gate="A" pin="VSS_2"/>
@@ -9977,10 +9987,10 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <segment>
 <wire x1="50.8" y1="22.86" x2="60.96" y2="22.86" width="0.1524" layer="91"/>
 <label x="55.88" y="22.86" size="1.778" layer="95"/>
-<pinref part="J10" gate="G$1" pin="1"/>
+<pinref part="BLUE" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="J7" gate="G$1" pin="3"/>
+<pinref part="PIC" gate="G$1" pin="3"/>
 <wire x1="17.78" y1="15.24" x2="27.94" y2="15.24" width="0.1524" layer="91"/>
 <label x="22.86" y="15.24" size="1.778" layer="95"/>
 </segment>
@@ -9996,7 +10006,7 @@ Source: &lt;a href="https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/re
 <pinref part="GND22" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="J11" gate="G$1" pin="P1"/>
+<pinref part="TSTSPPLY" gate="G$1" pin="P1"/>
 <wire x1="114.3" y1="142.24" x2="119.38" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="GND20" gate="1" pin="GND"/>
 <wire x1="119.38" y1="142.24" x2="119.38" y2="137.16" width="0.1524" layer="91"/>
