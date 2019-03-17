@@ -9524,7 +9524,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="R12" library="rcl" deviceset="R-TRIMM" device="3296P"/>
 <part name="U3" library="LTC3531ES6-3_3" deviceset="LTC3531ES6-3_3" device=""/>
 <part name="10UH" library="MLZ2012N100LT000" deviceset="MLZ2012N100LT000" device=""/>
-<part name="R13" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805" value="2k"/>
 <part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="470"/>
 <part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="100"/>
 <part name="R16" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="1k"/>
@@ -9599,6 +9598,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="U2" library="MT3608" deviceset="MT3608" device=""/>
 <part name="3.3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device="" value="3.3V"/>
 <part name="D2" library="SparkFun" deviceset="LED" device="0603" value="Green"/>
+<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="2k"/>
 </parts>
 <sheets>
 <sheet>
@@ -10332,10 +10332,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <attribute name="NAME" x="368.29533125" y="68.582340625" size="1.779640625" layer="95"/>
 <attribute name="VALUE" x="368.295609375" y="63.497809375" size="1.77953125" layer="96"/>
 </instance>
-<instance part="R13" gate="G$1" x="111.76" y="27.94" smashed="yes" rot="R90">
-<attribute name="NAME" x="110.236" y="27.94" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="113.284" y="27.94" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
-</instance>
 <instance part="R14" gate="G$1" x="63.5" y="22.86" smashed="yes" rot="R90">
 <attribute name="NAME" x="61.976" y="22.86" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="65.024" y="22.86" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
@@ -10415,6 +10411,10 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <instance part="D2" gate="G$1" x="63.5" y="35.56" smashed="yes">
 <attribute name="NAME" x="67.056" y="30.988" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="69.215" y="30.988" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R1" gate="G$1" x="111.76" y="27.94" smashed="yes" rot="R90">
+<attribute name="NAME" x="110.236" y="27.94" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="113.284" y="27.94" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
 </instances>
 <busses>
@@ -10517,7 +10517,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="121.92" y1="30.48" x2="121.92" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R13" gate="G$1" pin="1"/>
 <pinref part="SUPPLY4" gate="GND" pin="GND"/>
 <wire x1="111.76" y1="22.86" x2="111.76" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="20.32" x2="111.76" y2="17.78" width="0.1524" layer="91"/>
@@ -10526,6 +10525,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="104.14" y1="20.32" x2="104.14" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="VSS"/>
 <wire x1="104.14" y1="35.56" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$20" class="0">
@@ -10689,8 +10689,8 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <segment>
 <pinref part="U1" gate="G$1" pin="PROG"/>
 <wire x1="101.6" y1="38.1" x2="111.76" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="38.1" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$10" class="0">
