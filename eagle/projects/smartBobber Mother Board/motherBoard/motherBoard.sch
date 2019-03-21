@@ -7990,7 +7990,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="GND22" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="SOLENOID" library="640456-2" deviceset="640456-2" device=""/>
 <part name="TEMP" library="640456-3" deviceset="640456-3" device=""/>
-<part name="BLUE" library="640456-5" deviceset="640456-5" device=""/>
+<part name="BLUETOOTH" library="640456-5" deviceset="640456-5" device=""/>
 <part name="D5" library="1N4002" deviceset="1N4002" device=""/>
 <part name="TSTSPPLY" library="640456-2" deviceset="640456-2" device=""/>
 <part name="U2" library="MT3608" deviceset="MT3608" device=""/>
@@ -8178,7 +8178,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <attribute name="NAME" x="43.18371875" y="37.583809375" size="1.780609375" layer="95" rot="R180"/>
 <attribute name="VALUE" x="43.180209375" y="50.80061875" size="1.778140625" layer="96" rot="R180"/>
 </instance>
-<instance part="BLUE" gate="G$1" x="45.72" y="17.78" smashed="yes">
+<instance part="BLUETOOTH" gate="G$1" x="45.72" y="17.78" smashed="yes">
 <attribute name="NAME" x="40.634740625" y="26.17068125" size="1.779840625" layer="95"/>
 <attribute name="VALUE" x="40.631040625" y="7.6021" size="1.781140625" layer="96"/>
 </instance>
@@ -8327,7 +8327,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <segment>
 <wire x1="50.8" y1="15.24" x2="60.96" y2="15.24" width="0.1524" layer="91"/>
 <label x="55.88" y="15.24" size="1.778" layer="95"/>
-<pinref part="BLUE" gate="G$1" pin="4"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -8339,7 +8339,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <segment>
 <wire x1="50.8" y1="17.78" x2="60.96" y2="17.78" width="0.1524" layer="91"/>
 <label x="55.88" y="17.78" size="1.778" layer="95"/>
-<pinref part="BLUE" gate="G$1" pin="3"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="OSC1" class="0">
@@ -8434,7 +8434,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <segment>
 <wire x1="50.8" y1="20.32" x2="60.96" y2="20.32" width="0.1524" layer="91"/>
 <label x="55.88" y="20.32" size="1.778" layer="95"/>
-<pinref part="BLUE" gate="G$1" pin="2"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="PIC" gate="G$1" pin="2"/>
@@ -8535,7 +8535,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <segment>
 <wire x1="50.8" y1="12.7" x2="60.96" y2="12.7" width="0.1524" layer="91"/>
 <label x="55.88" y="12.7" size="1.778" layer="95"/>
-<pinref part="BLUE" gate="G$1" pin="5"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="5"/>
 </segment>
 <segment>
 <pinref part="U$8" gate="A" pin="RB0/INT"/>
@@ -8639,7 +8639,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <segment>
 <wire x1="50.8" y1="22.86" x2="60.96" y2="22.86" width="0.1524" layer="91"/>
 <label x="55.88" y="22.86" size="1.778" layer="95"/>
-<pinref part="BLUE" gate="G$1" pin="1"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="PIC" gate="G$1" pin="3"/>
