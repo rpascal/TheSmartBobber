@@ -3,7 +3,7 @@
 <eagle version="9.3.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mil" altunit="mil"/>
@@ -34,27 +34,27 @@
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
-<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
-<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
-<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
-<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="yes" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="yes" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
@@ -88,32 +88,32 @@
 <layer number="107" name="Crop" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="108" name="tplace-old" color="10" fill="1" visible="yes" active="yes"/>
 <layer number="109" name="ref-old" color="11" fill="1" visible="yes" active="yes"/>
-<layer number="110" name="fp0" color="7" fill="1" visible="no" active="yes"/>
-<layer number="111" name="LPC17xx" color="7" fill="1" visible="no" active="yes"/>
-<layer number="112" name="tSilk" color="7" fill="1" visible="no" active="yes"/>
-<layer number="113" name="IDFDebug" color="4" fill="1" visible="no" active="yes"/>
+<layer number="110" name="fp0" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="113" name="IDFDebug" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="114" name="Badge_Outline" color="11" fill="1" visible="no" active="no"/>
 <layer number="115" name="ReferenceISLANDS" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
 <layer number="118" name="Rect_Pads" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="yes"/>
-<layer number="124" name="bTestmark" color="7" fill="1" visible="no" active="yes"/>
+<layer number="123" name="tTestmark" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="124" name="bTestmark" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="126" name="_bNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="127" name="_tValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="128" name="_bValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
-<layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="150" name="Notes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="152" name="_bDocu" color="7" fill="1" visible="no" active="yes"/>
-<layer number="153" name="FabDoc1" color="7" fill="1" visible="no" active="yes"/>
-<layer number="154" name="FabDoc2" color="7" fill="1" visible="no" active="yes"/>
-<layer number="155" name="FabDoc3" color="7" fill="1" visible="no" active="yes"/>
+<layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="153" name="FabDoc1" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="154" name="FabDoc2" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="155" name="FabDoc3" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="yes" active="yes"/>
@@ -149,15 +149,15 @@
 <layer number="231" name="231bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="no" active="no"/>
 <layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="no" active="no"/>
-<layer number="248" name="Housing" color="7" fill="1" visible="no" active="yes"/>
-<layer number="249" name="Edge" color="7" fill="1" visible="no" active="yes"/>
+<layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyYjM3ODg3" projecturn="a.cGVyc29uYWw6dWUyYWMxYjVmIzIwMTgxMDEwMTUzNzU1MDgx" f3durn="urn:adsk.wipprod:dm.lineage:6pFXT-iaS1iV2-zqr1k_mw" pcbguid="844ac215-d44f-480e-9c06-8a753ce201a4" lastpulledtime="" lastsyncedchangeguid="b6985edf-ef28-0bc5-52fd-0040fdf1d36e"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyYjM3ODg3" projecturn="a.cGVyc29uYWw6dWUyYWMxYjVmIzIwMTgxMDEwMTUzNzU1MDgx" f3durn="urn:adsk.wipprod:dm.lineage:6pFXT-iaS1iV2-zqr1k_mw" pcbguid="844ac215-d44f-480e-9c06-8a753ce201a4" lastpulledtime="" lastsyncedchangeguid="aaf0dbaf-dc23-cf63-9301-aa7cd31bf8ba"/>
 <plain>
 <hole x="57.46" y="57.46" drill="3.1"/>
 <hole x="57.46" y="2.54" drill="3.1"/>
@@ -200,9 +200,24 @@ GND</text>
 <text x="17.9197" y="34.29" size="0.8128" layer="21">VIN-</text>
 <circle x="4.8006" y="13.1064" radius="0.028396875" width="0.2" layer="21"/>
 <text x="41.5417" y="39.3065" size="1.778" layer="21">+</text>
-<text x="51.8922" y="53.1241" size="1.778" layer="21" rot="R90">+</text>
+<text x="48.7299" y="52.9717" size="1.778" layer="21" rot="R90">+</text>
 <text x="42.3291" y="54.9021" size="1.778" layer="21" rot="R180">-</text>
 <text x="48.8315" y="41.2496" size="1.778" layer="21" rot="R180">-</text>
+<text x="27.432" y="29.5021" size="2.1844" layer="22" rot="MR0">smartBobber 2019</text>
+<text x="26.67" y="5.5499" size="1.778" layer="22" rot="MR0">Designed By:
+    Zachary L. Hutson
+    Rayan D. Pascal 
+    Zachary L. Pyle 
+    Nicholas C. Spoutz 
+
+Special Thanks To:
+    Dr. Michael L. French
+    Gregory A. Lewis </text>
+<text x="36.322" y="47.498" size="1.27" layer="22" rot="MR0">“There’s a fine line 
+between fishing and 
+standing on the shore 
+like an idiot.”
+        - Steven Wright </text>
 </plain>
 <libraries>
 <library name="MLZ2012N100LT000">
@@ -2809,19 +2824,19 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="NAME" x="10.7315" y="51.181" size="0.4064" layer="25" rot="R90"/>
 <attribute name="VALUE" x="12.5095" y="51.054" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R1" library="SparkFun-Resistors" package="0603" value="2k" x="15.24" y="40.64" smashed="yes" rot="R180">
-<attribute name="NAME" x="15.24" y="39.878" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center"/>
-<attribute name="PROD_ID" value=" " x="15.24" y="40.64" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="15.24" y="41.402" size="0.6096" layer="27" font="vector" ratio="20" rot="R180" align="top-center"/>
+<element name="R1" library="SparkFun-Resistors" package="0603" value="2k" x="14.224" y="42.164" smashed="yes" rot="R180">
+<attribute name="NAME" x="14.224" y="41.402" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center"/>
+<attribute name="PROD_ID" value=" " x="14.224" y="42.164" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="14.224" y="42.926" size="0.6096" layer="27" font="vector" ratio="20" rot="R180" align="top-center"/>
 </element>
 <element name="U$1" library="12V-Board" package="PERF_BOARD" value="12V-BOARD" x="15.24" y="17.78" smashed="yes" rot="R90"/>
 <element name="U$9" library="CLX6F-LED" package="SOJ100P350X290-6N" value="CLX6F-BKB-CPR453" x="2.54" y="33.02" smashed="yes" rot="R90">
 <attribute name="NAME" x="6.073540625" y="31.507046875" size="1.27028125" layer="25" rot="R90"/>
-<attribute name="VALUE" x="-7.958290625" y="35.25271875" size="1.270990625" layer="27" rot="R180"/>
+<attribute name="VALUE" x="17.225809375" y="33.79221875" size="1.270990625" layer="27" rot="R180"/>
 </element>
 <element name="U$10" library="CLX6F-LED" package="SOJ100P350X290-6N" value="CLX6F-BKB-CPR453" x="57.15" y="33.02" smashed="yes" rot="R270">
 <attribute name="NAME" x="53.578359375" y="35.028253125" size="1.27028125" layer="25" rot="R270"/>
-<attribute name="VALUE" x="62.568290625" y="34.59728125" size="1.270990625" layer="27"/>
+<attribute name="VALUE" x="42.730890625" y="32.14618125" size="1.270990625" layer="27"/>
 </element>
 <element name="U$11" library="CLX6F-LED" package="SOJ100P350X290-6N" value="CLX6F-RKB-CSTBB3" x="27.94" y="3.81" smashed="yes" rot="R180">
 <attribute name="NAME" x="30.075253125" y="1.501540625" size="1.27028125" layer="25" rot="R180"/>
@@ -2829,7 +2844,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </element>
 <element name="U$12" library="CLX6F-LED" package="SOJ100P350X290-6N" value="CLX6F-RKB-CSTBB3" x="27.94" y="57.15" smashed="yes">
 <attribute name="NAME" x="25.944446875" y="53.476759375" size="1.27028125" layer="25"/>
-<attribute name="VALUE" x="25.738290625" y="62.53728125" size="1.270990625" layer="27"/>
+<attribute name="VALUE" x="27.325790625" y="56.68258125" size="1.270990625" layer="27"/>
 </element>
 <element name="R2" library="SparkFun-Resistors" package="0603" value=" 5" x="8.3693" y="32.9819" smashed="yes" rot="R270">
 <attribute name="NAME" x="8.4201" y="34.7853" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
@@ -2887,7 +2902,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="NAME" x="19.28428125" y="54.030859375" size="1.271209375" layer="25" rot="R180"/>
 <attribute name="PACKAGE" value="None" x="15.24" y="58.42" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="PRICE" value="None" x="15.24" y="58.42" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="19.70785" y="63.139959375" size="1.270459375" layer="27" rot="R180"/>
+<attribute name="VALUE" x="21.84145" y="58.999759375" size="1.270459375" layer="27" rot="R180"/>
 </element>
 </elements>
 <signals>
@@ -3477,8 +3492,8 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <signal name="N$9">
 <contactref element="U1" pad="5"/>
 <contactref element="R1" pad="2"/>
-<wire x1="14.39" y1="40.64" x2="11.7865" y2="43.2435" width="0.6096" layer="1"/>
-<wire x1="11.7865" y1="43.2435" x2="10.1854" y2="43.2435" width="0.6096" layer="1"/>
+<wire x1="13.374" y1="42.164" x2="12.2945" y2="43.2435" width="0.6096" layer="1"/>
+<wire x1="12.2945" y1="43.2435" x2="10.1854" y2="43.2435" width="0.6096" layer="1"/>
 <wire x1="10.1854" y1="43.2435" x2="9.21" y2="44.2189" width="0.6096" layer="1"/>
 <wire x1="9.21" y1="44.2189" x2="9.21" y2="44.4801" width="0.6096" layer="1"/>
 </signal>
