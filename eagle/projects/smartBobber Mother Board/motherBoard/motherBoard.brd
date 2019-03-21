@@ -3,7 +3,7 @@
 <eagle version="9.3.1">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mil" altunit="mm"/>
@@ -3339,22 +3339,6 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <contactref element="TP5" pad="1"/>
 <contactref element="U$1" pad="VOUT-"/>
 <contactref element="U$1" pad="VIN-"/>
-<polygon width="0.254" layer="1">
-<vertex x="24.638" y="59.944"/>
-<vertex x="24.638" y="35.306"/>
-<vertex x="0" y="35.306"/>
-<vertex x="0" y="0"/>
-<vertex x="59.944" y="0"/>
-<vertex x="59.944" y="59.944"/>
-</polygon>
-<polygon width="0.254" layer="16">
-<vertex x="24.638" y="59.944"/>
-<vertex x="24.638" y="35.306"/>
-<vertex x="0" y="35.306"/>
-<vertex x="0" y="0"/>
-<vertex x="59.944" y="0"/>
-<vertex x="59.944" y="59.944"/>
-</polygon>
 <wire x1="18.74" y1="33.03" x2="14.39" y2="45.72" width="0" layer="19" extent="1-1"/>
 <wire x1="33.5814" y1="14.5644" x2="26.4186" y2="15.8598" width="0" layer="19" extent="1-1"/>
 </signal>
@@ -3732,18 +3716,6 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <contactref element="U$3" pad="6"/>
 <contactref element="BATT" pad="2"/>
 <contactref element="TP2" pad="1"/>
-<polygon width="0.254" layer="1">
-<vertex x="0" y="59.944"/>
-<vertex x="24.13" y="59.944"/>
-<vertex x="24.13" y="35.814"/>
-<vertex x="0" y="35.814"/>
-</polygon>
-<polygon width="0.254" layer="16">
-<vertex x="0" y="59.944"/>
-<vertex x="24.13" y="59.944"/>
-<vertex x="24.13" y="35.814"/>
-<vertex x="0" y="35.814"/>
-</polygon>
 <via x="10.16" y="54.61" extent="1-16" drill="0.508"/>
 <wire x1="21.42" y1="42.86" x2="22.86" y2="47.84" width="0" layer="19" extent="1-1"/>
 <wire x1="23.18" y1="37" x2="21.42" y2="42.86" width="0" layer="19" extent="1-1"/>
