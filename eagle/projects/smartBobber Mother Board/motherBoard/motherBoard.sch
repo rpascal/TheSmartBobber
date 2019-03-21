@@ -7824,27 +7824,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="-3.75" y1="0.325" x2="-3.25" y2="0.325" width="0" layer="46" curve="-180"/>
 <wire x1="-3.25" y1="-0.325" x2="-3.75" y2="-0.325" width="0" layer="46" curve="-180"/>
 <wire x1="-3.25" y1="-0.325" x2="-3.25" y2="0.325" width="0" layer="46"/>
-<wire x1="-3.5" y1="0.77" x2="-3.5" y2="0.6" width="0.0001" layer="1"/>
-<polygon width="0.0001" layer="1">
-<vertex x="-3.5" y="0.775"/>
-<vertex x="-3.5" y="0.575" curve="-90"/>
-<vertex x="-3.25" y="0.325"/>
-<vertex x="-3.25" y="-0.325" curve="-90"/>
-<vertex x="-3.5" y="-0.575"/>
-<vertex x="-3.5" y="-0.775"/>
-<vertex x="-2.3" y="-0.775"/>
-<vertex x="-2.3" y="0.775"/>
-</polygon>
-<polygon width="0.0001" layer="1">
-<vertex x="-3.5" y="0.775"/>
-<vertex x="-3.5" y="0.575" curve="90"/>
-<vertex x="-3.75" y="0.325"/>
-<vertex x="-3.75" y="-0.325" curve="90"/>
-<vertex x="-3.5" y="-0.575"/>
-<vertex x="-3.5" y="-0.775" curve="-90"/>
-<vertex x="-4" y="-0.275"/>
-<vertex x="-4" y="0.275" curve="-90"/>
-</polygon>
 <wire x1="-3.5" y1="0.77" x2="-3.5" y2="0.6" width="0.0001" layer="31"/>
 <polygon width="0.0001" layer="31">
 <vertex x="-3.5" y="0.775"/>
@@ -7853,8 +7832,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <vertex x="-3.25" y="-0.325" curve="-90"/>
 <vertex x="-3.5" y="-0.575"/>
 <vertex x="-3.5" y="-0.775"/>
-<vertex x="-2.3" y="-0.775"/>
-<vertex x="-2.3" y="0.775"/>
 </polygon>
 <polygon width="0.0001" layer="31">
 <vertex x="-3.5" y="0.775"/>
@@ -7862,71 +7839,23 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <vertex x="-3.75" y="0.325"/>
 <vertex x="-3.75" y="-0.325" curve="90"/>
 <vertex x="-3.5" y="-0.575"/>
-<vertex x="-3.5" y="-0.775" curve="-90"/>
-<vertex x="-4" y="-0.275"/>
-<vertex x="-4" y="0.275" curve="-90"/>
-</polygon>
-<polygon width="0.0001" layer="29">
-<vertex x="-3.6" y="0.875"/>
-<vertex x="-2.2" y="0.875"/>
-<vertex x="-2.2" y="-0.875"/>
-<vertex x="-3.6" y="-0.875" curve="-90"/>
-<vertex x="-4.1" y="-0.375"/>
-<vertex x="-4.1" y="0.375" curve="-90"/>
 </polygon>
 <wire x1="3.75" y1="0.325" x2="3.75" y2="-0.325" width="0" layer="46"/>
 <wire x1="3.75" y1="-0.325" x2="3.25" y2="-0.325" width="0" layer="46" curve="-180"/>
 <wire x1="3.25" y1="0.325" x2="3.75" y2="0.325" width="0" layer="46" curve="-180"/>
 <wire x1="3.25" y1="0.325" x2="3.25" y2="-0.325" width="0" layer="46"/>
-<wire x1="3.5" y1="-0.77" x2="3.5" y2="-0.6" width="0.0001" layer="1"/>
-<polygon width="0.0001" layer="1">
-<vertex x="3.5" y="-0.775"/>
-<vertex x="3.5" y="-0.575" curve="-90"/>
-<vertex x="3.25" y="-0.325"/>
-<vertex x="3.25" y="0.325" curve="-90"/>
-<vertex x="3.5" y="0.575"/>
-<vertex x="3.5" y="0.775"/>
-<vertex x="2.3" y="0.775"/>
-<vertex x="2.3" y="-0.775"/>
-</polygon>
-<polygon width="0.0001" layer="1">
-<vertex x="3.5" y="-0.775"/>
-<vertex x="3.5" y="-0.575" curve="90"/>
-<vertex x="3.75" y="-0.325"/>
-<vertex x="3.75" y="0.325" curve="90"/>
-<vertex x="3.5" y="0.575"/>
-<vertex x="3.5" y="0.775" curve="-90"/>
-<vertex x="4" y="0.275"/>
-<vertex x="4" y="-0.275" curve="-90"/>
-</polygon>
 <wire x1="3.5" y1="-0.77" x2="3.5" y2="-0.6" width="0.0001" layer="31"/>
 <polygon width="0.0001" layer="31">
 <vertex x="3.5" y="-0.775"/>
 <vertex x="3.5" y="-0.575" curve="-90"/>
-<vertex x="3.25" y="-0.325"/>
-<vertex x="3.25" y="0.325" curve="-90"/>
 <vertex x="3.5" y="0.575"/>
 <vertex x="3.5" y="0.775"/>
-<vertex x="2.3" y="0.775"/>
-<vertex x="2.3" y="-0.775"/>
 </polygon>
 <polygon width="0.0001" layer="31">
-<vertex x="3.5" y="-0.775"/>
 <vertex x="3.5" y="-0.575" curve="90"/>
 <vertex x="3.75" y="-0.325"/>
 <vertex x="3.75" y="0.325" curve="90"/>
 <vertex x="3.5" y="0.575"/>
-<vertex x="3.5" y="0.775" curve="-90"/>
-<vertex x="4" y="0.275"/>
-<vertex x="4" y="-0.275" curve="-90"/>
-</polygon>
-<polygon width="0.0001" layer="29">
-<vertex x="3.6" y="-0.875"/>
-<vertex x="2.2" y="-0.875"/>
-<vertex x="2.2" y="0.875"/>
-<vertex x="3.6" y="0.875" curve="-90"/>
-<vertex x="4.1" y="0.375"/>
-<vertex x="4.1" y="-0.375" curve="-90"/>
 </polygon>
 <wire x1="-3.7" y1="-1.45" x2="3.7" y2="-1.45" width="0.127" layer="51"/>
 <text x="-1.95" y="-2.1" size="0.5" layer="51">PCB END</text>
@@ -9418,8 +9347,8 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="93.98" y1="35.56" x2="88.9" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="17.78" x2="93.98" y2="35.56" width="0.1524" layer="91"/>
 <junction x="93.98" y="17.78"/>
-<pinref part="J2" gate="G$1" pin="5"/>
 <label x="40.64" y="17.78" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="5"/>
 </segment>
 </net>
 </nets>
