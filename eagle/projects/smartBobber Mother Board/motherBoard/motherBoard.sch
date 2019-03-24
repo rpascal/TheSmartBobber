@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.3.0">
+<eagle version="9.3.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -532,6 +532,36 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 <attribute name="PROD_ID" value="CAP-07886" constant="no"/>
 <attribute name="VALUE" value="1nF" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="22UF" prefix="C">
+<description>&lt;h3&gt;22µF ceramic capacitors&lt;/h3&gt;
+&lt;p&gt;A capacitor is a passive two-terminal electrical component used to store electrical energy temporarily in an electric field.&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="CAP" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-0805-6.3V-20%" package="0805">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="CAP-08402"/>
+<attribute name="VALUE" value="22uF"/>
+</technology>
+</technologies>
+</device>
+<device name="-1210-16V-20%" package="1210">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -7968,7 +7998,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="C11" library="SparkFun-Capacitors" deviceset="0.1UF" device="-0603-25V-(+80/-20%)" value="4.7uF"/>
 <part name="C12" library="SparkFun-Capacitors" deviceset="0.1UF" device="-0603-25V-(+80/-20%)" value="0.1uF"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="22uF"/>
-<part name="C5" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="22uF"/>
 <part name="C13" library="SparkFun-Capacitors" deviceset="2.2UF" device="-0603-10V-20%" value="2.2uF"/>
 <part name="C7" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="10uF"/>
 <part name="SUPPLY11" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
@@ -8050,6 +8079,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="PWM" library="SparkFun-Connectors" deviceset="TEST-POINT" device="POGO_PTH"/>
 <part name="ADC" library="SparkFun-Connectors" deviceset="TEST-POINT" device="POGO_PTH"/>
 <part name="J2" library="10118194-0001LF" deviceset="10118194-0001LF" device=""/>
+<part name="C1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -8884,10 +8914,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <attribute name="NAME" x="169.164" y="112.141" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="169.164" y="107.061" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="C5" gate="G$1" x="228.6" y="121.92" smashed="yes">
-<attribute name="NAME" x="230.124" y="124.841" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="230.124" y="119.761" size="1.778" layer="96" font="vector"/>
-</instance>
 <instance part="C13" gate="G$1" x="147.32" y="40.64" smashed="yes">
 <attribute name="NAME" x="148.844" y="43.561" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="148.844" y="38.481" size="1.778" layer="96" font="vector"/>
@@ -8979,6 +9005,10 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <attribute name="NAME" x="20.075040625" y="43.6949" size="1.271559375" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="20.323940625" y="20.3161" size="1.270659375" layer="96" rot="MR0"/>
 </instance>
+<instance part="C1" gate="G$1" x="228.6" y="114.3" smashed="yes">
+<attribute name="NAME" x="230.124" y="117.221" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="230.124" y="112.141" size="1.778" layer="96" font="vector"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9042,11 +9072,8 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="241.3" y1="139.7" x2="241.3" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="D4" gate="A" pin="C"/>
 <wire x1="210.82" y1="139.7" x2="215.9" y2="139.7" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="215.9" y1="139.7" x2="228.6" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="228.6" y1="139.7" x2="228.6" y2="127" width="0.1524" layer="91"/>
 <wire x1="228.6" y1="139.7" x2="241.3" y2="139.7" width="0.1524" layer="91"/>
-<junction x="228.6" y="139.7"/>
 <wire x1="241.3" y1="139.7" x2="251.46" y2="139.7" width="0.1524" layer="91"/>
 <junction x="241.3" y="139.7"/>
 <wire x1="215.9" y1="139.7" x2="215.9" y2="129.54" width="0.1524" layer="91"/>
@@ -9056,6 +9083,9 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <pinref part="R12" gate="G$1" pin="E"/>
 <wire x1="208.28" y1="124.46" x2="210.82" y2="124.46" width="0.1524" layer="91"/>
 <label x="248.92" y="139.7" size="1.778" layer="95"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="228.6" y1="139.7" x2="228.6" y2="119.38" width="0.1524" layer="91"/>
+<junction x="228.6" y="139.7"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="VOUT+"/>
@@ -9244,22 +9274,22 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="203.2" y1="96.52" x2="167.64" y2="96.52" width="0.1524" layer="91"/>
 <junction x="203.2" y="96.52"/>
 <wire x1="215.9" y1="96.52" x2="203.2" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="228.6" y1="96.52" x2="215.9" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="241.3" y1="96.52" x2="228.6" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="1"/>
+<wire x1="228.6" y1="96.52" x2="215.9" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="101.6" x2="215.9" y2="96.52" width="0.1524" layer="91"/>
 <junction x="215.9" y="96.52"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="167.64" y1="106.68" x2="167.64" y2="96.52" width="0.1524" layer="91"/>
 <junction x="167.64" y="96.52"/>
-<pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="228.6" y1="119.38" x2="228.6" y2="96.52" width="0.1524" layer="91"/>
-<junction x="228.6" y="96.52"/>
 <pinref part="SUPPLY12" gate="GND" pin="GND"/>
 <wire x1="167.64" y1="96.52" x2="167.64" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="-"/>
 <wire x1="203.2" y1="119.38" x2="200.66" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="U2" gate="G$1" pin="GND"/>
+<pinref part="C1" gate="G$1" pin="2"/>
+<wire x1="228.6" y1="111.76" x2="228.6" y2="96.52" width="0.1524" layer="91"/>
+<junction x="228.6" y="96.52"/>
 </segment>
 <segment>
 <pinref part="SUPPLY6" gate="GND" pin="GND"/>
