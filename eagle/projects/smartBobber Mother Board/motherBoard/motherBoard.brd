@@ -3760,7 +3760,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <vertex x="23.622" y="36.068"/>
 <vertex x="0" y="36.068"/>
 </polygon>
-<via x="10.16" y="45.212" extent="1-16" drill="0.35"/>
+<via x="9.7155" y="45.847" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="N$4">
 <contactref element="D5" pad="C"/>
