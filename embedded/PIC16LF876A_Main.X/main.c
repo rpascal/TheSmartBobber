@@ -70,14 +70,19 @@ void main(void) {
    
     //***Initialization of GPIO pins***//
     TRISC5 = 0; //Connection LED
+    TRISA1 = 0;//Connection LED
     TRISC4 = 0; //Bite LED
+    TRISA2 = 0;//Bite LED
+    
     TRISB0 = 1; //Initialize RB0 as input for ADC
     TRISB3 = 0; //Initialize RB3 as output
     TRISB5 = 0; //Solenoid Drive [RB5 = 1 = Solenoid ON] ; [RB5 = 0 = Solenoid OFF]
     
                
     RB5 = 0;
+    RA1 = 0;
     RC4 = 0;
+    RA2 = 0;
     RC5 = 0;
     //______End of GPIO Initialization______//
     
@@ -90,8 +95,10 @@ void main(void) {
             case DISCONNECTED:
                // RC4 = 0; //IDK why I need this but I do
                 RC5 = 1; //Turn on LED
+                RA1 = 1;
                 __delay_ms(100);
                 RC5 = 0; //Turn on LED
+                RA1 = 0;
                 __delay_ms(100);
                 //RC4 = 0; //IDK why I need this but I do
                 // break;

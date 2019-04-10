@@ -11,7 +11,7 @@
 
 float MAX_SOLENOID_ON = .5;
 float MAX_SOLENOID_DELAY_BETWEEN_ON = 1;
-unsigned int MAX_ADC_TO_ACTIVE = 120;
+unsigned int MAX_ADC_TO_ACTIVE = 80;
 int count = 0;
 int iterationsPerAverage = 10;
 unsigned int currentSolenoidValue = 0;
