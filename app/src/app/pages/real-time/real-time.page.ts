@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IWeather, LogsService, TheBobberService, WeatherService } from '../../core';
 import { SoundsService } from '../../core/sounds/sounds.service';
 import { VibrationService } from '../../core/vibration/vibration.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: "app-real-time",
@@ -14,13 +15,18 @@ export class RealTimePage implements AfterViewInit {
   weatherData: IWeather;
   tempData$: Observable<number>;
 
+  biteMin = environment.biteMin;
+  bitePeak = environment.bitePeak;
+
+  rangeValue = this.biteMin;
+
   constructor(
     private bobber: TheBobberService,
     private weather: WeatherService,
     private logsService: LogsService,
     private vibration: VibrationService,
     private sounds: SoundsService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.tempData$ = this.bobber.temps$;
@@ -38,5 +44,9 @@ export class RealTimePage implements AfterViewInit {
 
   sound() {
     this.sounds.bell();
+  }
+
+  biteRange($event) {
+    console.log( $event);
   }
 }

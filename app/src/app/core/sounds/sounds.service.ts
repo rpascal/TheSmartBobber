@@ -48,7 +48,14 @@ export class SoundsService {
   }
 
   bell() {
-    this.play("bell");
+    const soundToPlay = this.sounds.find(sound => {
+      return sound.key === "bell";
+    });
+    if(soundToPlay){
+      this.play("bell");
+    }else{
+      this.preload("bell", "assets/audio/bell.mp3");
+    }
   }
 
   preload(key: string, asset: string): void {
@@ -90,12 +97,22 @@ export class SoundsService {
 
   play(key: string): void {
     this.active.pipe(first()).subscribe(value => {
+      this.log.addMessage(`Attempting to play:${key} with value ${value}`)
       if (value) {
         const soundToPlay = this.sounds.find(sound => {
           return sound.key === key;
         });
         soundToPlay.play();
       }
+
+      // if (!value) {
+      //   this.preload("bell", "assets/audio/bell.mp3");
+      // }
+      // const soundToPlay = this.sounds.find(sound => {
+      //   return sound.key === key;
+      // });
+      // soundToPlay.play();
+
     });
   }
 }

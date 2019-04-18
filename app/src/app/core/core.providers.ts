@@ -8,7 +8,7 @@ import { IDevice } from './bluetooth-serial/bluetooth-serial.service';
 class BluetoothSerialMock extends BluetoothSerial {
   connect(macAddress_or_uuid: string): Observable<any> {
     // return throwError('Valid token not returned');
-    return timer(1000); // of(true);
+    return timer(5000); // of(true);
   }
 
   write(data: any): Promise<any> {

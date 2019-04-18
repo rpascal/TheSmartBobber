@@ -46,8 +46,7 @@
         'connecting':(connectionStatusMessage$ | async) === 'Connecting',
         'connected':(connectionStatusMessage$ | async) === 'Connected',
         'disconnected':(connectionStatusMessage$ | async) === 'Disconnected'
-      }">{{connectionStatusMessage$
-        | async}}</ion-label>
+      }">{{connectionStatusMessage}}</ion-label>
 
       <ion-icon (click)="disconnect()" *ngIf="(connectionStatusMessage$ | async) !== 'Disconnected'" name="close"
         slot="end" class="closeIcon"></ion-icon>

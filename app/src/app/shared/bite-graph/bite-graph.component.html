@@ -2,7 +2,27 @@
     <ion-card-header>
         Bites
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content (click)="showHideConfig()">
         <canvas #lineCanvas></canvas>
+
+
+
+        <ion-list [hidden]="!showConfig"> 
+            <ion-item lines="none">
+                <mat-form-field>
+                    <input [(ngModel)]="MAX"  matInput appearance="standard" placeholder="Max"  />
+                </mat-form-field>
+            </ion-item>
+
+            <ion-item lines="none" class="descriptionInput">
+                <mat-form-field>
+                    <input [(ngModel)]="MIN"  matInput appearance="standard" placeholder="Min"/>
+                </mat-form-field>
+            </ion-item>
+
+            <ion-button expand="full" shape="round" (click)="updateGraph()">Update Graph
+            </ion-button>
+        </ion-list>
+
     </ion-card-content>
 </ion-card>

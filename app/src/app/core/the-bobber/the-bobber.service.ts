@@ -25,7 +25,7 @@ export class TheBobberService extends BluetoothSerialService {
   private readonly BITE_DEL = "@";
   private readonly SOLENOID_DELIMETER = "*";
 
-  private readonly ADDRESS = "00:06:66:ED:FA:72";
+  private readonly ADDRESS = "00:06:66:F1:D4:9C";
 
   private takeUntilBobber: Subject<void>;
 

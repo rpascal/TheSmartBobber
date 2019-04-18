@@ -11,8 +11,26 @@ import { TheBobberService } from '../../core';
   styleUrls: ["./bite-graph.component.scss"]
 })
 export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
-  private readonly MAX = environment.bitePeak;
-  private readonly MIN = environment.biteMin;
+
+  private timer: NodeJS.Timeout;
+  private count = 0;
+  showConfig = false;
+
+  get MAX() {
+    return this._MAX;
+  };
+  set MAX(max) {
+    this._MAX = +max;
+  }
+  get MIN() {
+    return this._MIN;
+  };
+  set MIN(min) {
+    this._MIN = +min;
+  }
+  private _MAX: number = environment.bitePeak;
+  private _MIN: number = environment.biteMin;
+
   private readonly MAX_X = environment.bite_graph_max_x;
 
   get greenUpper() {
@@ -30,25 +48,42 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
     const c = chartjs_plugin_annotationas;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  ngOnDestroy() {}
+  ngOnDestroy() { }
+
+  updateGraph() {
+    this.lineChart.destroy();
+    delete this.lineChart;
+    this.createGraph();
+  }
 
   ngAfterViewInit() {
+    this.createGraph();
+
+    this.bobber.bite$.subscribe((data: number) => {
+      if (this.lineChart) {
+        this.addDataItem(data);
+        this.removeOldItem();
+        this.setBackgroundColor(data);
+        this.lineChart.update();
+      }
+    });
+  }
+
+  private createGraph() {
     const initLabels = [];
     const initData = [];
-
     for (let i = 0; i < this.MAX_X; i++) {
       initLabels.push("");
       initData.push(0);
     }
-
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: "line",
       options: {
         animation: false,
         responsive: true,
-        bezierCurve : true,
+        bezierCurve: true,
         legend: {
           display: false
         },
@@ -120,13 +155,6 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
         ]
       }
     });
-
-    this.bobber.bite$.subscribe((data: number) => {
-      this.addDataItem(data);
-      this.removeOldItem();
-      this.setBackgroundColor(data);
-      this.lineChart.update();
-    });
   }
 
   setBackgroundColor(value) {
@@ -154,4 +182,23 @@ export class BiteGraphComponent implements OnInit, AfterViewInit, OnDestroy {
       dataset.data.shift();
     });
   }
+
+
+  showHideConfig() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    } else {
+    }
+
+    this.timer = setTimeout(() => {
+      this.count = 0;
+    }, 500);
+
+    if (++this.count >= 5) {
+      this.count = 0;
+      clearTimeout(this.timer);
+      this.showConfig = !this.showConfig;
+    }
+  }
+
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
 import { ActionSheetController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
@@ -12,14 +12,14 @@ import { VibrationService } from '../../../core/vibration/vibration.service';
   styleUrls: ["./settings-content.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SettingsContentComponent implements OnInit {
+export class SettingsContentComponent implements OnInit, AfterViewInit {
   ledStatus = false;
   vibrationStatus = true;
   soundStatus = true;
   autohook = true;
 
   connectionStatusMessage$: Observable<string>;
-
+  connectionStatusMessage : string;
   constructor(
     private bobber: TheBobberService,
     private toast: ToastService,
@@ -28,7 +28,8 @@ export class SettingsContentComponent implements OnInit {
     public loadingController: LoadingController,
     private vibration: VibrationService,
     private sounds: SoundsService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private zone: NgZone
   ) {}
 
   ngOnInit() {
@@ -49,8 +50,16 @@ export class SettingsContentComponent implements OnInit {
 
     this.connectionStatusMessage$ = this.bobber.connectionStatusMessage$;
     this.connectionStatusMessage$.subscribe(data => {
-      this.cd.detectChanges();
+      this.connectionStatusMessage = data;
+      this.zone.run(()=>{
+        this.cd.detectChanges();
+      });
     });
+  }
+
+  ngAfterViewInit(){
+    this.cd.detectChanges();
+
   }
 
   ledChange() {
