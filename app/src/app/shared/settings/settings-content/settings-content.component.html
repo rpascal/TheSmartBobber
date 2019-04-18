@@ -1,4 +1,4 @@
-<ion-content padding>
+<ion-content padding (click)="showHideConfig()">
 
   <ion-list>
     <ion-list-header>
@@ -12,22 +12,24 @@
       <ion-label>Autohook</ion-label>
       <ion-toggle (ionChange)="autoHookChange()" [(ngModel)]="autohook"></ion-toggle>
     </ion-item>
-    <ion-item>
-      <ion-label>1</ion-label>
-      <ion-toggle (ionChange)="sendOne()"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>2</ion-label>
-      <ion-toggle (ionChange)="sendTwo()"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>3</ion-label>
-      <ion-toggle (ionChange)="sendThree()"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>4</ion-label>
-      <ion-toggle (ionChange)="sendFour()"></ion-toggle>
-    </ion-item>
+    <div [hidden]="!showConfig">
+      <ion-item>
+        <ion-label>1</ion-label>
+        <ion-toggle (ionChange)="sendOne()"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>2</ion-label>
+        <ion-toggle (ionChange)="sendTwo()"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>3</ion-label>
+        <ion-toggle (ionChange)="sendThree()"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>4</ion-label>
+        <ion-toggle (ionChange)="sendFour()"></ion-toggle>
+      </ion-item>
+    </div>
     <ion-item>
       <ion-label>Vibration</ion-label>
       <ion-toggle (ionChange)="vibrationChange()" [(ngModel)]="vibrationStatus"></ion-toggle>

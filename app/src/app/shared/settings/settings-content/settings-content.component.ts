@@ -13,13 +13,18 @@ import { VibrationService } from '../../../core/vibration/vibration.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsContentComponent implements OnInit, AfterViewInit {
+
+  private timer: NodeJS.Timeout;
+  private count = 0;
+  showConfig = false;
+
   ledStatus = false;
   vibrationStatus = true;
   soundStatus = true;
   autohook = true;
 
   connectionStatusMessage$: Observable<string>;
-  connectionStatusMessage : string;
+  connectionStatusMessage: string;
   constructor(
     private bobber: TheBobberService,
     private toast: ToastService,
@@ -30,7 +35,7 @@ export class SettingsContentComponent implements OnInit, AfterViewInit {
     private sounds: SoundsService,
     private cd: ChangeDetectorRef,
     private zone: NgZone
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.vibration.active.asObservable().subscribe(data => {
@@ -51,13 +56,13 @@ export class SettingsContentComponent implements OnInit, AfterViewInit {
     this.connectionStatusMessage$ = this.bobber.connectionStatusMessage$;
     this.connectionStatusMessage$.subscribe(data => {
       this.connectionStatusMessage = data;
-      this.zone.run(()=>{
+      this.zone.run(() => {
         this.cd.detectChanges();
       });
     });
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.cd.detectChanges();
 
   }
@@ -137,4 +142,23 @@ export class SettingsContentComponent implements OnInit, AfterViewInit {
   sendFour() {
     this.send("4");
   }
+
+  showHideConfig() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    } else {
+    }
+
+    this.timer = setTimeout(() => {
+      this.count = 0;
+    }, 500);
+
+    if (++this.count >= 5) {
+      this.count = 0;
+      clearTimeout(this.timer);
+      this.showConfig = !this.showConfig;
+    }
+  }
 }
+
+
