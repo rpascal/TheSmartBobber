@@ -11,9 +11,9 @@
 
 float MAX_SOLENOID_ON = .5;
 float MAX_SOLENOID_DELAY_BETWEEN_ON = 1;
-unsigned int MAX_ADC_TO_ACTIVE = 80;
+unsigned int MAX_ADC_TO_ACTIVE = 60;
 int count = 0;
-int iterationsPerAverage = 10;
+int iterationsPerAverage = 20;
 unsigned int currentSolenoidValue = 0;
 int threshold = 10;
 double startSolenoidOnClock;
@@ -22,6 +22,9 @@ bool isSolenoidOn = false;
 bool isSolenoidOnMessageTrigger = false;
 bool isSolenoidOffMessageTrigger = false;
 bool isAutoHookEnabled = true;
+
+int mean = 0;
+int oldMean = 0;
 
 void ADC_Initialize(void) {
     ADCON0 = 0x41; //ADC ON and Fosc/16 is selected
@@ -42,10 +45,26 @@ unsigned int ADC_Read(void) {
 }
 
 void monitorSolenoidSignal(void) {
-    currentSolenoidValue = ADC_Read();
-    if (!isSolenoidOn && currentSolenoidValue >= MAX_ADC_TO_ACTIVE) // Some condition that says we want to turn on solenoid
+    if (count >= iterationsPerAverage) {
+        count = 0;
+    }
+    int newValue = ADC_Read();
+
+    count++;
+
+    int differential = (newValue - mean) / count;
+    int newMean = mean + differential;
+    mean = newMean;
+
+    if (count % iterationsPerAverage == 0) //Runs if remainder is 0	
     {
-        turnOnSolenoid();
+        // currentSolenoidValue = ADC_Read();
+        if (!isSolenoidOn && mean >= MAX_ADC_TO_ACTIVE) // Some condition that says we want to turn on solenoid
+        {
+            turnOnSolenoid();
+        }
+        oldMean = mean;
+        mean = 0;
     }
 }
 
@@ -78,10 +97,14 @@ void isSolenoidOnMonitor(void) {
 }
 
 void sendADCToPhone(void) {
-    if (timeEllapsed(lastBiteSendUART) > .005) {
-        lastBiteSendUART = getCounter();
+    if (count % iterationsPerAverage == 0) { //Runs if remainder is 0	
+
+        //    if (timeEllapsed(lastBiteSendUART) > .005) {
+        // lastBiteSendUART = getCounter();
         char str[30];
-        sprintf(str, "%d", currentSolenoidValue);
+        // sprintf(str, "%d", currentSolenoidValue);
+        sprintf(str, "%d", oldMean);
+
         UART_send_bite(str); // contiously send the mean to phone for graph
     }
 
