@@ -26,7 +26,7 @@ export class TabsPage implements AfterViewInit {
       this.count = 0;
     }, 500);
 
-    if (++this.count >= 30) {
+    if (++this.count >= 40) {
       this.count = 0;
       clearTimeout(this.timer);
       this.secret.present(null);

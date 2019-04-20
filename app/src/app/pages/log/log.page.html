@@ -46,8 +46,8 @@
                   <p><b>Location:</b> {{log.weather.name}}</p>
                   <p><b>Temperature:</b> {{log.weather.main.temp}} <span class="degree"></span>F</p>
                 </ng-container>
-                <p>
-                  <b>Average Water Temperature:</b> {{log.averageTemperature | number : '1.2-2'}} <span
+                <p *ngIf="log.averageTemperature">
+                  <b>Average Water Temperature:</b> {{log.averageTemperature | temperatureConverter: 'F'}} <span
                     class="degree"></span>F
                 </p>
                 <p>
@@ -62,7 +62,7 @@
 
       </mat-tab>
       <ng-container *ngIf="(uncategorizedImages | async) as images">
-        <mat-tab *ngIf="images.length > 0" label="Random Images">
+        <mat-tab *ngIf="images.length > 0" label="Additional Images">
           <ion-card>
             <app-log-slide [images]="images" [taller]="true"></app-log-slide>
           </ion-card>

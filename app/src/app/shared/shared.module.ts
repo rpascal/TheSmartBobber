@@ -15,6 +15,7 @@ import { SecretComponent } from './secret-overlay/secret/secret.component';
 import { SettingsContentComponent } from './settings/settings-content/settings-content.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TakePhotoComponent } from './take-photo/take-photo.component';
+import { TemperatureConverterPipe } from './temperature-converter.pipe';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { TakePhotoComponent } from './take-photo/take-photo.component';
     NewLogComponent,
     TakePhotoComponent,
     SecretOverlayComponent,
-    SecretComponent
+    SecretComponent,
+    TemperatureConverterPipe
   ],
   exports: [
     LogsOverlayComponent,
@@ -45,7 +47,8 @@ import { TakePhotoComponent } from './take-photo/take-photo.component';
     TakePhotoComponent,
     MatInputModule,
     MatTabsModule,
-    SecretOverlayComponent
+    SecretOverlayComponent,
+    TemperatureConverterPipe
   ],
   entryComponents: [
     LogsComponent,

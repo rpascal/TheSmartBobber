@@ -63,6 +63,9 @@ class BluetoothSerialMock extends BluetoothSerial {
       ).toString();
 
       mock.next(mes);
+
+
+        // mock.next(TEMP_DEL + "32")
     }, 10);
 
     // let i = 0;

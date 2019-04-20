@@ -1,10 +1,10 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { environment } from '../../../environments/environment';
 import { IWeather, LogsService, TheBobberService, WeatherService } from '../../core';
 import { SoundsService } from '../../core/sounds/sounds.service';
 import { VibrationService } from '../../core/vibration/vibration.service';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: "app-real-time",
@@ -38,13 +38,6 @@ export class RealTimePage implements AfterViewInit {
     );
   }
 
-  vibrate() {
-    this.vibration.triple();
-  }
-
-  sound() {
-    this.sounds.bell();
-  }
 
   biteRange($event) {
     console.log( $event);
