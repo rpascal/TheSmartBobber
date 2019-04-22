@@ -51,9 +51,9 @@ export class SoundsService {
     const soundToPlay = this.sounds.find(sound => {
       return sound.key === "bell";
     });
-    if(soundToPlay){
+    if (soundToPlay) {
       this.play("bell");
-    }else{
+    } else {
       this.preload("bell", "assets/audio/bell.mp3");
     }
   }

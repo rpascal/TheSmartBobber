@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { map, takeUntil, tap } from 'rxjs/operators';
+import { first, map, takeUntil, tap } from 'rxjs/operators';
 
 import { BluetoothSerialService } from '../bluetooth-serial/bluetooth-serial.service';
 import { CoreModule } from '../core.module';
@@ -135,6 +135,8 @@ export class TheBobberService extends BluetoothSerialService {
         }
       });
     this.requestTemp();
+    this.led.pipe(first()).subscribe(data => this.setLED(data));
+    this.autohook.pipe(first()).subscribe(data => this.setAutohook(data));
   }
 
   requestTemp() {

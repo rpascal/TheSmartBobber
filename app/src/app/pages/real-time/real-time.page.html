@@ -1,44 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>The Smart Bobber</ion-title>
-    <ion-buttons slot="primary">
-      <app-manage-log></app-manage-log>
-      <app-take-photo></app-take-photo>
-      <app-settings></app-settings>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>smartBobber</ion-title>
+        <ion-buttons slot="primary">
+            <app-manage-log></app-manage-log>
+            <app-take-photo></app-take-photo>
+            <app-settings></app-settings>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-
-
 <ion-content padding>
+    <app-bite-graph></app-bite-graph>
 
-
-  <app-bite-graph></app-bite-graph>
-
-
-  <p><b>Current Water Temperature:</b> {{tempData$| async}} <span class="degree"></span>F</p>
-
-  <ng-container *ngIf="weatherData">
-    <p><b>Location:</b> {{weatherData.name}}</p>
-    <p><b>Temperature:</b> {{weatherData.main.temp}} <span class="degree"></span>F</p>
-  </ng-container>
-
-  <ion-button (click)="vibrate()" color="primary">Vibrate</ion-button>
-  <ion-button (click)="sound()" color="primary">Sound</ion-button>
-
-
-
-  <!-- <ion-item>
-    <ion-label>Bite Numbers</ion-label>
-    <ion-select>
-      <ion-select-option *ngFor="let user of users">{{user.first + ' ' + user.last}}</ion-select-option>
-    </ion-select>
-  </ion-item> -->
-
-  <!-- <ion-item>
-    <ion-range  min="biteMin" max="bitePeak" color="secondary" (ionBlur)="biteRange($event)">
-    </ion-range>
-  </ion-item> -->
-
+    <ng-container *ngIf="(tempData$ | async) as temp">
+        <p>
+            <b>Current Water Temperature:</b>
+            {{ temp | temperatureConverter: 'F' }} <span class="degree"></span>F
+        </p>
+    </ng-container>
+    <ng-container *ngIf="weatherData">
+        <p><b>Location:</b> {{ weatherData.name }}</p>
+        <p>
+            <b>Temperature:</b> {{ weatherData.main.temp }}
+            <span class="degree"></span>F
+        </p>
+    </ng-container>
 </ion-content>

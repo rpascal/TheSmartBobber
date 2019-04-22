@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 import { ActionSheetController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
 import { LogsService, TheBobberService, ToastService } from '../../../core';
 import { SoundsService } from '../../../core/sounds/sounds.service';
+import { StorageService } from '../../../core/storage/storage.service';
 import { VibrationService } from '../../../core/vibration/vibration.service';
 
 @Component({
@@ -13,10 +14,12 @@ import { VibrationService } from '../../../core/vibration/vibration.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsContentComponent implements OnInit, AfterViewInit {
+  private readonly config_uid = "setting_config_uid";
 
   private timer: NodeJS.Timeout;
   private count = 0;
   showConfig = false;
+
 
   ledStatus = false;
   vibrationStatus = true;
@@ -34,8 +37,25 @@ export class SettingsContentComponent implements OnInit, AfterViewInit {
     private vibration: VibrationService,
     private sounds: SoundsService,
     private cd: ChangeDetectorRef,
-    private zone: NgZone
-  ) { }
+    private zone: NgZone,
+    private storage: StorageService
+
+  ) {
+    this.appLoad();
+  }
+
+  async appLoad() {
+    try {
+      const value = await this.storage.getBoolean(this.config_uid);
+      this.setShowConfig(value);
+    } catch {
+    }
+  }
+
+  setShowConfig(value: boolean) {
+    this.showConfig = value;
+    this.storage.set(this.config_uid, value);
+  }
 
   ngOnInit() {
     this.vibration.active.asObservable().subscribe(data => {
@@ -156,9 +176,19 @@ export class SettingsContentComponent implements OnInit, AfterViewInit {
     if (++this.count >= 5) {
       this.count = 0;
       clearTimeout(this.timer);
-      this.showConfig = !this.showConfig;
+      this.setShowConfig(!this.showConfig);
     }
   }
+
+  vibrate() {
+    this.vibration.triple();
+  }
+
+  sound() {
+    this.sounds.bell();
+  }
+
+
 }
 
 
