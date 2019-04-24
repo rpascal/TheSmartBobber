@@ -10,8 +10,8 @@
 
 
 float MAX_SOLENOID_ON = .5;
-float MAX_SOLENOID_DELAY_BETWEEN_ON = 1;
-unsigned int MAX_ADC_TO_ACTIVE = 60;
+float MAX_SOLENOID_DELAY_BETWEEN_ON = 3;
+unsigned int MAX_ADC_TO_ACTIVE = 100;
 int count = 0;
 int iterationsPerAverage = 20;
 unsigned int currentSolenoidValue = 0;
@@ -75,7 +75,8 @@ void turnOnSolenoid(void) {
 
     if (timeEllapsed(startSolenoidOnClock) > MAX_SOLENOID_DELAY_BETWEEN_ON) {
         isSolenoidOn = true;
-        RC4 = 1; // LED on for bite
+        RC4 = 1; // Blue LED on for bite
+        RA1 = 1;
         RB5 = 1; //Turn on solenoid 
         isSolenoidOnMessageTrigger = true;
     }
@@ -90,6 +91,7 @@ void isSolenoidOnMonitor(void) {
     if (timeEllapsed(startSolenoidOnClock) > MAX_SOLENOID_ON) // Solenoid has been on for at least MAX_SOLENOID_ON
     {
         RC4 = 0; //LED OFF for bite
+        RA1 = 0;
         RB5 = 0; //Turn OFF solenoid 
         isSolenoidOn = false;
         isSolenoidOffMessageTrigger = true;
