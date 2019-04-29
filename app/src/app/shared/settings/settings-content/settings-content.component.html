@@ -53,13 +53,13 @@
       <ion-label [ngClass]="{
         'connecting':(connectionStatusMessage$ | async) === 'Connecting',
         'connected':(connectionStatusMessage$ | async) === 'Connected',
-        'disconnected':(connectionStatusMessage$ | async) === 'Disconnected'
+        'disconnected': ((connectionStatusMessage$ | async) === 'Disconnected' ||  (connectionStatusMessage$ | async) === 'No Bluetooth')
       }">{{connectionStatusMessage}}</ion-label>
 
-      <ion-icon (click)="disconnect()" *ngIf="(connectionStatusMessage$ | async) !== 'Disconnected'" name="close"
+      <ion-icon (click)="disconnect()" *ngIf="(connectionStatusMessage$ | async) !== 'Disconnected'  &&  (connectionStatusMessage$ | async) !== 'No Bluetooth'" name="close"
         slot="end" class="closeIcon"></ion-icon>
 
-      <ion-icon (click)="connect()" *ngIf="(connectionStatusMessage$ | async) === 'Disconnected'" name="bluetooth"
+      <ion-icon (click)="connect()" *ngIf="(connectionStatusMessage$ | async) === 'Disconnected'  ||  (connectionStatusMessage$ | async) === 'No Bluetooth'" name="bluetooth"
         slot="end" class="bluetoothIcon"></ion-icon>
     </ion-item>
   </ion-list>

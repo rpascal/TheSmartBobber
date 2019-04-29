@@ -20,7 +20,7 @@ export interface IDevice {
 })
 export abstract class BluetoothSerialService {
   private connectionStatusMessage = new BehaviorSubject<
-    "Connecting" | "Connected" | "Disconnected" | ""
+    "Connecting" | "Connected" | "Disconnected" | "" | "No Bluetooth"
   >("");
 
   private takeUntil: Subject<void>;
@@ -36,13 +36,23 @@ export abstract class BluetoothSerialService {
     protected zone: NgZone,
     protected logsService: LogsService,
     protected storage: StorageService
-  ) {}
+  ) { }
 
   abstract onConnect(): void;
   abstract onDisconnect(): void;
 
   discoverUnpaired(): Promise<IDevice[]> {
-    return this.bls.discoverUnpaired();
+    return new Promise<IDevice[]>(resolve => {
+      this.bls.isEnabled().then((fullfiled) => {
+
+        this.bls.discoverUnpaired().then(res => {
+          resolve(res);
+        }).catch(err => resolve([]));
+      }).catch(rejected => {
+        resolve([]);
+        this.logsService.addError("Bluetooth is not enabled", BluetoothSerial.name);
+      });
+    });
   }
 
   disconnect(err?: any) {
@@ -57,38 +67,46 @@ export abstract class BluetoothSerialService {
   }
 
   connect(macAddress_or_uuid: string) {
-    this.takeUntil = new Subject();
+    this.bls.isEnabled().then((fullfiled) => {
 
-    this.connectionStatusMessage.next("Connecting");
+      this.takeUntil = new Subject();
 
-    this.logsService.addMessage(
-      `Attempting to connect to ${macAddress_or_uuid}`,
-      BluetoothSerial.name
-    );
-    if (!this.connected) {
-      this.bls
-        .connect(macAddress_or_uuid)
-        .pipe(
-          this.retryCall(),
-          takeUntil(this.takeUntil)
-        )
-        .subscribe(
-          connected => {
-            this.logsService.addMessage(
-              {
-                Text: "Connected to bobber",
-                data: connected
-              },
-              BluetoothSerialService.name
-            );
+      this.connectionStatusMessage.next("Connecting");
 
-            this.connectionStatusMessage.next("Connected");
-            this.connected = true;
-            this.onConnect();
-          },
-          err => this.disconnect(err)
-        );
-    }
+      this.logsService.addMessage(
+        `Attempting to connect to ${macAddress_or_uuid}`,
+        BluetoothSerial.name
+      );
+      if (!this.connected) {
+        this.bls
+          .connect(macAddress_or_uuid)
+          .pipe(
+            this.retryCall(),
+            takeUntil(this.takeUntil)
+          )
+          .subscribe(
+            connected => {
+              this.logsService.addMessage(
+                {
+                  Text: "Connected to bobber",
+                  data: connected
+                },
+                BluetoothSerialService.name
+              );
+
+              this.connectionStatusMessage.next("Connected");
+              this.connected = true;
+              this.onConnect();
+            },
+            err => this.disconnect(err)
+          );
+      }
+    }).catch(rejected => {
+      this.connectionStatusMessage.next("No Bluetooth");
+      this.connected = false;
+      this.logsService.addError("Bluetooth is not enabled", BluetoothSerial.name);
+    });
+
   }
 
   subscribe(dilimeter: string): Observable<any> {
@@ -121,8 +139,8 @@ export abstract class BluetoothSerialService {
             if (console && console.error) {
               console.error(
                 `Connection attempt #${x} failed, waiting ${x *
-                  x *
-                  waitTime}ms to try again`
+                x *
+                waitTime}ms to try again`
               );
             }
           }),

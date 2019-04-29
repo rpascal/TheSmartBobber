@@ -32,6 +32,7 @@ export class RealTimePage implements AfterViewInit {
     this.tempData$ = this.bobber.temps$;
     this.weather.getWeather().subscribe(
       data => {
+        this.logsService.addMessage(data, "Weather");
         this.weatherData = data;
       },
       err => this.logsService.addError(err, "Weather")
